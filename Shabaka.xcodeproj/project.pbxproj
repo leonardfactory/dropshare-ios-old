@@ -18,6 +18,15 @@
 		13C4333E16D8FC58001A43F9 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13C4333D16D8FC58001A43F9 /* Default@2x.png */; };
 		13C4334016D8FC58001A43F9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13C4333F16D8FC58001A43F9 /* Default-568h@2x.png */; };
 		13C4334316D8FC58001A43F9 /* Shabaka.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13C4334116D8FC58001A43F9 /* Shabaka.xcdatamodeld */; };
+		13C4335F16D902E4001A43F9 /* DSCoreDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C4335E16D902E4001A43F9 /* DSCoreDataRequest.m */; };
+		13C4336816D9057F001A43F9 /* DSServerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C4336716D9057F001A43F9 /* DSServerRequest.m */; };
+		13C4336B16D90590001A43F9 /* DSEntityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C4336A16D90590001A43F9 /* DSEntityManager.m */; };
+		13C4336E16D905A0001A43F9 /* Drop.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C4336D16D905A0001A43F9 /* Drop.m */; };
+		13C4337116D905A0001A43F9 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C4337016D905A0001A43F9 /* User.m */; };
+		13C4337416D905A0001A43F9 /* View.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C4337316D905A0001A43F9 /* View.m */; };
+		13C4338316D90A32001A43F9 /* View+DSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C4338216D90A32001A43F9 /* View+DSView.m */; };
+		13C4338616D90A4A001A43F9 /* Drop+DSDrop.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C4338516D90A4A001A43F9 /* Drop+DSDrop.m */; };
+		13C4338916D90A6A001A43F9 /* User+DSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C4338816D90A6A001A43F9 /* User+DSUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +45,24 @@
 		13C4333D16D8FC58001A43F9 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		13C4333F16D8FC58001A43F9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		13C4334216D8FC58001A43F9 /* Shabaka.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shabaka.xcdatamodel; sourceTree = "<group>"; };
+		13C4335D16D902E4001A43F9 /* DSCoreDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSCoreDataRequest.h; path = models/DSCoreDataRequest.h; sourceTree = "<group>"; };
+		13C4335E16D902E4001A43F9 /* DSCoreDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSCoreDataRequest.m; path = models/DSCoreDataRequest.m; sourceTree = "<group>"; };
+		13C4336616D9057F001A43F9 /* DSServerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSServerRequest.h; path = models/DSServerRequest.h; sourceTree = "<group>"; };
+		13C4336716D9057F001A43F9 /* DSServerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSServerRequest.m; path = models/DSServerRequest.m; sourceTree = "<group>"; };
+		13C4336916D90590001A43F9 /* DSEntityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSEntityManager.h; path = models/DSEntityManager.h; sourceTree = "<group>"; };
+		13C4336A16D90590001A43F9 /* DSEntityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSEntityManager.m; path = models/DSEntityManager.m; sourceTree = "<group>"; };
+		13C4336C16D905A0001A43F9 /* Drop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Drop.h; path = models/Drop.h; sourceTree = "<group>"; };
+		13C4336D16D905A0001A43F9 /* Drop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Drop.m; path = models/Drop.m; sourceTree = "<group>"; };
+		13C4336F16D905A0001A43F9 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = models/User.h; sourceTree = "<group>"; };
+		13C4337016D905A0001A43F9 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = models/User.m; sourceTree = "<group>"; };
+		13C4337216D905A0001A43F9 /* View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = View.h; path = models/View.h; sourceTree = "<group>"; };
+		13C4337316D905A0001A43F9 /* View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = View.m; path = models/View.m; sourceTree = "<group>"; };
+		13C4338116D90A32001A43F9 /* View+DSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "View+DSView.h"; path = "models/View+DSView.h"; sourceTree = "<group>"; };
+		13C4338216D90A32001A43F9 /* View+DSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "View+DSView.m"; path = "models/View+DSView.m"; sourceTree = "<group>"; };
+		13C4338416D90A4A001A43F9 /* Drop+DSDrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Drop+DSDrop.h"; path = "models/Drop+DSDrop.h"; sourceTree = "<group>"; };
+		13C4338516D90A4A001A43F9 /* Drop+DSDrop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Drop+DSDrop.m"; path = "models/Drop+DSDrop.m"; sourceTree = "<group>"; };
+		13C4338716D90A6A001A43F9 /* User+DSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "User+DSUser.h"; path = "models/User+DSUser.h"; sourceTree = "<group>"; };
+		13C4338816D90A6A001A43F9 /* User+DSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "User+DSUser.m"; path = "models/User+DSUser.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +117,6 @@
 				13C4334A16D8FD29001A43F9 /* images */,
 				13C4333816D8FC58001A43F9 /* DSAppDelegate.h */,
 				13C4333916D8FC58001A43F9 /* DSAppDelegate.m */,
-				13C4334116D8FC58001A43F9 /* Shabaka.xcdatamodeld */,
 				13C4333016D8FC58001A43F9 /* Supporting Files */,
 			);
 			path = Shabaka;
@@ -135,6 +161,15 @@
 		13C4334D16D8FD3D001A43F9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				13C4337616D908F1001A43F9 /* AutoGenerated */,
+				13C4337716D9094B001A43F9 /* Entity */,
+				13C4334116D8FC58001A43F9 /* Shabaka.xcdatamodeld */,
+				13C4335D16D902E4001A43F9 /* DSCoreDataRequest.h */,
+				13C4335E16D902E4001A43F9 /* DSCoreDataRequest.m */,
+				13C4336616D9057F001A43F9 /* DSServerRequest.h */,
+				13C4336716D9057F001A43F9 /* DSServerRequest.m */,
+				13C4336916D90590001A43F9 /* DSEntityManager.h */,
+				13C4336A16D90590001A43F9 /* DSEntityManager.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -144,6 +179,32 @@
 			children = (
 			);
 			name = SidePanel;
+			sourceTree = "<group>";
+		};
+		13C4337616D908F1001A43F9 /* AutoGenerated */ = {
+			isa = PBXGroup;
+			children = (
+				13C4337216D905A0001A43F9 /* View.h */,
+				13C4337316D905A0001A43F9 /* View.m */,
+				13C4336F16D905A0001A43F9 /* User.h */,
+				13C4337016D905A0001A43F9 /* User.m */,
+				13C4336C16D905A0001A43F9 /* Drop.h */,
+				13C4336D16D905A0001A43F9 /* Drop.m */,
+			);
+			name = AutoGenerated;
+			sourceTree = "<group>";
+		};
+		13C4337716D9094B001A43F9 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				13C4338116D90A32001A43F9 /* View+DSView.h */,
+				13C4338216D90A32001A43F9 /* View+DSView.m */,
+				13C4338416D90A4A001A43F9 /* Drop+DSDrop.h */,
+				13C4338516D90A4A001A43F9 /* Drop+DSDrop.m */,
+				13C4338716D90A6A001A43F9 /* User+DSUser.h */,
+				13C4338816D90A6A001A43F9 /* User+DSUser.m */,
+			);
+			name = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +276,15 @@
 				13C4333616D8FC58001A43F9 /* main.m in Sources */,
 				13C4333A16D8FC58001A43F9 /* DSAppDelegate.m in Sources */,
 				13C4334316D8FC58001A43F9 /* Shabaka.xcdatamodeld in Sources */,
+				13C4335F16D902E4001A43F9 /* DSCoreDataRequest.m in Sources */,
+				13C4336816D9057F001A43F9 /* DSServerRequest.m in Sources */,
+				13C4336B16D90590001A43F9 /* DSEntityManager.m in Sources */,
+				13C4336E16D905A0001A43F9 /* Drop.m in Sources */,
+				13C4337116D905A0001A43F9 /* User.m in Sources */,
+				13C4337416D905A0001A43F9 /* View.m in Sources */,
+				13C4338316D90A32001A43F9 /* View+DSView.m in Sources */,
+				13C4338616D90A4A001A43F9 /* Drop+DSDrop.m in Sources */,
+				13C4338916D90A6A001A43F9 /* User+DSUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
