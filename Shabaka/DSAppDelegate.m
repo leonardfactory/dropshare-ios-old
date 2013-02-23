@@ -17,6 +17,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+	[self buildCustomAppearence];
+	
 	// Building views
     assert([self.window.rootViewController isKindOfClass:[DSSidePanelController class]]);
     
@@ -29,6 +31,18 @@
     [sidePanelController setViewControllers:appViewControllers whereSelectedIs:@"map"];
 	
     return YES;
+}
+
+/**
+ * Modifica le images per tutte le view di una determinata classe a priori.
+ */
+- (void)buildCustomAppearence
+{
+	
+	[[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"titleBarPlain"] forBarMetrics:UIBarMetricsDefault];
+    
+    UIImage *barButtonImage = [[UIImage imageNamed:@"barButtonBg"] resizableImageWithCapInsets:UIEdgeInsetsMake(4, 4, 5, 4)];
+    [[UIBarButtonItem appearance] setBackgroundImage:barButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
