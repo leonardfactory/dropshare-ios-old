@@ -84,6 +84,10 @@
 		13C4332F16D8FC58001A43F9 /* Shabaka */ = {
 			isa = PBXGroup;
 			children = (
+				13C4334D16D8FD3D001A43F9 /* Models */,
+				13C4334C16D8FD38001A43F9 /* Controllers */,
+				13C4334B16D8FD32001A43F9 /* lib */,
+				13C4334A16D8FD29001A43F9 /* images */,
 				13C4333816D8FC58001A43F9 /* DSAppDelegate.h */,
 				13C4333916D8FC58001A43F9 /* DSAppDelegate.m */,
 				13C4334116D8FC58001A43F9 /* Shabaka.xcdatamodeld */,
@@ -104,6 +108,34 @@
 				13C4333F16D8FC58001A43F9 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		13C4334A16D8FD29001A43F9 /* images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		13C4334B16D8FD32001A43F9 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
+		13C4334C16D8FD38001A43F9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		13C4334D16D8FD3D001A43F9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
