@@ -14,14 +14,4 @@
 
 @implementation DSEntityManager
 
-+ (id) getProperty:(NSString *)propertyName ofEntity:(NSString *)entityName withIdentifier:(NSString *)identifier
-{
-	
-}
-
-+ (void) updateProperty:(NSString *)propertyName ofEntity:(NSString *)entityName withIdentifier:(NSString *)identifier
-{
-	
-}
-
 @end
