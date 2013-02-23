@@ -18,7 +18,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	[self buildCustomAppearence];
-	
 	// Building views
     assert([self.window.rootViewController isKindOfClass:[DSSidePanelController class]]);
     
