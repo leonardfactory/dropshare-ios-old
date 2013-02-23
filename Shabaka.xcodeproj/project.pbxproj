@@ -99,6 +99,8 @@
 		A7A5429916D9028F00FEE4BE /* DSSidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429516D9028F00FEE4BE /* DSSidePanelController.m */; };
 		A7A5429A16D9028F00FEE4BE /* UIViewController+SidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429716D9028F00FEE4BE /* UIViewController+SidePanel.m */; };
 		A7A542A816D907ED00FEE4BE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A542A716D907ED00FEE4BE /* QuartzCore.framework */; };
+		A7A542AC16D90D7E00FEE4BE /* DSLeftSidePanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A542AB16D90D7E00FEE4BE /* DSLeftSidePanelViewController.m */; };
+		A7A542AE16D90FEB00FEE4BE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A542AD16D90FEB00FEE4BE /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -214,6 +216,9 @@
 		A7A5429616D9028F00FEE4BE /* UIViewController+SidePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+SidePanel.h"; path = "controllers/UIViewController+SidePanel.h"; sourceTree = "<group>"; };
 		A7A5429716D9028F00FEE4BE /* UIViewController+SidePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+SidePanel.m"; path = "controllers/UIViewController+SidePanel.m"; sourceTree = "<group>"; };
 		A7A542A716D907ED00FEE4BE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A7A542AA16D90D7E00FEE4BE /* DSLeftSidePanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSLeftSidePanelViewController.h; path = controllers/DSLeftSidePanelViewController.h; sourceTree = "<group>"; };
+		A7A542AB16D90D7E00FEE4BE /* DSLeftSidePanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSLeftSidePanelViewController.m; path = controllers/DSLeftSidePanelViewController.m; sourceTree = "<group>"; };
+		A7A542AD16D90FEB00FEE4BE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -503,6 +508,15 @@
 			path = images/sidebar;
 			sourceTree = "<group>";
 		};
+		A7A542A916D90D5B00FEE4BE /* LeftSidePanel */ = {
+			isa = PBXGroup;
+			children = (
+				A7A542AA16D90D7E00FEE4BE /* DSLeftSidePanelViewController.h */,
+				A7A542AB16D90D7E00FEE4BE /* DSLeftSidePanelViewController.m */,
+			);
+			name = LeftSidePanel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -619,6 +633,7 @@
 				A7A5429816D9028F00FEE4BE /* JASidePanelController.m in Sources */,
 				A7A5429916D9028F00FEE4BE /* DSSidePanelController.m in Sources */,
 				A7A5429A16D9028F00FEE4BE /* UIViewController+SidePanel.m in Sources */,
+				A7A542AC16D90D7E00FEE4BE /* DSLeftSidePanelViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
