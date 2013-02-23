@@ -446,6 +446,8 @@
 				13C4338816D90A6A001A43F9 /* User+DSUser.m */,
 			);
 			name = Entity;
+			sourceTree = "<group>";
+		};
 		A7A5423F16D8FF1200FEE4BE /* discover */ = {
 			isa = PBXGroup;
 			children = (
