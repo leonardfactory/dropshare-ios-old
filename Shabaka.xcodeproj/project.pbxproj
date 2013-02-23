@@ -49,6 +49,10 @@
 		A7A5427D16D8FF1200FEE4BE /* smallBar.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A5425F16D8FF1200FEE4BE /* smallBar.png */; };
 		A7A5427E16D8FF1200FEE4BE /* smallBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A5426016D8FF1200FEE4BE /* smallBar@2x.png */; };
 		A7A5428116D8FF9200FEE4BE /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7A5428016D8FF9200FEE4BE /* MainStoryboard.storyboard */; };
+		A7A5429816D9028F00FEE4BE /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429316D9028F00FEE4BE /* JASidePanelController.m */; };
+		A7A5429916D9028F00FEE4BE /* DSSidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429516D9028F00FEE4BE /* DSSidePanelController.m */; };
+		A7A5429A16D9028F00FEE4BE /* UIViewController+SidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429716D9028F00FEE4BE /* UIViewController+SidePanel.m */; };
+		A7A542A816D907ED00FEE4BE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A542A716D907ED00FEE4BE /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +102,13 @@
 		A7A5425F16D8FF1200FEE4BE /* smallBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smallBar.png; sourceTree = "<group>"; };
 		A7A5426016D8FF1200FEE4BE /* smallBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "smallBar@2x.png"; sourceTree = "<group>"; };
 		A7A5428016D8FF9200FEE4BE /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		A7A5429216D9028F00FEE4BE /* JASidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JASidePanelController.h; path = controllers/JASidePanelController.h; sourceTree = "<group>"; };
+		A7A5429316D9028F00FEE4BE /* JASidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JASidePanelController.m; path = controllers/JASidePanelController.m; sourceTree = "<group>"; };
+		A7A5429416D9028F00FEE4BE /* DSSidePanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSSidePanelController.h; path = controllers/DSSidePanelController.h; sourceTree = "<group>"; };
+		A7A5429516D9028F00FEE4BE /* DSSidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSSidePanelController.m; path = controllers/DSSidePanelController.m; sourceTree = "<group>"; };
+		A7A5429616D9028F00FEE4BE /* UIViewController+SidePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+SidePanel.h"; path = "controllers/UIViewController+SidePanel.h"; sourceTree = "<group>"; };
+		A7A5429716D9028F00FEE4BE /* UIViewController+SidePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+SidePanel.m"; path = "controllers/UIViewController+SidePanel.m"; sourceTree = "<group>"; };
+		A7A542A716D907ED00FEE4BE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7A542A816D907ED00FEE4BE /* QuartzCore.framework in Frameworks */,
 				13C4332816D8FC58001A43F9 /* UIKit.framework in Frameworks */,
 				13C4332A16D8FC58001A43F9 /* Foundation.framework in Frameworks */,
 				13C4332C16D8FC58001A43F9 /* CoreGraphics.framework in Frameworks */,
@@ -118,6 +130,7 @@
 		13C4331B16D8FC58001A43F9 = {
 			isa = PBXGroup;
 			children = (
+				A7A542A716D907ED00FEE4BE /* QuartzCore.framework */,
 				13C4332F16D8FC58001A43F9 /* Shabaka */,
 				13C4332616D8FC58001A43F9 /* Frameworks */,
 				13C4332516D8FC58001A43F9 /* Products */,
@@ -209,6 +222,12 @@
 		13C4334F16D8FE17001A43F9 /* SidePanel */ = {
 			isa = PBXGroup;
 			children = (
+				A7A5429216D9028F00FEE4BE /* JASidePanelController.h */,
+				A7A5429316D9028F00FEE4BE /* JASidePanelController.m */,
+				A7A5429416D9028F00FEE4BE /* DSSidePanelController.h */,
+				A7A5429516D9028F00FEE4BE /* DSSidePanelController.m */,
+				A7A5429616D9028F00FEE4BE /* UIViewController+SidePanel.h */,
+				A7A5429716D9028F00FEE4BE /* UIViewController+SidePanel.m */,
 			);
 			name = SidePanel;
 			sourceTree = "<group>";
@@ -375,6 +394,9 @@
 				13C4333616D8FC58001A43F9 /* main.m in Sources */,
 				13C4333A16D8FC58001A43F9 /* DSAppDelegate.m in Sources */,
 				13C4334316D8FC58001A43F9 /* Shabaka.xcdatamodeld in Sources */,
+				A7A5429816D9028F00FEE4BE /* JASidePanelController.m in Sources */,
+				A7A5429916D9028F00FEE4BE /* DSSidePanelController.m in Sources */,
+				A7A5429A16D9028F00FEE4BE /* UIViewController+SidePanel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
