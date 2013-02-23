@@ -268,7 +268,7 @@ static char ja_kvoContext;
 }
 
 - (void)styleContainer:(UIView *)container animate:(BOOL)animate duration:(NSTimeInterval)duration {
-    UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRoundedRect:container.bounds cornerRadius:0.0f];
+    UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRoundedRect:container.bounds cornerRadius:3.0f];
     if (animate) {
         CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"shadowPath"];
         animation.fromValue = (id)container.layer.shadowPath;
