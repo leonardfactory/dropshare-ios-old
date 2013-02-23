@@ -127,6 +127,7 @@
 		13C4334C16D8FD38001A43F9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				13C4334F16D8FE17001A43F9 /* SidePanel */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -136,6 +137,13 @@
 			children = (
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		13C4334F16D8FE17001A43F9 /* SidePanel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SidePanel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
