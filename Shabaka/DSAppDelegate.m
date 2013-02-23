@@ -7,6 +7,7 @@
 //
 
 #import "DSAppDelegate.h"
+#import "DSSidePanelController.h"
 
 @implementation DSAppDelegate
 
@@ -16,10 +17,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+	// Building views
+    assert([self.window.rootViewController isKindOfClass:[DSSidePanelController class]]);
+    
+    DSSidePanelController *sidePanelController = (DSSidePanelController *)self.window.rootViewController;
+    
+    NSDictionary *appViewControllers = [NSDictionary dictionaryWithObjectsAndKeys:
+                                        [sidePanelController.storyboard instantiateViewControllerWithIdentifier:@"mapNavigationController"], @"map",
+                                        nil];
+    
+    [sidePanelController setViewControllers:appViewControllers whereSelectedIs:@"map"];
+	
     return YES;
 }
 
