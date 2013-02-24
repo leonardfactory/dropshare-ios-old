@@ -7,6 +7,7 @@
 //
 
 #import "DSServerRequest.h"
+#import "AFJSONRequestOperation.h"
 
 @implementation DSServerRequest
 

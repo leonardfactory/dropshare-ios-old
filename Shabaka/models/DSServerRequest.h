@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AFJSONRequestOperation.h"
 #define SERVERURL @"http://192.168.0.102"
 
 @interface DSServerRequest : NSObject
