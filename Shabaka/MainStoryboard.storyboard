@@ -184,7 +184,6 @@
         <class className="DSLeftSidePanelViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DSLeftSidePanelViewController.h"/>
             <relationships>
-                <relationship kind="action" name="menuButtonDiscoverTouched:"/>
                 <relationship kind="outlet" name="menuButtonDiscover" candidateClass="UIButton"/>
             </relationships>
         </class>
