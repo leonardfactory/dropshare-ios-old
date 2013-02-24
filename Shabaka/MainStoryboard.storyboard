@@ -71,10 +71,10 @@
             </objects>
             <point key="canvasLocation" x="256" y="-64"/>
         </scene>
-        <!--View Controller-->
+        <!--Discover View Controller-->
         <scene sceneID="GQZ-fL-bnm">
             <objects>
-                <viewController storyboardIdentifier="mapViewController" id="Ohb-QM-bLU" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mapViewController" id="Ohb-QM-bLU" customClass="DSDiscoverViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NIP-Hz-ZbU">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -154,6 +154,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8gg-CO-KGY"/>
+                    <connections>
+                        <outlet property="tableView" destination="eYP-q1-6B5" id="Uk5-By-wzr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wcW-XK-ddK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -181,9 +184,16 @@
         <image name="showJournalButton.png" width="29" height="29"/>
     </resources>
     <classes>
+        <class className="DSDiscoverViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DSDiscoverViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
         <class className="DSLeftSidePanelViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DSLeftSidePanelViewController.h"/>
             <relationships>
+                <relationship kind="action" name="menuButtonDiscoverTouched:"/>
                 <relationship kind="outlet" name="menuButtonDiscover" candidateClass="UIButton"/>
             </relationships>
         </class>

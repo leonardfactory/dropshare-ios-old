@@ -21,6 +21,7 @@
 		A723DFE316DA930900F51928 /* DSSidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429516D9028F00FEE4BE /* DSSidePanelController.m */; };
 		A723DFE416DA930900F51928 /* UIViewController+SidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429716D9028F00FEE4BE /* UIViewController+SidePanel.m */; };
 		A723DFE516DA930900F51928 /* DSLeftSidePanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A542AB16D90D7E00FEE4BE /* DSLeftSidePanelViewController.m */; };
+		A723DFED16DA93DD00F51928 /* DSDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A723DFEC16DA93DD00F51928 /* DSDiscoverViewController.m */; };
 		A7A5426116D8FF1200FEE4BE /* addDropButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A5424016D8FF1200FEE4BE /* addDropButton.png */; };
 		A7A5426216D8FF1200FEE4BE /* addDropButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A5424116D8FF1200FEE4BE /* addDropButton@2x.png */; };
 		A7A5426316D8FF1200FEE4BE /* localizeMeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A5424216D8FF1200FEE4BE /* localizeMeButton.png */; };
@@ -71,6 +72,8 @@
 		13C4333B16D8FC58001A43F9 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		13C4333D16D8FC58001A43F9 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		13C4333F16D8FC58001A43F9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A723DFEB16DA93DD00F51928 /* DSDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSDiscoverViewController.h; sourceTree = "<group>"; };
+		A723DFEC16DA93DD00F51928 /* DSDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSDiscoverViewController.m; sourceTree = "<group>"; };
 		A7A5424016D8FF1200FEE4BE /* addDropButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addDropButton.png; sourceTree = "<group>"; };
 		A7A5424116D8FF1200FEE4BE /* addDropButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addDropButton@2x.png"; sourceTree = "<group>"; };
 		A7A5424216D8FF1200FEE4BE /* localizeMeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = localizeMeButton.png; sourceTree = "<group>"; };
@@ -210,6 +213,7 @@
 		13C4334C16D8FD38001A43F9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A723DFEA16DA93C800F51928 /* Discover */,
 				13C4334F16D8FE17001A43F9 /* SidePanel */,
 				A7A542A916D90D5B00FEE4BE /* LeftSidePanel */,
 			);
@@ -227,6 +231,15 @@
 				A7A5429716D9028F00FEE4BE /* UIViewController+SidePanel.m */,
 			);
 			name = SidePanel;
+			sourceTree = "<group>";
+		};
+		A723DFEA16DA93C800F51928 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				A723DFEB16DA93DD00F51928 /* DSDiscoverViewController.h */,
+				A723DFEC16DA93DD00F51928 /* DSDiscoverViewController.m */,
+			);
+			name = Discover;
 			sourceTree = "<group>";
 		};
 		A7A5423F16D8FF1200FEE4BE /* discover */ = {
@@ -403,6 +416,7 @@
 				A723DFE516DA930900F51928 /* DSLeftSidePanelViewController.m in Sources */,
 				13C4333616D8FC58001A43F9 /* main.m in Sources */,
 				13C4333A16D8FC58001A43F9 /* DSAppDelegate.m in Sources */,
+				A723DFED16DA93DD00F51928 /* DSDiscoverViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
