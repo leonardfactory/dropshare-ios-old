@@ -6,17 +6,20 @@
 //  Copyright (c) 2013 Dropshare. All rights reserved.
 //
 
+#import <MapKit/MapKit.h>
+
 #import "DSDiscoverViewController.h"
 #import "DSJournalSimpleDropCell.h"
 
 @interface DSDiscoverViewController ()
 {
-	bool _willTableViewHide;
-	DSTableViewAnimationState _tableViewState;
-	CGRect _tableViewVisibleFrame;
+	ViewState _journalViewState;
+	ViewState _mapViewState;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *journalView;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @end
 
@@ -29,8 +32,8 @@
 	[self.tableView setSeparatorColor:[UIColor clearColor]];
 	self.tableView.rowHeight = 80;
 	
-	_willTableViewHide = false;
-	_tableViewState = DSTableViewAnimationStateNone;
+	_journalViewState.animation = DSViewAnimationStateNone;
+	_mapViewState.animation		= DSViewAnimationStateNone;
 	
 	[self loadTestData];
 }
@@ -51,6 +54,8 @@
 - (void)viewDidUnload
 {
 	[self setTableView:nil];
+	[self setJournalView:nil];
+	[self setMapView:nil];
 	[super viewDidUnload];
 }
 
@@ -128,47 +133,67 @@
 
 - (IBAction)showJournalAction:(id)sender
 {
+	NSLog(@"Trying to show journal");
+	
 	/*
 	 Permette di eseguire una sola animazione alla volta. Se sta mostrando, non è possibile ripremere
 	 il pulsante.
 	 */
-	if(_tableViewState != DSTableViewAnimationStateNone)
+	if((_journalViewState.animation != DSViewAnimationStateNone) || (_mapViewState.animation != DSViewAnimationStateNone))
 	{
 		return;
 	}
 	
-	bool hidden = [self.tableView isHidden];
-	_tableViewState = hidden ? DSTableViewAnimationStateShow : DSTableViewAnimationStateHide;
+	bool hidden = [self.journalView isHidden];
+	_journalViewState.animation = hidden ? DSViewAnimationStateShow : DSViewAnimationStateHide;
+	_mapViewState.animation = hidden ? DSViewAnimationStateResizeSmall : DSViewAnimationStateResizeFull;
+	
+	NSLog(@"Able to animate (Old: NONE) (New: %@) state: %d", hidden?@"Show":@"Hide", hidden);
 	
 	/*
-	 Se non è mai stato caricato _tableViewVisibleFrame, lo salvo perché vuol dire che
+	 Se non è mai stato caricato _journalViewState.visibleFrame, lo salvo perché vuol dire che
 	 a) è quello originale non avendo mai mosso la tableView b) è la prima volta che
-	 chiamo questo metodo.
+	 chiamo questo metodo. 
+	 Idem per _mapViewState.visibleFrame
 	 */
-	if(CGRectIsEmpty(_tableViewVisibleFrame))
+	if(CGRectIsEmpty(_journalViewState.visibleFrame))
 	{
-		_tableViewVisibleFrame = self.tableView.frame;
+		_journalViewState.visibleFrame = self.journalView.frame;
+	}
+	
+	if(CGRectIsEmpty(_mapViewState.visibleFrame))
+	{
+		_mapViewState.visibleFrame = self.mapView.frame;
 	}
 	
 	/*
 	 Calcolo il punto finale (y) in cui posizionare la tableView. Se è nascosta devo mostrarla
 	 e viceversa. Inoltre, se è nascosta (per eliminarla dal rendering loop), la reinserisco 
-	 per mostrare l'animazione 
+	 per mostrare l'animazione.
+	 Per quanto riguarda la mappa, calcolo se mostrarla full screen oppure resized
 	 */
-	float finalY = (_tableViewState == DSTableViewAnimationStateShow) ? _tableViewVisibleFrame.origin.y : _tableViewVisibleFrame.origin.y + _tableViewVisibleFrame.size.height;
+	float finalJournalViewY = (_journalViewState.animation == DSViewAnimationStateShow) ? _journalViewState.visibleFrame.origin.y : _journalViewState.visibleFrame.origin.y + _journalViewState.visibleFrame.size.height;
+	float finalMapViewHeight = (_mapViewState.animation == DSViewAnimationStateResizeSmall) ? _mapViewState.visibleFrame.size.height : _mapViewState.visibleFrame.size.height + _journalViewState.visibleFrame.size.height;
+	
 	if(hidden)
 	{
-		self.tableView.hidden = false;
+		self.journalView.hidden = false;
 	}
+	NSLog(@"FinalY: %f, because animation check result is: %d", finalJournalViewY, (_journalViewState.animation == DSViewAnimationStateShow));
 	
-	// Eseguo l'animazione e al completamento setto `hidden` in base allo stato e resetto quest'ultimo
+	/*
+	 Animazione della JournalView e della mappa
+	 Eseguo l'animazione e al completamento setto `hidden` in base allo stato e resetto quest'ultimo
+	 */
 	[UIView animateWithDuration:0.25
 					 animations:^{
-						 self.tableView.frame = CGRectMake(self.tableView.frame.origin.x, finalY, self.tableView.frame.size.width, self.tableView.frame.size.height);
+						 self.journalView.frame = CGRectMake(self.journalView.frame.origin.x, finalJournalViewY, self.journalView.frame.size.width, self.journalView.frame.size.height);
+						 self.mapView.frame = CGRectMake(self.mapView.frame.origin.x, self.mapView.frame.origin.y, self.mapView.frame.size.width, finalMapViewHeight);
 					 }
 					 completion:^(BOOL finished){
-						 self.tableView.hidden = (_tableViewState == DSTableViewAnimationStateShow) ? false : true;
-						 _tableViewState = DSTableViewAnimationStateNone;
+						 self.journalView.hidden = (_journalViewState.animation == DSViewAnimationStateShow) ? false : true;
+						 _journalViewState.animation	= DSViewAnimationStateNone;
+						 _mapViewState.animation		= DSViewAnimationStateNone;
 					 }];
 }
 

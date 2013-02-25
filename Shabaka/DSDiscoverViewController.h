@@ -9,12 +9,20 @@
 #import <UIKit/UIKit.h>
 #import "UIViewController+SidePanel.h"
 
-typedef enum _DSTableViewAnimationState
+typedef enum _DSViewAnimationState
 {
-	DSTableViewAnimationStateNone = 0,
-	DSTableViewAnimationStateShow,
-	DSTableViewAnimationStateHide
-} DSTableViewAnimationState;
+	DSViewAnimationStateNone = 0,
+	DSViewAnimationStateShow,
+	DSViewAnimationStateHide,
+	DSViewAnimationStateResizeSmall,
+	DSViewAnimationStateResizeFull
+} DSViewAnimationState;
+
+typedef struct
+{
+	DSViewAnimationState animation;
+	CGRect visibleFrame;
+} ViewState;
 
 @interface DSDiscoverViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
