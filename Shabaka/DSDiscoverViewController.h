@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIViewController+SidePanel.h"
 
 @interface DSDiscoverViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 

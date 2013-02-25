@@ -7,8 +7,13 @@
 //
 
 #import "DSDiscoverViewController.h"
+#import "DSJournalSimpleDropCell.h"
 
 @interface DSDiscoverViewController ()
+{
+	bool _willTableViewHide;
+	CGRect _tableViewVisibleFrame;
+}
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -19,7 +24,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	
+	[self.tableView setSeparatorColor:[UIColor clearColor]];
+	self.tableView.rowHeight = 80;
+	
+	_willTableViewHide = false;
+	_tableViewVisibleFrame = self.tableView.frame;
+	NSLog(@"Height: %f, OriginY: %f", _tableViewVisibleFrame.size.width, _tableViewVisibleFrame.origin.y);
+	
+	[self loadTestData];
+}
+
+- (void) loadTestData
+{
+	/*[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathWithIndex:1]] withRowAnimation:UITableViewRowAnimationNone];
+	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathWithIndex:2]] withRowAnimation:UITableViewRowAnimationNone];
+	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathWithIndex:3]] withRowAnimation:UITableViewRowAnimationNone];*/
 }
 
 - (void)didReceiveMemoryWarning
@@ -28,8 +48,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidUnload {
-	[self setTableView:nil];
+- (void)viewDidUnload
+{
 	[self setTableView:nil];
 	[super viewDidUnload];
 }
@@ -44,12 +64,17 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1; // @todo
+    return 8; // @todo
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+- (void)configureCell:(DSJournalSimpleDropCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
+	int indexPathInt = indexPath.row;
 	
+	NSLog(@"Configuring cell %d", indexPathInt);
+	
+	cell.usernameLabel.text = [NSString stringWithFormat:@"Username #%d", indexPathInt];
+	cell.descriptionLabel.text = [NSString stringWithFormat:@"This is just a description text that must be replaced."];
 	/*
 	 Qui ci va qualcosa tipo:
 	 
@@ -78,17 +103,43 @@
 {
 	// @todo custom cell for each drop type
     static NSString *CellIdentifier = @"singleJournalDrop";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    DSJournalSimpleDropCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    if(cell == nil)
+    /*if(cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    }
+        cell = [[DSJournalSimpleDropCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:<#(NSString *)#> reuseIdentifier:CellIdentifier];
+    }*/
+	assert(cell != nil);
+	NSLog(@"Loading indexPath: %@", indexPath);
     
     [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
 }
 
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"Trying to push view by indexPath: %@", indexPath);
+}
+
+#pragma mark - Show journal
+
+- (IBAction)showJournalAction:(id)sender
+{
+	float finalY = _willTableViewHide ? _tableViewVisibleFrame.origin.y : _tableViewVisibleFrame.origin.y + _tableViewVisibleFrame.size.height;
+	_willTableViewHide = !_willTableViewHide;
+	
+	[UIView animateWithDuration:0.25
+						  delay:0.0
+						options:UIViewAnimationOptionBeginFromCurrentState
+					 animations:^{
+						 self.tableView.frame = CGRectMake(self.tableView.frame.origin.x, finalY, self.tableView.frame.size.width, self.tableView.frame.size.height);
+					 }
+					 completion:^(BOOL finished){
+						 if(_willTableViewHide) self.tableView.hidden = true;
+					 }];
+}
 
 @end
