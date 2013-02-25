@@ -12,6 +12,7 @@
 @interface DSDiscoverViewController ()
 {
 	bool _willTableViewHide;
+	DSTableViewAnimationState _tableViewState;
 	CGRect _tableViewVisibleFrame;
 }
 
@@ -29,8 +30,7 @@
 	self.tableView.rowHeight = 80;
 	
 	_willTableViewHide = false;
-	_tableViewVisibleFrame = self.tableView.frame;
-	NSLog(@"Height: %f, OriginY: %f", _tableViewVisibleFrame.size.width, _tableViewVisibleFrame.origin.y);
+	_tableViewState = DSTableViewAnimationStateNone;
 	
 	[self loadTestData];
 }
@@ -128,17 +128,47 @@
 
 - (IBAction)showJournalAction:(id)sender
 {
-	float finalY = _willTableViewHide ? _tableViewVisibleFrame.origin.y : _tableViewVisibleFrame.origin.y + _tableViewVisibleFrame.size.height;
-	_willTableViewHide = !_willTableViewHide;
+	/*
+	 Permette di eseguire una sola animazione alla volta. Se sta mostrando, non è possibile ripremere
+	 il pulsante.
+	 */
+	if(_tableViewState != DSTableViewAnimationStateNone)
+	{
+		return;
+	}
 	
+	bool hidden = [self.tableView isHidden];
+	_tableViewState = hidden ? DSTableViewAnimationStateShow : DSTableViewAnimationStateHide;
+	
+	/*
+	 Se non è mai stato caricato _tableViewVisibleFrame, lo salvo perché vuol dire che
+	 a) è quello originale non avendo mai mosso la tableView b) è la prima volta che
+	 chiamo questo metodo.
+	 */
+	if(CGRectIsEmpty(_tableViewVisibleFrame))
+	{
+		_tableViewVisibleFrame = self.tableView.frame;
+	}
+	
+	/*
+	 Calcolo il punto finale (y) in cui posizionare la tableView. Se è nascosta devo mostrarla
+	 e viceversa. Inoltre, se è nascosta (per eliminarla dal rendering loop), la reinserisco 
+	 per mostrare l'animazione 
+	 */
+	float finalY = (_tableViewState == DSTableViewAnimationStateShow) ? _tableViewVisibleFrame.origin.y : _tableViewVisibleFrame.origin.y + _tableViewVisibleFrame.size.height;
+	if(hidden)
+	{
+		self.tableView.hidden = false;
+	}
+	
+	// Eseguo l'animazione e al completamento setto `hidden` in base allo stato e resetto quest'ultimo
 	[UIView animateWithDuration:0.25
-						  delay:0.0
-						options:UIViewAnimationOptionBeginFromCurrentState
 					 animations:^{
 						 self.tableView.frame = CGRectMake(self.tableView.frame.origin.x, finalY, self.tableView.frame.size.width, self.tableView.frame.size.height);
 					 }
 					 completion:^(BOOL finished){
-						 if(_willTableViewHide) self.tableView.hidden = true;
+						 self.tableView.hidden = (_tableViewState == DSTableViewAnimationStateShow) ? false : true;
+						 _tableViewState = DSTableViewAnimationStateNone;
 					 }];
 }
 
