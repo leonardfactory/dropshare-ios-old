@@ -84,6 +84,16 @@
                                     <constraint firstAttribute="height" constant="154" id="YC9-3O-bfw"/>
                                 </constraints>
                             </mapView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="mainBgTile.png" translatesAutoresizingMaskIntoConstraints="NO" id="QQD-SS-Nus">
+                                <rect key="contentStretch" x="0.4375" y="0.4375" width="0.0625" height="0.0625"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="305" id="GUS-z7-zcZ"/>
+                                    <constraint firstAttribute="height" constant="66" id="xXT-zF-5tb"/>
+                                </constraints>
+                            </imageView>
+                            <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dWe-Is-XWV" customClass="DSViewPager">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yrB-a1-4iE" userLabel="JournalView">
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eYP-q1-6B5">
@@ -103,7 +113,7 @@
                                                             <rect key="contentStretch" x="0.4375" y="0.4375" width="0.0625" height="0.0625"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="305" id="6o2-ck-774"/>
-                                                                <constraint firstAttribute="height" constant="66" id="LqY-qu-67f"/>
+                                                                <constraint firstAttribute="height" constant="66" id="FLE-ag-IYa"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyB-7u-JxK">
@@ -124,7 +134,7 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <constraints>
-                                                    <constraint firstItem="mWa-TO-PBf" firstAttribute="centerY" secondItem="1Ky-v9-U3l" secondAttribute="centerY" type="default" id="6gR-BW-qS8"/>
+                                                    <constraint firstItem="mWa-TO-PBf" firstAttribute="centerY" secondItem="1Ky-v9-U3l" secondAttribute="centerY" type="default" id="Gi4-Gc-6cL"/>
                                                     <constraint firstItem="8Z0-dO-xLp" firstAttribute="leading" secondItem="VyB-7u-JxK" secondAttribute="leading" type="default" id="RX8-Dn-kXM"/>
                                                     <constraint firstItem="mWa-TO-PBf" firstAttribute="centerX" secondItem="1Ky-v9-U3l" secondAttribute="centerX" type="default" id="X05-mS-37W"/>
                                                     <constraint firstItem="VyB-7u-JxK" firstAttribute="top" secondItem="1Ky-v9-U3l" secondAttribute="top" constant="13" id="c0q-dr-cQq"/>
@@ -159,26 +169,12 @@
                                     <constraint firstItem="oep-q5-dzc" firstAttribute="trailing" secondItem="yrB-a1-4iE" secondAttribute="trailing" type="default" id="laO-LB-m6e"/>
                                 </constraints>
                             </view>
-                            <button autoresizesSubviews="NO" opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ha9-uc-IJo">
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CGQ-CS-8aE">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="ArA-Dn-vK7"/>
-                                    <constraint firstAttribute="width" constant="29" id="ZoQ-wA-cxP"/>
+                                    <constraint firstAttribute="width" constant="52" id="5HW-O8-9Hw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="localizeMeButton.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button autoresizesSubviews="NO" opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CGQ-CS-8aE">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="29" id="5RL-Vg-mtR"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="showJournalButton.png">
+                                <state key="normal" image="showJournalButton.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -188,6 +184,20 @@
                                 <connections>
                                     <action selector="showJournalAction:" destination="Ohb-QM-bLU" eventType="touchUpInside" id="TMF-0t-M3l"/>
                                 </connections>
+                            </button>
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ha9-uc-IJo">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="Ess-OV-OYQ"/>
+                                    <constraint firstAttribute="width" constant="52" id="XLh-OC-WBX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" image="localizeMeButton.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oy1-wT-yxI">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -203,18 +213,24 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="M8w-R1-occ" firstAttribute="leading" secondItem="NIP-Hz-ZbU" secondAttribute="leading" type="default" id="0PJ-vt-SFf"/>
-                            <constraint firstItem="Oy1-wT-yxI" firstAttribute="centerX" secondItem="yrB-a1-4iE" secondAttribute="centerX" type="default" id="5Pw-ZT-o31"/>
+                            <constraint firstItem="dWe-Is-XWV" firstAttribute="top" secondItem="NIP-Hz-ZbU" secondAttribute="top" constant="12" id="3Oh-jl-y5r"/>
+                            <constraint firstItem="dWe-Is-XWV" firstAttribute="leading" secondItem="NIP-Hz-ZbU" secondAttribute="leading" constant="15" id="4Uu-f2-SrL"/>
+                            <constraint firstItem="QQD-SS-Nus" firstAttribute="leading" secondItem="NIP-Hz-ZbU" secondAttribute="leading" constant="7" id="5OK-ai-8yl"/>
                             <constraint firstItem="M8w-R1-occ" firstAttribute="top" secondItem="NIP-Hz-ZbU" secondAttribute="top" type="default" id="5Xn-U8-BNU"/>
+                            <constraint firstItem="CGQ-CS-8aE" firstAttribute="bottom" secondItem="NIP-Hz-ZbU" secondAttribute="bottom" type="default" id="AdZ-3U-nrC"/>
                             <constraint firstItem="yrB-a1-4iE" firstAttribute="trailing" secondItem="NIP-Hz-ZbU" secondAttribute="trailing" type="default" id="IW3-Jc-btN"/>
-                            <constraint firstAttribute="bottom" secondItem="Ha9-uc-IJo" secondAttribute="bottom" constant="12" type="user" id="JsN-kd-pTH"/>
-                            <constraint firstAttribute="trailing" secondItem="CGQ-CS-8aE" secondAttribute="trailing" constant="14" id="PJ8-dG-sE3"/>
-                            <constraint firstItem="Oy1-wT-yxI" firstAttribute="centerY" secondItem="Ha9-uc-IJo" secondAttribute="centerY" type="default" id="RE0-of-6tP"/>
+                            <constraint firstItem="CGQ-CS-8aE" firstAttribute="trailing" secondItem="NIP-Hz-ZbU" secondAttribute="trailing" type="default" id="M4F-1g-bAC"/>
                             <constraint firstItem="yrB-a1-4iE" firstAttribute="top" secondItem="NIP-Hz-ZbU" secondAttribute="top" constant="154" id="UCL-sd-QhI"/>
-                            <constraint firstItem="CGQ-CS-8aE" firstAttribute="top" secondItem="Ha9-uc-IJo" secondAttribute="top" type="default" id="VV1-Ya-fAD"/>
-                            <constraint firstItem="Ha9-uc-IJo" firstAttribute="bottom" secondItem="CGQ-CS-8aE" secondAttribute="bottom" type="default" id="gVt-LV-Fvp"/>
+                            <constraint firstAttribute="bottom" secondItem="dWe-Is-XWV" secondAttribute="bottom" constant="438" id="UIe-3q-c31"/>
+                            <constraint firstItem="Ha9-uc-IJo" firstAttribute="leading" secondItem="NIP-Hz-ZbU" secondAttribute="leading" type="default" id="UM9-op-4xT"/>
+                            <constraint firstItem="Ha9-uc-IJo" firstAttribute="bottom" secondItem="NIP-Hz-ZbU" secondAttribute="bottom" type="default" id="ZIL-8J-sMV"/>
+                            <constraint firstItem="CGQ-CS-8aE" firstAttribute="top" secondItem="Ha9-uc-IJo" secondAttribute="top" type="default" id="dGB-kE-tJc"/>
+                            <constraint firstItem="QQD-SS-Nus" firstAttribute="top" secondItem="NIP-Hz-ZbU" secondAttribute="top" constant="7" id="gQb-N6-S6k"/>
                             <constraint firstItem="yrB-a1-4iE" firstAttribute="leading" secondItem="NIP-Hz-ZbU" secondAttribute="leading" type="default" id="h6Z-x5-HTc"/>
-                            <constraint firstItem="Ha9-uc-IJo" firstAttribute="leading" secondItem="NIP-Hz-ZbU" secondAttribute="leading" constant="14" id="nTq-wx-Zm0"/>
+                            <constraint firstAttribute="bottom" secondItem="Oy1-wT-yxI" secondAttribute="bottom" constant="10" id="kYa-hk-c8k"/>
+                            <constraint firstItem="dWe-Is-XWV" firstAttribute="centerX" secondItem="M8w-R1-occ" secondAttribute="centerX" type="default" id="nWy-Rd-MKs"/>
                             <constraint firstItem="yrB-a1-4iE" firstAttribute="bottom" secondItem="NIP-Hz-ZbU" secondAttribute="bottom" type="default" id="pnm-EY-c0b"/>
+                            <constraint firstItem="Oy1-wT-yxI" firstAttribute="centerX" secondItem="yrB-a1-4iE" secondAttribute="centerX" type="default" id="qTh-ay-OAe"/>
                             <constraint firstItem="M8w-R1-occ" firstAttribute="trailing" secondItem="NIP-Hz-ZbU" secondAttribute="trailing" type="default" id="zIo-Ec-O1p"/>
                         </constraints>
                     </view>
@@ -223,6 +239,7 @@
                         <outlet property="journalView" destination="yrB-a1-4iE" id="rR8-Cs-yEn"/>
                         <outlet property="mapView" destination="M8w-R1-occ" id="Aj9-7e-uAo"/>
                         <outlet property="tableView" destination="eYP-q1-6B5" id="Uk5-By-wzr"/>
+                        <outlet property="viewPager" destination="dWe-Is-XWV" id="JEn-gd-Z4y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wcW-XK-ddK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -256,10 +273,10 @@
         <class className="DSDiscoverViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DSDiscoverViewController.h"/>
             <relationships>
-                <relationship kind="action" name="showJournalAction:"/>
                 <relationship kind="outlet" name="journalView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="viewPager" candidateClass="DSViewPager"/>
             </relationships>
         </class>
         <class className="DSJournalSimpleDropCell" superclassName="UITableViewCell">
@@ -273,12 +290,14 @@
         <class className="DSLeftSidePanelViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DSLeftSidePanelViewController.h"/>
             <relationships>
-                <relationship kind="action" name="menuButtonDiscoverTouched:"/>
                 <relationship kind="outlet" name="menuButtonDiscover" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="DSSidePanelController" superclassName="JASidePanelController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DSSidePanelController.h"/>
+        </class>
+        <class className="DSViewPager" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DSViewPager.h"/>
         </class>
         <class className="JASidePanelController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/JASidePanelController.h"/>

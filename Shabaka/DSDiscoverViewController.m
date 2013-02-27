@@ -10,16 +10,20 @@
 
 #import "DSDiscoverViewController.h"
 #import "DSJournalSimpleDropCell.h"
+#import "DSViewPager.h"
 
 @interface DSDiscoverViewController ()
 {
 	ViewState _journalViewState;
 	ViewState _mapViewState;
+	
+	NSMutableArray *cellData;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *journalView;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet DSViewPager *viewPager;
 
 @end
 
@@ -36,6 +40,7 @@
 	_mapViewState.animation		= DSViewAnimationStateNone;
 	
 	[self loadTestData];
+	[self loadViewPager];
 }
 
 - (void) loadTestData
@@ -43,6 +48,36 @@
 	/*[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathWithIndex:1]] withRowAnimation:UITableViewRowAnimationNone];
 	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathWithIndex:2]] withRowAnimation:UITableViewRowAnimationNone];
 	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathWithIndex:3]] withRowAnimation:UITableViewRowAnimationNone];*/
+}
+
+#pragma mark - ViewPager for drops
+- (void) loadViewPager
+{
+	[self.viewPager setDataSourceAndStart:self];
+	cellData = [NSArray arrayWithObjects:@"Alfano",@"Bersani",@"Capezzone", nil];
+	[self.viewPager insertViewPageAtIndex:0];
+	[self.viewPager insertViewPageAtIndex:1];
+	[self.viewPager insertViewPageAtIndex:2];
+}
+
+- (int) firstPageForViewPager:(DSViewPager *)viewPager
+{
+	return 1;
+}
+
+- (int) pageCountForViewPager:(DSViewPager *)viewPager
+{
+	return [cellData count];
+}
+
+- (DSViewPageCell *) viewPageCellForViewPager:(DSViewPager *)viewPager atIndex:(int)index
+{
+	DSViewPageCell *cell = [viewPager dequeReusableViewPageCell];
+	
+	cell.usernameLabel.text = (NSString *)[cellData objectAtIndex:index];
+	cell.descriptionTextView.text = [NSString stringWithFormat:@"Sample descript #%d", index];
+	
+	return cell;
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,6 +91,7 @@
 	[self setTableView:nil];
 	[self setJournalView:nil];
 	[self setMapView:nil];
+	[self setViewPager:nil];
 	[super viewDidUnload];
 }
 

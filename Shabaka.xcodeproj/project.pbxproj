@@ -17,12 +17,15 @@
 		13C4333C16D8FC58001A43F9 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 13C4333B16D8FC58001A43F9 /* Default.png */; };
 		13C4333E16D8FC58001A43F9 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13C4333D16D8FC58001A43F9 /* Default@2x.png */; };
 		13C4334016D8FC58001A43F9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13C4333F16D8FC58001A43F9 /* Default-568h@2x.png */; };
+		A70ABAA316DD59BC003AFA4B /* DSViewPageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A70ABAA216DD59BC003AFA4B /* DSViewPageCell.xib */; };
 		A723DFE216DA930900F51928 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429316D9028F00FEE4BE /* JASidePanelController.m */; };
 		A723DFE316DA930900F51928 /* DSSidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429516D9028F00FEE4BE /* DSSidePanelController.m */; };
 		A723DFE416DA930900F51928 /* UIViewController+SidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429716D9028F00FEE4BE /* UIViewController+SidePanel.m */; };
 		A723DFE516DA930900F51928 /* DSLeftSidePanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A542AB16D90D7E00FEE4BE /* DSLeftSidePanelViewController.m */; };
 		A723DFED16DA93DD00F51928 /* DSDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A723DFEC16DA93DD00F51928 /* DSDiscoverViewController.m */; };
 		A73EA25816DAC93300AFECE9 /* DSJournalSimpleDropCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A73EA25716DAC93300AFECE9 /* DSJournalSimpleDropCell.m */; };
+		A78DAD8416DBE2E300A21AD0 /* DSViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = A78DAD8316DBE2E300A21AD0 /* DSViewPager.m */; };
+		A78DAD8716DC352700A21AD0 /* DSViewPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A78DAD8616DC352700A21AD0 /* DSViewPageCell.m */; };
 		A7A5426116D8FF1200FEE4BE /* addDropButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A5424016D8FF1200FEE4BE /* addDropButton.png */; };
 		A7A5426216D8FF1200FEE4BE /* addDropButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A5424116D8FF1200FEE4BE /* addDropButton@2x.png */; };
 		A7A5426316D8FF1200FEE4BE /* localizeMeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A5424216D8FF1200FEE4BE /* localizeMeButton.png */; };
@@ -73,10 +76,15 @@
 		13C4333B16D8FC58001A43F9 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		13C4333D16D8FC58001A43F9 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		13C4333F16D8FC58001A43F9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A70ABAA216DD59BC003AFA4B /* DSViewPageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSViewPageCell.xib; sourceTree = "<group>"; };
 		A723DFEB16DA93DD00F51928 /* DSDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSDiscoverViewController.h; sourceTree = "<group>"; };
 		A723DFEC16DA93DD00F51928 /* DSDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSDiscoverViewController.m; sourceTree = "<group>"; };
 		A73EA25616DAC93300AFECE9 /* DSJournalSimpleDropCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSJournalSimpleDropCell.h; sourceTree = "<group>"; };
 		A73EA25716DAC93300AFECE9 /* DSJournalSimpleDropCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSJournalSimpleDropCell.m; sourceTree = "<group>"; };
+		A78DAD8216DBE2E300A21AD0 /* DSViewPager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSViewPager.h; sourceTree = "<group>"; };
+		A78DAD8316DBE2E300A21AD0 /* DSViewPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSViewPager.m; sourceTree = "<group>"; };
+		A78DAD8516DC352700A21AD0 /* DSViewPageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSViewPageCell.h; sourceTree = "<group>"; };
+		A78DAD8616DC352700A21AD0 /* DSViewPageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSViewPageCell.m; sourceTree = "<group>"; };
 		A7A5424016D8FF1200FEE4BE /* addDropButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addDropButton.png; sourceTree = "<group>"; };
 		A7A5424116D8FF1200FEE4BE /* addDropButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addDropButton@2x.png"; sourceTree = "<group>"; };
 		A7A5424216D8FF1200FEE4BE /* localizeMeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = localizeMeButton.png; sourceTree = "<group>"; };
@@ -170,6 +178,7 @@
 		13C4332F16D8FC58001A43F9 /* Shabaka */ = {
 			isa = PBXGroup;
 			children = (
+				A78DAD8016DBE2A800A21AD0 /* Controls */,
 				13C4334C16D8FD38001A43F9 /* Controllers */,
 				13C4334B16D8FD32001A43F9 /* lib */,
 				13C4334A16D8FD29001A43F9 /* images */,
@@ -253,6 +262,26 @@
 				A73EA25716DAC93300AFECE9 /* DSJournalSimpleDropCell.m */,
 			);
 			name = JournalDropCell;
+			sourceTree = "<group>";
+		};
+		A78DAD8016DBE2A800A21AD0 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				A78DAD8116DBE2AF00A21AD0 /* ViewPager */,
+			);
+			name = Controls;
+			sourceTree = "<group>";
+		};
+		A78DAD8116DBE2AF00A21AD0 /* ViewPager */ = {
+			isa = PBXGroup;
+			children = (
+				A78DAD8216DBE2E300A21AD0 /* DSViewPager.h */,
+				A78DAD8316DBE2E300A21AD0 /* DSViewPager.m */,
+				A78DAD8516DC352700A21AD0 /* DSViewPageCell.h */,
+				A78DAD8616DC352700A21AD0 /* DSViewPageCell.m */,
+				A70ABAA216DD59BC003AFA4B /* DSViewPageCell.xib */,
+			);
+			name = ViewPager;
 			sourceTree = "<group>";
 		};
 		A7A5423F16D8FF1200FEE4BE /* discover */ = {
@@ -413,6 +442,7 @@
 				A7A5427D16D8FF1200FEE4BE /* smallBar.png in Resources */,
 				A7A5427E16D8FF1200FEE4BE /* smallBar@2x.png in Resources */,
 				A7A5428116D8FF9200FEE4BE /* MainStoryboard.storyboard in Resources */,
+				A70ABAA316DD59BC003AFA4B /* DSViewPageCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +461,8 @@
 				13C4333A16D8FC58001A43F9 /* DSAppDelegate.m in Sources */,
 				A723DFED16DA93DD00F51928 /* DSDiscoverViewController.m in Sources */,
 				A73EA25816DAC93300AFECE9 /* DSJournalSimpleDropCell.m in Sources */,
+				A78DAD8416DBE2E300A21AD0 /* DSViewPager.m in Sources */,
+				A78DAD8716DC352700A21AD0 /* DSViewPageCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

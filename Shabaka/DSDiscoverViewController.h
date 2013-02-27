@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "UIViewController+SidePanel.h"
+#import "DSViewPageCell.h"
+#import "DSViewPager.h"
 
 typedef enum _DSViewAnimationState
 {
@@ -24,7 +26,7 @@ typedef struct
 	CGRect visibleFrame;
 } ViewState;
 
-@interface DSDiscoverViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface DSDiscoverViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, DSViewPagerDataSource>
 
 @property(nonatomic) BOOL clearsSelectionOnViewWillAppear;
 
