@@ -79,21 +79,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="M8w-R1-occ">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="154" id="YC9-3O-bfw"/>
-                                </constraints>
-                            </mapView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="mainBgTile.png" translatesAutoresizingMaskIntoConstraints="NO" id="QQD-SS-Nus">
-                                <rect key="contentStretch" x="0.4375" y="0.4375" width="0.0625" height="0.0625"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="305" id="GUS-z7-zcZ"/>
-                                    <constraint firstAttribute="height" constant="66" id="xXT-zF-5tb"/>
-                                </constraints>
-                            </imageView>
-                            <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dWe-Is-XWV" customClass="DSViewPager">
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </scrollView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="M8w-R1-occ"/>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yrB-a1-4iE" userLabel="JournalView">
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eYP-q1-6B5">
@@ -185,6 +171,32 @@
                                     <action selector="showJournalAction:" destination="Ohb-QM-bLU" eventType="touchUpInside" id="TMF-0t-M3l"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GI3-PD-QGT" userLabel="Scroller View">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="mainBgTile.png" translatesAutoresizingMaskIntoConstraints="NO" id="QQD-SS-Nus">
+                                        <rect key="contentStretch" x="0.4375" y="0.4375" width="0.0625" height="0.0625"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="305" id="GUS-z7-zcZ"/>
+                                            <constraint firstAttribute="height" constant="66" id="xXT-zF-5tb"/>
+                                        </constraints>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eHC-4X-ycW" customClass="SwipeView">
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="Ohb-QM-bLU" id="rdA-jr-osL"/>
+                                        </connections>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="QQD-SS-Nus" firstAttribute="leading" secondItem="GI3-PD-QGT" secondAttribute="leading" constant="7" id="Dhf-0W-RGc"/>
+                                    <constraint firstItem="QQD-SS-Nus" firstAttribute="top" secondItem="GI3-PD-QGT" secondAttribute="top" constant="9" id="LUX-q3-P1z"/>
+                                    <constraint firstItem="eHC-4X-ycW" firstAttribute="centerY" secondItem="QQD-SS-Nus" secondAttribute="centerY" type="default" id="hY8-qB-SMv"/>
+                                    <constraint firstItem="eHC-4X-ycW" firstAttribute="top" secondItem="GI3-PD-QGT" secondAttribute="top" constant="15" id="jxw-Bd-4Ar"/>
+                                    <constraint firstItem="eHC-4X-ycW" firstAttribute="leading" secondItem="GI3-PD-QGT" secondAttribute="leading" constant="14" id="sU2-pt-mgp"/>
+                                    <constraint firstItem="eHC-4X-ycW" firstAttribute="centerX" secondItem="QQD-SS-Nus" secondAttribute="centerX" type="default" id="zuJ-05-RLG"/>
+                                </constraints>
+                            </view>
                             <button autoresizesSubviews="NO" opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ha9-uc-IJo">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="Ess-OV-OYQ"/>
@@ -213,24 +225,23 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="M8w-R1-occ" firstAttribute="leading" secondItem="NIP-Hz-ZbU" secondAttribute="leading" type="default" id="0PJ-vt-SFf"/>
-                            <constraint firstItem="dWe-Is-XWV" firstAttribute="top" secondItem="NIP-Hz-ZbU" secondAttribute="top" constant="12" id="3Oh-jl-y5r"/>
-                            <constraint firstItem="dWe-Is-XWV" firstAttribute="leading" secondItem="NIP-Hz-ZbU" secondAttribute="leading" constant="15" id="4Uu-f2-SrL"/>
-                            <constraint firstItem="QQD-SS-Nus" firstAttribute="leading" secondItem="NIP-Hz-ZbU" secondAttribute="leading" constant="7" id="5OK-ai-8yl"/>
                             <constraint firstItem="M8w-R1-occ" firstAttribute="top" secondItem="NIP-Hz-ZbU" secondAttribute="top" type="default" id="5Xn-U8-BNU"/>
+                            <constraint firstItem="GI3-PD-QGT" firstAttribute="trailing" secondItem="NIP-Hz-ZbU" secondAttribute="trailing" type="default" id="6Sz-RZ-gnU"/>
+                            <constraint firstItem="M8w-R1-occ" firstAttribute="bottom" secondItem="NIP-Hz-ZbU" secondAttribute="bottom" type="default" id="9kW-9R-dJX"/>
                             <constraint firstItem="CGQ-CS-8aE" firstAttribute="bottom" secondItem="NIP-Hz-ZbU" secondAttribute="bottom" type="default" id="AdZ-3U-nrC"/>
+                            <constraint firstAttribute="bottom" secondItem="Oy1-wT-yxI" secondAttribute="bottom" constant="10" id="EQU-O2-pO5"/>
+                            <constraint firstItem="GI3-PD-QGT" firstAttribute="top" secondItem="NIP-Hz-ZbU" secondAttribute="top" type="default" id="HKE-t5-AaK"/>
+                            <constraint firstItem="GI3-PD-QGT" firstAttribute="leading" secondItem="NIP-Hz-ZbU" secondAttribute="leading" type="default" id="IHF-D7-LFT"/>
                             <constraint firstItem="yrB-a1-4iE" firstAttribute="trailing" secondItem="NIP-Hz-ZbU" secondAttribute="trailing" type="default" id="IW3-Jc-btN"/>
                             <constraint firstItem="CGQ-CS-8aE" firstAttribute="trailing" secondItem="NIP-Hz-ZbU" secondAttribute="trailing" type="default" id="M4F-1g-bAC"/>
-                            <constraint firstItem="yrB-a1-4iE" firstAttribute="top" secondItem="NIP-Hz-ZbU" secondAttribute="top" constant="154" id="UCL-sd-QhI"/>
-                            <constraint firstAttribute="bottom" secondItem="dWe-Is-XWV" secondAttribute="bottom" constant="438" id="UIe-3q-c31"/>
                             <constraint firstItem="Ha9-uc-IJo" firstAttribute="leading" secondItem="NIP-Hz-ZbU" secondAttribute="leading" type="default" id="UM9-op-4xT"/>
+                            <constraint firstAttribute="bottom" secondItem="GI3-PD-QGT" secondAttribute="bottom" constant="421" id="UVL-cO-buz"/>
                             <constraint firstItem="Ha9-uc-IJo" firstAttribute="bottom" secondItem="NIP-Hz-ZbU" secondAttribute="bottom" type="default" id="ZIL-8J-sMV"/>
                             <constraint firstItem="CGQ-CS-8aE" firstAttribute="top" secondItem="Ha9-uc-IJo" secondAttribute="top" type="default" id="dGB-kE-tJc"/>
-                            <constraint firstItem="QQD-SS-Nus" firstAttribute="top" secondItem="NIP-Hz-ZbU" secondAttribute="top" constant="7" id="gQb-N6-S6k"/>
                             <constraint firstItem="yrB-a1-4iE" firstAttribute="leading" secondItem="NIP-Hz-ZbU" secondAttribute="leading" type="default" id="h6Z-x5-HTc"/>
-                            <constraint firstAttribute="bottom" secondItem="Oy1-wT-yxI" secondAttribute="bottom" constant="10" id="kYa-hk-c8k"/>
-                            <constraint firstItem="dWe-Is-XWV" firstAttribute="centerX" secondItem="M8w-R1-occ" secondAttribute="centerX" type="default" id="nWy-Rd-MKs"/>
-                            <constraint firstItem="yrB-a1-4iE" firstAttribute="bottom" secondItem="NIP-Hz-ZbU" secondAttribute="bottom" type="default" id="pnm-EY-c0b"/>
+                            <constraint firstAttribute="bottom" secondItem="yrB-a1-4iE" secondAttribute="bottom" constant="-350" id="nQN-ma-M8X"/>
                             <constraint firstItem="Oy1-wT-yxI" firstAttribute="centerX" secondItem="yrB-a1-4iE" secondAttribute="centerX" type="default" id="qTh-ay-OAe"/>
+                            <constraint firstItem="yrB-a1-4iE" firstAttribute="top" secondItem="NIP-Hz-ZbU" secondAttribute="top" constant="504" id="yVx-YY-xS5"/>
                             <constraint firstItem="M8w-R1-occ" firstAttribute="trailing" secondItem="NIP-Hz-ZbU" secondAttribute="trailing" type="default" id="zIo-Ec-O1p"/>
                         </constraints>
                     </view>
@@ -238,8 +249,9 @@
                     <connections>
                         <outlet property="journalView" destination="yrB-a1-4iE" id="rR8-Cs-yEn"/>
                         <outlet property="mapView" destination="M8w-R1-occ" id="Aj9-7e-uAo"/>
+                        <outlet property="swipeView" destination="eHC-4X-ycW" id="Gn1-t9-LLZ"/>
+                        <outlet property="swipeViewContainer" destination="GI3-PD-QGT" id="gPg-aw-rEl"/>
                         <outlet property="tableView" destination="eYP-q1-6B5" id="Uk5-By-wzr"/>
-                        <outlet property="viewPager" destination="dWe-Is-XWV" id="JEn-gd-Z4y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wcW-XK-ddK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -269,43 +281,6 @@
         <image name="separator.png" width="262" height="8"/>
         <image name="showJournalButton.png" width="29" height="29"/>
     </resources>
-    <classes>
-        <class className="DSDiscoverViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DSDiscoverViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="journalView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="viewPager" candidateClass="DSViewPager"/>
-            </relationships>
-        </class>
-        <class className="DSJournalSimpleDropCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DSJournalSimpleDropCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="backgroundImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="usernameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="DSLeftSidePanelViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DSLeftSidePanelViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="menuButtonDiscover" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="DSSidePanelController" superclassName="JASidePanelController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DSSidePanelController.h"/>
-        </class>
-        <class className="DSViewPager" superclassName="UIScrollView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DSViewPager.h"/>
-        </class>
-        <class className="JASidePanelController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/JASidePanelController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

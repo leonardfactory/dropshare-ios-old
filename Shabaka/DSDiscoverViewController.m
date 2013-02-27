@@ -10,12 +10,12 @@
 
 #import "DSDiscoverViewController.h"
 #import "DSJournalSimpleDropCell.h"
-#import "DSViewPager.h"
 
 @interface DSDiscoverViewController ()
 {
 	ViewState _journalViewState;
 	ViewState _mapViewState;
+	ViewState _dropSwipeViewState;
 	
 	NSMutableArray *cellData;
 }
@@ -23,7 +23,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *journalView;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (weak, nonatomic) IBOutlet DSViewPager *viewPager;
+@property (weak, nonatomic) IBOutlet SwipeView *swipeView;
+@property (weak, nonatomic) IBOutlet UIView *swipeViewContainer;
 
 @end
 
@@ -36,11 +37,12 @@
 	[self.tableView setSeparatorColor:[UIColor clearColor]];
 	self.tableView.rowHeight = 80;
 	
-	_journalViewState.animation = DSViewAnimationStateNone;
-	_mapViewState.animation		= DSViewAnimationStateNone;
+	_dropSwipeViewState.animation	= DSViewAnimationStateNone;
+	_journalViewState.animation		= DSViewAnimationStateNone;
+	_mapViewState.animation			= DSViewAnimationStateNone;
 	
 	[self loadTestData];
-	[self loadViewPager];
+	[self loadSwipeView];
 }
 
 - (void) loadTestData
@@ -51,33 +53,26 @@
 }
 
 #pragma mark - ViewPager for drops
-- (void) loadViewPager
+- (void) loadSwipeView
 {
-	[self.viewPager setDataSourceAndStart:self];
-	cellData = [NSArray arrayWithObjects:@"Alfano",@"Bersani",@"Capezzone", nil];
-	[self.viewPager insertViewPageAtIndex:0];
-	[self.viewPager insertViewPageAtIndex:1];
-	[self.viewPager insertViewPageAtIndex:2];
+	cellData = [NSArray arrayWithObjects:@"Alberto",@"Bob",@"Carl",@"Dude", nil];
 }
 
-- (int) firstPageForViewPager:(DSViewPager *)viewPager
-{
-	return 1;
-}
-
-- (int) pageCountForViewPager:(DSViewPager *)viewPager
+- (NSInteger)numberOfItemsInSwipeView:(SwipeView *)swipeView;
 {
 	return [cellData count];
 }
 
-- (DSViewPageCell *) viewPageCellForViewPager:(DSViewPager *)viewPager atIndex:(int)index
+- (UIView *)swipeView:(SwipeView *)swipeView viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
 {
-	DSViewPageCell *cell = [viewPager dequeReusableViewPageCell];
+	DSViewPageCell *viewPageCell;
 	
-	cell.usernameLabel.text = (NSString *)[cellData objectAtIndex:index];
-	cell.descriptionTextView.text = [NSString stringWithFormat:@"Sample descript #%d", index];
+	viewPageCell = view == nil ? [[DSViewPageCell alloc] init] : (DSViewPageCell *) view;
 	
-	return cell;
+	viewPageCell.usernameLabel.text = (NSString *)[cellData objectAtIndex:index];
+	viewPageCell.descriptionTextView.text = [NSString stringWithFormat:@"Description #%d", index];
+	
+	return viewPageCell;
 }
 
 - (void)didReceiveMemoryWarning
@@ -91,7 +86,8 @@
 	[self setTableView:nil];
 	[self setJournalView:nil];
 	[self setMapView:nil];
-	[self setViewPager:nil];
+	[self setSwipeView:nil];
+	[self setSwipeViewContainer:nil];
 	[super viewDidUnload];
 }
 
@@ -175,16 +171,19 @@
 	 Permette di eseguire una sola animazione alla volta. Se sta mostrando, non è possibile ripremere
 	 il pulsante.
 	 */
-	if((_journalViewState.animation != DSViewAnimationStateNone) || (_mapViewState.animation != DSViewAnimationStateNone))
+	if((_journalViewState.animation != DSViewAnimationStateNone) || (_mapViewState.animation != DSViewAnimationStateNone) || (_dropSwipeViewState.animation != DSViewAnimationStateNone))
 	{
 		return;
 	}
 	
-	bool hidden = [self.journalView isHidden];
-	_journalViewState.animation = hidden ? DSViewAnimationStateShow : DSViewAnimationStateHide;
-	_mapViewState.animation = hidden ? DSViewAnimationStateResizeSmall : DSViewAnimationStateResizeFull;
-	
-	NSLog(@"Able to animate (Old: NONE) (New: %@) state: %d", hidden?@"Show":@"Hide", hidden);
+	/*
+	 hidden rappresenta il fatto che self.journalView sia nascosta, dunque ciò
+	 è vero quando self.swipeViewContainer è mostrata.
+	 */
+	bool hidden = ![self.swipeViewContainer isHidden];
+	_journalViewState.animation		= hidden ? DSViewAnimationStateShow			: DSViewAnimationStateHide;
+	_mapViewState.animation			= hidden ? DSViewAnimationStateResizeSmall	: DSViewAnimationStateResizeFull;
+	_dropSwipeViewState.animation	= hidden ? DSViewAnimationStateHide			: DSViewAnimationStateShow;
 	
 	/*
 	 Se non è mai stato caricato _journalViewState.visibleFrame, lo salvo perché vuol dire che
@@ -194,12 +193,17 @@
 	 */
 	if(CGRectIsEmpty(_journalViewState.visibleFrame))
 	{
-		_journalViewState.visibleFrame = self.journalView.frame;
+		_journalViewState.visibleFrame = CGRectOffset(self.journalView.frame, 0.0f, -self.journalView.frame.size.height);
 	}
 	
 	if(CGRectIsEmpty(_mapViewState.visibleFrame))
 	{
 		_mapViewState.visibleFrame = self.mapView.frame;
+	}
+	
+	if(CGRectIsEmpty(_dropSwipeViewState.visibleFrame))
+	{
+		_dropSwipeViewState.visibleFrame = self.swipeViewContainer.frame;
 	}
 	
 	/*
@@ -208,12 +212,17 @@
 	 per mostrare l'animazione.
 	 Per quanto riguarda la mappa, calcolo se mostrarla full screen oppure resized
 	 */
-	float finalJournalViewY = (_journalViewState.animation == DSViewAnimationStateShow) ? _journalViewState.visibleFrame.origin.y : _journalViewState.visibleFrame.origin.y + _journalViewState.visibleFrame.size.height;
-	float finalMapViewHeight = (_mapViewState.animation == DSViewAnimationStateResizeSmall) ? _mapViewState.visibleFrame.size.height : _mapViewState.visibleFrame.size.height + _journalViewState.visibleFrame.size.height;
+	float finalJournalViewY		= (_journalViewState.animation	 == DSViewAnimationStateShow)		? _journalViewState.visibleFrame.origin.y	: _journalViewState.visibleFrame.origin.y + _journalViewState.visibleFrame.size.height;
+	float finalMapViewHeight	= (_mapViewState.animation		 == DSViewAnimationStateResizeFull) ? _mapViewState.visibleFrame.size.height	: _mapViewState.visibleFrame.size.height - _journalViewState.visibleFrame.size.height;
+	float finalSwipeViewY		= (_dropSwipeViewState.animation == DSViewAnimationStateShow)		? _dropSwipeViewState.visibleFrame.origin.y : _dropSwipeViewState.visibleFrame.origin.y - _dropSwipeViewState.visibleFrame.size.height - 20.0;
 	
 	if(hidden)
 	{
 		self.journalView.hidden = false;
+	}
+	else
+	{
+		self.swipeViewContainer.hidden = false;
 	}
 	NSLog(@"FinalY: %f, because animation check result is: %d", finalJournalViewY, (_journalViewState.animation == DSViewAnimationStateShow));
 	
@@ -223,13 +232,17 @@
 	 */
 	[UIView animateWithDuration:0.25
 					 animations:^{
-						 self.journalView.frame = CGRectMake(self.journalView.frame.origin.x, finalJournalViewY, self.journalView.frame.size.width, self.journalView.frame.size.height);
-						 self.mapView.frame = CGRectMake(self.mapView.frame.origin.x, self.mapView.frame.origin.y, self.mapView.frame.size.width, finalMapViewHeight);
+						 self.swipeViewContainer.frame	= CGRectMake(self.swipeViewContainer.frame.origin.x, finalSwipeViewY, self.swipeViewContainer.frame.size.width, self.swipeViewContainer.frame.size.height);
+						 self.journalView.frame			= CGRectMake(self.journalView.frame.origin.x, finalJournalViewY, self.journalView.frame.size.width, self.journalView.frame.size.height);
+						 self.mapView.frame				= CGRectMake(self.mapView.frame.origin.x, self.mapView.frame.origin.y, self.mapView.frame.size.width, finalMapViewHeight);
 					 }
 					 completion:^(BOOL finished){
-						 self.journalView.hidden = (_journalViewState.animation == DSViewAnimationStateShow) ? false : true;
+						 self.journalView.hidden		= (_journalViewState.animation == DSViewAnimationStateShow) ? false : true;
+						 self.swipeViewContainer.hidden = (_dropSwipeViewState.animation == DSViewAnimationStateShow) ? false : true;
+						 
 						 _journalViewState.animation	= DSViewAnimationStateNone;
 						 _mapViewState.animation		= DSViewAnimationStateNone;
+						 _dropSwipeViewState.animation	= DSViewAnimationStateNone;
 					 }];
 }
 

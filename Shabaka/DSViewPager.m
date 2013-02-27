@@ -13,6 +13,7 @@
 {
 	int _loadedPages;
 	int _page;
+	float _contentOffsetX;
 }
 
 @property (strong, nonatomic) NSMutableArray *indexes;
@@ -97,7 +98,9 @@
 	[_visibleViewPages insertObject:[[DSViewPageCell alloc] init] atIndex:DS_RIGHTVIEW_KEY];
 	
 	int widthMultiplier = (_page == 0 && [_indexes count] == 1) ? 1 : ((_page == 0 || _page == ([_indexes count] - 1)) ? 2 : 3);
+	
 	self.contentSize = CGSizeMake(DS_VIEW_PAGER_PAGE_WIDTH * widthMultiplier, DS_VIEW_PAGER_PAGE_HEIGHT);
+	self.contentOffset = CGPointMake(DS_VIEW_PAGER_PAGE_WIDTH, 0.0f);
 	
 	_reusableCell = [_visibleViewPages objectAtIndex:DS_LEFTVIEW_KEY];
 	if(![self isFirstPage:_page])
@@ -113,6 +116,8 @@
 	{
 		[self pushViewPage:[self.dataSource viewPageCellForViewPager:self atIndex:_page+1] atIndex:DS_RIGHTVIEW_KEY];
 	}
+	
+	NSLog(@"%@", NSStringFromCGPoint(self.contentOffset));
 	
 	/*
 	 Loading index paths and first item in the array
@@ -176,6 +181,16 @@
 	 CGFloat pageWidth = self.frame.size.width;
 	 int page = floor((self.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
 	 */
+	CGFloat pageWidth = self.frame.size.width;
+    float delta = (self.contentOffset.x - _contentOffsetX) / pageWidth;
+	float page = (delta >= 0.5f ? _page + 1 : (delta < -0.5f ? _page - 1 : _page));
+	
+	NSLog(@"Page: %f, OldPage: %d, delta: %f", page, _page, delta);
+	
+	if(page != _page && [self isValidPage:page])
+	{
+		[self updatePageFrom:_page toPage:page];
+	}
 }
 
 - (void) scrollViewWillBeginDecelerating:(UIScrollView *) sender
@@ -183,13 +198,7 @@
 	/*
 	 Se la pagina centrale è cambiata (spostamento / 50%), aggiorno _page
 	 */
-	CGFloat pageWidth = self.frame.size.width;
-    int page = floor((self.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
 	
-	if(page != _page && [self isValidPage:page])
-	{
-		[self updatePageFrom:_page toPage:page];
-	}
 }
 
 /**
@@ -204,24 +213,26 @@
 {
 	assert(oldPage != newPage);
 	
-	_page = oldPage;
+	_page = newPage;
 	BOOL leftSwipe = oldPage-newPage > 0;
 	
 	/*
 	 Setto la cella che potrà essere riutilizzata perché non visibile.
 	 Inoltre sposto le altre view
 	 */
-	NSLog(@"LeftSwipe: %d", leftSwipe);
+	NSLog(@"_ LeftSwipe: %@, %d -> %d", leftSwipe ? @"TRUE" : @"FALSE", oldPage, newPage);
 	if(leftSwipe)
 	{
-		if(![self isLastPage:_page])
+		if(![self isFirstPage:_page])
 		{
+			self.contentSize = CGSizeMake(DS_VIEW_PAGER_PAGE_WIDTH * 3, DS_VIEW_PAGER_PAGE_HEIGHT);
+			
+			NSLog(@"_ Not first page");
 			[[_visibleViewPages objectAtIndex:DS_RIGHTVIEW_KEY] removeFromSuperview];
 			_reusableCell = [_visibleViewPages objectAtIndex:DS_RIGHTVIEW_KEY];
 			
 			for(UIView* subview in self.subviews)
 			{
-				NSLog(@"subview: %@", subview);
 				if([subview isKindOfClass:[DSViewPageCell class]])
 				{
 					subview.frame = CGRectOffset(subview.frame, DS_VIEW_PAGER_PAGE_WIDTH, 0.0f);
@@ -239,25 +250,82 @@
 			
 			addedCell.frame = CGRectMake(0.0f, 0.0f, DS_VIEW_PAGER_PAGE_WIDTH, DS_VIEW_PAGER_PAGE_HEIGHT);
 			[self addSubview:addedCell];
+			
+			_contentOffsetX = DS_VIEW_PAGER_PAGE_WIDTH;
 		}
 		else
 		{
+			NSLog(@"_ First page");
 			[[_visibleViewPages objectAtIndex:DS_RIGHTVIEW_KEY] removeFromSuperview];
 			_reusableCell = [_visibleViewPages objectAtIndex:DS_RIGHTVIEW_KEY];
 			
 			// se ci sono meno di due elementi?
+			NSLog(@"%@", NSStringFromCGPoint(self.contentOffset));
 			self.contentSize = CGSizeMake(DS_VIEW_PAGER_PAGE_WIDTH * 2, DS_VIEW_PAGER_PAGE_HEIGHT);
+			NSLog(@"%@", NSStringFromCGPoint(self.contentOffset));
+			//self.contentOffset = CGPointZero;
 			
 			DSViewPageCell *lvpc = [_visibleViewPages objectAtIndex:DS_LEFTVIEW_KEY];
 			DSViewPageCell *cvpc = [_visibleViewPages objectAtIndex:DS_CENTERVIEW_KEY];
 			
 			[_visibleViewPages setObject:lvpc atIndexedSubscript:DS_CENTERVIEW_KEY];
 			[_visibleViewPages setObject:cvpc atIndexedSubscript:DS_RIGHTVIEW_KEY];
+			
+			_contentOffsetX = 0.0f;
 		}
 	}
 	else
 	{
-		_reusableCell = [_visibleViewPages objectAtIndex:DS_LEFTVIEW_KEY];
+		if(![self isLastPage:_page])
+		{
+			self.contentSize = CGSizeMake(DS_VIEW_PAGER_PAGE_WIDTH * 3, DS_VIEW_PAGER_PAGE_HEIGHT);
+			
+			NSLog(@"_ Not last page");
+			[[_visibleViewPages objectAtIndex:DS_LEFTVIEW_KEY] removeFromSuperview];
+			_reusableCell = [_visibleViewPages objectAtIndex:DS_LEFTVIEW_KEY];
+			
+			for(UIView* subview in self.subviews)
+			{
+				if([subview isKindOfClass:[DSViewPageCell class]])
+				{
+					subview.frame = CGRectOffset(subview.frame, -DS_VIEW_PAGER_PAGE_WIDTH, 0.0f);
+				}
+			}
+			
+			DSViewPageCell *cvpc = [_visibleViewPages objectAtIndex:DS_CENTERVIEW_KEY];
+			DSViewPageCell *rvpc = [_visibleViewPages objectAtIndex:DS_RIGHTVIEW_KEY];
+			
+			[_visibleViewPages setObject:cvpc atIndexedSubscript:DS_LEFTVIEW_KEY];
+			[_visibleViewPages setObject:rvpc atIndexedSubscript:DS_CENTERVIEW_KEY];
+			
+			DSViewPageCell *addedCell = [self.dataSource viewPageCellForViewPager:self atIndex:_page-1];
+			[_visibleViewPages setObject:addedCell atIndexedSubscript:DS_RIGHTVIEW_KEY];
+			
+			addedCell.frame = CGRectMake(2 * DS_VIEW_PAGER_PAGE_WIDTH, 0.0f, DS_VIEW_PAGER_PAGE_WIDTH, DS_VIEW_PAGER_PAGE_HEIGHT);
+			[self addSubview:addedCell];
+			
+			_contentOffsetX = DS_VIEW_PAGER_PAGE_WIDTH;
+		}
+		else
+		{
+			NSLog(@"_ Last page");
+			[[_visibleViewPages objectAtIndex:DS_LEFTVIEW_KEY] removeFromSuperview];
+			_reusableCell = [_visibleViewPages objectAtIndex:DS_LEFTVIEW_KEY];
+			
+			// se ci sono meno di due elementi?
+			NSLog(@"%@", NSStringFromCGPoint(self.contentOffset));
+			self.contentSize = CGSizeMake(DS_VIEW_PAGER_PAGE_WIDTH * 2, DS_VIEW_PAGER_PAGE_HEIGHT);
+			NSLog(@"%@", NSStringFromCGPoint(self.contentOffset));
+			//self.contentOffset = CGPointZero;
+			
+			DSViewPageCell *cvpc = [_visibleViewPages objectAtIndex:DS_CENTERVIEW_KEY];
+			DSViewPageCell *rvpc = [_visibleViewPages objectAtIndex:DS_RIGHTVIEW_KEY];
+			
+			[_visibleViewPages setObject:cvpc atIndexedSubscript:DS_LEFTVIEW_KEY];
+			[_visibleViewPages setObject:rvpc atIndexedSubscript:DS_CENTERVIEW_KEY];
+			
+			_contentOffsetX = 0.0f;
+		}
 	}
 	
 	
