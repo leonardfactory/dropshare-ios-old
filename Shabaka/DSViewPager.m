@@ -118,7 +118,6 @@
 	 Loading index paths and first item in the array
 	 */
 	
-	
 }
 
 /**
@@ -214,7 +213,7 @@
 	NSLog(@"LeftSwipe: %d", leftSwipe);
 	if(leftSwipe)
 	{
-		if(![self isLastPage:_page])
+		if(![self isFirstPage:_page])
 		{
 			[[_visibleViewPages objectAtIndex:DS_RIGHTVIEW_KEY] removeFromSuperview];
 			_reusableCell = [_visibleViewPages objectAtIndex:DS_RIGHTVIEW_KEY];
@@ -247,6 +246,7 @@
 			
 			// se ci sono meno di due elementi?
 			self.contentSize = CGSizeMake(DS_VIEW_PAGER_PAGE_WIDTH * 2, DS_VIEW_PAGER_PAGE_HEIGHT);
+			self.contentOffset = CGPointMake(0.0f, 0.0f);
 			
 			DSViewPageCell *lvpc = [_visibleViewPages objectAtIndex:DS_LEFTVIEW_KEY];
 			DSViewPageCell *cvpc = [_visibleViewPages objectAtIndex:DS_CENTERVIEW_KEY];
