@@ -168,7 +168,7 @@
 	
 	if(![self.journalView isHidden])
 	{
-		[self showJournal:self.mapView];
+		
 	}
 }
 
@@ -188,7 +188,7 @@
 
 - (IBAction)showJournalAction:(id)sender
 {
-	[self showJournal:sender];
+	
 }
 
 - (void) showJournal:(id) sender
@@ -272,7 +272,7 @@
 						 _mapViewState.animation		= DSViewAnimationStateNone;
 						 _dropSwipeViewState.animation	= DSViewAnimationStateNone;
 					 }];
-}
+} 
 
 #pragma mark - Final view methods
 
