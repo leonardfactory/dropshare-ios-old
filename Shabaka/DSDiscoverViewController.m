@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet SwipeView *swipeView;
 @property (weak, nonatomic) IBOutlet UIView *swipeViewContainer;
+@property (strong, nonatomic) UITapGestureRecognizer *doubleTapOnMapRecognizer;
 
 @end
 
@@ -41,6 +42,17 @@
 	_journalViewState.animation		= DSViewAnimationStateNone;
 	_mapViewState.animation			= DSViewAnimationStateNone;
 	
+	/*
+	 Recognize double tap on map to show/hide journal
+	 */
+	self.doubleTapOnMapRecognizer = [[UITapGestureRecognizer alloc]
+								   initWithTarget:self action:@selector(handleDoubleTapOnMap:)];
+	self.doubleTapOnMapRecognizer.numberOfTapsRequired = 2;
+	self.doubleTapOnMapRecognizer.numberOfTouchesRequired = 1;
+	self.doubleTapOnMapRecognizer.delegate = self;
+	self.doubleTapOnMapRecognizer.enabled = false; // will be enabled on showJournal
+	[self.mapView addGestureRecognizer:self.doubleTapOnMapRecognizer];
+	
 	[self loadTestData];
 	[self loadSwipeView];
 }
@@ -52,7 +64,7 @@
 	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathWithIndex:3]] withRowAnimation:UITableViewRowAnimationNone];*/
 }
 
-#pragma mark - ViewPager for drops
+#pragma mark - Swipe View data source
 - (void) loadSwipeView
 {
 	cellData = [NSArray arrayWithObjects:@"Alberto",@"Bob",@"Carl",@"Dude", nil];
@@ -73,22 +85,6 @@
 	viewPageCell.descriptionTextView.text = [NSString stringWithFormat:@"Description #%d", index];
 	
 	return viewPageCell;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)viewDidUnload
-{
-	[self setTableView:nil];
-	[self setJournalView:nil];
-	[self setMapView:nil];
-	[self setSwipeView:nil];
-	[self setSwipeViewContainer:nil];
-	[super viewDidUnload];
 }
 
 #pragma mark - Table view data source
@@ -161,12 +157,42 @@
     NSLog(@"Trying to push view by indexPath: %@", indexPath);
 }
 
+#pragma mark - Double tap recognizer on mapView
+/**
+ * Mostro il journal se faccio doppio click sulla mappa piccola
+ */
+- (void)handleDoubleTapOnMap:(UIGestureRecognizer *)gestureRecognizer
+{
+    if (gestureRecognizer.state != UIGestureRecognizerStateEnded)
+        return;
+	
+	if(![self.journalView isHidden])
+	{
+		[self showJournal:self.mapView];
+	}
+}
+
+- (BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{	
+	if(otherGestureRecognizer == self.doubleTapOnMapRecognizer)
+	{
+		return YES;
+	}
+	else
+	{
+		return NO;
+	}
+}
+
 #pragma mark - Show journal
 
 - (IBAction)showJournalAction:(id)sender
 {
-	NSLog(@"Trying to show journal");
-	
+	[self showJournal:sender];
+}
+
+- (void) showJournal:(id) sender
+{
 	/*
 	 Permette di eseguire una sola animazione alla volta. Se sta mostrando, non è possibile ripremere
 	 il pulsante.
@@ -188,7 +214,7 @@
 	/*
 	 Se non è mai stato caricato _journalViewState.visibleFrame, lo salvo perché vuol dire che
 	 a) è quello originale non avendo mai mosso la tableView b) è la prima volta che
-	 chiamo questo metodo. 
+	 chiamo questo metodo.
 	 Idem per _mapViewState.visibleFrame
 	 */
 	if(CGRectIsEmpty(_journalViewState.visibleFrame))
@@ -208,7 +234,7 @@
 	
 	/*
 	 Calcolo il punto finale (y) in cui posizionare la tableView. Se è nascosta devo mostrarla
-	 e viceversa. Inoltre, se è nascosta (per eliminarla dal rendering loop), la reinserisco 
+	 e viceversa. Inoltre, se è nascosta (per eliminarla dal rendering loop), la reinserisco
 	 per mostrare l'animazione.
 	 Per quanto riguarda la mappa, calcolo se mostrarla full screen oppure resized
 	 */
@@ -240,10 +266,30 @@
 						 self.journalView.hidden		= (_journalViewState.animation == DSViewAnimationStateShow) ? false : true;
 						 self.swipeViewContainer.hidden = (_dropSwipeViewState.animation == DSViewAnimationStateShow) ? false : true;
 						 
+						 self.doubleTapOnMapRecognizer.enabled = (_mapViewState.animation == DSViewAnimationStateResizeSmall) ? true : false;
+						 
 						 _journalViewState.animation	= DSViewAnimationStateNone;
 						 _mapViewState.animation		= DSViewAnimationStateNone;
 						 _dropSwipeViewState.animation	= DSViewAnimationStateNone;
 					 }];
+}
+
+#pragma mark - Final view methods
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidUnload
+{
+	[self setTableView:nil];
+	[self setJournalView:nil];
+	[self setMapView:nil];
+	[self setSwipeView:nil];
+	[self setSwipeViewContainer:nil];
+	[super viewDidUnload];
 }
 
 @end
