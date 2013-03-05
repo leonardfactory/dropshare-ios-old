@@ -52,7 +52,7 @@
 
 #pragma mark - ViewPager for drops
 - (void) loadViewPager
-{
+{	
 	[self.viewPager setDataSourceAndStart:self];
 	cellData = [NSArray arrayWithObjects:@"Alfano",@"Bersani",@"Capezzone", nil];
 	[self.viewPager insertViewPageAtIndex:0];
