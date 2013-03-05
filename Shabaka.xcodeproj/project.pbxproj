@@ -40,8 +40,12 @@
 		A723DFE316DA930900F51928 /* DSSidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429516D9028F00FEE4BE /* DSSidePanelController.m */; };
 		A723DFE416DA930900F51928 /* UIViewController+SidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429716D9028F00FEE4BE /* UIViewController+SidePanel.m */; };
 		A723DFE516DA930900F51928 /* DSLeftSidePanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A542AB16D90D7E00FEE4BE /* DSLeftSidePanelViewController.m */; };
+		A723DFED16DA93DD00F51928 /* DSDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A723DFEC16DA93DD00F51928 /* DSDiscoverViewController.m */; };
+		A73E132816DE5B1B00BBE9DF /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A73E132716DE5B1B00BBE9DF /* SwipeView.m */; };
+		A73EA25816DAC93300AFECE9 /* DSJournalSimpleDropCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A73EA25716DAC93300AFECE9 /* DSJournalSimpleDropCell.m */; };
 		A78DAD8416DBE2E300A21AD0 /* DSViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = A78DAD8316DBE2E300A21AD0 /* DSViewPager.m */; };
 		A78DAD8716DC352700A21AD0 /* DSViewPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A78DAD8616DC352700A21AD0 /* DSViewPageCell.m */; };
+		A793149816DF60920023B150 /* DSDiscoverTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A793149716DF60910023B150 /* DSDiscoverTableViewController.m */; };
 		A7A5426116D8FF1200FEE4BE /* addDropButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A5424016D8FF1200FEE4BE /* addDropButton.png */; };
 		A7A5426216D8FF1200FEE4BE /* addDropButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A5424116D8FF1200FEE4BE /* addDropButton@2x.png */; };
 		A7A5426316D8FF1200FEE4BE /* localizeMeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A5424216D8FF1200FEE4BE /* localizeMeButton.png */; };
@@ -129,10 +133,19 @@
 		13C4333D16D8FC58001A43F9 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		13C4333F16D8FC58001A43F9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A70ABAA216DD59BC003AFA4B /* DSViewPageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSViewPageCell.xib; sourceTree = "<group>"; };
+		A723DFEB16DA93DD00F51928 /* DSDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSDiscoverViewController.h; sourceTree = "<group>"; };
+		A723DFEC16DA93DD00F51928 /* DSDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSDiscoverViewController.m; sourceTree = "<group>"; };
+		A73E132616DE5B1B00BBE9DF /* SwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeView.h; path = lib/SwipeView/SwipeView.h; sourceTree = "<group>"; };
+		A73E132716DE5B1B00BBE9DF /* SwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeView.m; path = lib/SwipeView/SwipeView.m; sourceTree = "<group>"; };
+		A73EA25616DAC93300AFECE9 /* DSJournalSimpleDropCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSJournalSimpleDropCell.h; sourceTree = "<group>"; };
+		A73EA25716DAC93300AFECE9 /* DSJournalSimpleDropCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSJournalSimpleDropCell.m; sourceTree = "<group>"; };
 		A78DAD8216DBE2E300A21AD0 /* DSViewPager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSViewPager.h; sourceTree = "<group>"; };
 		A78DAD8316DBE2E300A21AD0 /* DSViewPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSViewPager.m; sourceTree = "<group>"; };
 		A78DAD8516DC352700A21AD0 /* DSViewPageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSViewPageCell.h; sourceTree = "<group>"; };
 		A78DAD8616DC352700A21AD0 /* DSViewPageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSViewPageCell.m; sourceTree = "<group>"; };
+		A793149616DF60910023B150 /* DSDiscoverTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSDiscoverTableViewController.h; sourceTree = "<group>"; };
+		A793149716DF60910023B150 /* DSDiscoverTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSDiscoverTableViewController.m; sourceTree = "<group>"; };
+		A793149916DF62770023B150 /* GlobalConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalConstants.h; sourceTree = "<group>"; };
 		A7A5424016D8FF1200FEE4BE /* addDropButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addDropButton.png; sourceTree = "<group>"; };
 		A7A5424116D8FF1200FEE4BE /* addDropButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addDropButton@2x.png"; sourceTree = "<group>"; };
 		A7A5424216D8FF1200FEE4BE /* localizeMeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = localizeMeButton.png; sourceTree = "<group>"; };
@@ -272,13 +285,14 @@
 				138800BD16E6287800716368 /* Models */,
 				A78DAD8016DBE2A800A21AD0 /* Controls */,
 				13C4334C16D8FD38001A43F9 /* Controllers */,
-				13C4334B16D8FD32001A43F9 /* lib */,
+				A73E132416DE5AE600BBE9DF /* lib */,
 				13C4334A16D8FD29001A43F9 /* images */,
 				13C4333816D8FC58001A43F9 /* DSAppDelegate.h */,
 				13C4333916D8FC58001A43F9 /* DSAppDelegate.m */,
 				13C4333016D8FC58001A43F9 /* Supporting Files */,
 				A7A5428016D8FF9200FEE4BE /* MainStoryboard.storyboard */,
 				138800BE16E6288300716368 /* Shabaka.xcdatamodeld */,
+				A793149916DF62770023B150 /* GlobalConstants.h */,
 			);
 			path = Shabaka;
 			sourceTree = "<group>";
@@ -347,8 +361,29 @@
 			children = (
 				138800BA16E627D100716368 /* DSDiscoverViewController.h */,
 				138800BB16E627D100716368 /* DSDiscoverViewController.m */,
+				A723DFEB16DA93DD00F51928 /* DSDiscoverViewController.h */,
+				A723DFEC16DA93DD00F51928 /* DSDiscoverViewController.m */,
+				A793149616DF60910023B150 /* DSDiscoverTableViewController.h */,
+				A793149716DF60910023B150 /* DSDiscoverTableViewController.m */,
 			);
 			name = Discover;
+			sourceTree = "<group>";
+		};
+		A73E132416DE5AE600BBE9DF /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				A73E132516DE5B0100BBE9DF /* SwipeView */,
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
+		A73E132516DE5B0100BBE9DF /* SwipeView */ = {
+			isa = PBXGroup;
+			children = (
+				A73E132616DE5B1B00BBE9DF /* SwipeView.h */,
+				A73E132716DE5B1B00BBE9DF /* SwipeView.m */,
+			);
+			name = SwipeView;
 			sourceTree = "<group>";
 		};
 		A73EA25416DAC8FD00AFECE9 /* JournalDropCell */ = {
@@ -575,6 +610,8 @@
 				138800CC16E62A2000716368 /* Drop.m in Sources */,
 				138800CF16E62A2000716368 /* NewDropDomain.m in Sources */,
 				138800D416E6436700716368 /* NSManagedObjectContext+blocks.m in Sources */,
+				A73E132816DE5B1B00BBE9DF /* SwipeView.m in Sources */,
+				A793149816DF60920023B150 /* DSDiscoverTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

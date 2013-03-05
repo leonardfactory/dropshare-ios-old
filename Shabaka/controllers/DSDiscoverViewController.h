@@ -29,7 +29,7 @@ typedef struct
 	CGRect visibleFrame;
 } ViewState;
 
-@interface DSDiscoverViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, DSViewPagerDataSource>
+@interface DSDiscoverViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, SwipeViewDataSource, UIGestureRecognizerDelegate>
 
 @property(nonatomic) BOOL clearsSelectionOnViewWillAppear;
 

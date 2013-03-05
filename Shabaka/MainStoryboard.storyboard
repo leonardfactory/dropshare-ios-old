@@ -60,7 +60,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Ohb-QM-bLU" kind="relationship" relationship="rootViewController" id="r0R-8N-kmk"/>
+                        <segue destination="qB2-dl-Shh" kind="relationship" relationship="rootViewController" id="58t-uN-ogQ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgl-Lz-kJt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -72,7 +72,7 @@
             <objects>
                 <viewController storyboardIdentifier="mapViewController" id="Ohb-QM-bLU" customClass="DSDiscoverViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NIP-Hz-ZbU">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="M8w-R1-occ">
@@ -180,13 +180,47 @@
                     <connections>
                         <outlet property="journalView" destination="yrB-a1-4iE" id="rR8-Cs-yEn"/>
                         <outlet property="mapView" destination="M8w-R1-occ" id="Aj9-7e-uAo"/>
+                        <outlet property="swipeView" destination="eHC-4X-ycW" id="Gn1-t9-LLZ"/>
+                        <outlet property="swipeViewContainer" destination="GI3-PD-QGT" id="gPg-aw-rEl"/>
                         <outlet property="tableView" destination="eYP-q1-6B5" id="Uk5-By-wzr"/>
-                        <outlet property="viewPager" destination="dWe-Is-XWV" id="JEn-gd-Z4y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wcW-XK-ddK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="756" y="-64"/>
+        </scene>
+        <!--Discover Table View Controller-->
+        <scene sceneID="QlE-zX-UqU">
+            <objects>
+                <tableViewController id="qB2-dl-Shh" customClass="DSDiscoverTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="OLQ-48-3Ot">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="3y8-JO-4oU">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="qB2-dl-Shh" id="iY1-3u-XSe"/>
+                            <outlet property="delegate" destination="qB2-dl-Shh" id="Mfd-nB-4fg"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="zZI-6B-d0Z"/>
+                    <connections>
+                        <outlet property="tableView" destination="OLQ-48-3Ot" id="ASm-Bw-0OL"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xu5-nz-zkc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="756" y="658"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="cBS-b5-OjW">
@@ -212,6 +246,12 @@
         <image name="showJournalButton.png" width="29" height="29"/>
     </resources>
     <classes>
+        <class className="DSDiscoverTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DSDiscoverTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
         <class className="DSDiscoverViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DSDiscoverViewController.h"/>
         </class>
@@ -228,9 +268,6 @@
         </class>
         <class className="DSSidePanelController" superclassName="JASidePanelController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DSSidePanelController.h"/>
-        </class>
-        <class className="DSViewPager" superclassName="UIScrollView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DSViewPager.h"/>
         </class>
         <class className="JASidePanelController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/JASidePanelController.h"/>
