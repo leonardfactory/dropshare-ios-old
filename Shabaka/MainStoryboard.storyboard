@@ -324,7 +324,6 @@
         <class className="DSDiscoverViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DSDiscoverViewController.h"/>
             <relationships>
-                <relationship kind="action" name="showJournalAction:"/>
                 <relationship kind="outlet" name="journalView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
                 <relationship kind="outlet" name="swipeView" candidateClass="SwipeView"/>
@@ -343,7 +342,6 @@
         <class className="DSLeftSidePanelViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DSLeftSidePanelViewController.h"/>
             <relationships>
-                <relationship kind="action" name="menuButtonDiscoverTouched:"/>
                 <relationship kind="outlet" name="menuButtonDiscover" candidateClass="UIButton"/>
             </relationships>
         </class>
@@ -355,13 +353,6 @@
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SwipeView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SwipeView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="dataSource"/>
-                <relationship kind="outlet" name="delegate"/>
-            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
