@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3012" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="VLy-D2-q93">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="VLy-D2-q93">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -214,13 +214,6 @@
     <classes>
         <class className="DSDiscoverViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DSDiscoverViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="showJournalAction:"/>
-                <relationship kind="outlet" name="journalView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="viewPager" candidateClass="DSViewPager"/>
-            </relationships>
         </class>
         <class className="DSJournalSimpleDropCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DSJournalSimpleDropCell.h"/>
@@ -232,10 +225,6 @@
         </class>
         <class className="DSLeftSidePanelViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DSLeftSidePanelViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="menuButtonDiscoverTouched:"/>
-                <relationship kind="outlet" name="menuButtonDiscover" candidateClass="UIButton"/>
-            </relationships>
         </class>
         <class className="DSSidePanelController" superclassName="JASidePanelController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DSSidePanelController.h"/>
