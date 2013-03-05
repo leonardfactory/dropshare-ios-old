@@ -6,9 +6,12 @@
 //  Copyright (c) 2013 Dropshare. All rights reserved.
 //
 
+
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+
+#import "DSJournalSimpleDropCell.h"
 #import "UIViewController+SidePanel.h"
-#import "DSViewPageCell.h"
 #import "DSViewPager.h"
 
 typedef enum _DSViewAnimationState

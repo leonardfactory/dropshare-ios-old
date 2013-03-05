@@ -12,9 +12,9 @@
 #define DS_VIEW_PAGER_PAGE_WIDTH 290.0f
 #define DS_VIEW_PAGER_PAGE_HEIGHT 54.0f
 
-const int DS_LEFTVIEW_KEY = 0;
-const int DS_CENTERVIEW_KEY = 1;
-const int DS_RIGHTVIEW_KEY = 2;
+#define DS_LEFTVIEW_KEY (0)
+#define DS_CENTERVIEW_KEY (1)
+#define DS_RIGHTVIEW_KEY (2)
 
 @class DSViewPager;
 

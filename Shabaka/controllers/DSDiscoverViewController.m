@@ -6,11 +6,7 @@
 //  Copyright (c) 2013 Dropshare. All rights reserved.
 //
 
-#import <MapKit/MapKit.h>
-
 #import "DSDiscoverViewController.h"
-#import "DSJournalSimpleDropCell.h"
-#import "DSViewPager.h"
 
 @interface DSDiscoverViewController ()
 {
@@ -144,7 +140,7 @@
 {
 	// @todo custom cell for each drop type
     static NSString *CellIdentifier = @"singleJournalDrop";
-    DSJournalSimpleDropCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    DSJournalSimpleDropCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     /*if(cell == nil)
     {

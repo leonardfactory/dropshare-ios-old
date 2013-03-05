@@ -7,7 +7,6 @@
 //
 
 #import "DSViewPager.h"
-#import "DSViewPageCell.h"
 
 @interface DSViewPager ()
 {

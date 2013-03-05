@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NSManagedObjectContext+blocks.h"
 
 @interface DSAppDelegate : UIResponder <UIApplicationDelegate>
 

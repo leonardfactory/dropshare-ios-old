@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Dropshare. All rights reserved.
 //
 
-#import "DSViewPager.h"
 #import "DSViewPageCell.h"
 
 @interface DSViewPageCell ()
