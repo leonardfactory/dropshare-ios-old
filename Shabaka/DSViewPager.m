@@ -260,7 +260,8 @@
 			// se ci sono meno di due elementi?
 			NSLog(@"%@", NSStringFromCGPoint(self.contentOffset));
 			self.contentSize = CGSizeMake(DS_VIEW_PAGER_PAGE_WIDTH * 2, DS_VIEW_PAGER_PAGE_HEIGHT);
-			self.contentOffset = CGPointMake(0.0f, 0.0f);
+			NSLog(@"%@", NSStringFromCGPoint(self.contentOffset));
+			//self.contentOffset = CGPointZero;
 			
 			DSViewPageCell *lvpc = [_visibleViewPages objectAtIndex:DS_LEFTVIEW_KEY];
 			DSViewPageCell *cvpc = [_visibleViewPages objectAtIndex:DS_CENTERVIEW_KEY];

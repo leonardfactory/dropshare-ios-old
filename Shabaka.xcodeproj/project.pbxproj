@@ -133,12 +133,8 @@
 		13C4333D16D8FC58001A43F9 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		13C4333F16D8FC58001A43F9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A70ABAA216DD59BC003AFA4B /* DSViewPageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSViewPageCell.xib; sourceTree = "<group>"; };
-		A723DFEB16DA93DD00F51928 /* DSDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSDiscoverViewController.h; sourceTree = "<group>"; };
-		A723DFEC16DA93DD00F51928 /* DSDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSDiscoverViewController.m; sourceTree = "<group>"; };
 		A73E132616DE5B1B00BBE9DF /* SwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeView.h; path = lib/SwipeView/SwipeView.h; sourceTree = "<group>"; };
 		A73E132716DE5B1B00BBE9DF /* SwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeView.m; path = lib/SwipeView/SwipeView.m; sourceTree = "<group>"; };
-		A73EA25616DAC93300AFECE9 /* DSJournalSimpleDropCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSJournalSimpleDropCell.h; sourceTree = "<group>"; };
-		A73EA25716DAC93300AFECE9 /* DSJournalSimpleDropCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSJournalSimpleDropCell.m; sourceTree = "<group>"; };
 		A78DAD8216DBE2E300A21AD0 /* DSViewPager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSViewPager.h; sourceTree = "<group>"; };
 		A78DAD8316DBE2E300A21AD0 /* DSViewPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSViewPager.m; sourceTree = "<group>"; };
 		A78DAD8516DC352700A21AD0 /* DSViewPageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSViewPageCell.h; sourceTree = "<group>"; };
@@ -285,7 +281,7 @@
 				138800BD16E6287800716368 /* Models */,
 				A78DAD8016DBE2A800A21AD0 /* Controls */,
 				13C4334C16D8FD38001A43F9 /* Controllers */,
-				A73E132416DE5AE600BBE9DF /* lib */,
+				13C4334B16D8FD32001A43F9 /* lib */,
 				13C4334A16D8FD29001A43F9 /* images */,
 				13C4333816D8FC58001A43F9 /* DSAppDelegate.h */,
 				13C4333916D8FC58001A43F9 /* DSAppDelegate.m */,
@@ -361,8 +357,6 @@
 			children = (
 				138800BA16E627D100716368 /* DSDiscoverViewController.h */,
 				138800BB16E627D100716368 /* DSDiscoverViewController.m */,
-				A723DFEB16DA93DD00F51928 /* DSDiscoverViewController.h */,
-				A723DFEC16DA93DD00F51928 /* DSDiscoverViewController.m */,
 				A793149616DF60910023B150 /* DSDiscoverTableViewController.h */,
 				A793149716DF60910023B150 /* DSDiscoverTableViewController.m */,
 			);
