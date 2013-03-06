@@ -6,10 +6,9 @@
 //  Copyright (c) 2013 Dropshare. All rights reserved.
 //
 
-#import <MapKit/MapKit.h>
-#import "GlobalConstants.h"
-
 #import "DSDiscoverTableViewController.h"
+
+#define MAPVIEW_HEIGHT (200)
 
 @interface DSDiscoverTableViewController ()
 
@@ -32,6 +31,10 @@
 		
 		self.data = [[NSMutableArray alloc] initWithObjects:@"Alfa",@"Beta",@"Gamma",@"Delta", nil];
 		// @todo: Add swipeView and mapView (load) on top of table view
+		
+		// MapView on top
+		self.mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0.0, 0.0, [[UIScreen mainScreen] bounds].size.width, MAPVIEW_HEIGHT)];
+		self.mapView.delegate = self;
 	}
 	return self;
 }
@@ -48,6 +51,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
+	self.tableView.tableHeaderView = self.mapView;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -73,15 +78,26 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 0;
+    return [self.data count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"DropCell";
+
+	UITableViewCell *cell;
+	
+	if([tableView respondsToSelector:@selector(dequeueReusableCellWithIdentifier:forIndexPath:)])
+	{
+		cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+	}
+	else
+	{// fallback for iOS 5
+		cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	}
     
     // Configure the cell...
+	cell.textLabel.text = [self.data objectAtIndex:[indexPath row]];
     
     return cell;
 }

@@ -62,18 +62,9 @@
 }
 
 #pragma mark - ViewPager for drops
-- (void) loadViewPager
+- (void) loadSwipeView
 {	
-	[self.viewPager setDataSourceAndStart:self];
 	cellData = [NSArray arrayWithObjects:@"Alfano",@"Bersani",@"Capezzone", nil];
-	[self.viewPager insertViewPageAtIndex:0];
-	[self.viewPager insertViewPageAtIndex:1];
-	[self.viewPager insertViewPageAtIndex:2];
-}
-
-- (int) firstPageForViewPager:(DSViewPager *)viewPager
-{
-	cellData = [NSArray arrayWithObjects:@"Alberto",@"Bob",@"Carl",@"Dude", nil];
 }
 
 - (NSInteger)numberOfItemsInSwipeView:(SwipeView *)swipeView;
@@ -94,7 +85,6 @@
 }
 
 #pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.

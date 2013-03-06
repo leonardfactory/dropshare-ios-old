@@ -12,7 +12,8 @@
 
 #import "DSJournalSimpleDropCell.h"
 #import "UIViewController+SidePanel.h"
-#import "DSViewPager.h"
+#import "SwipeView.h"
+#import "DSViewPageCell.h"
 
 typedef enum _DSViewAnimationState
 {

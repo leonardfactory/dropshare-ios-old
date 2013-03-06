@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import "GlobalConstants.h"
 
-@interface DSDiscoverTableViewController : UITableViewController
+@interface DSDiscoverTableViewController : UITableViewController <MKMapViewDelegate>
 
 @end

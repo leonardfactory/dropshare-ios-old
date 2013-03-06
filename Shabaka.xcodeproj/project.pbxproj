@@ -40,9 +40,6 @@
 		A723DFE316DA930900F51928 /* DSSidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429516D9028F00FEE4BE /* DSSidePanelController.m */; };
 		A723DFE416DA930900F51928 /* UIViewController+SidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429716D9028F00FEE4BE /* UIViewController+SidePanel.m */; };
 		A723DFE516DA930900F51928 /* DSLeftSidePanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A542AB16D90D7E00FEE4BE /* DSLeftSidePanelViewController.m */; };
-		A723DFED16DA93DD00F51928 /* DSDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A723DFEC16DA93DD00F51928 /* DSDiscoverViewController.m */; };
-		A73E132816DE5B1B00BBE9DF /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A73E132716DE5B1B00BBE9DF /* SwipeView.m */; };
-		A73EA25816DAC93300AFECE9 /* DSJournalSimpleDropCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A73EA25716DAC93300AFECE9 /* DSJournalSimpleDropCell.m */; };
 		A78DAD8416DBE2E300A21AD0 /* DSViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = A78DAD8316DBE2E300A21AD0 /* DSViewPager.m */; };
 		A78DAD8716DC352700A21AD0 /* DSViewPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A78DAD8616DC352700A21AD0 /* DSViewPageCell.m */; };
 		A793149816DF60920023B150 /* DSDiscoverTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A793149716DF60910023B150 /* DSDiscoverTableViewController.m */; };
@@ -79,6 +76,7 @@
 		A7A5428116D8FF9200FEE4BE /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7A5428016D8FF9200FEE4BE /* MainStoryboard.storyboard */; };
 		A7A542A816D907ED00FEE4BE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A542A716D907ED00FEE4BE /* QuartzCore.framework */; };
 		A7A542AE16D90FEB00FEE4BE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A542AD16D90FEB00FEE4BE /* MapKit.framework */; };
+		A7F7450816E7A69000CB12E9 /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F7450716E7A69000CB12E9 /* SwipeView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,8 +131,6 @@
 		13C4333D16D8FC58001A43F9 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		13C4333F16D8FC58001A43F9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A70ABAA216DD59BC003AFA4B /* DSViewPageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSViewPageCell.xib; sourceTree = "<group>"; };
-		A73E132616DE5B1B00BBE9DF /* SwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeView.h; path = lib/SwipeView/SwipeView.h; sourceTree = "<group>"; };
-		A73E132716DE5B1B00BBE9DF /* SwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeView.m; path = lib/SwipeView/SwipeView.m; sourceTree = "<group>"; };
 		A78DAD8216DBE2E300A21AD0 /* DSViewPager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSViewPager.h; sourceTree = "<group>"; };
 		A78DAD8316DBE2E300A21AD0 /* DSViewPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSViewPager.m; sourceTree = "<group>"; };
 		A78DAD8516DC352700A21AD0 /* DSViewPageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSViewPageCell.h; sourceTree = "<group>"; };
@@ -183,6 +179,8 @@
 		A7A542AA16D90D7E00FEE4BE /* DSLeftSidePanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSLeftSidePanelViewController.h; path = controllers/DSLeftSidePanelViewController.h; sourceTree = "<group>"; };
 		A7A542AB16D90D7E00FEE4BE /* DSLeftSidePanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSLeftSidePanelViewController.m; path = controllers/DSLeftSidePanelViewController.m; sourceTree = "<group>"; };
 		A7A542AD16D90FEB00FEE4BE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A7F7450616E7A69000CB12E9 /* SwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeView.h; path = lib/SwipeView/SwipeView.h; sourceTree = "<group>"; };
+		A7F7450716E7A69000CB12E9 /* SwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeView.m; path = lib/SwipeView/SwipeView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -321,6 +319,7 @@
 		13C4334B16D8FD32001A43F9 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				A7F7450516E7A66200CB12E9 /* SwipeView */,
 				138800D216E6436700716368 /* NSManagedObjectContext+blocks.h */,
 				138800D316E6436700716368 /* NSManagedObjectContext+blocks.m */,
 				138800B616E6264500716368 /* AFNetworking */,
@@ -361,23 +360,6 @@
 				A793149716DF60910023B150 /* DSDiscoverTableViewController.m */,
 			);
 			name = Discover;
-			sourceTree = "<group>";
-		};
-		A73E132416DE5AE600BBE9DF /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				A73E132516DE5B0100BBE9DF /* SwipeView */,
-			);
-			name = lib;
-			sourceTree = "<group>";
-		};
-		A73E132516DE5B0100BBE9DF /* SwipeView */ = {
-			isa = PBXGroup;
-			children = (
-				A73E132616DE5B1B00BBE9DF /* SwipeView.h */,
-				A73E132716DE5B1B00BBE9DF /* SwipeView.m */,
-			);
-			name = SwipeView;
 			sourceTree = "<group>";
 		};
 		A73EA25416DAC8FD00AFECE9 /* JournalDropCell */ = {
@@ -478,6 +460,15 @@
 				A7A542AB16D90D7E00FEE4BE /* DSLeftSidePanelViewController.m */,
 			);
 			name = LeftSidePanel;
+			sourceTree = "<group>";
+		};
+		A7F7450516E7A66200CB12E9 /* SwipeView */ = {
+			isa = PBXGroup;
+			children = (
+				A7F7450616E7A69000CB12E9 /* SwipeView.h */,
+				A7F7450716E7A69000CB12E9 /* SwipeView.m */,
+			);
+			name = SwipeView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -604,8 +595,8 @@
 				138800CC16E62A2000716368 /* Drop.m in Sources */,
 				138800CF16E62A2000716368 /* NewDropDomain.m in Sources */,
 				138800D416E6436700716368 /* NSManagedObjectContext+blocks.m in Sources */,
-				A73E132816DE5B1B00BBE9DF /* SwipeView.m in Sources */,
 				A793149816DF60920023B150 /* DSDiscoverTableViewController.m in Sources */,
+				A7F7450816E7A69000CB12E9 /* SwipeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
