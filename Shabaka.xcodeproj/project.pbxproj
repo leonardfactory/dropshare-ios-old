@@ -40,6 +40,7 @@
 		A723DFE316DA930900F51928 /* DSSidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429516D9028F00FEE4BE /* DSSidePanelController.m */; };
 		A723DFE416DA930900F51928 /* UIViewController+SidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429716D9028F00FEE4BE /* UIViewController+SidePanel.m */; };
 		A723DFE516DA930900F51928 /* DSLeftSidePanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A542AB16D90D7E00FEE4BE /* DSLeftSidePanelViewController.m */; };
+		A74EEFC216E8E90F00371E7A /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A74EEFC116E8E90F00371E7A /* SwipeView.m */; };
 		A78DAD8416DBE2E300A21AD0 /* DSViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = A78DAD8316DBE2E300A21AD0 /* DSViewPager.m */; };
 		A78DAD8716DC352700A21AD0 /* DSViewPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A78DAD8616DC352700A21AD0 /* DSViewPageCell.m */; };
 		A793149816DF60920023B150 /* DSDiscoverTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A793149716DF60910023B150 /* DSDiscoverTableViewController.m */; };
@@ -130,6 +131,8 @@
 		13C4333D16D8FC58001A43F9 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		13C4333F16D8FC58001A43F9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A70ABAA216DD59BC003AFA4B /* DSViewPageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSViewPageCell.xib; sourceTree = "<group>"; };
+		A74EEFC016E8E90F00371E7A /* SwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwipeView.h; path = lib/EXSwipeView/SwipeView.h; sourceTree = "<group>"; };
+		A74EEFC116E8E90F00371E7A /* SwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SwipeView.m; path = lib/EXSwipeView/SwipeView.m; sourceTree = "<group>"; };
 		A78DAD8216DBE2E300A21AD0 /* DSViewPager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSViewPager.h; sourceTree = "<group>"; };
 		A78DAD8316DBE2E300A21AD0 /* DSViewPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSViewPager.m; sourceTree = "<group>"; };
 		A78DAD8516DC352700A21AD0 /* DSViewPageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSViewPageCell.h; sourceTree = "<group>"; };
@@ -316,7 +319,7 @@
 		13C4334B16D8FD32001A43F9 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				A7F7450516E7A66200CB12E9 /* SwipeView */,
+				A74EEFBF16E8E90100371E7A /* EXSwipeView */,
 				138800D216E6436700716368 /* NSManagedObjectContext+blocks.h */,
 				138800D316E6436700716368 /* NSManagedObjectContext+blocks.m */,
 				138800B616E6264500716368 /* AFNetworking */,
@@ -366,6 +369,15 @@
 				138800B816E627C600716368 /* DSJournalSimpleDropCell.m */,
 			);
 			name = JournalDropCell;
+			sourceTree = "<group>";
+		};
+		A74EEFBF16E8E90100371E7A /* EXSwipeView */ = {
+			isa = PBXGroup;
+			children = (
+				A74EEFC016E8E90F00371E7A /* SwipeView.h */,
+				A74EEFC116E8E90F00371E7A /* SwipeView.m */,
+			);
+			name = EXSwipeView;
 			sourceTree = "<group>";
 		};
 		A78DAD8016DBE2A800A21AD0 /* Controls */ = {
@@ -457,13 +469,6 @@
 				A7A542AB16D90D7E00FEE4BE /* DSLeftSidePanelViewController.m */,
 			);
 			name = LeftSidePanel;
-			sourceTree = "<group>";
-		};
-		A7F7450516E7A66200CB12E9 /* SwipeView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = SwipeView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -591,6 +596,7 @@
 				138800CF16E62A2000716368 /* NewDropDomain.m in Sources */,
 				138800D416E6436700716368 /* NSManagedObjectContext+blocks.m in Sources */,
 				A793149816DF60920023B150 /* DSDiscoverTableViewController.m in Sources */,
+				A74EEFC216E8E90F00371E7A /* SwipeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
