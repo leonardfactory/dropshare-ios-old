@@ -38,6 +38,9 @@
 	
 	[self.fbSignupButton setBackgroundImage:[[self.fbSignupButton backgroundImageForState:UIControlStateNormal] resizableImageWithCapInsets:UIEdgeInsetsMake(7, 6, 40, 6)] forState:UIControlStateNormal];
 	[self.connectButton setBackgroundImage:[[self.connectButton backgroundImageForState:UIControlStateNormal] resizableImageWithCapInsets:UIEdgeInsetsMake(7, 6, 40, 6)] forState:UIControlStateNormal];
+
+	[self.usernameField setBackground:[self.usernameField.background resizableImageWithCapInsets:UIEdgeInsetsMake(1, 6, 44, 6)]];
+	[self.passwordField setBackground:[self.passwordField.background resizableImageWithCapInsets:UIEdgeInsetsMake(1, 6, 44, 6)]];
 }
 
 - (void)didReceiveMemoryWarning
