@@ -27,10 +27,7 @@
 	self = [super initWithCoder:aDecoder];
 	if(self)
 	{
-		profileManager = [[DSProfileManager alloc] init];
-		
-		[profileManager.domain addObserver:self forKeyPath:@"user" options:NSKeyValueObservingOptionNew context:nil];
-		[profileManager.domain addObserver:self forKeyPath:@"error" options:NSKeyValueObservingOptionNew context:nil];
+		profileManager = [[DSProfileManager alloc] initWithViewController:self];
 	}
 	return self;
 }
@@ -38,6 +35,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
+	// keyboard stackoverflow/lazy way
+	self.usernameField.delegate = self;
+	self.passwordField.delegate = self;
 	
 	[self.fbSignupButton setBackgroundImage:[[self.fbSignupButton backgroundImageForState:UIControlStateNormal] resizableImageWithCapInsets:UIEdgeInsetsMake(7, 6, 40, 6)] forState:UIControlStateNormal];
 	[self.connectButton setBackgroundImage:[[self.connectButton backgroundImageForState:UIControlStateNormal] resizableImageWithCapInsets:UIEdgeInsetsMake(7, 6, 40, 6)] forState:UIControlStateNormal];
@@ -52,12 +53,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
+}
+ 
+
 #pragma mark - Button Actions
 - (void) loginUser:(id) sender
-{
-	
+{	
 	[profileManager loginWithUsername:self.usernameField.text withPassword:self.passwordField.text];
 	
+	/*
 	// make login with data adapter
 	void (^loginCompleted)(bool, User*) = ^(bool logged, User *user)
 	{
@@ -79,7 +86,7 @@
 	};
 	
 	// Test code
-	
+	 */
 }
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -88,6 +95,7 @@
 	{
 		if([profileManager isLogged])
 		{
+			NSLog(@"%@",[(ProfileDomain *)profileManager.domain user]);
 			self.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
 			[self dismissModalViewControllerAnimated:NO];
 		}

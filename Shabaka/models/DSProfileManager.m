@@ -10,6 +10,17 @@
 
 @implementation DSProfileManager
 
+- (DSEntityManager *) init
+{
+	self = [super init];
+	if (self)
+	{
+		[super setDomain:[[super dataAdapter] findOrCreate:@"profile" onModel:@"ProfileDomain"]];
+	}
+	[super setWebApiAdapter: [[DSWebApiAdapter alloc] initWithBaseUrl:@"https://francescoinfante.it"]];
+	return self;
+}
+
 - (DSEntityManager *) initWithViewController:(UIViewController *) viewController
 {
 	assert(viewController);
@@ -39,18 +50,19 @@
 {
 	NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:username, @"username", password, @"password", nil];
 	[super.webApiAdapter postPath:@"/login" parameters:body success:^(AFHTTPRequestOperation *operation, id responseObject) {
-		NSLog(@"error code %d",[(id)[(id)operation response] statusCode]);
 		[self.domain willChangeValueForKey:@"user"];
-		NSString *identifier = [(NSDictionary *)responseObject objectForKey:@"id"];
+		NSDictionary *jsonFromData = (NSDictionary *)[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+		
+		NSString *identifier = [(NSDictionary *)jsonFromData objectForKey:@"id"];
 		User *userLogged = [super.dataAdapter findOrCreate:identifier onModel:@"User"];
-		[userLogged setName:[(NSDictionary *)responseObject objectForKey:@"name"]];
-		[userLogged setSurname:[(NSDictionary *)responseObject objectForKey:@"surname"]];
-		[userLogged setUsername:[(NSDictionary *)responseObject objectForKey:@"username"]];
+		[userLogged setName:[(NSDictionary *)jsonFromData objectForKey:@"name"]];
+		[userLogged setSurname:[(NSDictionary *)jsonFromData objectForKey:@"surname"]];
+		[userLogged setUsername:[(NSDictionary *)jsonFromData objectForKey:@"username"]];
 		[(ProfileDomain *)super.domain setUser:userLogged];
 		[super.dataAdapter save];
 		[self.domain didChangeValueForKey:@"user"];
 	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-		NSLog(@"error code %d",[(id)[(id)operation response] statusCode]);
+		NSLog(@"%@",error);
 	}];
 }
 

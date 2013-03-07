@@ -22,6 +22,8 @@
 
 #import "AFURLConnectionOperation.h"
 
+#define _AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES_
+
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
 #import <UIKit/UIKit.h>
 #endif

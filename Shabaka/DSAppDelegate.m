@@ -39,6 +39,7 @@
     [sidePanelController setViewControllers:appViewControllers whereSelectedIs:@"map"];
 	
 	//LoginViewController
+	/*
 	profileManager = [[DSProfileManager alloc] init];
 	if(![profileManager isLogged])
 	{
@@ -46,6 +47,7 @@
 		NSLog(@"%@", NSStringFromClass([profileManager.domain class]));
 		[[sidePanelController selectedViewController] presentModalViewController:[sidePanelController.storyboard instantiateViewControllerWithIdentifier:@"loginViewController"] animated:NO];
 	}
+	 */
 	
     return YES;
 }
