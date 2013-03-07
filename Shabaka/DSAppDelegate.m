@@ -25,6 +25,7 @@
     
     NSDictionary *appViewControllers = [NSDictionary dictionaryWithObjectsAndKeys:
                                         [sidePanelController.storyboard instantiateViewControllerWithIdentifier:@"mapNavigationController"], @"map",
+										[sidePanelController.storyboard instantiateViewControllerWithIdentifier:@"loginViewController"], @"login",
                                         nil];
     
     [sidePanelController setViewControllers:appViewControllers whereSelectedIs:@"map"];

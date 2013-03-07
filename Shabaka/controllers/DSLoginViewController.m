@@ -10,11 +10,13 @@
 
 @interface DSLoginViewController ()
 {
-	DSDataAdapter *dataAdapter;
+	
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
+@property (weak, nonatomic) IBOutlet UIButton *connectButton;
+@property (weak, nonatomic) IBOutlet UIButton *fbSignupButton;
 
 @end
 
@@ -25,7 +27,7 @@
 	self = [super initWithCoder:aDecoder];
 	if(self)
 	{
-		dataAdapter = [[DSDataAdapter alloc] init];
+		
 	}
 	return self;
 }
@@ -33,7 +35,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	
+	[self.fbSignupButton setBackgroundImage:[[self.fbSignupButton backgroundImageForState:UIControlStateNormal] resizableImageWithCapInsets:UIEdgeInsetsMake(7, 6, 40, 6)] forState:UIControlStateNormal];
+	[self.connectButton setBackgroundImage:[[self.connectButton backgroundImageForState:UIControlStateNormal] resizableImageWithCapInsets:UIEdgeInsetsMake(7, 6, 40, 6)] forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning
@@ -88,6 +92,8 @@
 {
 	[self setUsernameField:nil];
 	[self setPasswordField:nil];
+	[self setConnectButton:nil];
+	[self setFbSignupButton:nil];
 	[super viewDidUnload];
 }
 @end
