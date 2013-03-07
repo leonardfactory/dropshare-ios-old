@@ -40,7 +40,24 @@
 		completeBlock(createdObject);
 		
 	} onError:failBlock];
-	
+}
+
+- (id) findOrCreate:(NSString *) identifier onModel:(NSString *) entityName
+{
+	assert(identifier);
+	assert(entityName);
+	NSFetchRequest *request = [[NSFetchRequest alloc] init];
+	[request setEntity:[NSEntityDescription entityForName:entityName inManagedObjectContext:_managedObjectContext]];
+	[request setPredicate:[NSPredicate predicateWithFormat: @"identifier = %@", identifier]];
+	NSArray *result = [_managedObjectContext executeFetchRequest:request error:nil];
+	for (id object in result)
+	{
+		return object;
+	}
+	id createdObject = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:_managedObjectContext];
+	[createdObject setIdentifier:identifier];
+	[self save];
+	return createdObject;
 }
 
 - (void) remove:(id) object

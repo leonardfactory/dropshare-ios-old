@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		136F564C16E8EDB9009E5203 /* DSDataAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F564116E8EDB9009E5203 /* DSDataAdapter.m */; };
+		136F564D16E8EDB9009E5203 /* DSEntityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F564316E8EDB9009E5203 /* DSEntityManager.m */; };
+		136F565016E8EDB9009E5203 /* DSProfileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F564916E8EDB9009E5203 /* DSProfileManager.m */; };
+		136F565116E8EDB9009E5203 /* DSWebApiAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F564B16E8EDB9009E5203 /* DSWebApiAdapter.m */; };
+		136F566D16E8F49F009E5203 /* Drop.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F566C16E8F49F009E5203 /* Drop.m */; };
+		136F567016E8F49F009E5203 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F566F16E8F49F009E5203 /* User.m */; };
+		136F567316E8F49F009E5203 /* ProfileDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F567216E8F49F009E5203 /* ProfileDomain.m */; };
 		138800AD16E6263F00716368 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1388009B16E6263F00716368 /* AFHTTPClient.m */; };
 		138800AE16E6263F00716368 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1388009D16E6263F00716368 /* AFHTTPRequestOperation.m */; };
 		138800AF16E6263F00716368 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1388009F16E6263F00716368 /* AFImageRequestOperation.m */; };
@@ -19,11 +26,6 @@
 		138800B916E627C600716368 /* DSJournalSimpleDropCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 138800B816E627C600716368 /* DSJournalSimpleDropCell.m */; };
 		138800BC16E627D100716368 /* DSDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 138800BB16E627D100716368 /* DSDiscoverViewController.m */; };
 		138800C016E6288300716368 /* Shabaka.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 138800BE16E6288300716368 /* Shabaka.xcdatamodeld */; };
-		138800C316E6290300716368 /* DSDataAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 138800C216E6290300716368 /* DSDataAdapter.m */; };
-		138800C616E62A1F00716368 /* JournalDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 138800C516E62A1F00716368 /* JournalDomain.m */; };
-		138800C916E62A2000716368 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 138800C816E62A2000716368 /* User.m */; };
-		138800CC16E62A2000716368 /* Drop.m in Sources */ = {isa = PBXBuildFile; fileRef = 138800CB16E62A2000716368 /* Drop.m */; };
-		138800CF16E62A2000716368 /* NewDropDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 138800CE16E62A2000716368 /* NewDropDomain.m */; };
 		138800D416E6436700716368 /* NSManagedObjectContext+blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 138800D316E6436700716368 /* NSManagedObjectContext+blocks.m */; };
 		13C4332816D8FC58001A43F9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13C4332716D8FC58001A43F9 /* UIKit.framework */; };
 		13C4332A16D8FC58001A43F9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13C4332916D8FC58001A43F9 /* Foundation.framework */; };
@@ -80,6 +82,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		136F564016E8EDB9009E5203 /* DSDataAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSDataAdapter.h; path = models/DSDataAdapter.h; sourceTree = "<group>"; };
+		136F564116E8EDB9009E5203 /* DSDataAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSDataAdapter.m; path = models/DSDataAdapter.m; sourceTree = "<group>"; };
+		136F564216E8EDB9009E5203 /* DSEntityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSEntityManager.h; path = models/DSEntityManager.h; sourceTree = "<group>"; };
+		136F564316E8EDB9009E5203 /* DSEntityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSEntityManager.m; path = models/DSEntityManager.m; sourceTree = "<group>"; };
+		136F564816E8EDB9009E5203 /* DSProfileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSProfileManager.h; path = models/DSProfileManager.h; sourceTree = "<group>"; };
+		136F564916E8EDB9009E5203 /* DSProfileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSProfileManager.m; path = models/DSProfileManager.m; sourceTree = "<group>"; };
+		136F564A16E8EDB9009E5203 /* DSWebApiAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSWebApiAdapter.h; path = models/DSWebApiAdapter.h; sourceTree = "<group>"; };
+		136F564B16E8EDB9009E5203 /* DSWebApiAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSWebApiAdapter.m; path = models/DSWebApiAdapter.m; sourceTree = "<group>"; };
+		136F566B16E8F49F009E5203 /* Drop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Drop.h; path = models/Drop.h; sourceTree = "<group>"; };
+		136F566C16E8F49F009E5203 /* Drop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Drop.m; path = models/Drop.m; sourceTree = "<group>"; };
+		136F566E16E8F49F009E5203 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = models/User.h; sourceTree = "<group>"; };
+		136F566F16E8F49F009E5203 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = models/User.m; sourceTree = "<group>"; };
+		136F567116E8F49F009E5203 /* ProfileDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileDomain.h; path = models/ProfileDomain.h; sourceTree = "<group>"; };
+		136F567216E8F49F009E5203 /* ProfileDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileDomain.m; path = models/ProfileDomain.m; sourceTree = "<group>"; };
 		1388009A16E6263F00716368 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPClient.h; path = lib/AFNetworking/AFHTTPClient.h; sourceTree = "<group>"; };
 		1388009B16E6263F00716368 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFHTTPClient.m; path = lib/AFNetworking/AFHTTPClient.m; sourceTree = "<group>"; };
 		1388009C16E6263F00716368 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperation.h; path = lib/AFNetworking/AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -104,16 +120,6 @@
 		138800BA16E627D100716368 /* DSDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSDiscoverViewController.h; path = controllers/DSDiscoverViewController.h; sourceTree = "<group>"; };
 		138800BB16E627D100716368 /* DSDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSDiscoverViewController.m; path = controllers/DSDiscoverViewController.m; sourceTree = "<group>"; };
 		138800BF16E6288300716368 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		138800C116E6290300716368 /* DSDataAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSDataAdapter.h; path = models/DSDataAdapter.h; sourceTree = "<group>"; };
-		138800C216E6290300716368 /* DSDataAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSDataAdapter.m; path = models/DSDataAdapter.m; sourceTree = "<group>"; };
-		138800C416E62A1F00716368 /* JournalDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JournalDomain.h; path = models/JournalDomain.h; sourceTree = "<group>"; };
-		138800C516E62A1F00716368 /* JournalDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JournalDomain.m; path = models/JournalDomain.m; sourceTree = "<group>"; };
-		138800C716E62A2000716368 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = models/User.h; sourceTree = "<group>"; };
-		138800C816E62A2000716368 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = models/User.m; sourceTree = "<group>"; };
-		138800CA16E62A2000716368 /* Drop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Drop.h; path = models/Drop.h; sourceTree = "<group>"; };
-		138800CB16E62A2000716368 /* Drop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Drop.m; path = models/Drop.m; sourceTree = "<group>"; };
-		138800CD16E62A2000716368 /* NewDropDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewDropDomain.h; path = models/NewDropDomain.h; sourceTree = "<group>"; };
-		138800CE16E62A2000716368 /* NewDropDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewDropDomain.m; path = models/NewDropDomain.m; sourceTree = "<group>"; };
 		138800D216E6436700716368 /* NSManagedObjectContext+blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObjectContext+blocks.h"; path = "lib/NSManagedObjectContext+blocks.h"; sourceTree = "<group>"; };
 		138800D316E6436700716368 /* NSManagedObjectContext+blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObjectContext+blocks.m"; path = "lib/NSManagedObjectContext+blocks.m"; sourceTree = "<group>"; };
 		13C4332416D8FC58001A43F9 /* Shabaka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shabaka.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,6 +206,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		136F565216E8EFB0009E5203 /* Auto Generated */ = {
+			isa = PBXGroup;
+			children = (
+				136F567116E8F49F009E5203 /* ProfileDomain.h */,
+				136F567216E8F49F009E5203 /* ProfileDomain.m */,
+				136F566E16E8F49F009E5203 /* User.h */,
+				136F566F16E8F49F009E5203 /* User.m */,
+				136F566B16E8F49F009E5203 /* Drop.h */,
+				136F566C16E8F49F009E5203 /* Drop.m */,
+			);
+			name = "Auto Generated";
+			sourceTree = "<group>";
+		};
+		136F565C16E8F063009E5203 /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				136F564016E8EDB9009E5203 /* DSDataAdapter.h */,
+				136F564116E8EDB9009E5203 /* DSDataAdapter.m */,
+				136F564A16E8EDB9009E5203 /* DSWebApiAdapter.h */,
+				136F564B16E8EDB9009E5203 /* DSWebApiAdapter.m */,
+			);
+			name = Adapter;
+			sourceTree = "<group>";
+		};
+		136F565D16E8F06F009E5203 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				136F564216E8EDB9009E5203 /* DSEntityManager.h */,
+				136F564316E8EDB9009E5203 /* DSEntityManager.m */,
+				136F564816E8EDB9009E5203 /* DSProfileManager.h */,
+				136F564916E8EDB9009E5203 /* DSProfileManager.m */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
 		138800B616E6264500716368 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,16 +270,9 @@
 		138800BD16E6287800716368 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				138800C116E6290300716368 /* DSDataAdapter.h */,
-				138800C216E6290300716368 /* DSDataAdapter.m */,
-				138800CD16E62A2000716368 /* NewDropDomain.h */,
-				138800CE16E62A2000716368 /* NewDropDomain.m */,
-				138800CA16E62A2000716368 /* Drop.h */,
-				138800CB16E62A2000716368 /* Drop.m */,
-				138800C716E62A2000716368 /* User.h */,
-				138800C816E62A2000716368 /* User.m */,
-				138800C416E62A1F00716368 /* JournalDomain.h */,
-				138800C516E62A1F00716368 /* JournalDomain.m */,
+				136F565D16E8F06F009E5203 /* Manager */,
+				136F565C16E8F063009E5203 /* Adapter */,
+				136F565216E8EFB0009E5203 /* Auto Generated */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -590,14 +624,16 @@
 				138800B916E627C600716368 /* DSJournalSimpleDropCell.m in Sources */,
 				138800BC16E627D100716368 /* DSDiscoverViewController.m in Sources */,
 				138800C016E6288300716368 /* Shabaka.xcdatamodeld in Sources */,
-				138800C316E6290300716368 /* DSDataAdapter.m in Sources */,
-				138800C616E62A1F00716368 /* JournalDomain.m in Sources */,
-				138800C916E62A2000716368 /* User.m in Sources */,
-				138800CC16E62A2000716368 /* Drop.m in Sources */,
-				138800CF16E62A2000716368 /* NewDropDomain.m in Sources */,
 				138800D416E6436700716368 /* NSManagedObjectContext+blocks.m in Sources */,
 				A793149816DF60920023B150 /* DSDiscoverTableViewController.m in Sources */,
 				A74EEFC616E8EBAF00371E7A /* SwipeView.m in Sources */,
+				136F564C16E8EDB9009E5203 /* DSDataAdapter.m in Sources */,
+				136F564D16E8EDB9009E5203 /* DSEntityManager.m in Sources */,
+				136F565016E8EDB9009E5203 /* DSProfileManager.m in Sources */,
+				136F565116E8EDB9009E5203 /* DSWebApiAdapter.m in Sources */,
+				136F566D16E8F49F009E5203 /* Drop.m in Sources */,
+				136F567016E8F49F009E5203 /* User.m in Sources */,
+				136F567316E8F49F009E5203 /* ProfileDomain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
