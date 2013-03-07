@@ -52,6 +52,7 @@
 		A781F2A016E8FC0B00C8F11C /* textFieldTopBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A781F29616E8FC0B00C8F11C /* textFieldTopBg.png */; };
 		A781F2A116E8FC0B00C8F11C /* textFieldTopBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A781F29716E8FC0B00C8F11C /* textFieldTopBg@2x.png */; };
 		A781F2A916E9028F00C8F11C /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A781F2A816E9028F00C8F11C /* SwipeView.m */; };
+		A781F2AD16E9077000C8F11C /* DSPaddedTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A781F2AC16E9077000C8F11C /* DSPaddedTextField.m */; };
 		A78DAD8416DBE2E300A21AD0 /* DSViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = A78DAD8316DBE2E300A21AD0 /* DSViewPager.m */; };
 		A78DAD8716DC352700A21AD0 /* DSViewPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A78DAD8616DC352700A21AD0 /* DSViewPageCell.m */; };
 		A793149816DF60920023B150 /* DSDiscoverTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A793149716DF60910023B150 /* DSDiscoverTableViewController.m */; };
@@ -156,6 +157,8 @@
 		A781F29716E8FC0B00C8F11C /* textFieldTopBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "textFieldTopBg@2x.png"; path = "images/login/textFieldTopBg@2x.png"; sourceTree = "<group>"; };
 		A781F2A716E9028F00C8F11C /* SwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeView.h; sourceTree = "<group>"; };
 		A781F2A816E9028F00C8F11C /* SwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeView.m; sourceTree = "<group>"; };
+		A781F2AB16E9077000C8F11C /* DSPaddedTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSPaddedTextField.h; path = controls/DSPaddedTextField.h; sourceTree = "<group>"; };
+		A781F2AC16E9077000C8F11C /* DSPaddedTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSPaddedTextField.m; path = controls/DSPaddedTextField.m; sourceTree = "<group>"; };
 		A78DAD8216DBE2E300A21AD0 /* DSViewPager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSViewPager.h; sourceTree = "<group>"; };
 		A78DAD8316DBE2E300A21AD0 /* DSViewPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSViewPager.m; sourceTree = "<group>"; };
 		A78DAD8516DC352700A21AD0 /* DSViewPageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSViewPageCell.h; sourceTree = "<group>"; };
@@ -432,9 +435,19 @@
 			path = lib/JDSwipeView;
 			sourceTree = "<group>";
 		};
+		A781F2AA16E9073C00C8F11C /* PaddedTextField */ = {
+			isa = PBXGroup;
+			children = (
+				A781F2AB16E9077000C8F11C /* DSPaddedTextField.h */,
+				A781F2AC16E9077000C8F11C /* DSPaddedTextField.m */,
+			);
+			name = PaddedTextField;
+			sourceTree = "<group>";
+		};
 		A78DAD8016DBE2A800A21AD0 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				A781F2AA16E9073C00C8F11C /* PaddedTextField */,
 				A78DAD8116DBE2AF00A21AD0 /* ViewPager */,
 			);
 			name = Controls;
@@ -660,6 +673,7 @@
 				A793149816DF60920023B150 /* DSDiscoverTableViewController.m in Sources */,
 				A751872716E80728009F4383 /* DSLoginViewController.m in Sources */,
 				A781F2A916E9028F00C8F11C /* SwipeView.m in Sources */,
+				A781F2AD16E9077000C8F11C /* DSPaddedTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
