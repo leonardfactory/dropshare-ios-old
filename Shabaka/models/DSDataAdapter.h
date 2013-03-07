@@ -7,11 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Drop.h"
-#import "User.h"
-#import "JournalDomain.h"
-#import "NewDropDomain.h"
 #import "NSManagedObjectContext+blocks.h"
+#import "User.h"
+#import "Drop.h"
+#import "ProfileDomain.h"
 
 @interface DSDataAdapter : NSObject
 
@@ -20,6 +19,7 @@
 - (void) findOrCreate:(NSString *) identifier onModel:(NSString *) entityName
 		   onComplete:(void (^)(id result)) completeBlock
 			  onError:(NSManagedObjectContextFetchFailBlock) failBlock;
+- (id) findOrCreate:(NSString *) identifier onModel:(NSString *) entityName;
 - (void) remove:(id) object;
 - (BOOL) save;
 
