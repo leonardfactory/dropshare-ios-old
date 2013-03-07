@@ -25,6 +25,7 @@
     
     NSDictionary *appViewControllers = [NSDictionary dictionaryWithObjectsAndKeys:
                                         [sidePanelController.storyboard instantiateViewControllerWithIdentifier:@"mapNavigationController"], @"map",
+										[sidePanelController.storyboard instantiateViewControllerWithIdentifier:@"loginViewController"], @"login",
                                         nil];
     
     [sidePanelController setViewControllers:appViewControllers whereSelectedIs:@"map"];
@@ -63,6 +64,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+	
 	// Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 

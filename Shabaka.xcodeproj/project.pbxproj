@@ -42,7 +42,18 @@
 		A723DFE316DA930900F51928 /* DSSidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429516D9028F00FEE4BE /* DSSidePanelController.m */; };
 		A723DFE416DA930900F51928 /* UIViewController+SidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429716D9028F00FEE4BE /* UIViewController+SidePanel.m */; };
 		A723DFE516DA930900F51928 /* DSLeftSidePanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A542AB16D90D7E00FEE4BE /* DSLeftSidePanelViewController.m */; };
-		A74EEFC616E8EBAF00371E7A /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A74EEFC516E8EBAF00371E7A /* SwipeView.m */; };
+		A751872716E80728009F4383 /* DSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A751872616E80728009F4383 /* DSLoginViewController.m */; };
+		A781F29816E8FC0B00C8F11C /* bgLogin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A781F28E16E8FC0B00C8F11C /* bgLogin.jpg */; };
+		A781F29916E8FC0B00C8F11C /* bgLogin@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A781F28F16E8FC0B00C8F11C /* bgLogin@2x.jpg */; };
+		A781F29A16E8FC0B00C8F11C /* connectButtonBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A781F29016E8FC0B00C8F11C /* connectButtonBg.png */; };
+		A781F29B16E8FC0B00C8F11C /* connectButtonBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A781F29116E8FC0B00C8F11C /* connectButtonBg@2x.png */; };
+		A781F29C16E8FC0B00C8F11C /* fbButtonBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A781F29216E8FC0B00C8F11C /* fbButtonBg.png */; };
+		A781F29D16E8FC0B00C8F11C /* fbButtonBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A781F29316E8FC0B00C8F11C /* fbButtonBg@2x.png */; };
+		A781F29E16E8FC0B00C8F11C /* textFieldBottomBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A781F29416E8FC0B00C8F11C /* textFieldBottomBg.png */; };
+		A781F29F16E8FC0B00C8F11C /* textFieldBottomBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A781F29516E8FC0B00C8F11C /* textFieldBottomBg@2x.png */; };
+		A781F2A016E8FC0B00C8F11C /* textFieldTopBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A781F29616E8FC0B00C8F11C /* textFieldTopBg.png */; };
+		A781F2A116E8FC0B00C8F11C /* textFieldTopBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A781F29716E8FC0B00C8F11C /* textFieldTopBg@2x.png */; };
+		A781F2A916E9028F00C8F11C /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A781F2A816E9028F00C8F11C /* SwipeView.m */; };
 		A78DAD8416DBE2E300A21AD0 /* DSViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = A78DAD8316DBE2E300A21AD0 /* DSViewPager.m */; };
 		A78DAD8716DC352700A21AD0 /* DSViewPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A78DAD8616DC352700A21AD0 /* DSViewPageCell.m */; };
 		A793149816DF60920023B150 /* DSDiscoverTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A793149716DF60910023B150 /* DSDiscoverTableViewController.m */; };
@@ -137,8 +148,20 @@
 		13C4333D16D8FC58001A43F9 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		13C4333F16D8FC58001A43F9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A70ABAA216DD59BC003AFA4B /* DSViewPageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSViewPageCell.xib; sourceTree = "<group>"; };
-		A74EEFC416E8EBAF00371E7A /* SwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeView.h; sourceTree = "<group>"; };
-		A74EEFC516E8EBAF00371E7A /* SwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeView.m; sourceTree = "<group>"; };
+		A751872516E80728009F4383 /* DSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSLoginViewController.h; path = controllers/DSLoginViewController.h; sourceTree = "<group>"; };
+		A751872616E80728009F4383 /* DSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSLoginViewController.m; path = controllers/DSLoginViewController.m; sourceTree = "<group>"; };
+		A781F28E16E8FC0B00C8F11C /* bgLogin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bgLogin.jpg; path = images/login/bgLogin.jpg; sourceTree = "<group>"; };
+		A781F28F16E8FC0B00C8F11C /* bgLogin@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "bgLogin@2x.jpg"; path = "images/login/bgLogin@2x.jpg"; sourceTree = "<group>"; };
+		A781F29016E8FC0B00C8F11C /* connectButtonBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = connectButtonBg.png; path = images/login/connectButtonBg.png; sourceTree = "<group>"; };
+		A781F29116E8FC0B00C8F11C /* connectButtonBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "connectButtonBg@2x.png"; path = "images/login/connectButtonBg@2x.png"; sourceTree = "<group>"; };
+		A781F29216E8FC0B00C8F11C /* fbButtonBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fbButtonBg.png; path = images/login/fbButtonBg.png; sourceTree = "<group>"; };
+		A781F29316E8FC0B00C8F11C /* fbButtonBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fbButtonBg@2x.png"; path = "images/login/fbButtonBg@2x.png"; sourceTree = "<group>"; };
+		A781F29416E8FC0B00C8F11C /* textFieldBottomBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = textFieldBottomBg.png; path = images/login/textFieldBottomBg.png; sourceTree = "<group>"; };
+		A781F29516E8FC0B00C8F11C /* textFieldBottomBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "textFieldBottomBg@2x.png"; path = "images/login/textFieldBottomBg@2x.png"; sourceTree = "<group>"; };
+		A781F29616E8FC0B00C8F11C /* textFieldTopBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = textFieldTopBg.png; path = images/login/textFieldTopBg.png; sourceTree = "<group>"; };
+		A781F29716E8FC0B00C8F11C /* textFieldTopBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "textFieldTopBg@2x.png"; path = "images/login/textFieldTopBg@2x.png"; sourceTree = "<group>"; };
+		A781F2A716E9028F00C8F11C /* SwipeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeView.h; sourceTree = "<group>"; };
+		A781F2A816E9028F00C8F11C /* SwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeView.m; sourceTree = "<group>"; };
 		A78DAD8216DBE2E300A21AD0 /* DSViewPager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSViewPager.h; sourceTree = "<group>"; };
 		A78DAD8316DBE2E300A21AD0 /* DSViewPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSViewPager.m; sourceTree = "<group>"; };
 		A78DAD8516DC352700A21AD0 /* DSViewPageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSViewPageCell.h; sourceTree = "<group>"; };
@@ -342,6 +365,7 @@
 		13C4334A16D8FD29001A43F9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A781F28D16E8FB3B00C8F11C /* login */,
 				A7A5423F16D8FF1200FEE4BE /* discover */,
 				A7A5424616D8FF1200FEE4BE /* general */,
 				A7A5424F16D8FF1200FEE4BE /* navigation */,
@@ -353,7 +377,7 @@
 		13C4334B16D8FD32001A43F9 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				A74EEFC316E8EBAF00371E7A /* JDSwipeView */,
+				A781F2A316E8FF8200C8F11C /* JDSwipeView */,
 				138800D216E6436700716368 /* NSManagedObjectContext+blocks.h */,
 				138800D316E6436700716368 /* NSManagedObjectContext+blocks.m */,
 				138800B616E6264500716368 /* AFNetworking */,
@@ -364,6 +388,7 @@
 		13C4334C16D8FD38001A43F9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A751872416E806F6009F4383 /* Login */,
 				A73EA25416DAC8FD00AFECE9 /* JournalDropCell */,
 				A723DFEA16DA93C800F51928 /* Discover */,
 				13C4334F16D8FE17001A43F9 /* SidePanel */,
@@ -405,11 +430,37 @@
 			name = JournalDropCell;
 			sourceTree = "<group>";
 		};
-		A74EEFC316E8EBAF00371E7A /* JDSwipeView */ = {
+		A751872416E806F6009F4383 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				A74EEFC416E8EBAF00371E7A /* SwipeView.h */,
-				A74EEFC516E8EBAF00371E7A /* SwipeView.m */,
+				A751872516E80728009F4383 /* DSLoginViewController.h */,
+				A751872616E80728009F4383 /* DSLoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		A781F28D16E8FB3B00C8F11C /* login */ = {
+			isa = PBXGroup;
+			children = (
+				A781F28E16E8FC0B00C8F11C /* bgLogin.jpg */,
+				A781F28F16E8FC0B00C8F11C /* bgLogin@2x.jpg */,
+				A781F29016E8FC0B00C8F11C /* connectButtonBg.png */,
+				A781F29116E8FC0B00C8F11C /* connectButtonBg@2x.png */,
+				A781F29216E8FC0B00C8F11C /* fbButtonBg.png */,
+				A781F29316E8FC0B00C8F11C /* fbButtonBg@2x.png */,
+				A781F29416E8FC0B00C8F11C /* textFieldBottomBg.png */,
+				A781F29516E8FC0B00C8F11C /* textFieldBottomBg@2x.png */,
+				A781F29616E8FC0B00C8F11C /* textFieldTopBg.png */,
+				A781F29716E8FC0B00C8F11C /* textFieldTopBg@2x.png */,
+			);
+			name = login;
+			sourceTree = "<group>";
+		};
+		A781F2A316E8FF8200C8F11C /* JDSwipeView */ = {
+			isa = PBXGroup;
+			children = (
+				A781F2A716E9028F00C8F11C /* SwipeView.h */,
+				A781F2A816E9028F00C8F11C /* SwipeView.m */,
 			);
 			name = JDSwipeView;
 			path = lib/JDSwipeView;
@@ -594,6 +645,16 @@
 				A7A5427E16D8FF1200FEE4BE /* smallBar@2x.png in Resources */,
 				A7A5428116D8FF9200FEE4BE /* MainStoryboard.storyboard in Resources */,
 				A70ABAA316DD59BC003AFA4B /* DSViewPageCell.xib in Resources */,
+				A781F29816E8FC0B00C8F11C /* bgLogin.jpg in Resources */,
+				A781F29916E8FC0B00C8F11C /* bgLogin@2x.jpg in Resources */,
+				A781F29A16E8FC0B00C8F11C /* connectButtonBg.png in Resources */,
+				A781F29B16E8FC0B00C8F11C /* connectButtonBg@2x.png in Resources */,
+				A781F29C16E8FC0B00C8F11C /* fbButtonBg.png in Resources */,
+				A781F29D16E8FC0B00C8F11C /* fbButtonBg@2x.png in Resources */,
+				A781F29E16E8FC0B00C8F11C /* textFieldBottomBg.png in Resources */,
+				A781F29F16E8FC0B00C8F11C /* textFieldBottomBg@2x.png in Resources */,
+				A781F2A016E8FC0B00C8F11C /* textFieldTopBg.png in Resources */,
+				A781F2A116E8FC0B00C8F11C /* textFieldTopBg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,6 +695,8 @@
 				136F566D16E8F49F009E5203 /* Drop.m in Sources */,
 				136F567016E8F49F009E5203 /* User.m in Sources */,
 				136F567316E8F49F009E5203 /* ProfileDomain.m in Sources */,
+				A751872716E80728009F4383 /* DSLoginViewController.m in Sources */,
+				A781F2A916E9028F00C8F11C /* SwipeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
