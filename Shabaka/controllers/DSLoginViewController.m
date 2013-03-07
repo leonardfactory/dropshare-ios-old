@@ -10,7 +10,7 @@
 
 @interface DSLoginViewController ()
 {
-	
+	DSProfileManager *profileManager;
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
@@ -27,7 +27,10 @@
 	self = [super initWithCoder:aDecoder];
 	if(self)
 	{
+		profileManager = [[DSProfileManager alloc] init];
 		
+		[profileManager.domain addObserver:self forKeyPath:@"user" options:NSKeyValueObservingOptionNew context:nil];
+		[profileManager.domain addObserver:self forKeyPath:@"error" options:NSKeyValueObservingOptionNew context:nil];
 	}
 	return self;
 }
@@ -52,6 +55,9 @@
 #pragma mark - Button Actions
 - (void) loginUser:(id) sender
 {
+	
+	[profileManager loginWithUsername:self.usernameField.text withPassword:self.passwordField.text];
+	
 	// make login with data adapter
 	void (^loginCompleted)(bool, User*) = ^(bool logged, User *user)
 	{
@@ -74,6 +80,23 @@
 	
 	// Test code
 	
+}
+
+- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+	if([keyPath isEqualToString:@"user"] && [object isKindOfClass:[ProfileDomain class]])
+	{
+		if([profileManager isLogged])
+		{
+			self.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+			[self dismissModalViewControllerAnimated:NO];
+		}
+	}
+	
+	if([keyPath isEqualToString:@"error"] && [object isKindOfClass:[ProfileDomain class]])
+	{
+		NSLog(@"error");
+	}
 }
 
 - (void) signUpWithFacebook:(id) sender

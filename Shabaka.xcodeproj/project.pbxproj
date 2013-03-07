@@ -7,13 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		136F564C16E8EDB9009E5203 /* DSDataAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F564116E8EDB9009E5203 /* DSDataAdapter.m */; };
-		136F564D16E8EDB9009E5203 /* DSEntityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F564316E8EDB9009E5203 /* DSEntityManager.m */; };
-		136F565016E8EDB9009E5203 /* DSProfileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F564916E8EDB9009E5203 /* DSProfileManager.m */; };
-		136F565116E8EDB9009E5203 /* DSWebApiAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F564B16E8EDB9009E5203 /* DSWebApiAdapter.m */; };
-		136F566D16E8F49F009E5203 /* Drop.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F566C16E8F49F009E5203 /* Drop.m */; };
-		136F567016E8F49F009E5203 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F566F16E8F49F009E5203 /* User.m */; };
-		136F567316E8F49F009E5203 /* ProfileDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F567216E8F49F009E5203 /* ProfileDomain.m */; };
 		138800AD16E6263F00716368 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1388009B16E6263F00716368 /* AFHTTPClient.m */; };
 		138800AE16E6263F00716368 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1388009D16E6263F00716368 /* AFHTTPRequestOperation.m */; };
 		138800AF16E6263F00716368 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1388009F16E6263F00716368 /* AFImageRequestOperation.m */; };
@@ -55,6 +48,13 @@
 		A781F2A116E8FC0B00C8F11C /* textFieldTopBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A781F29716E8FC0B00C8F11C /* textFieldTopBg@2x.png */; };
 		A781F2A916E9028F00C8F11C /* SwipeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A781F2A816E9028F00C8F11C /* SwipeView.m */; };
 		A781F2AD16E9077000C8F11C /* DSPaddedTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A781F2AC16E9077000C8F11C /* DSPaddedTextField.m */; };
+		A781F2B516E9185400C8F11C /* DSEntityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F564316E8EDB9009E5203 /* DSEntityManager.m */; };
+		A781F2B616E9185400C8F11C /* DSProfileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F564916E8EDB9009E5203 /* DSProfileManager.m */; };
+		A781F2B716E9185400C8F11C /* DSDataAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F564116E8EDB9009E5203 /* DSDataAdapter.m */; };
+		A781F2B816E9185400C8F11C /* DSWebApiAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F564B16E8EDB9009E5203 /* DSWebApiAdapter.m */; };
+		A781F2B916E9185400C8F11C /* ProfileDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F567216E8F49F009E5203 /* ProfileDomain.m */; };
+		A781F2BA16E9185400C8F11C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F566F16E8F49F009E5203 /* User.m */; };
+		A781F2BB16E9185500C8F11C /* Drop.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F566C16E8F49F009E5203 /* Drop.m */; };
 		A78DAD8416DBE2E300A21AD0 /* DSViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = A78DAD8316DBE2E300A21AD0 /* DSViewPager.m */; };
 		A78DAD8716DC352700A21AD0 /* DSViewPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A78DAD8616DC352700A21AD0 /* DSViewPageCell.m */; };
 		A793149816DF60920023B150 /* DSDiscoverTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A793149716DF60910023B150 /* DSDiscoverTableViewController.m */; };
@@ -678,6 +678,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A781F2B516E9185400C8F11C /* DSEntityManager.m in Sources */,
+				A781F2B616E9185400C8F11C /* DSProfileManager.m in Sources */,
+				A781F2B716E9185400C8F11C /* DSDataAdapter.m in Sources */,
+				A781F2B816E9185400C8F11C /* DSWebApiAdapter.m in Sources */,
+				A781F2B916E9185400C8F11C /* ProfileDomain.m in Sources */,
+				A781F2BA16E9185400C8F11C /* User.m in Sources */,
+				A781F2BB16E9185500C8F11C /* Drop.m in Sources */,
 				A723DFE216DA930900F51928 /* JASidePanelController.m in Sources */,
 				A723DFE316DA930900F51928 /* DSSidePanelController.m in Sources */,
 				A723DFE416DA930900F51928 /* UIViewController+SidePanel.m in Sources */,

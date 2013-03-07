@@ -8,6 +8,14 @@
 
 #import "DSAppDelegate.h"
 #import "DSSidePanelController.h"
+#import "DSProfileManager.h"
+
+@interface DSAppDelegate ()
+{
+	DSProfileManager *profileManager;
+}
+
+@end
 
 @implementation DSAppDelegate
 
@@ -29,6 +37,15 @@
                                         nil];
     
     [sidePanelController setViewControllers:appViewControllers whereSelectedIs:@"map"];
+	
+	//LoginViewController
+	profileManager = [[DSProfileManager alloc] init];
+	if(![profileManager isLogged])
+	{
+		NSLog(@"User is logged.");
+		NSLog(@"%@", NSStringFromClass([profileManager.domain class]));
+		[[sidePanelController selectedViewController] presentModalViewController:[sidePanelController.storyboard instantiateViewControllerWithIdentifier:@"loginViewController"] animated:NO];
+	}
 	
     return YES;
 }

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DSDataAdapter.h"
+#import "DSProfileManager.h"
 
 @interface DSLoginViewController : UIViewController
 
