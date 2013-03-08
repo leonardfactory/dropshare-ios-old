@@ -58,6 +58,14 @@
 		[userLogged setName:[jsonFromData objectForKey:@"name"]];
 		[userLogged setSurname:[jsonFromData objectForKey:@"surname"]];
 		[userLogged setUsername:[jsonFromData objectForKey:@"username"]];
+		
+		NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+		[dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss"];
+		[dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+		
+		NSDate *myDate = [dateFormatter dateFromString:[[jsonFromData objectForKey:@"createdOn"] substringToIndex:19]];
+		
+		[userLogged setCreatedOn:myDate];
 		self.isJustLogged = TRUE;
 		[(ProfileDomain *)super.domain setUser:userLogged];
 		[super.dataAdapter save];
