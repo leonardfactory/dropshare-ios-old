@@ -52,7 +52,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
     [textField resignFirstResponder];
     return NO;
 }
@@ -105,7 +106,7 @@
 	{
 		if ([(ProfileDomain *)[profileManager domain] error])
 		{
-			NSLog([(ProfileDomain *)[profileManager domain] error]);
+			NSLog(@"%@", [(ProfileDomain *)[profileManager domain] error]);
 			[(ProfileDomain *)[profileManager domain] setError:nil];
 			[profileManager.dataAdapter save];
 		}
