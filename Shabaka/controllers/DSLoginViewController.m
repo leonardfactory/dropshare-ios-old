@@ -36,9 +36,8 @@
 {
     [super viewDidLoad];
 	
-	// keyboard stackoverflow/lazy way
-	self.usernameField.delegate = self;
-	self.passwordField.delegate = self;
+	self.usernameField.delegate = (id)self;
+	self.passwordField.delegate = (id)self;
 	
 	[self.fbSignupButton setBackgroundImage:[[self.fbSignupButton backgroundImageForState:UIControlStateNormal] resizableImageWithCapInsets:UIEdgeInsetsMake(7, 6, 40, 6)] forState:UIControlStateNormal];
 	[self.connectButton setBackgroundImage:[[self.connectButton backgroundImageForState:UIControlStateNormal] resizableImageWithCapInsets:UIEdgeInsetsMake(7, 6, 40, 6)] forState:UIControlStateNormal];
@@ -61,7 +60,7 @@
 
 #pragma mark - Button Actions
 - (void) loginUser:(id) sender
-{	
+{
 	[profileManager loginWithUsername:self.usernameField.text withPassword:self.passwordField.text];
 	
 	/*
@@ -91,19 +90,25 @@
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-	if([keyPath isEqualToString:@"user"] && [object isKindOfClass:[ProfileDomain class]])
+	if([keyPath isEqualToString:@"user"] && [object isEqual:profileManager.domain])
 	{
-		if([profileManager isLogged])
+		if([profileManager isJustLogged])
 		{
+			profileManager.isJustLogged = FALSE;
 			NSLog(@"%@",[(ProfileDomain *)profileManager.domain user]);
 			self.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
 			[self dismissModalViewControllerAnimated:NO];
 		}
 	}
 	
-	if([keyPath isEqualToString:@"error"] && [object isKindOfClass:[ProfileDomain class]])
+	if([keyPath isEqualToString:@"error"] && [object isEqual:profileManager.domain])
 	{
-		NSLog(@"error");
+		if ([(ProfileDomain *)[profileManager domain] error])
+		{
+			NSLog([(ProfileDomain *)[profileManager domain] error]);
+			[(ProfileDomain *)[profileManager domain] setError:nil];
+			[profileManager.dataAdapter save];
+		}
 	}
 }
 

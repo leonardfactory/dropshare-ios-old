@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AFHTTPClient.h"
+#import "AFJSONRequestOperation.h"
 
 @interface DSWebApiAdapter : NSObject
 

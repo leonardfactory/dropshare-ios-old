@@ -10,6 +10,8 @@
 
 @interface DSProfileManager : DSEntityManager
 
+@property BOOL isJustLogged;
+
 - (BOOL) isLogged;
 
 - (void) loginWithUsername:(NSString *) username withPassword:(NSString *) password;

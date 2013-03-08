@@ -39,15 +39,22 @@
     [sidePanelController setViewControllers:appViewControllers whereSelectedIs:@"map"];
 	
 	//LoginViewController
-	/*
+	
 	profileManager = [[DSProfileManager alloc] init];
-	if(![profileManager isLogged])
+	if([profileManager isLogged])
 	{
 		NSLog(@"User is logged.");
-		NSLog(@"%@", NSStringFromClass([profileManager.domain class]));
+		
+		//[profileManager logout];
+		if(![profileManager isLogged])
+		{
+			NSLog(@"User is no more logged.");
+		}
+		/*NSLog(@"%@", NSStringFromClass([profileManager.domain class]));
 		[[sidePanelController selectedViewController] presentModalViewController:[sidePanelController.storyboard instantiateViewControllerWithIdentifier:@"loginViewController"] animated:NO];
+		 */
 	}
-	 */
+	
 	
     return YES;
 }

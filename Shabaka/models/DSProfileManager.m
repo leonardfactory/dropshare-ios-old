@@ -17,6 +17,7 @@
 	{
 		[super setDomain:[[super dataAdapter] findOrCreate:@"profile" onModel:@"ProfileDomain"]];
 	}
+	self.isJustLogged = FALSE;
 	[super setWebApiAdapter: [[DSWebApiAdapter alloc] initWithBaseUrl:@"https://francescoinfante.it"]];
 	return self;
 }
@@ -50,19 +51,29 @@
 {
 	NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:username, @"username", password, @"password", nil];
 	[super.webApiAdapter postPath:@"/login" parameters:body success:^(AFHTTPRequestOperation *operation, id responseObject) {
-		[self.domain willChangeValueForKey:@"user"];
 		NSDictionary *jsonFromData = (NSDictionary *)[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
 		
-		NSString *identifier = [(NSDictionary *)jsonFromData objectForKey:@"id"];
+		NSString *identifier = [jsonFromData objectForKey:@"id"];
 		User *userLogged = [super.dataAdapter findOrCreate:identifier onModel:@"User"];
-		[userLogged setName:[(NSDictionary *)jsonFromData objectForKey:@"name"]];
-		[userLogged setSurname:[(NSDictionary *)jsonFromData objectForKey:@"surname"]];
-		[userLogged setUsername:[(NSDictionary *)jsonFromData objectForKey:@"username"]];
+		[userLogged setName:[jsonFromData objectForKey:@"name"]];
+		[userLogged setSurname:[jsonFromData objectForKey:@"surname"]];
+		[userLogged setUsername:[jsonFromData objectForKey:@"username"]];
+		self.isJustLogged = TRUE;
 		[(ProfileDomain *)super.domain setUser:userLogged];
 		[super.dataAdapter save];
-		[self.domain didChangeValueForKey:@"user"];
 	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-		NSLog(@"%@",error);
+		
+		NSError *errorJson = nil;
+		NSDictionary *jsonFromData = [NSJSONSerialization JSONObjectWithData:operation.responseData options:NSJSONReadingMutableContainers error:&errorJson];
+		if (!errorJson)
+		{
+			[(ProfileDomain *)super.domain setError:[jsonFromData objectForKey:@"error"]];
+		}
+		else
+		{
+			[(ProfileDomain *)super.domain setError:[NSString stringWithFormat:@"%@",operation.responseString]];
+		}
+		[super.dataAdapter save];
 	}];
 }
 
