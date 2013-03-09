@@ -147,7 +147,8 @@
 #pragma  mark Network Actions
 - (void) loginUser:(id) sender
 {
-	[profileManager loginWithUsername:self.usernameField.text withPassword:self.passwordField.text];
+	[self.delegate dismissLoginViewController]; // @todo remove
+	//[profileManager loginWithUsername:self.usernameField.text withPassword:self.passwordField.text];
 }
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context

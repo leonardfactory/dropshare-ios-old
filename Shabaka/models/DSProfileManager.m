@@ -72,14 +72,21 @@
 	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 		
 		NSError *errorJson = nil;
-		NSDictionary *jsonFromData = [NSJSONSerialization JSONObjectWithData:operation.responseData options:NSJSONReadingMutableContainers error:&errorJson];
-		if (!errorJson)
+		if(operation.responseData)
 		{
-			[(ProfileDomain *)super.domain setError:[jsonFromData objectForKey:@"error"]];
+			NSDictionary *jsonFromData = [NSJSONSerialization JSONObjectWithData:operation.responseData options:NSJSONReadingMutableContainers error:&errorJson];
+			if (!errorJson)
+			{
+				[(ProfileDomain *)super.domain setError:[jsonFromData objectForKey:@"error"]];
+			}
+			else
+			{
+				[(ProfileDomain *)super.domain setError:[NSString stringWithFormat:@"%@",operation.responseString]];
+			}
 		}
 		else
 		{
-			[(ProfileDomain *)super.domain setError:[NSString stringWithFormat:@"%@",operation.responseString]];
+			[(ProfileDomain *)super.domain setError:[error localizedDescription]];
 		}
 		[super.dataAdapter save];
 	}];
