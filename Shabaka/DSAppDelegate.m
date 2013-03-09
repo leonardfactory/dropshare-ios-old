@@ -33,6 +33,7 @@
     
     NSDictionary *appViewControllers = [NSDictionary dictionaryWithObjectsAndKeys:
                                         [sidePanelController.storyboard instantiateViewControllerWithIdentifier:@"mapNavigationController"], @"map",
+										[sidePanelController.storyboard instantiateViewControllerWithIdentifier:@"journalNavigationController"], @"journal",
 										nil];
     
     [sidePanelController setViewControllers:appViewControllers whereSelectedIs:@"map"];
@@ -41,10 +42,10 @@
 	
 	profileManager = [[DSProfileManager alloc] init];
 	
-	if([profileManager isLogged])
+	/*if([profileManager isLogged])
 	{
 		[profileManager logout];
-	}
+	}*/
 	
 	if(![profileManager isLogged])
 	{

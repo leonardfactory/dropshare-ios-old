@@ -36,6 +36,7 @@
 		A723DFE416DA930900F51928 /* UIViewController+SidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429716D9028F00FEE4BE /* UIViewController+SidePanel.m */; };
 		A723DFE516DA930900F51928 /* DSLeftSidePanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A542AB16D90D7E00FEE4BE /* DSLeftSidePanelViewController.m */; };
 		A751872716E80728009F4383 /* DSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A751872616E80728009F4383 /* DSLoginViewController.m */; };
+		A754A2D616EB4DA000A719B3 /* DSJournalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A754A2D516EB4DA000A719B3 /* DSJournalTableViewController.m */; };
 		A781F29816E8FC0B00C8F11C /* bgLogin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A781F28E16E8FC0B00C8F11C /* bgLogin.jpg */; };
 		A781F29916E8FC0B00C8F11C /* bgLogin@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A781F28F16E8FC0B00C8F11C /* bgLogin@2x.jpg */; };
 		A781F29A16E8FC0B00C8F11C /* connectButtonBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A781F29016E8FC0B00C8F11C /* connectButtonBg.png */; };
@@ -91,6 +92,13 @@
 		A7A5428116D8FF9200FEE4BE /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7A5428016D8FF9200FEE4BE /* MainStoryboard.storyboard */; };
 		A7A542A816D907ED00FEE4BE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A542A716D907ED00FEE4BE /* QuartzCore.framework */; };
 		A7A542AE16D90FEB00FEE4BE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A542AD16D90FEB00FEE4BE /* MapKit.framework */; };
+		A7D4365B16EBA420006807EB /* DSJournalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7D4365A16EBA420006807EB /* DSJournalCell.xib */; };
+		A7D4365F16EBA44F006807EB /* DSJournalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D4365E16EBA44F006807EB /* DSJournalCell.m */; };
+		A7D4366316EBC684006807EB /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = A7D4366116EBC684006807EB /* avatar.png */; };
+		A7D4366416EBC684006807EB /* profile.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A7D4366216EBC684006807EB /* profile.jpeg */; };
+		A7D4366C16EBC6A0006807EB /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D4366716EBC6A0006807EB /* UIImage+Alpha.m */; };
+		A7D4366D16EBC6A0006807EB /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D4366916EBC6A0006807EB /* UIImage+Resize.m */; };
+		A7D4366E16EBC6A0006807EB /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D4366B16EBC6A0006807EB /* UIImage+RoundedCorner.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -151,6 +159,8 @@
 		A70ABAA216DD59BC003AFA4B /* DSViewPageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSViewPageCell.xib; sourceTree = "<group>"; };
 		A751872516E80728009F4383 /* DSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSLoginViewController.h; path = controllers/DSLoginViewController.h; sourceTree = "<group>"; };
 		A751872616E80728009F4383 /* DSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSLoginViewController.m; path = controllers/DSLoginViewController.m; sourceTree = "<group>"; };
+		A754A2D416EB4DA000A719B3 /* DSJournalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSJournalTableViewController.h; path = controllers/DSJournalTableViewController.h; sourceTree = "<group>"; };
+		A754A2D516EB4DA000A719B3 /* DSJournalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSJournalTableViewController.m; path = controllers/DSJournalTableViewController.m; sourceTree = "<group>"; };
 		A781F28E16E8FC0B00C8F11C /* bgLogin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bgLogin.jpg; path = images/login/bgLogin.jpg; sourceTree = "<group>"; };
 		A781F28F16E8FC0B00C8F11C /* bgLogin@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "bgLogin@2x.jpg"; path = "images/login/bgLogin@2x.jpg"; sourceTree = "<group>"; };
 		A781F29016E8FC0B00C8F11C /* connectButtonBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = connectButtonBg.png; path = images/login/connectButtonBg.png; sourceTree = "<group>"; };
@@ -213,6 +223,17 @@
 		A7A542AA16D90D7E00FEE4BE /* DSLeftSidePanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSLeftSidePanelViewController.h; path = controllers/DSLeftSidePanelViewController.h; sourceTree = "<group>"; };
 		A7A542AB16D90D7E00FEE4BE /* DSLeftSidePanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSLeftSidePanelViewController.m; path = controllers/DSLeftSidePanelViewController.m; sourceTree = "<group>"; };
 		A7A542AD16D90FEB00FEE4BE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A7D4365A16EBA420006807EB /* DSJournalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DSJournalCell.xib; path = controls/DSJournalCell.xib; sourceTree = "<group>"; };
+		A7D4365D16EBA44F006807EB /* DSJournalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSJournalCell.h; path = controls/DSJournalCell.h; sourceTree = "<group>"; };
+		A7D4365E16EBA44F006807EB /* DSJournalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSJournalCell.m; path = controls/DSJournalCell.m; sourceTree = "<group>"; };
+		A7D4366116EBC684006807EB /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = avatar.png; path = images/test/avatar.png; sourceTree = "<group>"; };
+		A7D4366216EBC684006807EB /* profile.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = profile.jpeg; path = images/test/profile.jpeg; sourceTree = "<group>"; };
+		A7D4366616EBC6A0006807EB /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Alpha.h"; path = "lib/UIImage+Resize/UIImage+Alpha.h"; sourceTree = "<group>"; };
+		A7D4366716EBC6A0006807EB /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Alpha.m"; path = "lib/UIImage+Resize/UIImage+Alpha.m"; sourceTree = "<group>"; };
+		A7D4366816EBC6A0006807EB /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Resize.h"; path = "lib/UIImage+Resize/UIImage+Resize.h"; sourceTree = "<group>"; };
+		A7D4366916EBC6A0006807EB /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "lib/UIImage+Resize/UIImage+Resize.m"; sourceTree = "<group>"; };
+		A7D4366A16EBC6A0006807EB /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+RoundedCorner.h"; path = "lib/UIImage+Resize/UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
+		A7D4366B16EBC6A0006807EB /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+RoundedCorner.m"; path = "lib/UIImage+Resize/UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -368,6 +389,7 @@
 		13C4334A16D8FD29001A43F9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A7D4366016EBC678006807EB /* test */,
 				A781F28D16E8FB3B00C8F11C /* login */,
 				A7A5423F16D8FF1200FEE4BE /* discover */,
 				A7A5424616D8FF1200FEE4BE /* general */,
@@ -380,6 +402,7 @@
 		13C4334B16D8FD32001A43F9 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				A7D4366516EBC690006807EB /* UIImage+Resize */,
 				A781F2A316E8FF8200C8F11C /* JDSwipeView */,
 				138800D216E6436700716368 /* NSManagedObjectContext+blocks.h */,
 				138800D316E6436700716368 /* NSManagedObjectContext+blocks.m */,
@@ -391,6 +414,7 @@
 		13C4334C16D8FD38001A43F9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A754A2D316EB4D7F00A719B3 /* Journal */,
 				A751872416E806F6009F4383 /* Login */,
 				A73EA25416DAC8FD00AFECE9 /* JournalDropCell */,
 				A723DFEA16DA93C800F51928 /* Discover */,
@@ -442,6 +466,15 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		A754A2D316EB4D7F00A719B3 /* Journal */ = {
+			isa = PBXGroup;
+			children = (
+				A754A2D416EB4DA000A719B3 /* DSJournalTableViewController.h */,
+				A754A2D516EB4DA000A719B3 /* DSJournalTableViewController.m */,
+			);
+			name = Journal;
+			sourceTree = "<group>";
+		};
 		A781F28D16E8FB3B00C8F11C /* login */ = {
 			isa = PBXGroup;
 			children = (
@@ -481,6 +514,7 @@
 		A78DAD8016DBE2A800A21AD0 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				A7D4365C16EBA42A006807EB /* JournalCell */,
 				A781F2AA16E9073C00C8F11C /* PaddedTextField */,
 				A78DAD8116DBE2AF00A21AD0 /* ViewPager */,
 			);
@@ -568,6 +602,38 @@
 				A7A542AB16D90D7E00FEE4BE /* DSLeftSidePanelViewController.m */,
 			);
 			name = LeftSidePanel;
+			sourceTree = "<group>";
+		};
+		A7D4365C16EBA42A006807EB /* JournalCell */ = {
+			isa = PBXGroup;
+			children = (
+				A7D4365A16EBA420006807EB /* DSJournalCell.xib */,
+				A7D4365D16EBA44F006807EB /* DSJournalCell.h */,
+				A7D4365E16EBA44F006807EB /* DSJournalCell.m */,
+			);
+			name = JournalCell;
+			sourceTree = "<group>";
+		};
+		A7D4366016EBC678006807EB /* test */ = {
+			isa = PBXGroup;
+			children = (
+				A7D4366116EBC684006807EB /* avatar.png */,
+				A7D4366216EBC684006807EB /* profile.jpeg */,
+			);
+			name = test;
+			sourceTree = "<group>";
+		};
+		A7D4366516EBC690006807EB /* UIImage+Resize */ = {
+			isa = PBXGroup;
+			children = (
+				A7D4366616EBC6A0006807EB /* UIImage+Alpha.h */,
+				A7D4366716EBC6A0006807EB /* UIImage+Alpha.m */,
+				A7D4366816EBC6A0006807EB /* UIImage+Resize.h */,
+				A7D4366916EBC6A0006807EB /* UIImage+Resize.m */,
+				A7D4366A16EBC6A0006807EB /* UIImage+RoundedCorner.h */,
+				A7D4366B16EBC6A0006807EB /* UIImage+RoundedCorner.m */,
+			);
+			name = "UIImage+Resize";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -668,6 +734,9 @@
 				A781F29F16E8FC0B00C8F11C /* textFieldBottomBg@2x.png in Resources */,
 				A781F2A016E8FC0B00C8F11C /* textFieldTopBg.png in Resources */,
 				A781F2A116E8FC0B00C8F11C /* textFieldTopBg@2x.png in Resources */,
+				A7D4365B16EBA420006807EB /* DSJournalCell.xib in Resources */,
+				A7D4366316EBC684006807EB /* avatar.png in Resources */,
+				A7D4366416EBC684006807EB /* profile.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,6 +779,11 @@
 				A751872716E80728009F4383 /* DSLoginViewController.m in Sources */,
 				A781F2A916E9028F00C8F11C /* SwipeView.m in Sources */,
 				A781F2AD16E9077000C8F11C /* DSPaddedTextField.m in Sources */,
+				A754A2D616EB4DA000A719B3 /* DSJournalTableViewController.m in Sources */,
+				A7D4365F16EBA44F006807EB /* DSJournalCell.m in Sources */,
+				A7D4366C16EBC6A0006807EB /* UIImage+Alpha.m in Sources */,
+				A7D4366D16EBC6A0006807EB /* UIImage+Resize.m in Sources */,
+				A7D4366E16EBC6A0006807EB /* UIImage+RoundedCorner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

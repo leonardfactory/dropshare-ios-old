@@ -14,6 +14,7 @@
 @interface DSLeftSidePanelViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *menuButtonDiscover;
+@property (weak, nonatomic) IBOutlet UIButton *menuButtonJournal;
 
 @end
 
@@ -28,6 +29,7 @@
 	// Codice per personalizzare l'onclick background
 	UIImage *menuButtonBgPressedPattern = [[UIImage imageNamed:@"menuButtonBgPressed"] resizableImageWithCapInsets:UIEdgeInsetsZero];
     [self.menuButtonDiscover setBackgroundImage:menuButtonBgPressedPattern forState:UIControlStateHighlighted];
+	[self.menuButtonJournal  setBackgroundImage:menuButtonBgPressedPattern forState:UIControlStateHighlighted];
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,6 +41,7 @@
 - (void)viewDidUnload
 {
 	[self setMenuButtonDiscover:nil];
+	[self setMenuButtonJournal:nil];
 	[super viewDidUnload];
 }
 
@@ -50,5 +53,10 @@
 - (IBAction)loginButtonTouched:(id)sender
 {
 	//[self.sidePanelController showViewController:@"login"];
+}
+
+- (IBAction)journalButtonTouched:(id)sender
+{
+	[self.sidePanelController showViewController:@"journal"];
 }
 @end
