@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3012" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="VLy-D2-q93">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="VLy-D2-q93">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -79,24 +79,30 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" minimumFontSize="17" background="textFieldTopBg.png" id="0Ql-mR-FKO" customClass="DSPaddedTextField">
-                                <rect key="frame" x="20" y="211" width="280" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" minimumFontSize="17" id="0Ql-mR-FKO" customClass="DSPaddedTextField">
+                                <rect key="frame" x="20" y="184" width="280" height="42"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="1Os-Wn-0dE" id="Epz-oc-x61"/>
+                                    <outlet property="nextField" destination="8gI-Cw-FYw" id="Zmb-XO-enc"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" background="textFieldBottomBg.png" id="8gI-Cw-FYw" customClass="DSPaddedTextField">
-                                <rect key="frame" x="20" y="238" width="280" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" clearsOnBeginEditing="YES" minimumFontSize="17" id="8gI-Cw-FYw" customClass="DSPaddedTextField">
+                                <rect key="frame" x="20" y="226" width="280" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="1Os-Wn-0dE" id="5ka-X5-Gwc"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="khf-TI-wv1">
-                                <rect key="frame" x="20" y="276" width="280" height="44"/>
+                                <rect key="frame" x="20" y="276" width="280" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <rect key="contentStretch" x="0.42857142857000002" y="0.14893617021" width="0.14285714285000001" height="0.14285714285000001"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Connect" backgroundImage="connectButtonBg.png">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Connect">
                                     <color key="titleColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -108,10 +114,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="B3D-3j-wFo">
-                                <rect key="frame" x="20" y="383" width="280" height="44"/>
+                                <rect key="frame" x="20" y="383" width="280" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Sign up with facebook" backgroundImage="fbButtonBg.png">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Sign up with facebook">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -333,15 +339,11 @@
     <resources>
         <image name="addDropButton.png" width="78" height="35"/>
         <image name="bgLogin.jpg" width="320" height="548"/>
-        <image name="connectButtonBg.png" width="14" height="47"/>
-        <image name="fbButtonBg.png" width="13" height="47"/>
         <image name="localizeMeButton.png" width="29" height="29"/>
         <image name="mainBgTile.png" width="17" height="17"/>
         <image name="menuButtonBg.png" width="1" height="44"/>
         <image name="separator.png" width="262" height="8"/>
         <image name="showJournalButton.png" width="29" height="29"/>
-        <image name="textFieldBottomBg.png" width="13" height="46"/>
-        <image name="textFieldTopBg.png" width="13" height="46"/>
     </resources>
     <classes>
         <class className="DSDiscoverTableViewController" superclassName="UITableViewController">
@@ -353,7 +355,6 @@
         <class className="DSDiscoverViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DSDiscoverViewController.h"/>
             <relationships>
-                <relationship kind="action" name="showJournalAction:"/>
                 <relationship kind="outlet" name="journalView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
                 <relationship kind="outlet" name="swipeView" candidateClass="SwipeView"/>
@@ -380,8 +381,6 @@
         <class className="DSLoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DSLoginViewController.h"/>
             <relationships>
-                <relationship kind="action" name="connectButtonPressed:"/>
-                <relationship kind="action" name="signupButtonPressed:"/>
                 <relationship kind="outlet" name="connectButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="fbSignupButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="passwordField" candidateClass="UITextField"/>
@@ -390,6 +389,9 @@
         </class>
         <class className="DSPaddedTextField" superclassName="UITextField">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DSPaddedTextField.h"/>
+            <relationships>
+                <relationship kind="outlet" name="nextField" candidateClass="UITextField"/>
+            </relationships>
         </class>
         <class className="DSSidePanelController" superclassName="JASidePanelController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DSSidePanelController.h"/>

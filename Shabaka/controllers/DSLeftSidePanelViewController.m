@@ -36,7 +36,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidUnload {
+- (void)viewDidUnload
+{
 	[self setMenuButtonDiscover:nil];
 	[super viewDidUnload];
 }
@@ -48,6 +49,6 @@
 
 - (IBAction)loginButtonTouched:(id)sender
 {
-	[self.sidePanelController showViewController:@"login"];
+	//[self.sidePanelController showViewController:@"login"];
 }
 @end

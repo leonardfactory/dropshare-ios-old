@@ -10,4 +10,6 @@
 
 @interface DSPaddedTextField : UITextField
 
+@property (nonatomic, weak) IBOutlet UITextField *nextField;
+
 @end

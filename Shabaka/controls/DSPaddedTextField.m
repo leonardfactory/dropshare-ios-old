@@ -10,6 +10,8 @@
 
 @implementation DSPaddedTextField
 
+@synthesize nextField;
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -21,12 +23,12 @@
 
 - (CGRect)textRectForBounds:(CGRect) bounds
 {
-	return CGRectInset(bounds, 5, 5);
+	return CGRectInset(bounds, 10, 5);
 }
 
 - (CGRect)editingRectForBounds:(CGRect) bounds
 {
-	return CGRectInset(bounds, 5, 5);
+	return CGRectInset(bounds, 10, 5);
 }
 
 /*

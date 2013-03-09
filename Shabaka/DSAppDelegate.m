@@ -33,30 +33,37 @@
     
     NSDictionary *appViewControllers = [NSDictionary dictionaryWithObjectsAndKeys:
                                         [sidePanelController.storyboard instantiateViewControllerWithIdentifier:@"mapNavigationController"], @"map",
-										[sidePanelController.storyboard instantiateViewControllerWithIdentifier:@"loginViewController"], @"login",
-                                        nil];
+										nil];
     
     [sidePanelController setViewControllers:appViewControllers whereSelectedIs:@"map"];
 	
 	//LoginViewController
 	
 	profileManager = [[DSProfileManager alloc] init];
+	
 	if([profileManager isLogged])
 	{
-		NSLog(@"User is logged.");
-		
-		//[profileManager logout];
-		if(![profileManager isLogged])
-		{
-			NSLog(@"User is no more logged.");
-		}
-		/*NSLog(@"%@", NSStringFromClass([profileManager.domain class]));
-		[[sidePanelController selectedViewController] presentModalViewController:[sidePanelController.storyboard instantiateViewControllerWithIdentifier:@"loginViewController"] animated:NO];
-		 */
+		[profileManager logout];
 	}
 	
+	if(![profileManager isLogged])
+	{
+		NSLog(@"User is not logged.");
+		NSLog(@"Class: %@", NSStringFromClass([profileManager.domain class]));
+		
+		DSLoginViewController *loginViewController = [sidePanelController.storyboard instantiateViewControllerWithIdentifier:@"loginViewController"];
+		[loginViewController setDelegate:self];
+		
+		[self.window makeKeyAndVisible];
+		[self.window.rootViewController presentModalViewController:loginViewController animated:NO];
+	}
 	
     return YES;
+}
+
+- (void) dismissLoginViewController
+{
+	[self.window.rootViewController dismissModalViewControllerAnimated:YES];
 }
 
 /**

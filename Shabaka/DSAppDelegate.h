@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "NSManagedObjectContext+blocks.h"
+#import "DSLoginViewController.h"
 
-@interface DSAppDelegate : UIResponder <UIApplicationDelegate>
+@interface DSAppDelegate : UIResponder <UIApplicationDelegate, DSLoginViewControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
