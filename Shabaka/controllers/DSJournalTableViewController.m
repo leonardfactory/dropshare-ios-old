@@ -7,10 +7,12 @@
 //
 
 #import "DSJournalTableViewController.h"
+#import "UIImage+Resize.h"
 
 @interface DSJournalTableViewController ()
 {
 	NSArray *cellData;
+	NSArray *textData;
 }
 
 @end
@@ -23,10 +25,22 @@
 	
 	cellData = [NSArray arrayWithObjects:@"Angelo", @"Beppe", @"Carlo", nil];
 	
+	textData = [NSArray arrayWithObjects:	@"Il pezzo di pizza pazzo mangiava la pazza pezza del pozzo, col pizzo pazzo.",
+											@"Trentatre trentini entrarono a Trento tutti e trentatre trottellando",
+											@"Nel mezzo del cammin di nostra vita mi ritrovai per una selva oscura, si che la diritta via era smarrita.",
+											nil];
+	
 	UINib* reusableJournalCellNib = [UINib nibWithNibName:@"DSJournalCell" bundle:nil];
 	[self.tableView registerNib:reusableJournalCellNib forCellReuseIdentifier:@"JournalCell"];
 
     self.clearsSelectionOnViewWillAppear = YES;
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+	[super viewDidAppear:animated];
+	
+	[self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,6 +59,13 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [cellData count];
+}
+
+- (float) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	float descriptionLabelHeight = [[textData objectAtIndex:[indexPath row]] sizeWithFont:[UIFont systemFontOfSize:16.0f] constrainedToSize:CGSizeMake(236.0, FLT_MAX) lineBreakMode:UILineBreakModeWordWrap].height;
+	NSLog(@"Calculated height: %f, Added: %f", descriptionLabelHeight, descriptionLabelHeight + 40.0);
+	return descriptionLabelHeight + 50.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -67,8 +88,13 @@
 	}
     
 	DSJournalCell *journalCell = (DSJournalCell *) cell;
-    
+	
 	journalCell.usernameLabel.text = [cellData objectAtIndex:[indexPath row]];
+	[journalCell setAvatarImage:[[UIImage imageNamed:@"avatar.png"] thumbnailImage:48 transparentBorder:0 cornerRadius:3 interpolationQuality:kCGInterpolationDefault]];
+	journalCell.descriptionLabel.text = [textData objectAtIndex:[indexPath row]];
+	[journalCell recalculateBackgroundSize];
+	
+	NSLog(@"JournalCell #%d, Calculated label frame size: %f, Background size: %f", [indexPath row], journalCell.descriptionLabel.frame.size.height, journalCell.mainBackgroundImageView.frame.size.height);
 	
     return cell;
 }

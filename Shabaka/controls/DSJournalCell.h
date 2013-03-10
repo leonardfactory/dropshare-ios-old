@@ -14,5 +14,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *mainBackgroundImageView;
+
+- (void) setAvatarImage:(UIImage *)image;
+- (void) recalculateBackgroundSize;
 
 @end
