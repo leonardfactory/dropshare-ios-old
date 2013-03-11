@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DSJournalCell.h"
 
-@interface DSImageJournalCell : UITableViewCell
+@interface DSImageJournalCell : DSJournalCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *pictureImageView;
+@property (strong, nonatomic) UIImageView *pictureImageView;
+
++ (CGFloat) heightForCellWithText:(NSString *)text;
+
+- (void) setPictureImage:(UIImage *)image;
 
 @end

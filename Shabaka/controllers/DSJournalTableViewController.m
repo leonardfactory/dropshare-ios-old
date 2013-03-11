@@ -8,6 +8,7 @@
 
 #import "DSJournalTableViewController.h"
 #import "UIImage+Resize.h"
+#import "UIImage+RoundedCorner.h"
 
 @interface DSJournalTableViewController ()
 {
@@ -19,6 +20,9 @@
 @end
 
 @implementation DSJournalTableViewController
+
+static NSString *JournalCellIdentifier		= @"JournalCell";
+static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 
 - (void)viewDidLoad
 {
@@ -36,8 +40,8 @@
 											@"frank.png",
 											nil];
 	
-	UINib* reusableJournalCellNib = [UINib nibWithNibName:@"DSJournalCell" bundle:nil];
-	[self.tableView registerNib:reusableJournalCellNib forCellReuseIdentifier:@"JournalCell"];
+//	UINib* reusableJournalCellNib = [UINib nibWithNibName:@"DSJournalCell" bundle:nil];
+//	[self.tableView registerNib:reusableJournalCellNib forCellReuseIdentifier:@"JournalCell"];
 
     self.clearsSelectionOnViewWillAppear = YES;
 }
@@ -68,31 +72,47 @@
 
 - (float) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	float descriptionLabelHeight = [[textData objectAtIndex:[indexPath row]] sizeWithFont:[UIFont systemFontOfSize:16.0f]
-																		constrainedToSize:CGSizeMake(236.0, FLT_MAX)
-																			lineBreakMode:UILineBreakModeWordWrap].height;
+	int index = [indexPath row];
+	if([imageData objectAtIndex:index] != [NSNull null])
+	{
+		return [DSImageJournalCell heightForCellWithText:[textData objectAtIndex:index]];
+	}
+	else
+	{
+		return [DSJournalCell heightForCellWithText:[textData objectAtIndex:index]];
+	}
+}
+
+/**
+ * Crea una tableViewCell in base all'identifier passato
+ */
+- (UITableViewCell *)tableViewCellWithIdentifier:(NSString *)identifier
+{
+	if([identifier isEqualToString:JournalCellIdentifier])
+	{
+		return [[DSJournalCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:JournalCellIdentifier];
+	}
 	
-//	NSLog(@"Calculated height: %f, Added: %f", descriptionLabelHeight, descriptionLabelHeight + 40.0);
-	return descriptionLabelHeight + 50.0;
+	if([identifier isEqualToString:ImageJournalCellIdentifier])
+	{
+		return [[DSImageJournalCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ImageJournalCellIdentifier];
+	}
+
+	return nil;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"JournalCell";
+{	
 	UITableViewCell *cell;
 	
-	if([tableView respondsToSelector:@selector(dequeueReusableCellWithIdentifier:forIndexPath:)])
-	{
-		cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    }
-	else
-	{// iOS 5 fix
-		cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-	}
+	// Scegliamo l'identifier in base al tipo di dati da mostrare
+	NSString *CellIdentifier = ([imageData objectAtIndex:[indexPath row]] != [NSNull null]) ? ImageJournalCellIdentifier : JournalCellIdentifier;
+
+	cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	
 	if(cell == nil)
-	{// Alloc della cell dal UINib registrato nell'init
-		cell = [[DSJournalCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+	{
+		cell = [self tableViewCellWithIdentifier:CellIdentifier];
 	}
     
 	// Cast forzato
@@ -106,13 +126,18 @@
 	[journalCell setAvatarImage:[[UIImage imageNamed:@"avatar.png"] thumbnailImage:48
 																 transparentBorder:0
 																	  cornerRadius:3
-															  interpolationQuality:kCGInterpolationDefault]];
+															  interpolationQuality:kCGInterpolationHigh]];
 	
 	// Test immagine del drop
-	if([imageData objectAtIndex:[indexPath row]] != [NSNull null])
+	if([cell isKindOfClass:[DSImageJournalCell class]])
 	{
-		UIImage *pictureImage = [UIImage imageNamed:[imageData objectAtIndex:[indexPath row]]];
-		UIImageView *pictureImageView = [[UIImageView alloc] initWithImage:pictureImage];
+		DSImageJournalCell *imageJournalCell = (DSImageJournalCell *) cell;
+		
+		UIImage *pictureImage	= [[UIImage imageNamed:[imageData objectAtIndex:[indexPath row]]] resizedImageWithContentMode:UIViewContentModeScaleAspectFit
+																													   bounds:CGSizeMake(292.0, 160.0)
+																										 interpolationQuality:kCGInterpolationHigh];
+		
+		[imageJournalCell setPictureImage:pictureImage];
 	}
 	
 	[journalCell recalculateSizes];

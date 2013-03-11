@@ -11,12 +11,15 @@
 
 @interface DSJournalCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
-@property (weak, nonatomic) IBOutlet UIImageView *mainBackgroundImageView;
+@property (strong, nonatomic) UILabel *usernameLabel;
+@property (strong, nonatomic) UILabel *descriptionLabel;
+@property (strong, nonatomic) UIImageView *avatarImageView;
+@property (strong, nonatomic) UIImageView *mainBackgroundImageView;
+
++ (CGFloat) heightForCellWithText:(NSString *)text;
 
 - (void) setAvatarImage:(UIImage *)image;
 - (void) recalculateSizes;
+- (void) shiftContent:(CGFloat)deltaY;
 
 @end
