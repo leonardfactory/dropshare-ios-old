@@ -13,6 +13,8 @@
 
 @interface DSJournalCell ()
 
+@property (strong, nonatomic) UIImageView *pictureImageView;
+
 @end
 
 @implementation DSJournalCell
@@ -32,28 +34,36 @@
     return self;
 }
 
-- (void) recalculateBackgroundSize
+- (void) recalculateSizes
 {
-	CGRect mainBackgroundImageFrame = self.mainBackgroundImageView.frame;
 	CGRect descriptionLabelFrame = self.descriptionLabel.frame;
 	
-	float descriptionLabelHeight = [self.descriptionLabel.text sizeWithFont:[UIFont systemFontOfSize:16.0f] constrainedToSize:CGSizeMake(236.0, FLT_MAX) lineBreakMode:UILineBreakModeWordWrap].height;
-	
-	
-	/*self.mainBackgroundImageView.frame = CGRectMake(mainBackgroundImageFrame.origin.x,
-													mainBackgroundImageFrame.origin.y,
-													mainBackgroundImageFrame.size.width,
-													descriptionLabelHeight + 50.0);*/
+	float descriptionLabelHeight = [self.descriptionLabel.text sizeWithFont:[UIFont systemFontOfSize:16.0f]
+														  constrainedToSize:CGSizeMake(236.0, FLT_MAX)
+															  lineBreakMode:UILineBreakModeWordWrap].height;
 	
 	self.descriptionLabel.frame = CGRectMake(descriptionLabelFrame.origin.x,
 											 descriptionLabelFrame.origin.y,
 											 descriptionLabelFrame.size.width,
 											 descriptionLabelHeight);
 	
-	NSLog(@"| [Current JournalCell: %@", self.usernameLabel.text);
-	NSLog(@"| mainBackground Frame %@", NSStringFromCGRect(self.mainBackgroundImageView.frame));
-	NSLog(@"| Main frame: %@ | Bounds: %@", NSStringFromCGRect(self.frame), NSStringFromCGRect(self.bounds));
-	NSLog(@"| Username label Frame: %@", NSStringFromCGRect(self.usernameLabel.frame));
+//	NSLog(@"| [Current JournalCell: %@",	self.usernameLabel.text);
+//	NSLog(@"| mainBackground Frame %@",		NSStringFromCGRect(self.mainBackgroundImageView.frame));
+//	NSLog(@"| Main frame: %@ | Bounds: %@", NSStringFromCGRect(self.frame), NSStringFromCGRect(self.bounds));
+//	NSLog(@"| Username label Frame: %@",	NSStringFromCGRect(self.usernameLabel.frame));
+}
+
+- (void) setPictureImage:(UIImage *)image
+{
+	if(!self.pictureImageView)
+	{
+		self.pictureImageView = [[UIImageView alloc] initWithImage:image];
+		//self.pictureImageView.frame =
+	}
+	else
+	{
+		[self.pictureImageView setImage:image];
+	}
 }
 
 - (void) setAvatarImage:(UIImage *)image

@@ -13,6 +13,7 @@
 {
 	NSArray *cellData;
 	NSArray *textData;
+	NSArray *imageData;
 }
 
 @end
@@ -28,6 +29,11 @@
 	textData = [NSArray arrayWithObjects:	@"Il pezzo di pizza pazzo mangiava la pazza pezza del pozzo, col pizzo pazzo.",
 											@"Trentatre trentini entrarono a Trento tutti e trentatre trottellando",
 											@"Nel mezzo del cammin di nostra vita mi ritrovai per una selva oscura, si che la diritta via era smarrita.",
+											nil];
+	
+	imageData = [NSArray arrayWithObjects:	@"mountain.jpg",
+											[NSNull null],
+											@"frank.png",
 											nil];
 	
 	UINib* reusableJournalCellNib = [UINib nibWithNibName:@"DSJournalCell" bundle:nil];
@@ -50,7 +56,6 @@
 }
 
 #pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -63,8 +68,11 @@
 
 - (float) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	float descriptionLabelHeight = [[textData objectAtIndex:[indexPath row]] sizeWithFont:[UIFont systemFontOfSize:16.0f] constrainedToSize:CGSizeMake(236.0, FLT_MAX) lineBreakMode:UILineBreakModeWordWrap].height;
-	NSLog(@"Calculated height: %f, Added: %f", descriptionLabelHeight, descriptionLabelHeight + 40.0);
+	float descriptionLabelHeight = [[textData objectAtIndex:[indexPath row]] sizeWithFont:[UIFont systemFontOfSize:16.0f]
+																		constrainedToSize:CGSizeMake(236.0, FLT_MAX)
+																			lineBreakMode:UILineBreakModeWordWrap].height;
+	
+//	NSLog(@"Calculated height: %f, Added: %f", descriptionLabelHeight, descriptionLabelHeight + 40.0);
 	return descriptionLabelHeight + 50.0;
 }
 
@@ -78,21 +86,36 @@
 		cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     }
 	else
-	{
+	{// iOS 5 fix
 		cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	}
 	
 	if(cell == nil)
-	{
+	{// Alloc della cell dal UINib registrato nell'init
 		cell = [[DSJournalCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 	}
     
+	// Cast forzato
 	DSJournalCell *journalCell = (DSJournalCell *) cell;
 	
+	// Configurazione della cell
 	journalCell.usernameLabel.text = [cellData objectAtIndex:[indexPath row]];
-	[journalCell setAvatarImage:[[UIImage imageNamed:@"avatar.png"] thumbnailImage:48 transparentBorder:0 cornerRadius:3 interpolationQuality:kCGInterpolationDefault]];
 	journalCell.descriptionLabel.text = [textData objectAtIndex:[indexPath row]];
-	[journalCell recalculateBackgroundSize];
+	
+	// Test avatar image
+	[journalCell setAvatarImage:[[UIImage imageNamed:@"avatar.png"] thumbnailImage:48
+																 transparentBorder:0
+																	  cornerRadius:3
+															  interpolationQuality:kCGInterpolationDefault]];
+	
+	// Test immagine del drop
+	if([imageData objectAtIndex:[indexPath row]] != [NSNull null])
+	{
+		UIImage *pictureImage = [UIImage imageNamed:[imageData objectAtIndex:[indexPath row]]];
+		UIImageView *pictureImageView = [[UIImageView alloc] initWithImage:pictureImage];
+	}
+	
+	[journalCell recalculateSizes];
 	
 	NSLog(@"JournalCell #%d, Calculated label frame size: %f, Background size: %f", [indexPath row], journalCell.descriptionLabel.frame.size.height, journalCell.mainBackgroundImageView.frame.size.height);
 	

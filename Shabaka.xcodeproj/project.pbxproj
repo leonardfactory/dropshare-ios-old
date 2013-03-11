@@ -36,6 +36,10 @@
 		A723DFE416DA930900F51928 /* UIViewController+SidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429716D9028F00FEE4BE /* UIViewController+SidePanel.m */; };
 		A723DFE516DA930900F51928 /* DSLeftSidePanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A542AB16D90D7E00FEE4BE /* DSLeftSidePanelViewController.m */; };
 		A751872716E80728009F4383 /* DSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A751872616E80728009F4383 /* DSLoginViewController.m */; };
+		A753DF4316EDDD6100278CE7 /* frank.png in Resources */ = {isa = PBXBuildFile; fileRef = A753DF4216EDDD6100278CE7 /* frank.png */; };
+		A753DF4516EDDD9B00278CE7 /* mountain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A753DF4416EDDD9B00278CE7 /* mountain.jpg */; };
+		A753DF4916EDDEEC00278CE7 /* DSImageJournalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A753DF4816EDDEEC00278CE7 /* DSImageJournalCell.m */; };
+		A753DF4B16EDDF0B00278CE7 /* DSImageJournalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A753DF4A16EDDF0B00278CE7 /* DSImageJournalCell.xib */; };
 		A754A2D616EB4DA000A719B3 /* DSJournalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A754A2D516EB4DA000A719B3 /* DSJournalTableViewController.m */; };
 		A781F29816E8FC0B00C8F11C /* bgLogin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A781F28E16E8FC0B00C8F11C /* bgLogin.jpg */; };
 		A781F29916E8FC0B00C8F11C /* bgLogin@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A781F28F16E8FC0B00C8F11C /* bgLogin@2x.jpg */; };
@@ -159,6 +163,11 @@
 		A70ABAA216DD59BC003AFA4B /* DSViewPageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSViewPageCell.xib; sourceTree = "<group>"; };
 		A751872516E80728009F4383 /* DSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSLoginViewController.h; path = controllers/DSLoginViewController.h; sourceTree = "<group>"; };
 		A751872616E80728009F4383 /* DSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSLoginViewController.m; path = controllers/DSLoginViewController.m; sourceTree = "<group>"; };
+		A753DF4216EDDD6100278CE7 /* frank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frank.png; sourceTree = "<group>"; };
+		A753DF4416EDDD9B00278CE7 /* mountain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mountain.jpg; sourceTree = "<group>"; };
+		A753DF4716EDDEEC00278CE7 /* DSImageJournalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSImageJournalCell.h; path = controls/DSImageJournalCell.h; sourceTree = "<group>"; };
+		A753DF4816EDDEEC00278CE7 /* DSImageJournalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSImageJournalCell.m; path = controls/DSImageJournalCell.m; sourceTree = "<group>"; };
+		A753DF4A16EDDF0B00278CE7 /* DSImageJournalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DSImageJournalCell.xib; path = controls/DSImageJournalCell.xib; sourceTree = "<group>"; };
 		A754A2D416EB4DA000A719B3 /* DSJournalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSJournalTableViewController.h; path = controllers/DSJournalTableViewController.h; sourceTree = "<group>"; };
 		A754A2D516EB4DA000A719B3 /* DSJournalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSJournalTableViewController.m; path = controllers/DSJournalTableViewController.m; sourceTree = "<group>"; };
 		A781F28E16E8FC0B00C8F11C /* bgLogin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bgLogin.jpg; path = images/login/bgLogin.jpg; sourceTree = "<group>"; };
@@ -466,6 +475,16 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		A753DF4616EDDED200278CE7 /* ImageJournalCell */ = {
+			isa = PBXGroup;
+			children = (
+				A753DF4716EDDEEC00278CE7 /* DSImageJournalCell.h */,
+				A753DF4816EDDEEC00278CE7 /* DSImageJournalCell.m */,
+				A753DF4A16EDDF0B00278CE7 /* DSImageJournalCell.xib */,
+			);
+			name = ImageJournalCell;
+			sourceTree = "<group>";
+		};
 		A754A2D316EB4D7F00A719B3 /* Journal */ = {
 			isa = PBXGroup;
 			children = (
@@ -514,6 +533,7 @@
 		A78DAD8016DBE2A800A21AD0 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				A753DF4616EDDED200278CE7 /* ImageJournalCell */,
 				A7D4365C16EBA42A006807EB /* JournalCell */,
 				A781F2AA16E9073C00C8F11C /* PaddedTextField */,
 				A78DAD8116DBE2AF00A21AD0 /* ViewPager */,
@@ -617,6 +637,8 @@
 		A7D4366016EBC678006807EB /* test */ = {
 			isa = PBXGroup;
 			children = (
+				A753DF4416EDDD9B00278CE7 /* mountain.jpg */,
+				A753DF4216EDDD6100278CE7 /* frank.png */,
 				A7D4366116EBC684006807EB /* avatar.png */,
 				A7D4366216EBC684006807EB /* profile.jpeg */,
 			);
@@ -737,6 +759,9 @@
 				A7D4365B16EBA420006807EB /* DSJournalCell.xib in Resources */,
 				A7D4366316EBC684006807EB /* avatar.png in Resources */,
 				A7D4366416EBC684006807EB /* profile.jpeg in Resources */,
+				A753DF4316EDDD6100278CE7 /* frank.png in Resources */,
+				A753DF4516EDDD9B00278CE7 /* mountain.jpg in Resources */,
+				A753DF4B16EDDF0B00278CE7 /* DSImageJournalCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -784,6 +809,7 @@
 				A7D4366C16EBC6A0006807EB /* UIImage+Alpha.m in Sources */,
 				A7D4366D16EBC6A0006807EB /* UIImage+Resize.m in Sources */,
 				A7D4366E16EBC6A0006807EB /* UIImage+RoundedCorner.m in Sources */,
+				A753DF4916EDDEEC00278CE7 /* DSImageJournalCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

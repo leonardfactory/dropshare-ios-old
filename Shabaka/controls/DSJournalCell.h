@@ -17,6 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *mainBackgroundImageView;
 
 - (void) setAvatarImage:(UIImage *)image;
-- (void) recalculateBackgroundSize;
+- (void) recalculateSizes;
 
 @end
