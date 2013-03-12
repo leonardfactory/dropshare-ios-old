@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13323D9016EF88A400322D85 /* Drop.m in Sources */ = {isa = PBXBuildFile; fileRef = 13323D8F16EF88A400322D85 /* Drop.m */; };
+		13323D9316EF88A400322D85 /* Spacetag.m in Sources */ = {isa = PBXBuildFile; fileRef = 13323D9216EF88A400322D85 /* Spacetag.m */; };
+		13323D9616EF88A400322D85 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 13323D9516EF88A400322D85 /* User.m */; };
+		13323D9916EF88A400322D85 /* DropCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 13323D9816EF88A400322D85 /* DropCollection.m */; };
+		13323D9C16EF88A400322D85 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 13323D9B16EF88A400322D85 /* Profile.m */; };
+		13323D9F16EF88A400322D85 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 13323D9E16EF88A400322D85 /* Comment.m */; };
 		138800AD16E6263F00716368 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1388009B16E6263F00716368 /* AFHTTPClient.m */; };
 		138800AE16E6263F00716368 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1388009D16E6263F00716368 /* AFHTTPRequestOperation.m */; };
 		138800AF16E6263F00716368 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1388009F16E6263F00716368 /* AFImageRequestOperation.m */; };
@@ -52,9 +58,6 @@
 		A781F2B616E9185400C8F11C /* DSProfileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F564916E8EDB9009E5203 /* DSProfileManager.m */; };
 		A781F2B716E9185400C8F11C /* DSDataAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F564116E8EDB9009E5203 /* DSDataAdapter.m */; };
 		A781F2B816E9185400C8F11C /* DSWebApiAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F564B16E8EDB9009E5203 /* DSWebApiAdapter.m */; };
-		A781F2B916E9185400C8F11C /* ProfileDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F567216E8F49F009E5203 /* ProfileDomain.m */; };
-		A781F2BA16E9185400C8F11C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F566F16E8F49F009E5203 /* User.m */; };
-		A781F2BB16E9185500C8F11C /* Drop.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F566C16E8F49F009E5203 /* Drop.m */; };
 		A78DAD8416DBE2E300A21AD0 /* DSViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = A78DAD8316DBE2E300A21AD0 /* DSViewPager.m */; };
 		A78DAD8716DC352700A21AD0 /* DSViewPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A78DAD8616DC352700A21AD0 /* DSViewPageCell.m */; };
 		A793149816DF60920023B150 /* DSDiscoverTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A793149716DF60910023B150 /* DSDiscoverTableViewController.m */; };
@@ -94,6 +97,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13323D8E16EF88A400322D85 /* Drop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Drop.h; path = models/Drop.h; sourceTree = "<group>"; };
+		13323D8F16EF88A400322D85 /* Drop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Drop.m; path = models/Drop.m; sourceTree = "<group>"; };
+		13323D9116EF88A400322D85 /* Spacetag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Spacetag.h; path = models/Spacetag.h; sourceTree = "<group>"; };
+		13323D9216EF88A400322D85 /* Spacetag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Spacetag.m; path = models/Spacetag.m; sourceTree = "<group>"; };
+		13323D9416EF88A400322D85 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = models/User.h; sourceTree = "<group>"; };
+		13323D9516EF88A400322D85 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = models/User.m; sourceTree = "<group>"; };
+		13323D9716EF88A400322D85 /* DropCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DropCollection.h; path = models/DropCollection.h; sourceTree = "<group>"; };
+		13323D9816EF88A400322D85 /* DropCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DropCollection.m; path = models/DropCollection.m; sourceTree = "<group>"; };
+		13323D9A16EF88A400322D85 /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Profile.h; path = models/Profile.h; sourceTree = "<group>"; };
+		13323D9B16EF88A400322D85 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Profile.m; path = models/Profile.m; sourceTree = "<group>"; };
+		13323D9D16EF88A400322D85 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Comment.h; path = models/Comment.h; sourceTree = "<group>"; };
+		13323D9E16EF88A400322D85 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Comment.m; path = models/Comment.m; sourceTree = "<group>"; };
 		136F564016E8EDB9009E5203 /* DSDataAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSDataAdapter.h; path = models/DSDataAdapter.h; sourceTree = "<group>"; };
 		136F564116E8EDB9009E5203 /* DSDataAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSDataAdapter.m; path = models/DSDataAdapter.m; sourceTree = "<group>"; };
 		136F564216E8EDB9009E5203 /* DSEntityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSEntityManager.h; path = models/DSEntityManager.h; sourceTree = "<group>"; };
@@ -102,12 +117,6 @@
 		136F564916E8EDB9009E5203 /* DSProfileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSProfileManager.m; path = models/DSProfileManager.m; sourceTree = "<group>"; };
 		136F564A16E8EDB9009E5203 /* DSWebApiAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSWebApiAdapter.h; path = models/DSWebApiAdapter.h; sourceTree = "<group>"; };
 		136F564B16E8EDB9009E5203 /* DSWebApiAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSWebApiAdapter.m; path = models/DSWebApiAdapter.m; sourceTree = "<group>"; };
-		136F566B16E8F49F009E5203 /* Drop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Drop.h; path = models/Drop.h; sourceTree = "<group>"; };
-		136F566C16E8F49F009E5203 /* Drop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Drop.m; path = models/Drop.m; sourceTree = "<group>"; };
-		136F566E16E8F49F009E5203 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = models/User.h; sourceTree = "<group>"; };
-		136F566F16E8F49F009E5203 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = models/User.m; sourceTree = "<group>"; };
-		136F567116E8F49F009E5203 /* ProfileDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileDomain.h; path = models/ProfileDomain.h; sourceTree = "<group>"; };
-		136F567216E8F49F009E5203 /* ProfileDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileDomain.m; path = models/ProfileDomain.m; sourceTree = "<group>"; };
 		1388009A16E6263F00716368 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPClient.h; path = lib/AFNetworking/AFHTTPClient.h; sourceTree = "<group>"; };
 		1388009B16E6263F00716368 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFHTTPClient.m; path = lib/AFNetworking/AFHTTPClient.m; sourceTree = "<group>"; };
 		1388009C16E6263F00716368 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperation.h; path = lib/AFNetworking/AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -235,12 +244,18 @@
 		136F565216E8EFB0009E5203 /* Auto Generated */ = {
 			isa = PBXGroup;
 			children = (
-				136F567116E8F49F009E5203 /* ProfileDomain.h */,
-				136F567216E8F49F009E5203 /* ProfileDomain.m */,
-				136F566E16E8F49F009E5203 /* User.h */,
-				136F566F16E8F49F009E5203 /* User.m */,
-				136F566B16E8F49F009E5203 /* Drop.h */,
-				136F566C16E8F49F009E5203 /* Drop.m */,
+				13323D9D16EF88A400322D85 /* Comment.h */,
+				13323D9E16EF88A400322D85 /* Comment.m */,
+				13323D9A16EF88A400322D85 /* Profile.h */,
+				13323D9B16EF88A400322D85 /* Profile.m */,
+				13323D9716EF88A400322D85 /* DropCollection.h */,
+				13323D9816EF88A400322D85 /* DropCollection.m */,
+				13323D9416EF88A400322D85 /* User.h */,
+				13323D9516EF88A400322D85 /* User.m */,
+				13323D9116EF88A400322D85 /* Spacetag.h */,
+				13323D9216EF88A400322D85 /* Spacetag.m */,
+				13323D8E16EF88A400322D85 /* Drop.h */,
+				13323D8F16EF88A400322D85 /* Drop.m */,
 			);
 			name = "Auto Generated";
 			sourceTree = "<group>";
@@ -682,9 +697,6 @@
 				A781F2B616E9185400C8F11C /* DSProfileManager.m in Sources */,
 				A781F2B716E9185400C8F11C /* DSDataAdapter.m in Sources */,
 				A781F2B816E9185400C8F11C /* DSWebApiAdapter.m in Sources */,
-				A781F2B916E9185400C8F11C /* ProfileDomain.m in Sources */,
-				A781F2BA16E9185400C8F11C /* User.m in Sources */,
-				A781F2BB16E9185500C8F11C /* Drop.m in Sources */,
 				A723DFE216DA930900F51928 /* JASidePanelController.m in Sources */,
 				A723DFE316DA930900F51928 /* DSSidePanelController.m in Sources */,
 				A723DFE416DA930900F51928 /* UIViewController+SidePanel.m in Sources */,
@@ -710,6 +722,12 @@
 				A751872716E80728009F4383 /* DSLoginViewController.m in Sources */,
 				A781F2A916E9028F00C8F11C /* SwipeView.m in Sources */,
 				A781F2AD16E9077000C8F11C /* DSPaddedTextField.m in Sources */,
+				13323D9016EF88A400322D85 /* Drop.m in Sources */,
+				13323D9316EF88A400322D85 /* Spacetag.m in Sources */,
+				13323D9616EF88A400322D85 /* User.m in Sources */,
+				13323D9916EF88A400322D85 /* DropCollection.m in Sources */,
+				13323D9C16EF88A400322D85 /* Profile.m in Sources */,
+				13323D9F16EF88A400322D85 /* Comment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

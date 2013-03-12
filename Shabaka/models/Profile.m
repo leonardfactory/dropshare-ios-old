@@ -1,19 +1,20 @@
 //
-//  ProfileDomain.m
+//  Profile.m
 //  Shabaka
 //
-//  Created by Francesco on 07/03/13.
+//  Created by Francesco on 12/03/13.
 //  Copyright (c) 2013 Dropshare. All rights reserved.
 //
 
-#import "ProfileDomain.h"
+#import "Profile.h"
+#import "Drop.h"
 #import "User.h"
 
 
-@implementation ProfileDomain
+@implementation Profile
 
 @dynamic identifier;
-@dynamic error;
 @dynamic user;
+@dynamic likes;
 
 @end
