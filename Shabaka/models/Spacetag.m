@@ -21,7 +21,7 @@
 @dynamic range;
 @dynamic spacename;
 @dynamic totUsers;
-@dynamic users;
 @dynamic drops;
+@dynamic users;
 
 @end

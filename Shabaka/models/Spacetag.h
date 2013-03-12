@@ -21,22 +21,12 @@
 @property (nonatomic, retain) NSNumber * range;
 @property (nonatomic, retain) NSString * spacename;
 @property (nonatomic, retain) NSNumber * totUsers;
-@property (nonatomic, retain) NSOrderedSet *users;
 @property (nonatomic, retain) NSOrderedSet *drops;
+@property (nonatomic, retain) NSOrderedSet *users;
 @end
 
 @interface Spacetag (CoreDataGeneratedAccessors)
 
-- (void)insertObject:(User *)value inUsersAtIndex:(NSUInteger)idx;
-- (void)removeObjectFromUsersAtIndex:(NSUInteger)idx;
-- (void)insertUsers:(NSArray *)value atIndexes:(NSIndexSet *)indexes;
-- (void)removeUsersAtIndexes:(NSIndexSet *)indexes;
-- (void)replaceObjectInUsersAtIndex:(NSUInteger)idx withObject:(User *)value;
-- (void)replaceUsersAtIndexes:(NSIndexSet *)indexes withUsers:(NSArray *)values;
-- (void)addUsersObject:(User *)value;
-- (void)removeUsersObject:(User *)value;
-- (void)addUsers:(NSOrderedSet *)values;
-- (void)removeUsers:(NSOrderedSet *)values;
 - (void)insertObject:(Drop *)value inDropsAtIndex:(NSUInteger)idx;
 - (void)removeObjectFromDropsAtIndex:(NSUInteger)idx;
 - (void)insertDrops:(NSArray *)value atIndexes:(NSIndexSet *)indexes;
@@ -47,4 +37,14 @@
 - (void)removeDropsObject:(Drop *)value;
 - (void)addDrops:(NSOrderedSet *)values;
 - (void)removeDrops:(NSOrderedSet *)values;
+- (void)insertObject:(User *)value inUsersAtIndex:(NSUInteger)idx;
+- (void)removeObjectFromUsersAtIndex:(NSUInteger)idx;
+- (void)insertUsers:(NSArray *)value atIndexes:(NSIndexSet *)indexes;
+- (void)removeUsersAtIndexes:(NSIndexSet *)indexes;
+- (void)replaceObjectInUsersAtIndex:(NSUInteger)idx withObject:(User *)value;
+- (void)replaceUsersAtIndexes:(NSIndexSet *)indexes withUsers:(NSArray *)values;
+- (void)addUsersObject:(User *)value;
+- (void)removeUsersObject:(User *)value;
+- (void)addUsers:(NSOrderedSet *)values;
+- (void)removeUsers:(NSOrderedSet *)values;
 @end

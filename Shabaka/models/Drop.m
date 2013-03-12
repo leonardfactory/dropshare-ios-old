@@ -9,7 +9,6 @@
 #import "Drop.h"
 #import "Comment.h"
 #import "DropCollection.h"
-#import "Profile.h"
 #import "Spacetag.h"
 #import "User.h"
 
@@ -26,10 +25,10 @@
 @dynamic totLikes;
 @dynamic totRedrops;
 @dynamic type;
-@dynamic user;
-@dynamic inverseProfileLikes;
+@dynamic like;
+@dynamic comments;
 @dynamic inverseDropCollectionDrops;
 @dynamic spacetags;
-@dynamic comments;
+@dynamic user;
 
 @end

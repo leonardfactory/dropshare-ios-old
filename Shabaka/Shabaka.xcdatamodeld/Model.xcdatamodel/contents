@@ -11,6 +11,7 @@
         <attribute name="createdOn" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" minValueString="-90" maxValueString="90" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="like" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" minValueString="-180" maxValueString="180" defaultValueString="0.0" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
@@ -20,7 +21,6 @@
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Comment" inverseName="drop" inverseEntity="Comment" syncable="YES"/>
         <relationship name="inverseDropCollectionDrops" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DropCollection" inverseName="drops" inverseEntity="DropCollection" syncable="YES"/>
-        <relationship name="inverseProfileLikes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Profile" inverseName="likes" inverseEntity="Profile" syncable="YES"/>
         <relationship name="spacetags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Spacetag" inverseName="drops" inverseEntity="Spacetag" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="drops" inverseEntity="User" syncable="YES"/>
     </entity>
@@ -30,7 +30,6 @@
     </entity>
     <entity name="Profile" representedClassName="Profile" syncable="YES">
         <attribute name="identifier" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
-        <relationship name="likes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Drop" inverseName="inverseProfileLikes" inverseEntity="Drop" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="inverseProfileUser" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Spacetag" representedClassName="Spacetag" syncable="YES">
@@ -61,9 +60,9 @@
     <elements>
         <element name="Comment" positionX="-740" positionY="-19" width="128" height="118"/>
         <element name="Drop" positionX="-459" positionY="-90" width="162" height="268"/>
+        <element name="DropCollection" positionX="-254" positionY="-36" width="128" height="73"/>
+        <element name="Profile" positionX="-738" positionY="423" width="128" height="73"/>
         <element name="Spacetag" positionX="-245" positionY="189" width="128" height="193"/>
         <element name="User" positionX="-477" positionY="279" width="128" height="208"/>
-        <element name="DropCollection" positionX="-254" positionY="-36" width="128" height="73"/>
-        <element name="Profile" positionX="-738" positionY="423" width="128" height="88"/>
     </elements>
 </model>

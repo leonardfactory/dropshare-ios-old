@@ -13,10 +13,10 @@
 
 @implementation Comment
 
+@dynamic createdOn;
 @dynamic identifier;
 @dynamic text;
-@dynamic createdOn;
-@dynamic user;
 @dynamic drop;
+@dynamic user;
 
 @end

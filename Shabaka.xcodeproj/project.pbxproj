@@ -7,12 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13323D9016EF88A400322D85 /* Drop.m in Sources */ = {isa = PBXBuildFile; fileRef = 13323D8F16EF88A400322D85 /* Drop.m */; };
-		13323D9316EF88A400322D85 /* Spacetag.m in Sources */ = {isa = PBXBuildFile; fileRef = 13323D9216EF88A400322D85 /* Spacetag.m */; };
-		13323D9616EF88A400322D85 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 13323D9516EF88A400322D85 /* User.m */; };
-		13323D9916EF88A400322D85 /* DropCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 13323D9816EF88A400322D85 /* DropCollection.m */; };
-		13323D9C16EF88A400322D85 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 13323D9B16EF88A400322D85 /* Profile.m */; };
-		13323D9F16EF88A400322D85 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 13323D9E16EF88A400322D85 /* Comment.m */; };
 		138800AD16E6263F00716368 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1388009B16E6263F00716368 /* AFHTTPClient.m */; };
 		138800AE16E6263F00716368 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1388009D16E6263F00716368 /* AFHTTPRequestOperation.m */; };
 		138800AF16E6263F00716368 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1388009F16E6263F00716368 /* AFImageRequestOperation.m */; };
@@ -26,6 +20,12 @@
 		138800BC16E627D100716368 /* DSDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 138800BB16E627D100716368 /* DSDiscoverViewController.m */; };
 		138800C016E6288300716368 /* Shabaka.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 138800BE16E6288300716368 /* Shabaka.xcdatamodeld */; };
 		138800D416E6436700716368 /* NSManagedObjectContext+blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 138800D316E6436700716368 /* NSManagedObjectContext+blocks.m */; };
+		13B9340B16EF8BFD00B7E712 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B9340A16EF8BFD00B7E712 /* Comment.m */; };
+		13B9340E16EF8BFE00B7E712 /* DropCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B9340D16EF8BFE00B7E712 /* DropCollection.m */; };
+		13B9341116EF8BFE00B7E712 /* Spacetag.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B9341016EF8BFE00B7E712 /* Spacetag.m */; };
+		13B9341416EF8BFE00B7E712 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B9341316EF8BFE00B7E712 /* User.m */; };
+		13B9341716EF8BFE00B7E712 /* Drop.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B9341616EF8BFE00B7E712 /* Drop.m */; };
+		13B9341A16EF8BFE00B7E712 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B9341916EF8BFE00B7E712 /* Profile.m */; };
 		13C4332816D8FC58001A43F9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13C4332716D8FC58001A43F9 /* UIKit.framework */; };
 		13C4332A16D8FC58001A43F9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13C4332916D8FC58001A43F9 /* Foundation.framework */; };
 		13C4332C16D8FC58001A43F9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13C4332B16D8FC58001A43F9 /* CoreGraphics.framework */; };
@@ -97,18 +97,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		13323D8E16EF88A400322D85 /* Drop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Drop.h; path = models/Drop.h; sourceTree = "<group>"; };
-		13323D8F16EF88A400322D85 /* Drop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Drop.m; path = models/Drop.m; sourceTree = "<group>"; };
-		13323D9116EF88A400322D85 /* Spacetag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Spacetag.h; path = models/Spacetag.h; sourceTree = "<group>"; };
-		13323D9216EF88A400322D85 /* Spacetag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Spacetag.m; path = models/Spacetag.m; sourceTree = "<group>"; };
-		13323D9416EF88A400322D85 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = models/User.h; sourceTree = "<group>"; };
-		13323D9516EF88A400322D85 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = models/User.m; sourceTree = "<group>"; };
-		13323D9716EF88A400322D85 /* DropCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DropCollection.h; path = models/DropCollection.h; sourceTree = "<group>"; };
-		13323D9816EF88A400322D85 /* DropCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DropCollection.m; path = models/DropCollection.m; sourceTree = "<group>"; };
-		13323D9A16EF88A400322D85 /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Profile.h; path = models/Profile.h; sourceTree = "<group>"; };
-		13323D9B16EF88A400322D85 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Profile.m; path = models/Profile.m; sourceTree = "<group>"; };
-		13323D9D16EF88A400322D85 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Comment.h; path = models/Comment.h; sourceTree = "<group>"; };
-		13323D9E16EF88A400322D85 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Comment.m; path = models/Comment.m; sourceTree = "<group>"; };
 		136F564016E8EDB9009E5203 /* DSDataAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSDataAdapter.h; path = models/DSDataAdapter.h; sourceTree = "<group>"; };
 		136F564116E8EDB9009E5203 /* DSDataAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSDataAdapter.m; path = models/DSDataAdapter.m; sourceTree = "<group>"; };
 		136F564216E8EDB9009E5203 /* DSEntityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSEntityManager.h; path = models/DSEntityManager.h; sourceTree = "<group>"; };
@@ -143,6 +131,18 @@
 		138800BF16E6288300716368 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		138800D216E6436700716368 /* NSManagedObjectContext+blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObjectContext+blocks.h"; path = "lib/NSManagedObjectContext+blocks.h"; sourceTree = "<group>"; };
 		138800D316E6436700716368 /* NSManagedObjectContext+blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObjectContext+blocks.m"; path = "lib/NSManagedObjectContext+blocks.m"; sourceTree = "<group>"; };
+		13B9340916EF8BFD00B7E712 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Comment.h; path = models/Comment.h; sourceTree = "<group>"; };
+		13B9340A16EF8BFD00B7E712 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Comment.m; path = models/Comment.m; sourceTree = "<group>"; };
+		13B9340C16EF8BFE00B7E712 /* DropCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DropCollection.h; path = models/DropCollection.h; sourceTree = "<group>"; };
+		13B9340D16EF8BFE00B7E712 /* DropCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DropCollection.m; path = models/DropCollection.m; sourceTree = "<group>"; };
+		13B9340F16EF8BFE00B7E712 /* Spacetag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Spacetag.h; path = models/Spacetag.h; sourceTree = "<group>"; };
+		13B9341016EF8BFE00B7E712 /* Spacetag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Spacetag.m; path = models/Spacetag.m; sourceTree = "<group>"; };
+		13B9341216EF8BFE00B7E712 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = models/User.h; sourceTree = "<group>"; };
+		13B9341316EF8BFE00B7E712 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = models/User.m; sourceTree = "<group>"; };
+		13B9341516EF8BFE00B7E712 /* Drop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Drop.h; path = models/Drop.h; sourceTree = "<group>"; };
+		13B9341616EF8BFE00B7E712 /* Drop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Drop.m; path = models/Drop.m; sourceTree = "<group>"; };
+		13B9341816EF8BFE00B7E712 /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Profile.h; path = models/Profile.h; sourceTree = "<group>"; };
+		13B9341916EF8BFE00B7E712 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Profile.m; path = models/Profile.m; sourceTree = "<group>"; };
 		13C4332416D8FC58001A43F9 /* Shabaka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shabaka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13C4332716D8FC58001A43F9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		13C4332916D8FC58001A43F9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -244,18 +244,18 @@
 		136F565216E8EFB0009E5203 /* Auto Generated */ = {
 			isa = PBXGroup;
 			children = (
-				13323D9D16EF88A400322D85 /* Comment.h */,
-				13323D9E16EF88A400322D85 /* Comment.m */,
-				13323D9A16EF88A400322D85 /* Profile.h */,
-				13323D9B16EF88A400322D85 /* Profile.m */,
-				13323D9716EF88A400322D85 /* DropCollection.h */,
-				13323D9816EF88A400322D85 /* DropCollection.m */,
-				13323D9416EF88A400322D85 /* User.h */,
-				13323D9516EF88A400322D85 /* User.m */,
-				13323D9116EF88A400322D85 /* Spacetag.h */,
-				13323D9216EF88A400322D85 /* Spacetag.m */,
-				13323D8E16EF88A400322D85 /* Drop.h */,
-				13323D8F16EF88A400322D85 /* Drop.m */,
+				13B9341816EF8BFE00B7E712 /* Profile.h */,
+				13B9341916EF8BFE00B7E712 /* Profile.m */,
+				13B9341516EF8BFE00B7E712 /* Drop.h */,
+				13B9341616EF8BFE00B7E712 /* Drop.m */,
+				13B9341216EF8BFE00B7E712 /* User.h */,
+				13B9341316EF8BFE00B7E712 /* User.m */,
+				13B9340F16EF8BFE00B7E712 /* Spacetag.h */,
+				13B9341016EF8BFE00B7E712 /* Spacetag.m */,
+				13B9340C16EF8BFE00B7E712 /* DropCollection.h */,
+				13B9340D16EF8BFE00B7E712 /* DropCollection.m */,
+				13B9340916EF8BFD00B7E712 /* Comment.h */,
+				13B9340A16EF8BFD00B7E712 /* Comment.m */,
 			);
 			name = "Auto Generated";
 			sourceTree = "<group>";
@@ -722,12 +722,12 @@
 				A751872716E80728009F4383 /* DSLoginViewController.m in Sources */,
 				A781F2A916E9028F00C8F11C /* SwipeView.m in Sources */,
 				A781F2AD16E9077000C8F11C /* DSPaddedTextField.m in Sources */,
-				13323D9016EF88A400322D85 /* Drop.m in Sources */,
-				13323D9316EF88A400322D85 /* Spacetag.m in Sources */,
-				13323D9616EF88A400322D85 /* User.m in Sources */,
-				13323D9916EF88A400322D85 /* DropCollection.m in Sources */,
-				13323D9C16EF88A400322D85 /* Profile.m in Sources */,
-				13323D9F16EF88A400322D85 /* Comment.m in Sources */,
+				13B9340B16EF8BFD00B7E712 /* Comment.m in Sources */,
+				13B9340E16EF8BFE00B7E712 /* DropCollection.m in Sources */,
+				13B9341116EF8BFE00B7E712 /* Spacetag.m in Sources */,
+				13B9341416EF8BFE00B7E712 /* User.m in Sources */,
+				13B9341716EF8BFE00B7E712 /* Drop.m in Sources */,
+				13B9341A16EF8BFE00B7E712 /* Profile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

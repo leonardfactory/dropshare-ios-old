@@ -21,11 +21,11 @@
 @dynamic name;
 @dynamic surname;
 @dynamic username;
+@dynamic comments;
 @dynamic drops;
 @dynamic followers;
 @dynamic following;
 @dynamic inverseProfileUser;
 @dynamic spacetags;
-@dynamic comments;
 
 @end

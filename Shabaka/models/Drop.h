@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Comment, DropCollection, Profile, Spacetag, User;
+@class Comment, DropCollection, Spacetag, User;
 
 @interface Drop : NSManagedObject
 
@@ -23,24 +23,14 @@
 @property (nonatomic, retain) NSNumber * totLikes;
 @property (nonatomic, retain) NSNumber * totRedrops;
 @property (nonatomic, retain) NSString * type;
-@property (nonatomic, retain) User *user;
-@property (nonatomic, retain) Profile *inverseProfileLikes;
+@property (nonatomic, retain) NSNumber * like;
+@property (nonatomic, retain) NSOrderedSet *comments;
 @property (nonatomic, retain) NSSet *inverseDropCollectionDrops;
 @property (nonatomic, retain) NSSet *spacetags;
-@property (nonatomic, retain) NSOrderedSet *comments;
+@property (nonatomic, retain) User *user;
 @end
 
 @interface Drop (CoreDataGeneratedAccessors)
-
-- (void)addInverseDropCollectionDropsObject:(DropCollection *)value;
-- (void)removeInverseDropCollectionDropsObject:(DropCollection *)value;
-- (void)addInverseDropCollectionDrops:(NSSet *)values;
-- (void)removeInverseDropCollectionDrops:(NSSet *)values;
-
-- (void)addSpacetagsObject:(Spacetag *)value;
-- (void)removeSpacetagsObject:(Spacetag *)value;
-- (void)addSpacetags:(NSSet *)values;
-- (void)removeSpacetags:(NSSet *)values;
 
 - (void)insertObject:(Comment *)value inCommentsAtIndex:(NSUInteger)idx;
 - (void)removeObjectFromCommentsAtIndex:(NSUInteger)idx;
@@ -52,4 +42,14 @@
 - (void)removeCommentsObject:(Comment *)value;
 - (void)addComments:(NSOrderedSet *)values;
 - (void)removeComments:(NSOrderedSet *)values;
+- (void)addInverseDropCollectionDropsObject:(DropCollection *)value;
+- (void)removeInverseDropCollectionDropsObject:(DropCollection *)value;
+- (void)addInverseDropCollectionDrops:(NSSet *)values;
+- (void)removeInverseDropCollectionDrops:(NSSet *)values;
+
+- (void)addSpacetagsObject:(Spacetag *)value;
+- (void)removeSpacetagsObject:(Spacetag *)value;
+- (void)addSpacetags:(NSSet *)values;
+- (void)removeSpacetags:(NSSet *)values;
+
 @end

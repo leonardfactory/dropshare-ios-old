@@ -13,10 +13,10 @@
 
 @interface Comment : NSManagedObject
 
+@property (nonatomic, retain) NSDate * createdOn;
 @property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) NSString * text;
-@property (nonatomic, retain) NSDate * createdOn;
-@property (nonatomic, retain) User *user;
 @property (nonatomic, retain) Drop *drop;
+@property (nonatomic, retain) User *user;
 
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "Profile.h"
-#import "Drop.h"
 #import "User.h"
 
 
@@ -15,6 +14,5 @@
 
 @dynamic identifier;
 @dynamic user;
-@dynamic likes;
 
 @end

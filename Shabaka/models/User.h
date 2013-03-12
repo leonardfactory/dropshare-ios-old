@@ -18,15 +18,20 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * surname;
 @property (nonatomic, retain) NSString * username;
+@property (nonatomic, retain) NSSet *comments;
 @property (nonatomic, retain) NSOrderedSet *drops;
 @property (nonatomic, retain) NSOrderedSet *followers;
 @property (nonatomic, retain) NSOrderedSet *following;
 @property (nonatomic, retain) Profile *inverseProfileUser;
 @property (nonatomic, retain) NSOrderedSet *spacetags;
-@property (nonatomic, retain) NSSet *comments;
 @end
 
 @interface User (CoreDataGeneratedAccessors)
+
+- (void)addCommentsObject:(Comment *)value;
+- (void)removeCommentsObject:(Comment *)value;
+- (void)addComments:(NSSet *)values;
+- (void)removeComments:(NSSet *)values;
 
 - (void)insertObject:(Drop *)value inDropsAtIndex:(NSUInteger)idx;
 - (void)removeObjectFromDropsAtIndex:(NSUInteger)idx;
@@ -68,9 +73,4 @@
 - (void)removeSpacetagsObject:(Spacetag *)value;
 - (void)addSpacetags:(NSOrderedSet *)values;
 - (void)removeSpacetags:(NSOrderedSet *)values;
-- (void)addCommentsObject:(Comment *)value;
-- (void)removeCommentsObject:(Comment *)value;
-- (void)addComments:(NSSet *)values;
-- (void)removeComments:(NSSet *)values;
-
 @end
