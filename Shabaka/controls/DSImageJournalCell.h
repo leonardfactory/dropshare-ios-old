@@ -12,6 +12,7 @@
 @interface DSImageJournalCell : DSJournalCell
 
 @property (strong, nonatomic) UIImageView *pictureImageView;
+@property (strong, nonatomic) UIImageView *shadowPictureImageView;
 
 + (CGFloat) heightForCellWithText:(NSString *)text;
 

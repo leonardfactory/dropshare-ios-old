@@ -50,11 +50,6 @@
 	[self.sidePanelController showViewController:@"map"];
 }
 
-- (IBAction)loginButtonTouched:(id)sender
-{
-	//[self.sidePanelController showViewController:@"login"];
-}
-
 - (IBAction)journalButtonTouched:(id)sender
 {
 	[self.sidePanelController showViewController:@"journal"];

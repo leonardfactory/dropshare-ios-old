@@ -125,15 +125,17 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	// Test avatar image
 	[journalCell setAvatarImage:[[UIImage imageNamed:@"avatar.png"] thumbnailImage:48
 																 transparentBorder:0
-																	  cornerRadius:3
+																	  cornerRadius:0
 															  interpolationQuality:kCGInterpolationHigh]];
+	
+	[journalCell setGeoLocation:[NSString stringWithFormat:@"Via delle Rose n.%d", (int)floorf(powf(([indexPath row]+1)*2, 2.0))] andTime:@"11 Apr 2012"];
 	
 	// Test immagine del drop
 	if([cell isKindOfClass:[DSImageJournalCell class]])
 	{
 		DSImageJournalCell *imageJournalCell = (DSImageJournalCell *) cell;
 		
-		UIImage *pictureImage	= [[UIImage imageNamed:[imageData objectAtIndex:[indexPath row]]] resizedImageWithContentMode:UIViewContentModeScaleAspectFit
+		UIImage *pictureImage	= [[UIImage imageNamed:[imageData objectAtIndex:[indexPath row]]] resizedImageWithContentMode:UIViewContentModeScaleAspectFill
 																													   bounds:CGSizeMake(292.0, 160.0)
 																										 interpolationQuality:kCGInterpolationHigh];
 		
@@ -142,7 +144,7 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	
 	[journalCell recalculateSizes];
 	
-	NSLog(@"JournalCell #%d, Calculated label frame size: %f, Background size: %f", [indexPath row], journalCell.descriptionLabel.frame.size.height, journalCell.mainBackgroundImageView.frame.size.height);
+	//NSLog(@"JournalCell #%d, Calculated label frame size: %f, Background size: %f", [indexPath row], journalCell.descriptionLabel.frame.size.height, journalCell.mainBackgroundImageView.frame.size.height);
 	
     return cell;
 }

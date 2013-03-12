@@ -27,23 +27,8 @@
                                     <action selector="menuButtonDiscoverTouched:" destination="GO3-6s-V4g" eventType="touchUpInside" id="slF-hO-lvH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9LO-oK-8f6">
-                                <rect key="frame" x="0.0" y="44" width="320" height="44"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <inset key="titleEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Login" backgroundImage="menuButtonBg.png">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="loginButtonTouched:" destination="GO3-6s-V4g" eventType="touchUpInside" id="taJ-nX-v4O"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qFx-wf-0w0">
-                                <rect key="frame" x="0.0" y="87" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="44"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <inset key="titleEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="Journal" backgroundImage="menuButtonBg.png">
@@ -344,7 +329,8 @@
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="72" sectionHeaderHeight="22" sectionFooterHeight="22" id="3wN-fO-iQY">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.60784313725490191" green="0.76470588235294112" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.60784313725490191" green="0.76470588235294112" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
                         <sections/>
                     </tableView>
                     <navigationItem key="navigationItem" id="98a-fA-YMd"/>
@@ -424,7 +410,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DSLeftSidePanelViewController.h"/>
             <relationships>
                 <relationship kind="action" name="journalButtonTouched:"/>
-                <relationship kind="action" name="loginButtonTouched:"/>
                 <relationship kind="action" name="menuButtonDiscoverTouched:"/>
                 <relationship kind="outlet" name="menuButtonDiscover" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="menuButtonJournal" candidateClass="UIButton"/>

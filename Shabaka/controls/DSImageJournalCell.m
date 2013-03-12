@@ -8,14 +8,13 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "DSImageJournalCell.h"
-
-#define kDSPictureHeight 160.0
+#import "InterfaceConstants.h"
 
 @implementation DSImageJournalCell
 
 + (CGFloat) heightForCellWithText:(NSString *) text
 {
-	return [super heightForCellWithText:text] + kDSPictureHeight + 14.0;
+	return [super heightForCellWithText:text] + kDSCellPictureHeight + kDSCellPictureBottomMargin;
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -23,12 +22,17 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
 	{
-		self.pictureImageView = [[UIImageView alloc] initWithFrame:CGRectMake(14.0, 14.0, 292.0, kDSPictureHeight)];
-		[self shiftContent:self.pictureImageView.frame.size.height + self.pictureImageView.frame.origin.y];
+		self.pictureImageView = [[UIImageView alloc] initWithFrame:CGRectMake(14.0, 14.0, 292.0, kDSCellPictureHeight)];
+		[self shiftContent:self.pictureImageView.frame.size.height + kDSCellPictureBottomMargin];
 		[self addSubview:self.pictureImageView];
 		
-		self.pictureImageView.layer.cornerRadius = 3.0f;
+		self.pictureImageView.layer.cornerRadius = kDSCellPictureCornerRadius;
 		self.pictureImageView.layer.masksToBounds = YES;
+		
+		self.shadowPictureImageView = [[UIImageView alloc] initWithFrame:self.pictureImageView.frame];
+		self.shadowPictureImageView.image = [[UIImage imageNamed:@"innerShadow.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(5.0, 5.0, 5.0, 5.0)];
+		self.shadowPictureImageView.alpha = kDSCellInnerShadowAlpha;
+		[self addSubview:self.shadowPictureImageView];
     }
     return self;
 }
