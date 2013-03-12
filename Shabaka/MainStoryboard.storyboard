@@ -418,6 +418,8 @@
         <class className="DSLoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DSLoginViewController.h"/>
             <relationships>
+                <relationship kind="action" name="connectButtonPressed:"/>
+                <relationship kind="action" name="signupButtonPressed:"/>
                 <relationship kind="outlet" name="connectButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="fbSignupButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="passwordField" candidateClass="UITextField"/>
