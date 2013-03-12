@@ -46,16 +46,22 @@
 		return FALSE;
 	}
   */
+	return FALSE;
 }
 
 - (void) loginWithUsername:(NSString *) username withPassword:(NSString *) password
 {
-	NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:username, @"username", password, @"password", nil];
-	[super.webApiAdapter postPath:@"/login" parameters:body success:^(AFHTTPRequestOperation *operation, id responseObject) {
-		NSDictionary *jsonFromData = (NSDictionary *)[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+	
+}
+/*
+- (void) loginWithUsername:(NSString *) username withPassword:(NSString *) password
+{
+	//NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:username, @"username", password, @"password", nil];
+	//[super.webApiAdapter postPath:@"/login" parameters:body success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		//NSDictionary *jsonFromData = (NSDictionary *)[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
 		
-		NSString *identifier = [jsonFromData objectForKey:@"id"];
-		/*User *userLogged = [super.dataAdapter findOrCreate:identifier onModel:@"User"];
+		//NSString *identifier = [jsonFromData objectForKey:@"id"];
+		User *userLogged = [super.dataAdapter findOrCreate:identifier onModel:@"User"];
 		[userLogged setName:[jsonFromData objectForKey:@"name"]];
 		[userLogged setSurname:[jsonFromData objectForKey:@"surname"]];
 		[userLogged setUsername:[jsonFromData objectForKey:@"username"]];
@@ -69,7 +75,7 @@
 		[userLogged setCreatedOn:myDate];
 		self.isJustLogged = TRUE;
 		//[(ProfileDomain *)super.domain setUser:userLogged];
-		//[super.dataAdapter save];*/
+		//[super.dataAdapter save];
 	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 		
 		NSError *errorJson = nil;
@@ -92,6 +98,7 @@
 		//[super.dataAdapter save];
 	}];
 }
+ */
 
 - (BOOL) logout
 {
