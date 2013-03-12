@@ -10,16 +10,20 @@
 #import "UIImage+Resize.h"
 #import "UIImage+RoundedCorner.h"
 
+#import "UIScrollView+SVPullToRefresh.h"
+#import "UIScrollView+SVInfiniteScrolling.h"
+
 @interface DSJournalTableViewController ()
 {
-	NSArray *cellData;
-	NSArray *textData;
-	NSArray *imageData;
 }
 
 @end
 
 @implementation DSJournalTableViewController
+
+@synthesize cellData	= _cellData;
+@synthesize imageData	= _imageData;
+@synthesize textData	= _textData;
 
 static NSString *JournalCellIdentifier		= @"JournalCell";
 static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
@@ -28,29 +32,78 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 {
     [super viewDidLoad];
 	
-	cellData = [NSArray arrayWithObjects:@"Angelo", @"Beppe", @"Carlo", nil];
+	_cellData = [NSMutableArray arrayWithObjects:	@"Angelo", @"Beppe", @"Carlo", nil];
 	
-	textData = [NSArray arrayWithObjects:	@"Il pezzo di pizza pazzo mangiava la pazza pezza del pozzo, col pizzo pazzo.",
-											@"Trentatre trentini entrarono a Trento tutti e trentatre trottellando",
-											@"Nel mezzo del cammin di nostra vita mi ritrovai per una selva oscura, si che la diritta via era smarrita.",
-											nil];
+	_textData = [NSMutableArray arrayWithObjects:	@"Il pezzo di pizza pazzo mangiava la pazza pezza del pozzo, col pizzo pazzo.",
+													@"Trentatre trentini entrarono a Trento tutti e trentatre trottellando",
+													@"Nel mezzo del cammin di nostra vita mi ritrovai per una selva oscura, si che la diritta via era smarrita.",
+													nil];
 	
-	imageData = [NSArray arrayWithObjects:	@"mountain.jpg",
-											[NSNull null],
-											@"frank.png",
-											nil];
+	_imageData = [NSMutableArray arrayWithObjects:	@"mountain.jpg",
+													[NSNull null],
+													@"frank.png",
+													nil];
 	
-//	UINib* reusableJournalCellNib = [UINib nibWithNibName:@"DSJournalCell" bundle:nil];
-//	[self.tableView registerNib:reusableJournalCellNib forCellReuseIdentifier:@"JournalCell"];
+	__weak DSJournalTableViewController *that = self;
+	
+	// Setto gli handler per il pull to refresh e l'infinite scrolling
+	[self.tableView addPullToRefreshWithActionHandler:^
+	{
+		[that updateJournal];
+	}];
+	[self.tableView addInfiniteScrollingWithActionHandler:^
+	{
+		[that loadMoreToJournal];
+	}];
 
     self.clearsSelectionOnViewWillAppear = YES;
+}
+
+/** 
+ * Aggiorno il journal con i drop più nuovi dal server.
+ * @todo dispatch async del task di aggiornamento con un dispatch async finale sulla
+ *		 main queue per lo stopAnimating;
+ */
+- (void) updateJournal
+{
+	BOOL isRefreshed = false;
+	
+	// Just for test
+	if(!isRefreshed)
+	{
+		//isRefreshed = true;
+		[self.cellData insertObject:@"Gino" atIndex:0];
+		[self.textData insertObject:@"C'era una volta un mago cattivo. Taking a snapshot just for fun, bitches." atIndex:0];
+		[self.imageData insertObject:[NSNull null] atIndex:0];
+		
+		[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForItem:0 inSection:0]]
+							  withRowAnimation:UITableViewRowAnimationBottom];
+	};
+	
+	[self.tableView.pullToRefreshView stopAnimating];
+}
+
+/**
+ * Carico i drop più vecchi a partire dall'ultimo
+ */
+- (void) loadMoreToJournal
+{
+	//NSInteger lastIndex = [self.cellData count] - 1;
+	[self.cellData addObject:@"Ginoska"];
+	[self.textData addObject:@"Vivamus auctor leo vel dui. Aliquam erat volutpat. Phasellus nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras tempor. Morbi egestas, urna non consequat tempus, nunc arcu mollis enim, eu aliquam erat nulla non nibh. Duis consectetuer malesuada velit. Nam ante nulla, interdum vel, tristique ac, condimentum non, tellus. Proin ornare feugiat nisl. Suspendisse dolor nisl, ultrices at, eleifend vel, consequat at, dolor."];
+	[self.imageData addObject:@"mountain.jpg"];
+	
+	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:[self.tableView numberOfRowsInSection:0] inSection:0]]
+						  withRowAnimation:UITableViewRowAnimationTop];
+	
+	[self.tableView.infiniteScrollingView stopAnimating];
 }
 
 - (void) viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];
 	
-	[self.tableView reloadData];
+//	[self.tableView triggerPullToRefresh];
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,19 +120,19 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [cellData count];
+    return [_cellData count];
 }
 
 - (float) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	int index = [indexPath row];
-	if([imageData objectAtIndex:index] != [NSNull null])
+	if([_imageData objectAtIndex:index] != [NSNull null])
 	{
-		return [DSImageJournalCell heightForCellWithText:[textData objectAtIndex:index]];
+		return [DSImageJournalCell heightForCellWithText:[_textData objectAtIndex:index]];
 	}
 	else
 	{
-		return [DSJournalCell heightForCellWithText:[textData objectAtIndex:index]];
+		return [DSJournalCell heightForCellWithText:[_textData objectAtIndex:index]];
 	}
 }
 
@@ -106,7 +159,7 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	UITableViewCell *cell;
 	
 	// Scegliamo l'identifier in base al tipo di dati da mostrare
-	NSString *CellIdentifier = ([imageData objectAtIndex:[indexPath row]] != [NSNull null]) ? ImageJournalCellIdentifier : JournalCellIdentifier;
+	NSString *CellIdentifier = ([_imageData objectAtIndex:[indexPath row]] != [NSNull null]) ? ImageJournalCellIdentifier : JournalCellIdentifier;
 
 	cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	
@@ -119,32 +172,26 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	DSJournalCell *journalCell = (DSJournalCell *) cell;
 	
 	// Configurazione della cell
-	journalCell.usernameLabel.text = [cellData objectAtIndex:[indexPath row]];
-	journalCell.descriptionLabel.text = [textData objectAtIndex:[indexPath row]];
-	
-	// Test avatar image
+	journalCell.usernameLabel.text = [_cellData objectAtIndex:[indexPath row]];
+	journalCell.descriptionLabel.text = [_textData objectAtIndex:[indexPath row]];
+	[journalCell setGeoLocation:[NSString stringWithFormat:@"Via delle Rose n.%d", (int)floorf(powf(([indexPath row]+1)*2, 2.0))] andTime:@"11 Apr 2012"];
 	[journalCell setAvatarImage:[[UIImage imageNamed:@"avatar.png"] thumbnailImage:48
 																 transparentBorder:0
 																	  cornerRadius:0
 															  interpolationQuality:kCGInterpolationHigh]];
 	
-	[journalCell setGeoLocation:[NSString stringWithFormat:@"Via delle Rose n.%d", (int)floorf(powf(([indexPath row]+1)*2, 2.0))] andTime:@"11 Apr 2012"];
-	
-	// Test immagine del drop
+	// Se è una image cell, aggiungo anche l'immagine
 	if([cell isKindOfClass:[DSImageJournalCell class]])
 	{
 		DSImageJournalCell *imageJournalCell = (DSImageJournalCell *) cell;
-		
-		UIImage *pictureImage	= [[UIImage imageNamed:[imageData objectAtIndex:[indexPath row]]] resizedImageWithContentMode:UIViewContentModeScaleAspectFill
+		UIImage *pictureImage	= [[UIImage imageNamed:[_imageData objectAtIndex:[indexPath row]]] resizedImageWithContentMode:UIViewContentModeScaleAspectFill
 																													   bounds:CGSizeMake(292.0, 160.0)
 																										 interpolationQuality:kCGInterpolationHigh];
-		
 		[imageJournalCell setPictureImage:pictureImage];
 	}
 	
+	// Ridispone gli elementi della cell in base ai parametri passati
 	[journalCell recalculateSizes];
-	
-	//NSLog(@"JournalCell #%d, Calculated label frame size: %f, Background size: %f", [indexPath row], journalCell.descriptionLabel.frame.size.height, journalCell.mainBackgroundImageView.frame.size.height);
 	
     return cell;
 }
@@ -162,4 +209,14 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
      */
 }
 
+/**
+ * Se sto per mostrare l'ultimo elemento, carico i 20 successivi.
+ */
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	if([indexPath row] == [_cellData count] - 1)
+	{
+		[self.tableView triggerInfiniteScrolling];
+	}
+}
 @end

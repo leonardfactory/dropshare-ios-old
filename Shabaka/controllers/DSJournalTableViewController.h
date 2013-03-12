@@ -12,4 +12,9 @@
 
 @interface DSJournalTableViewController : UITableViewController
 
+// Just for test
+@property (strong, nonatomic) NSMutableArray *cellData;
+@property (strong, nonatomic) NSMutableArray *textData;
+@property (strong, nonatomic) NSMutableArray *imageData;
+
 @end
