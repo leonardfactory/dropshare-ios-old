@@ -14,8 +14,8 @@
 
 - (DSWebApiAdapter *) init
 {
-	id baseUrl = [(id)[[UIApplication sharedApplication] delegate] baseURL];
-	_client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:baseUrl]];
+	id serverUrl = [(id)[[UIApplication sharedApplication] delegate] serverUrl];
+	_client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:serverUrl]];
 	return self;
 }
 
