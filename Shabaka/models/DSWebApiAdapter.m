@@ -14,7 +14,14 @@
 
 - (DSWebApiAdapter *) init
 {
-	id serverUrl = [(id)[[UIApplication sharedApplication] delegate] serverUrl];
+	NSString * serverUrl = @"http://ec2-54-228-232-120.eu-west-1.compute.amazonaws.com/";
+	_client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:serverUrl]];
+	return self;
+}
+
+- (DSWebApiAdapter *) initSSL
+{
+	NSString * serverUrl = @"https://ec2-54-228-232-120.eu-west-1.compute.amazonaws.com/";
 	_client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:serverUrl]];
 	return self;
 }

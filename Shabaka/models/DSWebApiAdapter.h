@@ -14,6 +14,8 @@
 
 @property (strong, nonatomic) AFHTTPClient *client;
 
+- (DSWebApiAdapter *) initSSL;
+
 - (DSWebApiAdapter *) initWithBaseUrl:baseUrl;
 
 - (void) postPath:(NSString *) path parameters:(NSDictionary *) params
