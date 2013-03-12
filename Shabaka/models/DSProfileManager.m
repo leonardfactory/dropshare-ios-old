@@ -15,7 +15,7 @@
 	self = [super init];
 	if (self)
 	{
-		[super setDomain:[[super dataAdapter] findOrCreate:@"profile" onModel:@"ProfileDomain"]];
+		//[super setDomain:[[super dataAdapter] findOrCreate:@"profile" onModel:@"ProfileDomain"]];
 	}
 	self.isJustLogged = FALSE;
 	[super setWebApiAdapter: [[DSWebApiAdapter alloc] initWithBaseUrl:@"https://francescoinfante.it"]];
@@ -28,7 +28,7 @@
 	self = [super initWithViewController:viewController];
 	if (self)
 	{
-		[super setDomain:[[super dataAdapter] findOrCreate:@"profile" onModel:@"ProfileDomain"]];
+		//[super setDomain:[[super dataAdapter] findOrCreate:@"profile" onModel:@"ProfileDomain"]];
 	}
 	[super setWebApiAdapter: [[DSWebApiAdapter alloc] initWithBaseUrl:@"https://francescoinfante.it"]];
 	[super.domain addObserver:super.viewController forKeyPath:@"user" options:NSKeyValueObservingOptionNew context:nil];
@@ -37,7 +37,7 @@
 }
 
 - (BOOL) isLogged
-{
+{/*
 	if ([(ProfileDomain *)super.domain user])
 	{
 		return TRUE;
@@ -45,6 +45,7 @@
 	{
 		return FALSE;
 	}
+  */
 }
 
 - (void) loginWithUsername:(NSString *) username withPassword:(NSString *) password
@@ -54,7 +55,7 @@
 		NSDictionary *jsonFromData = (NSDictionary *)[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
 		
 		NSString *identifier = [jsonFromData objectForKey:@"id"];
-		User *userLogged = [super.dataAdapter findOrCreate:identifier onModel:@"User"];
+		/*User *userLogged = [super.dataAdapter findOrCreate:identifier onModel:@"User"];
 		[userLogged setName:[jsonFromData objectForKey:@"name"]];
 		[userLogged setSurname:[jsonFromData objectForKey:@"surname"]];
 		[userLogged setUsername:[jsonFromData objectForKey:@"username"]];
@@ -67,8 +68,8 @@
 		
 		[userLogged setCreatedOn:myDate];
 		self.isJustLogged = TRUE;
-		[(ProfileDomain *)super.domain setUser:userLogged];
-		[super.dataAdapter save];
+		//[(ProfileDomain *)super.domain setUser:userLogged];
+		//[super.dataAdapter save];*/
 	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 		
 		NSError *errorJson = nil;
@@ -77,25 +78,26 @@
 			NSDictionary *jsonFromData = [NSJSONSerialization JSONObjectWithData:operation.responseData options:NSJSONReadingMutableContainers error:&errorJson];
 			if (!errorJson)
 			{
-				[(ProfileDomain *)super.domain setError:[jsonFromData objectForKey:@"error"]];
+				//[(ProfileDomain *)super.domain setError:[jsonFromData objectForKey:@"error"]];
 			}
 			else
 			{
-				[(ProfileDomain *)super.domain setError:[NSString stringWithFormat:@"%@",operation.responseString]];
+				//[(ProfileDomain *)super.domain setError:[NSString stringWithFormat:@"%@",operation.responseString]];
 			}
 		}
 		else
 		{
-			[(ProfileDomain *)super.domain setError:[error localizedDescription]];
+			//[(ProfileDomain *)super.domain setError:[error localizedDescription]];
 		}
-		[super.dataAdapter save];
+		//[super.dataAdapter save];
 	}];
 }
 
 - (BOOL) logout
 {
-	[(ProfileDomain *)super.domain setUser:nil];
-	return [super.dataAdapter save];
+	//[(ProfileDomain *)super.domain setUser:nil];
+	//return [super.dataAdapter save];
+	return FALSE;
 }
 
 @end

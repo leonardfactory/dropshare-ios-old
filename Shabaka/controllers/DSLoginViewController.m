@@ -155,6 +155,7 @@
 {
 	if([keyPath isEqualToString:@"user"] && [object isEqual:profileManager.domain])
 	{
+		/*
 		if([profileManager isJustLogged])
 		{
 			profileManager.isJustLogged = FALSE;
@@ -173,6 +174,7 @@
 			[(ProfileDomain *)[profileManager domain] setError:nil];
 			[profileManager.dataAdapter save];
 		}
+		 */
 	}
 }
 

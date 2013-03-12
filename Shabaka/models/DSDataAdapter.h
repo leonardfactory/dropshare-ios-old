@@ -10,7 +10,10 @@
 #import "NSManagedObjectContext+blocks.h"
 #import "User.h"
 #import "Drop.h"
-#import "ProfileDomain.h"
+#import "Spacetag.h"
+#import "Comment.h"
+#import "Profile.h"
+#import "DropCollection.h"
 
 @interface DSDataAdapter : NSObject
 
@@ -18,9 +21,12 @@
 
 - (void) findOrCreate:(NSString *) identifier onModel:(NSString *) entityName
 		   onComplete:(void (^)(id result)) completeBlock
-			  onError:(NSManagedObjectContextFetchFailBlock) failBlock;
-- (id) findOrCreate:(NSString *) identifier onModel:(NSString *) entityName;
-- (void) remove:(id) object;
-- (BOOL) save;
+			  onError:(void (^)(NSError *error)) failBlock;
+
+- (id) findOrCreate:(NSString *) identifier onModel:(NSString *) entityName error:(NSError **)error;
+
+- (BOOL) remove:(id) object error:(NSError **)error;
+
+- (BOOL) save:(NSError **)error;
 
 @end
