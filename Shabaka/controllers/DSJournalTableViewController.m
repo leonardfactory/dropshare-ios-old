@@ -32,6 +32,7 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 {
     [super viewDidLoad];
 	
+	// Just for testing
 	_cellData = [NSMutableArray arrayWithObjects:	@"Angelo", @"Beppe", @"Carlo", nil];
 	
 	_textData = [NSMutableArray arrayWithObjects:	@"Il pezzo di pizza pazzo mangiava la pazza pezza del pozzo, col pizzo pazzo.",
@@ -66,19 +67,13 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
  */
 - (void) updateJournal
 {
-	BOOL isRefreshed = false;
+	// @todo Model
+	[self.cellData insertObject:@"Gino" atIndex:0];
+	[self.textData insertObject:@"C'era una volta un mago cattivo. Taking a snapshot just for fun, bitches." atIndex:0];
+	[self.imageData insertObject:[NSNull null] atIndex:0];
 	
-	// Just for test
-	if(!isRefreshed)
-	{
-		//isRefreshed = true;
-		[self.cellData insertObject:@"Gino" atIndex:0];
-		[self.textData insertObject:@"C'era una volta un mago cattivo. Taking a snapshot just for fun, bitches." atIndex:0];
-		[self.imageData insertObject:[NSNull null] atIndex:0];
-		
-		[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForItem:0 inSection:0]]
-							  withRowAnimation:UITableViewRowAnimationBottom];
-	};
+	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForItem:0 inSection:0]]
+						  withRowAnimation:UITableViewRowAnimationBottom];
 	
 	[self.tableView.pullToRefreshView stopAnimating];
 }
@@ -88,7 +83,7 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
  */
 - (void) loadMoreToJournal
 {
-	//NSInteger lastIndex = [self.cellData count] - 1;
+	// @todo Model
 	[self.cellData addObject:@"Ginoska"];
 	[self.textData addObject:@"Vivamus auctor leo vel dui. Aliquam erat volutpat. Phasellus nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras tempor. Morbi egestas, urna non consequat tempus, nunc arcu mollis enim, eu aliquam erat nulla non nibh. Duis consectetuer malesuada velit. Nam ante nulla, interdum vel, tristique ac, condimentum non, tellus. Proin ornare feugiat nisl. Suspendisse dolor nisl, ultrices at, eleifend vel, consequat at, dolor."];
 	[self.imageData addObject:@"mountain.jpg"];
@@ -102,14 +97,14 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 - (void) viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];
-	
+
+//	@todo Model
 //	[self.tableView triggerPullToRefresh];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -120,6 +115,7 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+	// @todo Model
     return [_cellData count];
 }
 
@@ -172,6 +168,7 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	DSJournalCell *journalCell = (DSJournalCell *) cell;
 	
 	// Configurazione della cell
+	// @todo Model
 	journalCell.usernameLabel.text = [_cellData objectAtIndex:[indexPath row]];
 	journalCell.descriptionLabel.text = [_textData objectAtIndex:[indexPath row]];
 	[journalCell setGeoLocation:[NSString stringWithFormat:@"Via delle Rose n.%d", (int)floorf(powf(([indexPath row]+1)*2, 2.0))] andTime:@"11 Apr 2012"];
@@ -184,6 +181,7 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	if([cell isKindOfClass:[DSImageJournalCell class]])
 	{
 		DSImageJournalCell *imageJournalCell = (DSImageJournalCell *) cell;
+		// @todo Model
 		UIImage *pictureImage	= [[UIImage imageNamed:[_imageData objectAtIndex:[indexPath row]]] resizedImageWithContentMode:UIViewContentModeScaleAspectFill
 																													   bounds:CGSizeMake(292.0, 160.0)
 																										 interpolationQuality:kCGInterpolationHigh];
