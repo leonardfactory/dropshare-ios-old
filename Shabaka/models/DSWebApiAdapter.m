@@ -36,7 +36,7 @@
 - (void) postPath:(NSString *) path
 	   parameters:(NSDictionary *) parameters
 		  success:(void (^)(NSDictionary *responseObject)) success
-		  failure:(void (^)(NSString *responseError, NSError *error)) failure
+		  failure:(void (^)(NSString *responseError, int statusCode, NSError *error)) failure
 {
 	[_client postPath:path parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
 		NSError *error;
@@ -47,17 +47,17 @@
 		}
 		else
 		{
-			failure(nil,error);
+			failure(nil,nil,error);
 		}
 	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-		failure(operation.responseString,error);
+		failure(operation.responseString,[operation.response statusCode],error);
 	}];
 }
 
 - (void) getPath:(NSString *) path
      parameters:(NSDictionary *) parameters
 		 success:(void (^)(NSDictionary *responseObject)) success
-		 failure:(void (^)(NSString *responseError, NSError *error)) failure
+		 failure:(void (^)(NSString *responseError, int statusCode, NSError *error)) failure
 {
 	[_client getPath:path parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
 		NSError *error;
@@ -68,10 +68,10 @@
 		}
 		else
 		{
-			failure(nil,error);
+			failure(nil,nil,error);
 		}
 	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-		failure(operation.responseString,error);
+		failure(operation.responseString,[operation.response statusCode],error);
 	}];
 }
 
