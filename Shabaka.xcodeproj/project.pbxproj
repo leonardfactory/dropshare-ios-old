@@ -516,9 +516,9 @@
 		A753DF4616EDDED200278CE7 /* ImageJournalCell */ = {
 			isa = PBXGroup;
 			children = (
+				A753DF4A16EDDF0B00278CE7 /* DSImageJournalCell.xib */,
 				A753DF4716EDDEEC00278CE7 /* DSImageJournalCell.h */,
 				A753DF4816EDDEEC00278CE7 /* DSImageJournalCell.m */,
-				A753DF4A16EDDF0B00278CE7 /* DSImageJournalCell.xib */,
 			);
 			name = ImageJournalCell;
 			sourceTree = "<group>";
