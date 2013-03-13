@@ -47,7 +47,7 @@
 		}
 		else
 		{
-			failure(nil,nil,error);
+			failure(nil,0,error);
 		}
 	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 		failure(operation.responseString,[operation.response statusCode],error);
@@ -68,10 +68,12 @@
 		}
 		else
 		{
-			failure(nil,nil,error);
+			failure(nil,0,error);
 		}
 	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-		failure(operation.responseString,[operation.response statusCode],error);
+		int code = [operation.response statusCode];
+		NSString *errorString = operation.responseString;
+		failure(errorString,code,error);
 	}];
 }
 

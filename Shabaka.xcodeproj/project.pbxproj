@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		131480F116F0D4B1004A9D3C /* DSUserSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 131480F016F0D4B1004A9D3C /* DSUserSerializer.m */; };
+		131480F316F0F1E7004A9D3C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 131480F216F0F1E7004A9D3C /* SystemConfiguration.framework */; };
+		131480F516F0F1FE004A9D3C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 131480F416F0F1FD004A9D3C /* MobileCoreServices.framework */; };
 		138800AD16E6263F00716368 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1388009B16E6263F00716368 /* AFHTTPClient.m */; };
 		138800AE16E6263F00716368 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1388009D16E6263F00716368 /* AFHTTPRequestOperation.m */; };
 		138800AF16E6263F00716368 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1388009F16E6263F00716368 /* AFImageRequestOperation.m */; };
@@ -97,6 +100,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		131480EF16F0D4B1004A9D3C /* DSUserSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSUserSerializer.h; path = models/DSUserSerializer.h; sourceTree = "<group>"; };
+		131480F016F0D4B1004A9D3C /* DSUserSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSUserSerializer.m; path = models/DSUserSerializer.m; sourceTree = "<group>"; };
+		131480F216F0F1E7004A9D3C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		131480F416F0F1FD004A9D3C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		136F564016E8EDB9009E5203 /* DSDataAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSDataAdapter.h; path = models/DSDataAdapter.h; sourceTree = "<group>"; };
 		136F564116E8EDB9009E5203 /* DSDataAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSDataAdapter.m; path = models/DSDataAdapter.m; sourceTree = "<group>"; };
 		136F564216E8EDB9009E5203 /* DSEntityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSEntityManager.h; path = models/DSEntityManager.h; sourceTree = "<group>"; };
@@ -229,6 +236,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				131480F516F0F1FE004A9D3C /* MobileCoreServices.framework in Frameworks */,
+				131480F316F0F1E7004A9D3C /* SystemConfiguration.framework in Frameworks */,
 				A7A542AE16D90FEB00FEE4BE /* MapKit.framework in Frameworks */,
 				A7A542A816D907ED00FEE4BE /* QuartzCore.framework in Frameworks */,
 				13C4332816D8FC58001A43F9 /* UIKit.framework in Frameworks */,
@@ -241,6 +250,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		131480EE16F0D475004A9D3C /* Serializer */ = {
+			isa = PBXGroup;
+			children = (
+				131480EF16F0D4B1004A9D3C /* DSUserSerializer.h */,
+				131480F016F0D4B1004A9D3C /* DSUserSerializer.m */,
+			);
+			name = Serializer;
+			sourceTree = "<group>";
+		};
 		136F565216E8EFB0009E5203 /* Auto Generated */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,6 +331,7 @@
 			children = (
 				136F565D16E8F06F009E5203 /* Manager */,
 				136F565C16E8F063009E5203 /* Adapter */,
+				131480EE16F0D475004A9D3C /* Serializer */,
 				136F565216E8EFB0009E5203 /* Auto Generated */,
 			);
 			name = Models;
@@ -338,6 +357,8 @@
 		13C4332616D8FC58001A43F9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				131480F416F0F1FD004A9D3C /* MobileCoreServices.framework */,
+				131480F216F0F1E7004A9D3C /* SystemConfiguration.framework */,
 				A7A542AD16D90FEB00FEE4BE /* MapKit.framework */,
 				A7A542A716D907ED00FEE4BE /* QuartzCore.framework */,
 				13C4332716D8FC58001A43F9 /* UIKit.framework */,
@@ -728,6 +749,7 @@
 				13B9341416EF8BFE00B7E712 /* User.m in Sources */,
 				13B9341716EF8BFE00B7E712 /* Drop.m in Sources */,
 				13B9341A16EF8BFE00B7E712 /* Profile.m in Sources */,
+				131480F116F0D4B1004A9D3C /* DSUserSerializer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
