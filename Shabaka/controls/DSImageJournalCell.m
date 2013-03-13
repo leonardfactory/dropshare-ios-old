@@ -8,6 +8,7 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "DSImageJournalCell.h"
+#import "UIImageView+AFNetworking.h"
 #import "InterfaceConstants.h"
 
 @implementation DSImageJournalCell
@@ -37,9 +38,9 @@
     return self;
 }
 
-- (void) setPictureImage:(UIImage *)image
+- (void) setPictureWithURL:(NSURL *) imageURL
 {
-	[self.pictureImageView setImage:image];
+	[self.pictureImageView setImageWithURL:imageURL];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

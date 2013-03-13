@@ -30,6 +30,7 @@
 
 + (CGFloat) heightForCellWithText:(NSString *)text;
 
+- (void) setAvatarWithURL:(NSURL *) imageURL;
 - (void) setAvatarImage:(UIImage *)image;
 - (void) recalculateSizes;
 - (void) shiftContent:(CGFloat)deltaY;

@@ -9,6 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "DSJournalCell.h"
 #import "InterfaceConstants.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface DSJournalCell ()
 
@@ -77,7 +78,7 @@
 		UIColor *infoFontColor	= [UIColor lightGrayColor];
 		
 		self.infoLabels		= [[UIView alloc] initWithFrame:CGRectMake(kDSCellLabelLeftMargin,
-																	   kDSCellDescriptionTopMargin + kDSCellDescriptionHeight + 4.0,
+																	   kDSCellDescriptionTopMargin + kDSCellDescriptionHeight + kDSCellInfoLabelsTopMargin,
 																	   kDSCellLabelWidth,
 																	   14.0)];
 		[self addSubview:self.infoLabels];
@@ -92,7 +93,7 @@
 		self.geoLocationLabel.textColor = infoFontColor;
 		[self.infoLabels addSubview:self.geoLocationLabel];
 		
-		self.separatorImageView			= [[UIImageView alloc] initWithFrame:CGRectMake(114.0, 5.0, 2.0, 2.0)];
+		self.separatorImageView			= [[UIImageView alloc] initWithFrame:CGRectMake(108.0, 5.0, 2.0, 2.0)];
 		self.separatorImageView.image	= [UIImage imageNamed:@"dotSeparator.png"];
 		[self.infoLabels addSubview:self.separatorImageView];
 		
@@ -111,9 +112,9 @@
 																	   self.infoLabels.frame.origin.y + self.infoLabels.frame.size.height + 4.0,
 																	   kDSCellLabelWidth,
 																	   33.0)];
-		[self addSubview:self.socialButtons];
+		//[self addSubview:self.socialButtons];
 		
-		UIImage *buttonBackgroundImage			= [[UIImage imageNamed:@"buttonBg.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(5.0, 5.0, 27.0, 5.0)];
+		//UIImage *buttonBackgroundImage			= [[UIImage imageNamed:@"buttonBg.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(5.0, 5.0, 27.0, 5.0)];
 		//UIImage *buttonPressedBackgroundImage	= [[UIImage imageNamed:@"buttonBgPressed.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(8.0, 4.0, 29.0, 4.0)];
 		UIFont *socialFont			= [UIFont boldSystemFontOfSize:kDSDefaultFontSize];
 		UIColor *socialFontColor	= [UIColor lightGrayColor];
@@ -130,7 +131,7 @@
 		[self.likeButton.titleLabel setFont:socialFont];
 		[self.likeButton setTitleColor:socialFontColor forState:UIControlStateNormal];
 		[self.likeButton setImage:[UIImage imageNamed:@"paperClipIcon.png"] forState:UIControlStateNormal];
-		[self.likeButton setBackgroundImage:buttonBackgroundImage			forState:UIControlStateNormal];
+		//[self.likeButton setBackgroundImage:buttonBackgroundImage			forState:UIControlStateNormal];
 		//[self.likeButton setBackgroundImage:buttonPressedBackgroundImage	forState:UIControlStateHighlighted];
 		
 		[self.socialButtons addSubview:self.likeButton];
@@ -145,7 +146,7 @@
 		[self.commentButton.titleLabel setFont:socialFont];
 		[self.commentButton setTitleColor:socialFontColor forState:UIControlStateNormal];
 		[self.commentButton setImage:[UIImage imageNamed:@"commentIcon.png"] forState:UIControlStateNormal];
-		[self.commentButton setBackgroundImage:buttonBackgroundImage			forState:UIControlStateNormal];
+		//[self.commentButton setBackgroundImage:buttonBackgroundImage			forState:UIControlStateNormal];
 		
 		[self.socialButtons addSubview:self.commentButton];
     }
@@ -167,14 +168,14 @@
 															  lineBreakMode:UILineBreakModeWordWrap].height;
 	
 	self.infoLabels.frame		= CGRectMake(infoLabelsFrame.origin.x,
-											 descriptionLabelHeight + descriptionLabelFrame.origin.y + 4.0,
+											 descriptionLabelHeight + descriptionLabelFrame.origin.y + kDSCellInfoLabelsTopMargin,
 											 infoLabelsFrame.size.width,
 											 infoLabelsFrame.size.height);
 	
-	self.socialButtons.frame	= CGRectMake(socialButtonsFrame.origin.x,
+	/*self.socialButtons.frame	= CGRectMake(socialButtonsFrame.origin.x,
 											 descriptionLabelFrame.origin.y + descriptionLabelHeight + 4.0 + infoLabelsFrame.size.height + 4.0,
 											 socialButtonsFrame.size.width,
-											 socialButtonsFrame.size.height);
+											 socialButtonsFrame.size.height);*/
 	
 	self.descriptionLabel.frame = CGRectMake(descriptionLabelFrame.origin.x,
 											 descriptionLabelFrame.origin.y,
@@ -213,17 +214,17 @@
 												 geoLocationLabelWidth,
 												 self.geoLocationLabel.frame.size.height);
 	
-	self.separatorImageView.frame	= CGRectMake(self.geoLocationLabel.frame.origin.x + self.geoLocationLabel.frame.size.width + 2.0,
+	self.separatorImageView.frame	= CGRectMake(self.geoLocationLabel.frame.origin.x + geoLocationLabelWidth,
 												 self.separatorImageView.frame.origin.y,
 												 self.separatorImageView.frame.size.width,
 												 self.separatorImageView.frame.size.height);
 	
-	self.timeImageView.frame		= CGRectMake(self.separatorImageView.frame.origin.x + self.separatorImageView.frame.size.width + 2.0,
+	self.timeImageView.frame		= CGRectMake(self.separatorImageView.frame.origin.x + self.separatorImageView.frame.size.width + 4.0,
 												 self.timeImageView.frame.origin.y,
 												 self.timeImageView.frame.size.width,
 												 self.timeImageView.frame.size.height);
 	
-	self.timeLabel.frame			= CGRectMake(self.timeImageView.frame.origin.x + self.timeImageView.frame.size.width + 2.0,
+	self.timeLabel.frame			= CGRectMake(self.timeImageView.frame.origin.x + self.timeImageView.frame.size.width + 3.0,
 												 self.timeLabel.frame.origin.y,
 												 timeLabelWidth,
 												 self.timeLabel.frame.size.height);
@@ -232,6 +233,11 @@
 	self.timeLabel.text			= aTime;
 	
 	
+}
+
+- (void) setAvatarWithURL:(NSURL *) imageURL
+{
+	[self.avatarImageView setImageWithURL:imageURL];
 }
 
 - (void) setAvatarImage:(UIImage *)image

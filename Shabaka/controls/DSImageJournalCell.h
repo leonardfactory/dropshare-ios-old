@@ -16,6 +16,6 @@
 
 + (CGFloat) heightForCellWithText:(NSString *)text;
 
-- (void) setPictureImage:(UIImage *)image;
+- (void) setPictureWithURL:(NSURL *)imageURL;
 
 @end
