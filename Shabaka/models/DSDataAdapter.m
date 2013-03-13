@@ -20,7 +20,7 @@
 
 - (void) findOrCreate:(NSString *) identifier onModel:(NSString *) entityName
 		   onComplete:(void (^)(id result)) completeBlock
-			  onError:(NSManagedObjectContextFetchFailBlock) failBlock
+			  onError:(void (^)(NSError *error)) failBlock
 {
 	assert(identifier);
 	assert(entityName);
@@ -31,45 +31,61 @@
 	[_managedObjectContext executeFetchRequestInBackground:request onComplete:^(NSArray *results) {
 		for (id object in results)
 		{
+			//Call the callback with the first and only entry.
 			completeBlock(object);
 			return;
 		}
 		id createdObject = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:_managedObjectContext];
 		[createdObject setIdentifier:identifier];
-		[self save];
-		completeBlock(createdObject);
-		
+		NSError *error;
+		if(![self save:&error])
+		{
+			failBlock(error);
+		}
+		else
+		{
+			completeBlock(createdObject);
+		}
 	} onError:failBlock];
 }
 
-- (id) findOrCreate:(NSString *) identifier onModel:(NSString *) entityName
+- (id) findOrCreate:(NSString *) identifier onModel:(NSString *) entityName error:(NSError **)error;
 {
 	assert(identifier);
 	assert(entityName);
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	[request setEntity:[NSEntityDescription entityForName:entityName inManagedObjectContext:_managedObjectContext]];
 	[request setPredicate:[NSPredicate predicateWithFormat: @"identifier = %@", identifier]];
-	NSArray *result = [_managedObjectContext executeFetchRequest:request error:nil];
+	NSArray *result = [_managedObjectContext executeFetchRequest:request error:error];
+	if(!result)
+	{
+		return nil;
+	}
 	for (id object in result)
 	{
+		//Return the first and only entry.
 		return object;
 	}
+	//Or create a new one.
 	id createdObject = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:_managedObjectContext];
 	[createdObject setIdentifier:identifier];
-	[self save];
+	if(![self save:error])
+	{
+		return nil;
+	}
 	return createdObject;
 }
 
-- (void) remove:(id) object
+- (BOOL) remove:(id) object error:(NSError **)error
 {
 	assert(object);
 	[_managedObjectContext deleteObject:object];
-	[self save];
+	return [_managedObjectContext save:error];
 }
 
-- (BOOL) save
+- (BOOL) save:(NSError **)error
 {
-	return [_managedObjectContext save:nil];
+	return [_managedObjectContext save:error];
 }
 
 @end

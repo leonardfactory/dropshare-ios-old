@@ -1,8 +1,8 @@
 //
-//  ProfileDomain.h
+//  Profile.h
 //  Shabaka
 //
-//  Created by Francesco on 07/03/13.
+//  Created by Francesco on 12/03/13.
 //  Copyright (c) 2013 Dropshare. All rights reserved.
 //
 
@@ -11,10 +11,9 @@
 
 @class User;
 
-@interface ProfileDomain : NSManagedObject
+@interface Profile : NSManagedObject
 
 @property (nonatomic, retain) NSString * identifier;
-@property (nonatomic, retain) NSString * error;
 @property (nonatomic, retain) User *user;
 
 @end

@@ -2,28 +2,36 @@
 //  User.h
 //  Shabaka
 //
-//  Created by Francesco on 07/03/13.
+//  Created by Francesco on 12/03/13.
 //  Copyright (c) 2013 Dropshare. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Drop, User;
+@class Comment, Drop, Profile, Spacetag, User;
 
 @interface User : NSManagedObject
 
+@property (nonatomic, retain) NSDate * createdOn;
 @property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * surname;
 @property (nonatomic, retain) NSString * username;
-@property (nonatomic, retain) NSDate * createdOn;
+@property (nonatomic, retain) NSSet *comments;
 @property (nonatomic, retain) NSOrderedSet *drops;
-@property (nonatomic, retain) NSOrderedSet *followed;
 @property (nonatomic, retain) NSOrderedSet *followers;
+@property (nonatomic, retain) NSOrderedSet *following;
+@property (nonatomic, retain) Profile *inverseProfileUser;
+@property (nonatomic, retain) NSOrderedSet *spacetags;
 @end
 
 @interface User (CoreDataGeneratedAccessors)
+
+- (void)addCommentsObject:(Comment *)value;
+- (void)removeCommentsObject:(Comment *)value;
+- (void)addComments:(NSSet *)values;
+- (void)removeComments:(NSSet *)values;
 
 - (void)insertObject:(Drop *)value inDropsAtIndex:(NSUInteger)idx;
 - (void)removeObjectFromDropsAtIndex:(NSUInteger)idx;
@@ -35,16 +43,6 @@
 - (void)removeDropsObject:(Drop *)value;
 - (void)addDrops:(NSOrderedSet *)values;
 - (void)removeDrops:(NSOrderedSet *)values;
-- (void)insertObject:(User *)value inFollowedAtIndex:(NSUInteger)idx;
-- (void)removeObjectFromFollowedAtIndex:(NSUInteger)idx;
-- (void)insertFollowed:(NSArray *)value atIndexes:(NSIndexSet *)indexes;
-- (void)removeFollowedAtIndexes:(NSIndexSet *)indexes;
-- (void)replaceObjectInFollowedAtIndex:(NSUInteger)idx withObject:(User *)value;
-- (void)replaceFollowedAtIndexes:(NSIndexSet *)indexes withFollowed:(NSArray *)values;
-- (void)addFollowedObject:(User *)value;
-- (void)removeFollowedObject:(User *)value;
-- (void)addFollowed:(NSOrderedSet *)values;
-- (void)removeFollowed:(NSOrderedSet *)values;
 - (void)insertObject:(User *)value inFollowersAtIndex:(NSUInteger)idx;
 - (void)removeObjectFromFollowersAtIndex:(NSUInteger)idx;
 - (void)insertFollowers:(NSArray *)value atIndexes:(NSIndexSet *)indexes;
@@ -55,4 +53,24 @@
 - (void)removeFollowersObject:(User *)value;
 - (void)addFollowers:(NSOrderedSet *)values;
 - (void)removeFollowers:(NSOrderedSet *)values;
+- (void)insertObject:(User *)value inFollowingAtIndex:(NSUInteger)idx;
+- (void)removeObjectFromFollowingAtIndex:(NSUInteger)idx;
+- (void)insertFollowing:(NSArray *)value atIndexes:(NSIndexSet *)indexes;
+- (void)removeFollowingAtIndexes:(NSIndexSet *)indexes;
+- (void)replaceObjectInFollowingAtIndex:(NSUInteger)idx withObject:(User *)value;
+- (void)replaceFollowingAtIndexes:(NSIndexSet *)indexes withFollowing:(NSArray *)values;
+- (void)addFollowingObject:(User *)value;
+- (void)removeFollowingObject:(User *)value;
+- (void)addFollowing:(NSOrderedSet *)values;
+- (void)removeFollowing:(NSOrderedSet *)values;
+- (void)insertObject:(Spacetag *)value inSpacetagsAtIndex:(NSUInteger)idx;
+- (void)removeObjectFromSpacetagsAtIndex:(NSUInteger)idx;
+- (void)insertSpacetags:(NSArray *)value atIndexes:(NSIndexSet *)indexes;
+- (void)removeSpacetagsAtIndexes:(NSIndexSet *)indexes;
+- (void)replaceObjectInSpacetagsAtIndex:(NSUInteger)idx withObject:(Spacetag *)value;
+- (void)replaceSpacetagsAtIndexes:(NSIndexSet *)indexes withSpacetags:(NSArray *)values;
+- (void)addSpacetagsObject:(Spacetag *)value;
+- (void)removeSpacetagsObject:(Spacetag *)value;
+- (void)addSpacetags:(NSOrderedSet *)values;
+- (void)removeSpacetags:(NSOrderedSet *)values;
 @end

@@ -14,9 +14,5 @@
 
 @property (strong, nonatomic) DSDataAdapter *dataAdapter;
 @property (strong, nonatomic) DSWebApiAdapter *webApiAdapter;
-@property (strong, nonatomic) NSManagedObject *domain;
-@property (weak, nonatomic) UIViewController *viewController;
-
-- (DSEntityManager *) initWithViewController:(UIViewController *) viewController;
 
 @end

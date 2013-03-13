@@ -14,8 +14,15 @@
 
 - (DSWebApiAdapter *) init
 {
-	id baseUrl = [(id)[[UIApplication sharedApplication] delegate] baseURL];
-	_client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:baseUrl]];
+	NSString * serverUrl = @"http://ec2-54-228-232-120.eu-west-1.compute.amazonaws.com/";
+	_client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:serverUrl]];
+	return self;
+}
+
+- (DSWebApiAdapter *) initSSL
+{
+	NSString * serverUrl = @"https://ec2-54-228-232-120.eu-west-1.compute.amazonaws.com/";
+	_client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:serverUrl]];
 	return self;
 }
 
@@ -28,18 +35,46 @@
 
 - (void) postPath:(NSString *) path
 	   parameters:(NSDictionary *) parameters
-		  success:(void (^)(AFHTTPRequestOperation *operation, id responseObject)) success
-		  failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error)) failure
+		  success:(void (^)(NSDictionary *responseObject)) success
+		  failure:(void (^)(NSString *responseError, int statusCode, NSError *error)) failure
 {
-	[_client postPath:path parameters:parameters success:success failure:failure];
+	[_client postPath:path parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		NSError *error;
+		id dict =[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:&error];
+		if (dict)
+		{
+			success((NSDictionary *)dict);
+		}
+		else
+		{
+			failure(nil,0,error);
+		}
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		failure(operation.responseString,[operation.response statusCode],error);
+	}];
 }
 
 - (void) getPath:(NSString *) path
      parameters:(NSDictionary *) parameters
-        success:(void (^)(AFHTTPRequestOperation *operation, id responseObject)) success
-        failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error)) failure
+		 success:(void (^)(NSDictionary *responseObject)) success
+		 failure:(void (^)(NSString *responseError, int statusCode, NSError *error)) failure
 {
-	[_client getPath:path parameters:parameters success:success failure:failure];
+	[_client getPath:path parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		NSError *error;
+		id dict =[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:&error];
+		if (dict)
+		{
+			success((NSDictionary *)dict);
+		}
+		else
+		{
+			failure(nil,0,error);
+		}
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		int code = [operation.response statusCode];
+		NSString *errorString = operation.responseString;
+		failure(errorString,code,error);
+	}];
 }
 
 @end

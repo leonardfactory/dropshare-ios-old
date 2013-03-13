@@ -2,11 +2,14 @@
 //  Drop.m
 //  Shabaka
 //
-//  Created by Francesco on 07/03/13.
+//  Created by Francesco on 12/03/13.
 //  Copyright (c) 2013 Dropshare. All rights reserved.
 //
 
 #import "Drop.h"
+#import "Comment.h"
+#import "DropCollection.h"
+#import "Spacetag.h"
 #import "User.h"
 
 
@@ -18,7 +21,14 @@
 @dynamic location;
 @dynamic longitude;
 @dynamic text;
+@dynamic totComments;
+@dynamic totLikes;
+@dynamic totRedrops;
 @dynamic type;
+@dynamic like;
+@dynamic comments;
+@dynamic inverseDropCollectionDrops;
+@dynamic spacetags;
 @dynamic user;
 
 @end

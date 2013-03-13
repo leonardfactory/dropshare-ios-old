@@ -7,7 +7,7 @@
 							   onError:(NSManagedObjectContextFetchFailBlock) failBlock{
 	
 	//Get the persistent store coordinator
-	NSPersistentStoreCoordinator	*coordinator = [self persistentStoreCoordinator];
+	//NSPersistentStoreCoordinator	*coordinator = [self persistentStoreCoordinator];
 	
 	dispatch_queue_t	backgroundQueue	= dispatch_queue_create("FR.NSManagedObjectContext.fetchRequests", NULL);
 	dispatch_queue_t	mainQueue		= dispatch_get_main_queue();

@@ -15,33 +15,20 @@
 	self = [super init];
 	if (self)
 	{
-		[super setDomain:[[super dataAdapter] findOrCreate:@"profile" onModel:@"ProfileDomain"]];
+		[self setProfile:[[super dataAdapter] findOrCreate:@"profile" onModel:@"Profile" error:nil]];
 	}
 	self.isJustLogged = FALSE;
-	[super setWebApiAdapter: [[DSWebApiAdapter alloc] initWithBaseUrl:@"https://francescoinfante.it"]];
-	return self;
-}
-
-- (DSEntityManager *) initWithViewController:(UIViewController *) viewController
-{
-	assert(viewController);
-	self = [super initWithViewController:viewController];
-	if (self)
-	{
-		[super setDomain:[[super dataAdapter] findOrCreate:@"profile" onModel:@"ProfileDomain"]];
-	}
-	[super setWebApiAdapter: [[DSWebApiAdapter alloc] initWithBaseUrl:@"https://francescoinfante.it"]];
-	[super.domain addObserver:super.viewController forKeyPath:@"user" options:NSKeyValueObservingOptionNew context:nil];
-	[super.domain addObserver:super.viewController forKeyPath:@"error" options:NSKeyValueObservingOptionNew context:nil];
+	[self setWebApiAdapter: [[DSWebApiAdapter alloc] initSSL]];
 	return self;
 }
 
 - (BOOL) isLogged
 {
-	if ([(ProfileDomain *)super.domain user])
+	if ([_profile user])
 	{
 		return TRUE;
-	} else
+	}
+	else
 	{
 		return FALSE;
 	}
@@ -49,53 +36,39 @@
 
 - (void) loginWithUsername:(NSString *) username withPassword:(NSString *) password
 {
+	assert(username);
+	assert(password);
 	NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:username, @"username", password, @"password", nil];
-	[super.webApiAdapter postPath:@"/login" parameters:body success:^(AFHTTPRequestOperation *operation, id responseObject) {
-		NSDictionary *jsonFromData = (NSDictionary *)[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-		
-		NSString *identifier = [jsonFromData objectForKey:@"id"];
-		User *userLogged = [super.dataAdapter findOrCreate:identifier onModel:@"User"];
-		[userLogged setName:[jsonFromData objectForKey:@"name"]];
-		[userLogged setSurname:[jsonFromData objectForKey:@"surname"]];
-		[userLogged setUsername:[jsonFromData objectForKey:@"username"]];
-		
-		NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-		[dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss"];
-		[dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
-		
-		NSDate *myDate = [dateFormatter dateFromString:[[jsonFromData objectForKey:@"createdOn"] substringToIndex:19]];
-		
-		[userLogged setCreatedOn:myDate];
-		self.isJustLogged = TRUE;
-		[(ProfileDomain *)super.domain setUser:userLogged];
-		[super.dataAdapter save];
-	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-		
-		NSError *errorJson = nil;
-		if(operation.responseData)
+	[self.webApiAdapter postPath:@"/login" parameters:body success:^(NSDictionary *responseObject)
+	{
+		_statusCode = 200;
+		if ([responseObject objectForKey:@"error"])
 		{
-			NSDictionary *jsonFromData = [NSJSONSerialization JSONObjectWithData:operation.responseData options:NSJSONReadingMutableContainers error:&errorJson];
-			if (!errorJson)
-			{
-				[(ProfileDomain *)super.domain setError:[jsonFromData objectForKey:@"error"]];
-			}
-			else
-			{
-				[(ProfileDomain *)super.domain setError:[NSString stringWithFormat:@"%@",operation.responseString]];
-			}
+			[self setErrorString:[responseObject objectForKey:@"error"]];
 		}
 		else
 		{
-			[(ProfileDomain *)super.domain setError:[error localizedDescription]];
+			DSUserSerializer *serializer = [[DSUserSerializer alloc] init];
+			[_profile setUser:[serializer deserializeUserFrom:responseObject]];
+			[self.dataAdapter save:nil];
+			self.isJustLogged = TRUE;
 		}
-		[super.dataAdapter save];
+	} failure:^(NSString *responseError, int statusCode, NSError *error)
+	{
+		_statusCode = statusCode;
+		[self setErrorString:responseError];
 	}];
 }
 
-- (BOOL) logout
+- (void) logout
 {
-	[(ProfileDomain *)super.domain setUser:nil];
-	return [super.dataAdapter save];
+	[self.webApiAdapter postPath:@"/logout" parameters:nil success:^(NSDictionary *responseObject) {
+		NSLog(@"%@",[responseObject objectForKey:@"result"]);
+	} failure:^(NSString *responseError, int statusCode, NSError *error) {
+		NSLog(@"Failed to log out remotely: %@",responseError);
+	}];
+	[_profile setUser:nil];
+	[super.dataAdapter save:nil];
 }
 
 @end

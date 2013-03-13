@@ -14,15 +14,18 @@
 
 @property (strong, nonatomic) AFHTTPClient *client;
 
+- (DSWebApiAdapter *) initSSL;
+
 - (DSWebApiAdapter *) initWithBaseUrl:baseUrl;
 
-- (void) postPath:(NSString *) path parameters:(NSDictionary *) params
-		  success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
-		  failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+- (void) postPath:(NSString *) path
+	   parameters:(NSDictionary *) parameters
+		  success:(void (^)(NSDictionary *responseObject)) success
+		  failure:(void (^)(NSString *responseError, int statusCode, NSError *error)) failure;
 
 - (void) getPath:(NSString *) path
 	  parameters:(NSDictionary *) parameters
-		 success:(void (^)(AFHTTPRequestOperation *operation, id responseObject)) success
-		 failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error)) failure;
+		 success:(void (^)(NSDictionary *responseObject)) success
+		 failure:(void (^)(NSString *responseError, int statusCode, NSError *error)) failure;
 
 @end

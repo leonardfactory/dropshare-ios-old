@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		131480F116F0D4B1004A9D3C /* DSUserSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 131480F016F0D4B1004A9D3C /* DSUserSerializer.m */; };
+		131480F316F0F1E7004A9D3C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 131480F216F0F1E7004A9D3C /* SystemConfiguration.framework */; };
+		131480F516F0F1FE004A9D3C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 131480F416F0F1FD004A9D3C /* MobileCoreServices.framework */; };
 		138800AD16E6263F00716368 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1388009B16E6263F00716368 /* AFHTTPClient.m */; };
 		138800AE16E6263F00716368 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1388009D16E6263F00716368 /* AFHTTPRequestOperation.m */; };
 		138800AF16E6263F00716368 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1388009F16E6263F00716368 /* AFImageRequestOperation.m */; };
@@ -20,6 +23,12 @@
 		138800BC16E627D100716368 /* DSDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 138800BB16E627D100716368 /* DSDiscoverViewController.m */; };
 		138800C016E6288300716368 /* Shabaka.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 138800BE16E6288300716368 /* Shabaka.xcdatamodeld */; };
 		138800D416E6436700716368 /* NSManagedObjectContext+blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 138800D316E6436700716368 /* NSManagedObjectContext+blocks.m */; };
+		13B9340B16EF8BFD00B7E712 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B9340A16EF8BFD00B7E712 /* Comment.m */; };
+		13B9340E16EF8BFE00B7E712 /* DropCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B9340D16EF8BFE00B7E712 /* DropCollection.m */; };
+		13B9341116EF8BFE00B7E712 /* Spacetag.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B9341016EF8BFE00B7E712 /* Spacetag.m */; };
+		13B9341416EF8BFE00B7E712 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B9341316EF8BFE00B7E712 /* User.m */; };
+		13B9341716EF8BFE00B7E712 /* Drop.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B9341616EF8BFE00B7E712 /* Drop.m */; };
+		13B9341A16EF8BFE00B7E712 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B9341916EF8BFE00B7E712 /* Profile.m */; };
 		13C4332816D8FC58001A43F9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13C4332716D8FC58001A43F9 /* UIKit.framework */; };
 		13C4332A16D8FC58001A43F9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13C4332916D8FC58001A43F9 /* Foundation.framework */; };
 		13C4332C16D8FC58001A43F9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13C4332B16D8FC58001A43F9 /* CoreGraphics.framework */; };
@@ -122,6 +131,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		131480EF16F0D4B1004A9D3C /* DSUserSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSUserSerializer.h; path = models/DSUserSerializer.h; sourceTree = "<group>"; };
+		131480F016F0D4B1004A9D3C /* DSUserSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSUserSerializer.m; path = models/DSUserSerializer.m; sourceTree = "<group>"; };
+		131480F216F0F1E7004A9D3C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		131480F416F0F1FD004A9D3C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		136F564016E8EDB9009E5203 /* DSDataAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSDataAdapter.h; path = models/DSDataAdapter.h; sourceTree = "<group>"; };
 		136F564116E8EDB9009E5203 /* DSDataAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSDataAdapter.m; path = models/DSDataAdapter.m; sourceTree = "<group>"; };
 		136F564216E8EDB9009E5203 /* DSEntityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSEntityManager.h; path = models/DSEntityManager.h; sourceTree = "<group>"; };
@@ -130,12 +143,6 @@
 		136F564916E8EDB9009E5203 /* DSProfileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSProfileManager.m; path = models/DSProfileManager.m; sourceTree = "<group>"; };
 		136F564A16E8EDB9009E5203 /* DSWebApiAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSWebApiAdapter.h; path = models/DSWebApiAdapter.h; sourceTree = "<group>"; };
 		136F564B16E8EDB9009E5203 /* DSWebApiAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSWebApiAdapter.m; path = models/DSWebApiAdapter.m; sourceTree = "<group>"; };
-		136F566B16E8F49F009E5203 /* Drop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Drop.h; path = models/Drop.h; sourceTree = "<group>"; };
-		136F566C16E8F49F009E5203 /* Drop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Drop.m; path = models/Drop.m; sourceTree = "<group>"; };
-		136F566E16E8F49F009E5203 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = models/User.h; sourceTree = "<group>"; };
-		136F566F16E8F49F009E5203 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = models/User.m; sourceTree = "<group>"; };
-		136F567116E8F49F009E5203 /* ProfileDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileDomain.h; path = models/ProfileDomain.h; sourceTree = "<group>"; };
-		136F567216E8F49F009E5203 /* ProfileDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileDomain.m; path = models/ProfileDomain.m; sourceTree = "<group>"; };
 		1388009A16E6263F00716368 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPClient.h; path = lib/AFNetworking/AFHTTPClient.h; sourceTree = "<group>"; };
 		1388009B16E6263F00716368 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFHTTPClient.m; path = lib/AFNetworking/AFHTTPClient.m; sourceTree = "<group>"; };
 		1388009C16E6263F00716368 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperation.h; path = lib/AFNetworking/AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -162,6 +169,18 @@
 		138800BF16E6288300716368 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		138800D216E6436700716368 /* NSManagedObjectContext+blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObjectContext+blocks.h"; path = "lib/NSManagedObjectContext+blocks.h"; sourceTree = "<group>"; };
 		138800D316E6436700716368 /* NSManagedObjectContext+blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObjectContext+blocks.m"; path = "lib/NSManagedObjectContext+blocks.m"; sourceTree = "<group>"; };
+		13B9340916EF8BFD00B7E712 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Comment.h; path = models/Comment.h; sourceTree = "<group>"; };
+		13B9340A16EF8BFD00B7E712 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Comment.m; path = models/Comment.m; sourceTree = "<group>"; };
+		13B9340C16EF8BFE00B7E712 /* DropCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DropCollection.h; path = models/DropCollection.h; sourceTree = "<group>"; };
+		13B9340D16EF8BFE00B7E712 /* DropCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DropCollection.m; path = models/DropCollection.m; sourceTree = "<group>"; };
+		13B9340F16EF8BFE00B7E712 /* Spacetag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Spacetag.h; path = models/Spacetag.h; sourceTree = "<group>"; };
+		13B9341016EF8BFE00B7E712 /* Spacetag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Spacetag.m; path = models/Spacetag.m; sourceTree = "<group>"; };
+		13B9341216EF8BFE00B7E712 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = models/User.h; sourceTree = "<group>"; };
+		13B9341316EF8BFE00B7E712 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = models/User.m; sourceTree = "<group>"; };
+		13B9341516EF8BFE00B7E712 /* Drop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Drop.h; path = models/Drop.h; sourceTree = "<group>"; };
+		13B9341616EF8BFE00B7E712 /* Drop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Drop.m; path = models/Drop.m; sourceTree = "<group>"; };
+		13B9341816EF8BFE00B7E712 /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Profile.h; path = models/Profile.h; sourceTree = "<group>"; };
+		13B9341916EF8BFE00B7E712 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Profile.m; path = models/Profile.m; sourceTree = "<group>"; };
 		13C4332416D8FC58001A43F9 /* Shabaka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shabaka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13C4332716D8FC58001A43F9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		13C4332916D8FC58001A43F9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -285,6 +304,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				131480F516F0F1FE004A9D3C /* MobileCoreServices.framework in Frameworks */,
+				131480F316F0F1E7004A9D3C /* SystemConfiguration.framework in Frameworks */,
 				A7A542AE16D90FEB00FEE4BE /* MapKit.framework in Frameworks */,
 				A7A542A816D907ED00FEE4BE /* QuartzCore.framework in Frameworks */,
 				13C4332816D8FC58001A43F9 /* UIKit.framework in Frameworks */,
@@ -297,15 +318,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		131480EE16F0D475004A9D3C /* Serializer */ = {
+			isa = PBXGroup;
+			children = (
+				131480EF16F0D4B1004A9D3C /* DSUserSerializer.h */,
+				131480F016F0D4B1004A9D3C /* DSUserSerializer.m */,
+			);
+			name = Serializer;
+			sourceTree = "<group>";
+		};
 		136F565216E8EFB0009E5203 /* Auto Generated */ = {
 			isa = PBXGroup;
 			children = (
-				136F567116E8F49F009E5203 /* ProfileDomain.h */,
-				136F567216E8F49F009E5203 /* ProfileDomain.m */,
-				136F566E16E8F49F009E5203 /* User.h */,
-				136F566F16E8F49F009E5203 /* User.m */,
-				136F566B16E8F49F009E5203 /* Drop.h */,
-				136F566C16E8F49F009E5203 /* Drop.m */,
+				13B9341816EF8BFE00B7E712 /* Profile.h */,
+				13B9341916EF8BFE00B7E712 /* Profile.m */,
+				13B9341516EF8BFE00B7E712 /* Drop.h */,
+				13B9341616EF8BFE00B7E712 /* Drop.m */,
+				13B9341216EF8BFE00B7E712 /* User.h */,
+				13B9341316EF8BFE00B7E712 /* User.m */,
+				13B9340F16EF8BFE00B7E712 /* Spacetag.h */,
+				13B9341016EF8BFE00B7E712 /* Spacetag.m */,
+				13B9340C16EF8BFE00B7E712 /* DropCollection.h */,
+				13B9340D16EF8BFE00B7E712 /* DropCollection.m */,
+				13B9340916EF8BFD00B7E712 /* Comment.h */,
+				13B9340A16EF8BFD00B7E712 /* Comment.m */,
 			);
 			name = "Auto Generated";
 			sourceTree = "<group>";
@@ -363,6 +399,7 @@
 			children = (
 				136F565D16E8F06F009E5203 /* Manager */,
 				136F565C16E8F063009E5203 /* Adapter */,
+				131480EE16F0D475004A9D3C /* Serializer */,
 				136F565216E8EFB0009E5203 /* Auto Generated */,
 			);
 			name = Models;
@@ -388,6 +425,8 @@
 		13C4332616D8FC58001A43F9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				131480F416F0F1FD004A9D3C /* MobileCoreServices.framework */,
+				131480F216F0F1E7004A9D3C /* SystemConfiguration.framework */,
 				A7A542AD16D90FEB00FEE4BE /* MapKit.framework */,
 				A7A542A716D907ED00FEE4BE /* QuartzCore.framework */,
 				13C4332716D8FC58001A43F9 /* UIKit.framework */,
@@ -860,9 +899,6 @@
 				A781F2B616E9185400C8F11C /* DSProfileManager.m in Sources */,
 				A781F2B716E9185400C8F11C /* DSDataAdapter.m in Sources */,
 				A781F2B816E9185400C8F11C /* DSWebApiAdapter.m in Sources */,
-				A781F2B916E9185400C8F11C /* ProfileDomain.m in Sources */,
-				A781F2BA16E9185400C8F11C /* User.m in Sources */,
-				A781F2BB16E9185500C8F11C /* Drop.m in Sources */,
 				A723DFE216DA930900F51928 /* JASidePanelController.m in Sources */,
 				A723DFE316DA930900F51928 /* DSSidePanelController.m in Sources */,
 				A723DFE416DA930900F51928 /* UIViewController+SidePanel.m in Sources */,
@@ -896,6 +932,13 @@
 				A753DF4916EDDEEC00278CE7 /* DSImageJournalCell.m in Sources */,
 				A78373D116EF7AD500BF1D50 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				A78373D216EF7AD500BF1D50 /* UIScrollView+SVPullToRefresh.m in Sources */,
+				13B9340B16EF8BFD00B7E712 /* Comment.m in Sources */,
+				13B9340E16EF8BFE00B7E712 /* DropCollection.m in Sources */,
+				13B9341116EF8BFE00B7E712 /* Spacetag.m in Sources */,
+				13B9341416EF8BFE00B7E712 /* User.m in Sources */,
+				13B9341716EF8BFE00B7E712 /* Drop.m in Sources */,
+				13B9341A16EF8BFE00B7E712 /* Profile.m in Sources */,
+				131480F116F0D4B1004A9D3C /* DSUserSerializer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

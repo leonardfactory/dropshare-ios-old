@@ -7,15 +7,19 @@
 //
 
 #import "DSEntityManager.h"
+#import "DSUserSerializer.h"
 
 @interface DSProfileManager : DSEntityManager
 
 @property BOOL isJustLogged;
+@property (strong, nonatomic) Profile *profile;
+@property (strong, nonatomic) NSString *errorString;
+@property int statusCode;
 
 - (BOOL) isLogged;
 
 - (void) loginWithUsername:(NSString *) username withPassword:(NSString *) password;
 
-- (BOOL) logout;
+- (void) logout;
 
 @end
