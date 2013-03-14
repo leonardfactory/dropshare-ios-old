@@ -69,6 +69,14 @@
 		A781F2B616E9185400C8F11C /* DSProfileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F564916E8EDB9009E5203 /* DSProfileManager.m */; };
 		A781F2B716E9185400C8F11C /* DSDataAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F564116E8EDB9009E5203 /* DSDataAdapter.m */; };
 		A781F2B816E9185400C8F11C /* DSWebApiAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F564B16E8EDB9009E5203 /* DSWebApiAdapter.m */; };
+		A78256A716F2439E0046A8AF /* DSAddButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A78256A616F2439E0046A8AF /* DSAddButton.m */; };
+		A78256AA16F25D4E0046A8AF /* DSActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A78256A916F25D4E0046A8AF /* DSActionButton.m */; };
+		A78256B216F2694F0046A8AF /* actionCapture.png in Resources */ = {isa = PBXBuildFile; fileRef = A78256AC16F2694F0046A8AF /* actionCapture.png */; };
+		A78256B316F2694F0046A8AF /* actionCapture@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A78256AD16F2694F0046A8AF /* actionCapture@2x.png */; };
+		A78256B416F2694F0046A8AF /* actionMemo.png in Resources */ = {isa = PBXBuildFile; fileRef = A78256AE16F2694F0046A8AF /* actionMemo.png */; };
+		A78256B516F2694F0046A8AF /* actionMemo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A78256AF16F2694F0046A8AF /* actionMemo@2x.png */; };
+		A78256B616F2694F0046A8AF /* addButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A78256B016F2694F0046A8AF /* addButton.png */; };
+		A78256B716F2694F0046A8AF /* addButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A78256B116F2694F0046A8AF /* addButton@2x.png */; };
 		A78373AC16EF33C300BF1D50 /* innerShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = A78373AA16EF33C300BF1D50 /* innerShadow.png */; };
 		A78373AD16EF33C300BF1D50 /* innerShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A78373AB16EF33C300BF1D50 /* innerShadow@2x.png */; };
 		A78373B616EF4FDB00BF1D50 /* commentIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A78373B016EF4FDB00BF1D50 /* commentIcon.png */; };
@@ -225,6 +233,16 @@
 		A781F2A816E9028F00C8F11C /* SwipeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeView.m; sourceTree = "<group>"; };
 		A781F2AB16E9077000C8F11C /* DSPaddedTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSPaddedTextField.h; path = controls/DSPaddedTextField.h; sourceTree = "<group>"; };
 		A781F2AC16E9077000C8F11C /* DSPaddedTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSPaddedTextField.m; path = controls/DSPaddedTextField.m; sourceTree = "<group>"; };
+		A78256A516F2439E0046A8AF /* DSAddButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSAddButton.h; path = controls/DSAddButton.h; sourceTree = "<group>"; };
+		A78256A616F2439E0046A8AF /* DSAddButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSAddButton.m; path = controls/DSAddButton.m; sourceTree = "<group>"; };
+		A78256A816F25D4E0046A8AF /* DSActionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSActionButton.h; path = controls/DSActionButton.h; sourceTree = "<group>"; };
+		A78256A916F25D4E0046A8AF /* DSActionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSActionButton.m; path = controls/DSActionButton.m; sourceTree = "<group>"; };
+		A78256AC16F2694F0046A8AF /* actionCapture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = actionCapture.png; sourceTree = "<group>"; };
+		A78256AD16F2694F0046A8AF /* actionCapture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "actionCapture@2x.png"; sourceTree = "<group>"; };
+		A78256AE16F2694F0046A8AF /* actionMemo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = actionMemo.png; sourceTree = "<group>"; };
+		A78256AF16F2694F0046A8AF /* actionMemo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "actionMemo@2x.png"; sourceTree = "<group>"; };
+		A78256B016F2694F0046A8AF /* addButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addButton.png; sourceTree = "<group>"; };
+		A78256B116F2694F0046A8AF /* addButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addButton@2x.png"; sourceTree = "<group>"; };
 		A78373AA16EF33C300BF1D50 /* innerShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = innerShadow.png; sourceTree = "<group>"; };
 		A78373AB16EF33C300BF1D50 /* innerShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "innerShadow@2x.png"; sourceTree = "<group>"; };
 		A78373AE16EF44B100BF1D50 /* InterfaceConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceConstants.h; sourceTree = "<group>"; };
@@ -619,6 +637,31 @@
 			name = PaddedTextField;
 			sourceTree = "<group>";
 		};
+		A78256A416F243510046A8AF /* AddButton */ = {
+			isa = PBXGroup;
+			children = (
+				A78256A516F2439E0046A8AF /* DSAddButton.h */,
+				A78256A616F2439E0046A8AF /* DSAddButton.m */,
+				A78256A816F25D4E0046A8AF /* DSActionButton.h */,
+				A78256A916F25D4E0046A8AF /* DSActionButton.m */,
+			);
+			name = AddButton;
+			sourceTree = "<group>";
+		};
+		A78256AB16F2692F0046A8AF /* add */ = {
+			isa = PBXGroup;
+			children = (
+				A78256AC16F2694F0046A8AF /* actionCapture.png */,
+				A78256AD16F2694F0046A8AF /* actionCapture@2x.png */,
+				A78256AE16F2694F0046A8AF /* actionMemo.png */,
+				A78256AF16F2694F0046A8AF /* actionMemo@2x.png */,
+				A78256B016F2694F0046A8AF /* addButton.png */,
+				A78256B116F2694F0046A8AF /* addButton@2x.png */,
+			);
+			name = add;
+			path = ../..;
+			sourceTree = "<group>";
+		};
 		A78373AF16EF4FCC00BF1D50 /* social */ = {
 			isa = PBXGroup;
 			children = (
@@ -646,6 +689,7 @@
 		A78DAD8016DBE2A800A21AD0 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				A78256A416F243510046A8AF /* AddButton */,
 				A753DF4616EDDED200278CE7 /* ImageJournalCell */,
 				A7D4365C16EBA42A006807EB /* JournalCell */,
 				A781F2AA16E9073C00C8F11C /* PaddedTextField */,
@@ -683,6 +727,7 @@
 		A7A5424616D8FF1200FEE4BE /* general */ = {
 			isa = PBXGroup;
 			children = (
+				A78256AB16F2692F0046A8AF /* add */,
 				A78373C816EF5C1F00BF1D50 /* buttonBg.png */,
 				A78373C916EF5C1F00BF1D50 /* buttonBg@2x.png */,
 				A78373BC16EF500F00BF1D50 /* dotSeparator.png */,
@@ -897,6 +942,12 @@
 				A78373C716EF500F00BF1D50 /* timeIcon@2x.png in Resources */,
 				A78373CA16EF5C1F00BF1D50 /* buttonBg.png in Resources */,
 				A78373CB16EF5C1F00BF1D50 /* buttonBg@2x.png in Resources */,
+				A78256B216F2694F0046A8AF /* actionCapture.png in Resources */,
+				A78256B316F2694F0046A8AF /* actionCapture@2x.png in Resources */,
+				A78256B416F2694F0046A8AF /* actionMemo.png in Resources */,
+				A78256B516F2694F0046A8AF /* actionMemo@2x.png in Resources */,
+				A78256B616F2694F0046A8AF /* addButton.png in Resources */,
+				A78256B716F2694F0046A8AF /* addButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -954,6 +1005,8 @@
 				13E41B7816F22720008052F8 /* Profile.m in Sources */,
 				13E41B7B16F22720008052F8 /* Comment.m in Sources */,
 				13E41B7E16F22720008052F8 /* Drop.m in Sources */,
+				A78256A716F2439E0046A8AF /* DSAddButton.m in Sources */,
+				A78256AA16F25D4E0046A8AF /* DSActionButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

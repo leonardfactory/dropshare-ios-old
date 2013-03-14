@@ -13,6 +13,8 @@
 #import "UIScrollView+SVPullToRefresh.h"
 #import "UIScrollView+SVInfiniteScrolling.h"
 
+#import "DSAddButton.h"
+
 #import "DSImageUrl.h"
 
 @interface DSJournalTableViewController ()
@@ -22,6 +24,7 @@
 }
 
 @property (strong, nonatomic) DSJournalManager *journalManager;
+@property (strong, nonatomic) DSAddButton *addButton;
 
 @end
 
@@ -40,7 +43,6 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	self = [super initWithCoder:aDecoder];
 	if(self)
 	{
-		
 	}
 	return self;
 }
@@ -48,6 +50,11 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
+	self.addButton = [[DSAddButton alloc] initWithFrame:CGRectMake(10.0, [[UIScreen mainScreen] bounds].size.height - 10.0, kDSAddButtonSize, kDSAddButtonSize)
+											 andActions:[NSArray arrayWithObjects:@"actionMemo", @"actionCapture", nil]];
+	[self.view addSubview:self.addButton];
+
 	
 	//<frank>
 	_journalManager = [[DSJournalManager alloc] init];

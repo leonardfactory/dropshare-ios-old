@@ -55,11 +55,21 @@
 #define kDSCellInfoLabelsTopMargin 12.0
 
 
+
 #pragma mark - Drop Cell with Image
 
 #define kDSCellPictureHeight 292.0
 #define kDSCellPictureTopMargin 12.0
 #define kDSCellPictureBottomMargin 6.0
 #define kDSCellPictureCornerRadius kDSDefaultCornerRadius
+
+
+
+#pragma mark - Add Button and relatives
+
+#define kDSAddButtonShowAnimationTime 0.3
+#define kDSAddButtonSize 52.0
+#define kDSActionButtonSize 44.0
+#define kDSActionButtonMargin 4.0
 
 #endif
