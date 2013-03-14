@@ -28,4 +28,8 @@
 		 success:(void (^)(NSDictionary *responseObject)) success
 		 failure:(void (^)(NSString *responseError, int statusCode, NSError *error)) failure;
 
+- (void) postImage:(UIImage *) image toPath:(NSString *)path withName:(NSString *)name
+		   success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id JSON))success
+		   failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON))failure;
+
 @end

@@ -12,6 +12,8 @@
 		131480F516F0F1FE004A9D3C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 131480F416F0F1FD004A9D3C /* MobileCoreServices.framework */; };
 		134B8AAB16F1B9FB00900AC6 /* DSJournalManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 134B8AAA16F1B9FB00900AC6 /* DSJournalManager.m */; };
 		134B8AD216F1C1B000900AC6 /* DSDropSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 134B8AD116F1C1B000900AC6 /* DSDropSerializer.m */; };
+		13677CD416F269B50049C31B /* DSNewDropManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 13677CD316F269B50049C31B /* DSNewDropManager.m */; };
+		13677CD616F279130049C31B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13677CD516F279130049C31B /* CoreLocation.framework */; };
 		138800AD16E6263F00716368 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1388009B16E6263F00716368 /* AFHTTPClient.m */; };
 		138800AE16E6263F00716368 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1388009D16E6263F00716368 /* AFHTTPRequestOperation.m */; };
 		138800AF16E6263F00716368 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1388009F16E6263F00716368 /* AFImageRequestOperation.m */; };
@@ -139,6 +141,9 @@
 		134B8AAA16F1B9FB00900AC6 /* DSJournalManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSJournalManager.m; path = models/DSJournalManager.m; sourceTree = "<group>"; };
 		134B8AD016F1C1B000900AC6 /* DSDropSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSDropSerializer.h; path = models/DSDropSerializer.h; sourceTree = "<group>"; };
 		134B8AD116F1C1B000900AC6 /* DSDropSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSDropSerializer.m; path = models/DSDropSerializer.m; sourceTree = "<group>"; };
+		13677CD216F269B50049C31B /* DSNewDropManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSNewDropManager.h; path = models/DSNewDropManager.h; sourceTree = "<group>"; };
+		13677CD316F269B50049C31B /* DSNewDropManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSNewDropManager.m; path = models/DSNewDropManager.m; sourceTree = "<group>"; };
+		13677CD516F279130049C31B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		136F564016E8EDB9009E5203 /* DSDataAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSDataAdapter.h; path = models/DSDataAdapter.h; sourceTree = "<group>"; };
 		136F564116E8EDB9009E5203 /* DSDataAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSDataAdapter.m; path = models/DSDataAdapter.m; sourceTree = "<group>"; };
 		136F564216E8EDB9009E5203 /* DSEntityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSEntityManager.h; path = models/DSEntityManager.h; sourceTree = "<group>"; };
@@ -310,6 +315,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13677CD616F279130049C31B /* CoreLocation.framework in Frameworks */,
 				131480F516F0F1FE004A9D3C /* MobileCoreServices.framework in Frameworks */,
 				131480F316F0F1E7004A9D3C /* SystemConfiguration.framework in Frameworks */,
 				A7A542AE16D90FEB00FEE4BE /* MapKit.framework in Frameworks */,
@@ -376,6 +382,8 @@
 				136F564916E8EDB9009E5203 /* DSProfileManager.m */,
 				134B8AA916F1B9FB00900AC6 /* DSJournalManager.h */,
 				134B8AAA16F1B9FB00900AC6 /* DSJournalManager.m */,
+				13677CD216F269B50049C31B /* DSNewDropManager.h */,
+				13677CD316F269B50049C31B /* DSNewDropManager.m */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -437,6 +445,7 @@
 		13C4332616D8FC58001A43F9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				13677CD516F279130049C31B /* CoreLocation.framework */,
 				131480F416F0F1FD004A9D3C /* MobileCoreServices.framework */,
 				131480F216F0F1E7004A9D3C /* SystemConfiguration.framework */,
 				A7A542AD16D90FEB00FEE4BE /* MapKit.framework */,
@@ -954,6 +963,7 @@
 				13E41B7816F22720008052F8 /* Profile.m in Sources */,
 				13E41B7B16F22720008052F8 /* Comment.m in Sources */,
 				13E41B7E16F22720008052F8 /* Drop.m in Sources */,
+				13677CD416F269B50049C31B /* DSNewDropManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

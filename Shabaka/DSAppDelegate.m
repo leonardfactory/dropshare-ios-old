@@ -9,6 +9,9 @@
 #import "DSAppDelegate.h"
 #import "DSSidePanelController.h"
 #import "DSProfileManager.h"
+#import "DSNewDropManager.h"
+
+#import "UIImageView+AFNetworking.h"
 
 @interface DSAppDelegate ()
 {
@@ -22,6 +25,9 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+
+@synthesize locationManager = _locationManager;
+@synthesize callbackGeoArray = _callbackGeoArray;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -43,11 +49,6 @@
 	profileManager = [[DSProfileManager alloc] init];
 	[profileManager loadCookies];
 	
-	/*if([profileManager isLogged])
-	{
-		[profileManager logout];
-	}*/
-	
 	//[profileManager logout];
 	if(![profileManager isLogged])
 	{
@@ -59,7 +60,28 @@
 		[self.window makeKeyAndVisible];
 		[self.window.rootViewController presentModalViewController:loginViewController animated:NO];
 	}
+	
+	_locationManager = [[CLLocationManager alloc] init];
+	
+	_locationManager.delegate = self;
+	_locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+	_callbackGeoArray = [[NSMutableArray alloc] init];
+	
+	
+	//DSNewDropManager *nd = [[DSNewDropManager alloc] init];
+	
+	//UIImageView *test =[[UIImageView alloc] init];
+	
+	//NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://us.123rf.com/400wm/400/400/henner/henner0908/henner090800002/5436652-ritratto-di-un-giovane-capibara.jpg"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+	
+	//[test setImageWithURLRequest:request placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+		//[nd captureWithImage:image WithText:@"lolol image works?!!"];
+	//} failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+		//NSLog(@"shit");
+	//}];
+	
 	//</frank>
+	
 	
     return YES;
 }
@@ -205,5 +227,43 @@
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
+
+#pragma mark - Coordinates
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+							   initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [errorAlert show];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    NSLog(@"didUpdateToLocation: %@", newLocation);
+    CLLocation *currentLocation = newLocation;
+    
+    if (currentLocation != nil) {
+        NSString *lng = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
+        NSString *lat = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+		
+		for (void (^ callback)(NSString *lng, NSString *lat) in _callbackGeoArray) {
+			callback(lng,lat);
+			[_callbackGeoArray removeObjectIdenticalTo:callback];
+		}
+		
+		[_locationManager stopUpdatingLocation];
+    }
+}
+
+
+- (void) registerWaitingForGeoFunction:(void (^)(NSString *lng, NSString *lat)) callback
+{
+	[_locationManager startUpdatingLocation];
+	
+	[_callbackGeoArray addObject:[callback copy]];
+}
+
+
 
 @end

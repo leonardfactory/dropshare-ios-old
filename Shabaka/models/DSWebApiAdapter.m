@@ -77,4 +77,19 @@
 	}];
 }
 
+- (void) postImage:(UIImage *) image toPath:(NSString *)path withName:(NSString *)name
+		   success:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, id JSON))success
+		   failure:(void (^)(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON))failure
+{
+	NSData *imageData = UIImageJPEGRepresentation(image, 0.8);
+	NSURLRequest *request = [_client multipartFormRequestWithMethod:@"POST" path:path parameters:nil constructingBodyWithBlock: ^(id <AFMultipartFormData> formData) {
+		[formData appendPartWithFileData:imageData
+									name:name
+								fileName:@"image1.jpg"
+								mimeType:@"image/jpeg"];
+	}];
+	AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:success failure:failure];
+	[operation start];
+}
+
 @end
