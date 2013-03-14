@@ -77,6 +77,7 @@
 		A78256B516F2694F0046A8AF /* actionMemo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A78256AF16F2694F0046A8AF /* actionMemo@2x.png */; };
 		A78256B616F2694F0046A8AF /* addButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A78256B016F2694F0046A8AF /* addButton.png */; };
 		A78256B716F2694F0046A8AF /* addButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A78256B116F2694F0046A8AF /* addButton@2x.png */; };
+		A78256BB16F2861F0046A8AF /* DSAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A78256BA16F2861F0046A8AF /* DSAddViewController.m */; };
 		A78373AC16EF33C300BF1D50 /* innerShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = A78373AA16EF33C300BF1D50 /* innerShadow.png */; };
 		A78373AD16EF33C300BF1D50 /* innerShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A78373AB16EF33C300BF1D50 /* innerShadow@2x.png */; };
 		A78373B616EF4FDB00BF1D50 /* commentIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A78373B016EF4FDB00BF1D50 /* commentIcon.png */; };
@@ -243,6 +244,8 @@
 		A78256AF16F2694F0046A8AF /* actionMemo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "actionMemo@2x.png"; sourceTree = "<group>"; };
 		A78256B016F2694F0046A8AF /* addButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addButton.png; sourceTree = "<group>"; };
 		A78256B116F2694F0046A8AF /* addButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addButton@2x.png"; sourceTree = "<group>"; };
+		A78256B916F2861F0046A8AF /* DSAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSAddViewController.h; path = controllers/DSAddViewController.h; sourceTree = "<group>"; };
+		A78256BA16F2861F0046A8AF /* DSAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSAddViewController.m; path = controllers/DSAddViewController.m; sourceTree = "<group>"; };
 		A78373AA16EF33C300BF1D50 /* innerShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = innerShadow.png; sourceTree = "<group>"; };
 		A78373AB16EF33C300BF1D50 /* innerShadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "innerShadow@2x.png"; sourceTree = "<group>"; };
 		A78373AE16EF44B100BF1D50 /* InterfaceConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceConstants.h; sourceTree = "<group>"; };
@@ -530,6 +533,7 @@
 		13C4334C16D8FD38001A43F9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A78256B816F286030046A8AF /* Add */,
 				A754A2D316EB4D7F00A719B3 /* Journal */,
 				A751872416E806F6009F4383 /* Login */,
 				A73EA25416DAC8FD00AFECE9 /* JournalDropCell */,
@@ -660,6 +664,15 @@
 			);
 			name = add;
 			path = ../..;
+			sourceTree = "<group>";
+		};
+		A78256B816F286030046A8AF /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				A78256B916F2861F0046A8AF /* DSAddViewController.h */,
+				A78256BA16F2861F0046A8AF /* DSAddViewController.m */,
+			);
+			name = Add;
 			sourceTree = "<group>";
 		};
 		A78373AF16EF4FCC00BF1D50 /* social */ = {
@@ -1007,6 +1020,7 @@
 				13E41B7E16F22720008052F8 /* Drop.m in Sources */,
 				A78256A716F2439E0046A8AF /* DSAddButton.m in Sources */,
 				A78256AA16F25D4E0046A8AF /* DSActionButton.m in Sources */,
+				A78256BB16F2861F0046A8AF /* DSAddViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

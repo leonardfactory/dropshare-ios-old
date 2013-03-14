@@ -20,7 +20,8 @@ typedef enum _DSAddButtonState
 
 @interface DSAddButton : UIButton
 
+@property (strong, nonatomic) NSString *actionCalled;
+
 - (id)initWithFrame:(CGRect)frame andActions:(NSArray *)actions;
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
 
 @end

@@ -1,5 +1,5 @@
 //
-//  DSActionButton.h
+//  DSAddViewController.h
 //  Shabaka
 //
 //  Created by Leonardo Ascione on 14/03/13.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DSActionButton : UIButton
-
-@property (strong, nonatomic) NSString *actionName;
+@interface DSAddViewController : UIViewController
 
 @end

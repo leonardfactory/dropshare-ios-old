@@ -10,6 +10,8 @@
 
 @implementation DSActionButton
 
+@synthesize actionName;
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];

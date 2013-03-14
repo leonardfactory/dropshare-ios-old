@@ -25,6 +25,7 @@
 
 @property (strong, nonatomic) DSJournalManager *journalManager;
 @property (strong, nonatomic) DSAddButton *addButton;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -51,9 +52,21 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 {
     [super viewDidLoad];
 	
-	self.addButton = [[DSAddButton alloc] initWithFrame:CGRectMake(10.0, [[UIScreen mainScreen] bounds].size.height - 10.0, kDSAddButtonSize, kDSAddButtonSize)
+	// Configuring view
+	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+	self.tableView.backgroundColor = [UIColor colorWithRed:238./255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1.0];
+	
+	float addButtonHeight = self.view.frame.size.height - kDSAddButtonSize - kDSAddButtonSize;
+	//NSLog(@"Height: %f", addButtonHeight);
+	//NSLog(@"View bounds: %@", NSStringFromCGRect(self.view.bounds));
+	self.addButton = [[DSAddButton alloc] initWithFrame:CGRectMake(10.0, addButtonHeight, kDSAddButtonSize, kDSAddButtonSize)
 											 andActions:[NSArray arrayWithObjects:@"actionMemo", @"actionCapture", nil]];
 	[self.view addSubview:self.addButton];
+	
+	[self.addButton addObserver:self forKeyPath:@"actionCalled" options:NSKeyValueObservingOptionNew context:nil];
+	
+	//NSLog(@"Add button frame: %@", NSStringFromCGRect(self.addButton.frame));
+	
 
 	
 	//<frank>
@@ -98,7 +111,7 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 		[that.journalManager scrollDown];
 	 }];
 	
-    self.clearsSelectionOnViewWillAppear = YES;
+    //self.clearsSelectionOnViewWillAppear = YES;
 }
 
 #pragma mark - KVO
@@ -119,6 +132,13 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 		[self scrollDownJournal];
 	}
 	//</frank>
+	
+	if([keyPath isEqualToString:@"actionCalled"]
+		&& [object isEqual:self.addButton])
+	{
+		NSLog(@"%@", self.addButton.actionCalled);
+	}
+		
 }
 
 
@@ -217,6 +237,8 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	{
 		cell = [self tableViewCellWithIdentifier:CellIdentifier];
 	}
+	
+	cell.selectionStyle = UITableViewCellEditingStyleNone;
     
 	// Cast forzato
 	DSJournalCell *journalCell = (DSJournalCell *) cell;
@@ -276,5 +298,9 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	{
 		[self.tableView triggerInfiniteScrolling];
 	} */
+}
+- (void)viewDidUnload {
+	[self setTableView:nil];
+	[super viewDidUnload];
 }
 @end
