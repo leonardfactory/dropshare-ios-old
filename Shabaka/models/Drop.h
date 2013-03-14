@@ -2,7 +2,7 @@
 //  Drop.h
 //  Shabaka
 //
-//  Created by Francesco on 12/03/13.
+//  Created by Francesco on 14/03/13.
 //  Copyright (c) 2013 Dropshare. All rights reserved.
 //
 
@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSDate * createdOn;
 @property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) NSNumber * latitude;
+@property (nonatomic, retain) NSNumber * like;
 @property (nonatomic, retain) NSString * location;
 @property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) NSString * text;
@@ -23,7 +24,7 @@
 @property (nonatomic, retain) NSNumber * totLikes;
 @property (nonatomic, retain) NSNumber * totRedrops;
 @property (nonatomic, retain) NSString * type;
-@property (nonatomic, retain) NSNumber * like;
+@property (nonatomic, retain) NSString * createdOnString;
 @property (nonatomic, retain) NSOrderedSet *comments;
 @property (nonatomic, retain) NSSet *inverseDropCollectionDrops;
 @property (nonatomic, retain) NSSet *spacetags;

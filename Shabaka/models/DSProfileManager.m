@@ -16,9 +16,9 @@
 	if (self)
 	{
 		[self setProfile:[[super dataAdapter] findOrCreate:@"profile" onModel:@"Profile" error:nil]];
+		self.isJustLogged = FALSE;
+		[self setWebApiAdapter: [[DSWebApiAdapter alloc] initSSL]];
 	}
-	self.isJustLogged = FALSE;
-	[self setWebApiAdapter: [[DSWebApiAdapter alloc] initSSL]];
 	return self;
 }
 
@@ -69,6 +69,26 @@
 	}];
 	[_profile setUser:nil];
 	[super.dataAdapter save:nil];
+}
+
+- (void)saveCookies
+{
+	
+    NSData *cookiesData = [NSKeyedArchiver archivedDataWithRootObject: [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject: cookiesData forKey: @"sessionCookies"];
+    [defaults synchronize];
+}
+
+- (void)loadCookies
+{
+    NSArray *cookies = [NSKeyedUnarchiver unarchiveObjectWithData: [[NSUserDefaults standardUserDefaults] objectForKey: @"sessionCookies"]];
+    NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+	
+    for (NSHTTPCookie *cookie in cookies){
+        [cookieStorage setCookie: cookie];
+    }
+	
 }
 
 @end

@@ -16,6 +16,10 @@
 @property (strong, nonatomic) NSString *errorString;
 @property int statusCode;
 
+- (void)saveCookies;
+
+- (void)loadCookies;
+
 - (BOOL) isLogged;
 
 - (void) loginWithUsername:(NSString *) username withPassword:(NSString *) password;

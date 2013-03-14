@@ -41,12 +41,14 @@
 	//LoginViewController
 	//<frank>
 	profileManager = [[DSProfileManager alloc] init];
+	[profileManager loadCookies];
 	
 	/*if([profileManager isLogged])
 	{
 		[profileManager logout];
 	}*/
 	
+	//[profileManager logout];
 	if(![profileManager isLogged])
 	{
 		NSLog(@"User is not logged.");
@@ -64,6 +66,7 @@
 
 - (void) dismissLoginViewController
 {
+	[profileManager saveCookies];
 	[self.window.rootViewController dismissModalViewControllerAnimated:YES];
 }
 

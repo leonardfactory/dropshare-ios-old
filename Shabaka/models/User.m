@@ -2,7 +2,7 @@
 //  User.m
 //  Shabaka
 //
-//  Created by Francesco on 12/03/13.
+//  Created by Francesco on 14/03/13.
 //  Copyright (c) 2013 Dropshare. All rights reserved.
 //
 
@@ -21,6 +21,7 @@
 @dynamic name;
 @dynamic surname;
 @dynamic username;
+@dynamic createdOnString;
 @dynamic comments;
 @dynamic drops;
 @dynamic followers;

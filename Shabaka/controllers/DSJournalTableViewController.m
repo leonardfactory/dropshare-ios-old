@@ -13,16 +13,21 @@
 #import "UIScrollView+SVPullToRefresh.h"
 #import "UIScrollView+SVInfiniteScrolling.h"
 
+#import "DSImageUrl.h"
+
 @interface DSJournalTableViewController ()
 {
 	NSArray *randomNames;
 	NSArray *randomTexts;
 }
 
+@property (strong, nonatomic) DSJournalManager *journalManager;
+
 @end
 
 @implementation DSJournalTableViewController
 
+@synthesize journalManager = _journalManager;
 @synthesize cellData	= _cellData;
 @synthesize imageData	= _imageData;
 @synthesize textData	= _textData;
@@ -30,9 +35,25 @@
 static NSString *JournalCellIdentifier		= @"JournalCell";
 static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 
+- (id) initWithCoder:(NSCoder *)aDecoder
+{
+	self = [super initWithCoder:aDecoder];
+	if(self)
+	{
+		
+	}
+	return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
+	//<frank>
+	_journalManager = [[DSJournalManager alloc] init];
+	[_journalManager addObserver:self forKeyPath:@"isJournalUpdated" options:NSKeyValueObservingOptionNew context:nil];
+	[_journalManager addObserver:self forKeyPath:@"isJournalScrolled" options:NSKeyValueObservingOptionNew context:nil];
+	//</frank>
 	
 	// Just for testing
 	_cellData = [NSMutableArray arrayWithObjects:	@"Angelo", @"Beppe", @"Carlo", @"Pino", nil];
@@ -63,15 +84,36 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	// Setto gli handler per il pull to refresh e l'infinite scrolling
 	[self.tableView addPullToRefreshWithActionHandler:^
 	 {
-		 [that updateJournal];
+		 [that.journalManager pullToRefresh];
 	 }];
 	[self.tableView addInfiniteScrollingWithActionHandler:^
 	 {
-		 [that loadMoreToJournal];
+		[that.journalManager scrollDown];
 	 }];
 	
     self.clearsSelectionOnViewWillAppear = YES;
 }
+
+#pragma mark - KVO
+- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+	//<frank>
+	if([keyPath isEqualToString:@"isJournalUpdated"]
+	   && [object isEqual:_journalManager]
+	   && ((DSJournalManager *)object).isJournalUpdated)
+	{
+		[self updateJournal];
+	}
+	
+	if([keyPath isEqualToString:@"isJournalScrolled"]
+	   && [object isEqual:_journalManager]
+	   && ((DSJournalManager *)object).isJournalScrolled)
+	{
+		[self scrollDownJournal];
+	}
+	//</frank>
+}
+
 
 /**
  * Aggiorno il journal con i drop più nuovi dal server.
@@ -80,44 +122,18 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
  */
 - (void) updateJournal
 {
-	NSLog(@"Inserting on TOP");
+	//NSLog(@"Updating table with drops: %d", [_journalManager.drops count]);
+	[self.tableView reloadData];
 	
-	// @todo Model
-	int64_t delayInSeconds = 2.0;
-	dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-	dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-		
-		//[self.tableView beginUpdates];
-		int randomNameId = arc4random() % [randomNames count];
-		int randomTextId = arc4random() % [randomTexts count];
-		
-		[self.cellData insertObject:[randomNames objectAtIndex:randomNameId] atIndex:0];
-		[self.textData insertObject:[randomTexts objectAtIndex:randomTextId] atIndex:0];
-		[self.imageData insertObject:[NSNull null] atIndex:0];
-		//[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForItem:0 inSection:0]]
-		//					  withRowAnimation:UITableViewRowAnimationAutomatic];
-		//[self.tableView endUpdates];
-		
-		[self.tableView reloadData];
-		
-		[self.tableView.pullToRefreshView stopAnimating];
-	});
+	[self.tableView.pullToRefreshView stopAnimating];
 }
 
 /**
  * Carico i drop più vecchi a partire dall'ultimo
  */
-- (void) loadMoreToJournal
+- (void) scrollDownJournal
 {
-	NSLog(@"Insert on bottom");
-	// @todo Model
-	[self.tableView beginUpdates];
-	[self.cellData addObject:@"Ginoska"];
-	[self.textData addObject:@"Vivamus auctor leo vel dui. Aliquam erat volutpat. Phasellus nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras tempor. Morbi egestas, urna non consequat tempus, nunc arcu mollis enim, eu aliquam erat nulla non nibh. Duis consectetuer malesuada velit. Nam ante nulla, interdum vel, tristique ac, condimentum non, tellus. Proin ornare feugiat nisl. Suspendisse dolor nisl, ultrices at, eleifend vel, consequat at, dolor."];
-	[self.imageData addObject:@"mountain.jpg"];
-	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:self.cellData.count-1 inSection:0]]
-						  withRowAnimation:UITableViewRowAnimationNone];
-	[self.tableView endUpdates];
+	[self.tableView reloadData];
 	
 	[self.tableView.infiniteScrollingView stopAnimating];
 }
@@ -126,8 +142,7 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 {
 	[super viewDidAppear:animated];
 	
-	//	@todo Model
-	//	[self.tableView triggerPullToRefresh];
+	[self.tableView triggerPullToRefresh];
 }
 
 - (void)didReceiveMemoryWarning
@@ -143,20 +158,21 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	// @todo Model
-    return [_cellData count];
+    return [_journalManager.drops count];
 }
 
 - (float) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	int index = [indexPath row];
-	if([_imageData objectAtIndex:index] != [NSNull null])
+	Drop *drop = (Drop *)[_journalManager.drops objectAtIndex:index];
+	
+	if([[drop type] isEqualToString:@"capture"])
 	{
-		return [DSImageJournalCell heightForCellWithText:[_textData objectAtIndex:index]];
+		return [DSImageJournalCell heightForCellWithText:[drop text]];
 	}
 	else
 	{
-		return [DSJournalCell heightForCellWithText:[_textData objectAtIndex:index]];
+		return [DSJournalCell heightForCellWithText:[drop text]];
 	}
 }
 
@@ -182,8 +198,11 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 {
 	UITableViewCell *cell;
 	
+	int index = [indexPath row];
+	Drop *drop = (Drop *)[_journalManager.drops objectAtIndex:index];
+	
 	// Scegliamo l'identifier in base al tipo di dati da mostrare
-	NSString *CellIdentifier = ([_imageData objectAtIndex:[indexPath row]] != [NSNull null]) ? ImageJournalCellIdentifier : JournalCellIdentifier;
+	NSString *CellIdentifier = ([drop.type isEqualToString:@"capture"]) ? ImageJournalCellIdentifier : JournalCellIdentifier;
 	
 	cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	
@@ -196,12 +215,18 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	DSJournalCell *journalCell = (DSJournalCell *) cell;
 	
 	// Configurazione della cell
-	// @todo Model
-	journalCell.usernameLabel.text = [_cellData objectAtIndex:[indexPath row]];
-	journalCell.descriptionLabel.text = [_textData objectAtIndex:[indexPath row]];
-	[journalCell setGeoLocation:[NSString stringWithFormat:@"Via delle Rose n.%d", (int)floorf(powf(([indexPath row]+1)*2, 2.0))] andTime:@"11 Apr 2012"];
+	journalCell.usernameLabel.text		= drop.user.username;
+	journalCell.descriptionLabel.text	= drop.text;
 	
-	[journalCell setAvatarWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://lorempixel.com/96/96/people?v=%@", journalCell.usernameLabel.text]]];
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	[dateFormatter setDoesRelativeDateFormatting:YES];
+	[dateFormatter setLocale: [NSLocale autoupdatingCurrentLocale]];
+	[dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+	[dateFormatter setDateStyle:NSDateFormatterShortStyle];
+	
+	[journalCell setGeoLocation:[NSString stringWithFormat:@"Via delle Rose n.%d", (int)floorf(powf(([indexPath row]+1)*2, 2.0))] andTime:[dateFormatter stringFromDate:drop.createdOn]];
+	
+	[journalCell setAvatarWithURL:[NSURL URLWithString:[DSImageUrl getAvatarUrlFromUserId:drop.user.identifier]]];
 	/*[journalCell setAvatarImage:[[UIImage imageNamed:@"avatar.png"] thumbnailImage:48
 																 transparentBorder:0
 																	  cornerRadius:0
@@ -211,10 +236,9 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	if([cell isKindOfClass:[DSImageJournalCell class]])
 	{
 		DSImageJournalCell *imageJournalCell = (DSImageJournalCell *) cell;
-		// @todo Model
-		//UIImage *pictureImage	= [[UIImage imageNamed:[_imageData objectAtIndex:[indexPath row]]] thumbnailImage:292.0 transparentBorder:0 cornerRadius:0 interpolationQuality:kCGInterpolationHigh];
-		//[imageJournalCell setPictureImage:pictureImage];
-		[imageJournalCell setPictureWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://lorempixel.com/584/584?v=%@", journalCell.usernameLabel.text]]];
+		// @todo
+		//NSLog(@"%@",[DSImageUrl getImageUrlFromDropId:drop.identifier]);
+		[imageJournalCell setPictureWithURL:[NSURL URLWithString:[DSImageUrl getImageUrlFromDropId:drop.identifier]]];
 	}
 	
 	// Ridispone gli elementi della cell in base ai parametri passati

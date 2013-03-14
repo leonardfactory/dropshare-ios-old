@@ -2,7 +2,7 @@
 //  Drop.m
 //  Shabaka
 //
-//  Created by Francesco on 12/03/13.
+//  Created by Francesco on 14/03/13.
 //  Copyright (c) 2013 Dropshare. All rights reserved.
 //
 
@@ -18,6 +18,7 @@
 @dynamic createdOn;
 @dynamic identifier;
 @dynamic latitude;
+@dynamic like;
 @dynamic location;
 @dynamic longitude;
 @dynamic text;
@@ -25,7 +26,7 @@
 @dynamic totLikes;
 @dynamic totRedrops;
 @dynamic type;
-@dynamic like;
+@dynamic createdOnString;
 @dynamic comments;
 @dynamic inverseDropCollectionDrops;
 @dynamic spacetags;

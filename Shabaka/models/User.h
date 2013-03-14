@@ -2,7 +2,7 @@
 //  User.h
 //  Shabaka
 //
-//  Created by Francesco on 12/03/13.
+//  Created by Francesco on 14/03/13.
 //  Copyright (c) 2013 Dropshare. All rights reserved.
 //
 
@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * surname;
 @property (nonatomic, retain) NSString * username;
+@property (nonatomic, retain) NSString * createdOnString;
 @property (nonatomic, retain) NSSet *comments;
 @property (nonatomic, retain) NSOrderedSet *drops;
 @property (nonatomic, retain) NSOrderedSet *followers;

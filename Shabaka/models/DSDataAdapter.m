@@ -64,6 +64,8 @@
 	for (id object in result)
 	{
 		//Return the first and only entry.
+		
+		//NSLog(@"%@",object);
 		return object;
 	}
 	//Or create a new one.
@@ -73,6 +75,8 @@
 	{
 		return nil;
 	}
+	
+	//NSLog(@"%@",createdObject);
 	return createdObject;
 }
 

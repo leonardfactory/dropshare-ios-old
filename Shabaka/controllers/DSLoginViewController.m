@@ -163,14 +163,11 @@
 	   && [object isEqual:_profileManager]
 	   && ((DSProfileManager *)object).isJustLogged)
 	{
-		if([_profileManager isJustLogged])
-		{
-			NSLog(@"%@",_profileManager.profile.user);
-			[_profileManager removeObserver:self forKeyPath:@"isJustLogged"];
-			[_profileManager removeObserver:self forKeyPath:@"errorString"];
+		NSLog(@"%@",_profileManager.profile.user);
+		[_profileManager removeObserver:self forKeyPath:@"isJustLogged"];
+		[_profileManager removeObserver:self forKeyPath:@"errorString"];
 			
-			[self.delegate dismissLoginViewController];
-		}
+		[self.delegate dismissLoginViewController];
 	}
 	if([keyPath isEqualToString:@"errorString"]
 	   && [object isEqual:_profileManager]
