@@ -55,7 +55,7 @@
 	NSDictionary *body;
 	if(since_drop)
 	{
-		body = [NSDictionary dictionaryWithObjectsAndKeys:DROPCOUNT, @"count", since_drop.createdOnString, @"since_date",nil];
+		body = [NSDictionary dictionaryWithObjectsAndKeys:DROPCOUNT, @"count", since_drop.stringCreatedOn, @"since_date",nil];
 	}
 	else
 	{
@@ -99,11 +99,11 @@
 	NSDictionary *body;
 	if(since_drop)
 	{
-		body = [NSDictionary dictionaryWithObjectsAndKeys:DROPCOUNT, @"count", since_drop.createdOnString, @"since_date", max_drop.createdOnString, @"max_date", nil];
+		body = [NSDictionary dictionaryWithObjectsAndKeys:DROPCOUNT, @"count", since_drop.stringCreatedOn, @"since_date", max_drop.stringCreatedOn, @"max_date", nil];
 	}
 	else
 	{
-		body = [NSDictionary dictionaryWithObjectsAndKeys:DROPCOUNT, @"count", max_drop.createdOnString, @"max_date", nil];
+		body = [NSDictionary dictionaryWithObjectsAndKeys:DROPCOUNT, @"count", max_drop.stringCreatedOn, @"max_date", nil];
 	}
 	[self.webApiAdapter getPath:path parameters:body success:^(NSDictionary *responseObject)
 	{

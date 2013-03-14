@@ -14,6 +14,7 @@
 @interface Drop : NSManagedObject
 
 @property (nonatomic, retain) NSDate * createdOn;
+@property (nonatomic, retain) NSString * stringCreatedOn;
 @property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSNumber * like;
@@ -24,7 +25,6 @@
 @property (nonatomic, retain) NSNumber * totLikes;
 @property (nonatomic, retain) NSNumber * totRedrops;
 @property (nonatomic, retain) NSString * type;
-@property (nonatomic, retain) NSString * createdOnString;
 @property (nonatomic, retain) NSOrderedSet *comments;
 @property (nonatomic, retain) NSSet *inverseDropCollectionDrops;
 @property (nonatomic, retain) NSSet *spacetags;

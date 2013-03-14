@@ -16,6 +16,7 @@
 @implementation Drop
 
 @dynamic createdOn;
+@dynamic stringCreatedOn;
 @dynamic identifier;
 @dynamic latitude;
 @dynamic like;
@@ -26,7 +27,6 @@
 @dynamic totLikes;
 @dynamic totRedrops;
 @dynamic type;
-@dynamic createdOnString;
 @dynamic comments;
 @dynamic inverseDropCollectionDrops;
 @dynamic spacetags;

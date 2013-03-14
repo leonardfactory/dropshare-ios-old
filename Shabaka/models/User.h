@@ -14,11 +14,11 @@
 @interface User : NSManagedObject
 
 @property (nonatomic, retain) NSDate * createdOn;
+@property (nonatomic, retain) NSString * stringCreatedOn;
 @property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * surname;
 @property (nonatomic, retain) NSString * username;
-@property (nonatomic, retain) NSString * createdOnString;
 @property (nonatomic, retain) NSSet *comments;
 @property (nonatomic, retain) NSOrderedSet *drops;
 @property (nonatomic, retain) NSOrderedSet *followers;

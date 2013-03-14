@@ -17,11 +17,11 @@
 @implementation User
 
 @dynamic createdOn;
+@dynamic stringCreatedOn;
 @dynamic identifier;
 @dynamic name;
 @dynamic surname;
 @dynamic username;
-@dynamic createdOnString;
 @dynamic comments;
 @dynamic drops;
 @dynamic followers;

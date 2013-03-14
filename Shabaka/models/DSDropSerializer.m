@@ -52,7 +52,7 @@
 	[dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
 	[dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
 	
-	[drop setCreatedOnString:[dict objectForKey:@"createdOn"]];
+	[drop setStringCreatedOn:[dict objectForKey:@"createdOn"]];
 	NSDate *myDate = [dateFormatter dateFromString:[dict objectForKey:@"createdOn"]];
 	[drop setCreatedOn:myDate];
 	

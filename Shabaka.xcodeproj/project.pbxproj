@@ -11,12 +11,6 @@
 		131480F316F0F1E7004A9D3C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 131480F216F0F1E7004A9D3C /* SystemConfiguration.framework */; };
 		131480F516F0F1FE004A9D3C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 131480F416F0F1FD004A9D3C /* MobileCoreServices.framework */; };
 		134B8AAB16F1B9FB00900AC6 /* DSJournalManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 134B8AAA16F1B9FB00900AC6 /* DSJournalManager.m */; };
-		134B8AC016F1C03600900AC6 /* Spacetag.m in Sources */ = {isa = PBXBuildFile; fileRef = 134B8ABF16F1C03600900AC6 /* Spacetag.m */; };
-		134B8AC316F1C03700900AC6 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 134B8AC216F1C03700900AC6 /* Profile.m */; };
-		134B8AC616F1C03700900AC6 /* DropCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 134B8AC516F1C03700900AC6 /* DropCollection.m */; };
-		134B8AC916F1C03700900AC6 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 134B8AC816F1C03700900AC6 /* User.m */; };
-		134B8ACC16F1C03700900AC6 /* Drop.m in Sources */ = {isa = PBXBuildFile; fileRef = 134B8ACB16F1C03700900AC6 /* Drop.m */; };
-		134B8ACF16F1C03700900AC6 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 134B8ACE16F1C03700900AC6 /* Comment.m */; };
 		134B8AD216F1C1B000900AC6 /* DSDropSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 134B8AD116F1C1B000900AC6 /* DSDropSerializer.m */; };
 		138800AD16E6263F00716368 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1388009B16E6263F00716368 /* AFHTTPClient.m */; };
 		138800AE16E6263F00716368 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1388009D16E6263F00716368 /* AFHTTPRequestOperation.m */; };
@@ -42,6 +36,12 @@
 		13C4333E16D8FC58001A43F9 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13C4333D16D8FC58001A43F9 /* Default@2x.png */; };
 		13C4334016D8FC58001A43F9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13C4333F16D8FC58001A43F9 /* Default-568h@2x.png */; };
 		13E41B6C16F21541008052F8 /* DSImageUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E41B6B16F21541008052F8 /* DSImageUrl.m */; };
+		13E41B6F16F2271F008052F8 /* DropCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E41B6E16F2271F008052F8 /* DropCollection.m */; };
+		13E41B7216F22720008052F8 /* Spacetag.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E41B7116F22720008052F8 /* Spacetag.m */; };
+		13E41B7516F22720008052F8 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E41B7416F22720008052F8 /* User.m */; };
+		13E41B7816F22720008052F8 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E41B7716F22720008052F8 /* Profile.m */; };
+		13E41B7B16F22720008052F8 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E41B7A16F22720008052F8 /* Comment.m */; };
+		13E41B7E16F22720008052F8 /* Drop.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E41B7D16F22720008052F8 /* Drop.m */; };
 		A70ABAA316DD59BC003AFA4B /* DSViewPageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A70ABAA216DD59BC003AFA4B /* DSViewPageCell.xib */; };
 		A723DFE216DA930900F51928 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429316D9028F00FEE4BE /* JASidePanelController.m */; };
 		A723DFE316DA930900F51928 /* DSSidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429516D9028F00FEE4BE /* DSSidePanelController.m */; };
@@ -137,18 +137,6 @@
 		131480F416F0F1FD004A9D3C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		134B8AA916F1B9FB00900AC6 /* DSJournalManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSJournalManager.h; path = models/DSJournalManager.h; sourceTree = "<group>"; };
 		134B8AAA16F1B9FB00900AC6 /* DSJournalManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSJournalManager.m; path = models/DSJournalManager.m; sourceTree = "<group>"; };
-		134B8ABE16F1C03600900AC6 /* Spacetag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Spacetag.h; path = models/Spacetag.h; sourceTree = "<group>"; };
-		134B8ABF16F1C03600900AC6 /* Spacetag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Spacetag.m; path = models/Spacetag.m; sourceTree = "<group>"; };
-		134B8AC116F1C03700900AC6 /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Profile.h; path = models/Profile.h; sourceTree = "<group>"; };
-		134B8AC216F1C03700900AC6 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Profile.m; path = models/Profile.m; sourceTree = "<group>"; };
-		134B8AC416F1C03700900AC6 /* DropCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DropCollection.h; path = models/DropCollection.h; sourceTree = "<group>"; };
-		134B8AC516F1C03700900AC6 /* DropCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DropCollection.m; path = models/DropCollection.m; sourceTree = "<group>"; };
-		134B8AC716F1C03700900AC6 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = models/User.h; sourceTree = "<group>"; };
-		134B8AC816F1C03700900AC6 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = models/User.m; sourceTree = "<group>"; };
-		134B8ACA16F1C03700900AC6 /* Drop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Drop.h; path = models/Drop.h; sourceTree = "<group>"; };
-		134B8ACB16F1C03700900AC6 /* Drop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Drop.m; path = models/Drop.m; sourceTree = "<group>"; };
-		134B8ACD16F1C03700900AC6 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Comment.h; path = models/Comment.h; sourceTree = "<group>"; };
-		134B8ACE16F1C03700900AC6 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Comment.m; path = models/Comment.m; sourceTree = "<group>"; };
 		134B8AD016F1C1B000900AC6 /* DSDropSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSDropSerializer.h; path = models/DSDropSerializer.h; sourceTree = "<group>"; };
 		134B8AD116F1C1B000900AC6 /* DSDropSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSDropSerializer.m; path = models/DSDropSerializer.m; sourceTree = "<group>"; };
 		136F564016E8EDB9009E5203 /* DSDataAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSDataAdapter.h; path = models/DSDataAdapter.h; sourceTree = "<group>"; };
@@ -201,6 +189,18 @@
 		13C4333F16D8FC58001A43F9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		13E41B6A16F21540008052F8 /* DSImageUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSImageUrl.h; path = models/DSImageUrl.h; sourceTree = "<group>"; };
 		13E41B6B16F21541008052F8 /* DSImageUrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSImageUrl.m; path = models/DSImageUrl.m; sourceTree = "<group>"; };
+		13E41B6D16F2271F008052F8 /* DropCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DropCollection.h; path = models/DropCollection.h; sourceTree = "<group>"; };
+		13E41B6E16F2271F008052F8 /* DropCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DropCollection.m; path = models/DropCollection.m; sourceTree = "<group>"; };
+		13E41B7016F22720008052F8 /* Spacetag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Spacetag.h; path = models/Spacetag.h; sourceTree = "<group>"; };
+		13E41B7116F22720008052F8 /* Spacetag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Spacetag.m; path = models/Spacetag.m; sourceTree = "<group>"; };
+		13E41B7316F22720008052F8 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = models/User.h; sourceTree = "<group>"; };
+		13E41B7416F22720008052F8 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = models/User.m; sourceTree = "<group>"; };
+		13E41B7616F22720008052F8 /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Profile.h; path = models/Profile.h; sourceTree = "<group>"; };
+		13E41B7716F22720008052F8 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Profile.m; path = models/Profile.m; sourceTree = "<group>"; };
+		13E41B7916F22720008052F8 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Comment.h; path = models/Comment.h; sourceTree = "<group>"; };
+		13E41B7A16F22720008052F8 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Comment.m; path = models/Comment.m; sourceTree = "<group>"; };
+		13E41B7C16F22720008052F8 /* Drop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Drop.h; path = models/Drop.h; sourceTree = "<group>"; };
+		13E41B7D16F22720008052F8 /* Drop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Drop.m; path = models/Drop.m; sourceTree = "<group>"; };
 		A70ABAA216DD59BC003AFA4B /* DSViewPageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSViewPageCell.xib; sourceTree = "<group>"; };
 		A751872516E80728009F4383 /* DSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSLoginViewController.h; path = controllers/DSLoginViewController.h; sourceTree = "<group>"; };
 		A751872616E80728009F4383 /* DSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSLoginViewController.m; path = controllers/DSLoginViewController.m; sourceTree = "<group>"; };
@@ -340,18 +340,18 @@
 		136F565216E8EFB0009E5203 /* Auto Generated */ = {
 			isa = PBXGroup;
 			children = (
-				134B8ACD16F1C03700900AC6 /* Comment.h */,
-				134B8ACE16F1C03700900AC6 /* Comment.m */,
-				134B8ACA16F1C03700900AC6 /* Drop.h */,
-				134B8ACB16F1C03700900AC6 /* Drop.m */,
-				134B8AC716F1C03700900AC6 /* User.h */,
-				134B8AC816F1C03700900AC6 /* User.m */,
-				134B8AC416F1C03700900AC6 /* DropCollection.h */,
-				134B8AC516F1C03700900AC6 /* DropCollection.m */,
-				134B8AC116F1C03700900AC6 /* Profile.h */,
-				134B8AC216F1C03700900AC6 /* Profile.m */,
-				134B8ABE16F1C03600900AC6 /* Spacetag.h */,
-				134B8ABF16F1C03600900AC6 /* Spacetag.m */,
+				13E41B7C16F22720008052F8 /* Drop.h */,
+				13E41B7D16F22720008052F8 /* Drop.m */,
+				13E41B7916F22720008052F8 /* Comment.h */,
+				13E41B7A16F22720008052F8 /* Comment.m */,
+				13E41B7616F22720008052F8 /* Profile.h */,
+				13E41B7716F22720008052F8 /* Profile.m */,
+				13E41B7316F22720008052F8 /* User.h */,
+				13E41B7416F22720008052F8 /* User.m */,
+				13E41B7016F22720008052F8 /* Spacetag.h */,
+				13E41B7116F22720008052F8 /* Spacetag.m */,
+				13E41B6D16F2271F008052F8 /* DropCollection.h */,
+				13E41B6E16F2271F008052F8 /* DropCollection.m */,
 			);
 			name = "Auto Generated";
 			sourceTree = "<group>";
@@ -946,14 +946,14 @@
 				A78373D216EF7AD500BF1D50 /* UIScrollView+SVPullToRefresh.m in Sources */,
 				131480F116F0D4B1004A9D3C /* DSUserSerializer.m in Sources */,
 				134B8AAB16F1B9FB00900AC6 /* DSJournalManager.m in Sources */,
-				134B8AC016F1C03600900AC6 /* Spacetag.m in Sources */,
-				134B8AC316F1C03700900AC6 /* Profile.m in Sources */,
-				134B8AC616F1C03700900AC6 /* DropCollection.m in Sources */,
-				134B8AC916F1C03700900AC6 /* User.m in Sources */,
-				134B8ACC16F1C03700900AC6 /* Drop.m in Sources */,
-				134B8ACF16F1C03700900AC6 /* Comment.m in Sources */,
 				134B8AD216F1C1B000900AC6 /* DSDropSerializer.m in Sources */,
 				13E41B6C16F21541008052F8 /* DSImageUrl.m in Sources */,
+				13E41B6F16F2271F008052F8 /* DropCollection.m in Sources */,
+				13E41B7216F22720008052F8 /* Spacetag.m in Sources */,
+				13E41B7516F22720008052F8 /* User.m in Sources */,
+				13E41B7816F22720008052F8 /* Profile.m in Sources */,
+				13E41B7B16F22720008052F8 /* Comment.m in Sources */,
+				13E41B7E16F22720008052F8 /* Drop.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
