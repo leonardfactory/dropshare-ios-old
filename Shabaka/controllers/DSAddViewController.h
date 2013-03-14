@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DSAddViewController : UIViewController
+@interface DSAddViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+@property (strong, nonatomic) NSString* type;
 
 @end

@@ -14,6 +14,7 @@
 #import "UIScrollView+SVInfiniteScrolling.h"
 
 #import "DSAddButton.h"
+#import "DSAddViewController.h"
 
 #import "DSImageUrl.h"
 
@@ -136,9 +137,23 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	if([keyPath isEqualToString:@"actionCalled"]
 		&& [object isEqual:self.addButton])
 	{
-		NSLog(@"%@", self.addButton.actionCalled);
+		if([self.addButton.actionCalled isEqualToString:@"actionCapture"])
+		{
+			[self handleCapture];
+		}
 	}
 		
+}
+
+/**
+ * Gestisco la capture
+ */
+- (void) handleCapture
+{
+	DSAddViewController *addViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"addViewController"];
+	addViewController.type = self.addButton.actionCalled;
+	
+	[self presentModalViewController:addViewController animated:YES];
 }
 
 
