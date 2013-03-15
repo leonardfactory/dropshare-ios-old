@@ -42,7 +42,7 @@
 										[sidePanelController.storyboard instantiateViewControllerWithIdentifier:@"journalNavigationController"], @"journal",
 										nil];
     
-    [sidePanelController setViewControllers:appViewControllers whereSelectedIs:@"map"];
+    [sidePanelController setViewControllers:appViewControllers whereSelectedIs:@"journal"];
 	
 	//LoginViewController
 	//<frank>

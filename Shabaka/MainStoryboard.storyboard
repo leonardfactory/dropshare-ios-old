@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3012" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="VLy-D2-q93">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="VLy-D2-q93">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -323,21 +323,68 @@
             <point key="canvasLocation" x="756" y="658"/>
         </scene>
         <!--Journal Table View Controller-->
-        <scene sceneID="JMK-NN-fO1">
+        <scene sceneID="Bq4-Vw-jVY">
             <objects>
-                <tableViewController id="rhu-Ci-tqe" customClass="DSJournalTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="72" sectionHeaderHeight="22" sectionFooterHeight="22" id="3wN-fO-iQY">
+                <viewController id="xqt-xu-Xlg" customClass="DSJournalTableViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kv8-hZ-oIb">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="separatorColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <sections/>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="98a-fA-YMd"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OIq-pV-lqv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="I4P-fy-eLb">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="xqt-xu-Xlg" id="qkI-gg-Yqt"/>
+                                    <outlet property="delegate" destination="xqt-xu-Xlg" id="WTg-Mf-4rW"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kZL-YF-ElE"/>
+                    <connections>
+                        <outlet property="tableView" destination="I4P-fy-eLb" id="e6D-fC-cUF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VSC-vn-p4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="756" y="1429"/>
+        </scene>
+        <!--Add View Controller-->
+        <scene sceneID="g1a-mJ-ffr">
+            <objects>
+                <viewController storyboardIdentifier="addViewController" id="o2C-Pk-T3s" customClass="DSAddViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZKt-BJ-teM">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="0Y0-Uj-2bW">
+                                <rect key="frame" x="10" y="54" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="What did you shoot?" id="0WH-Xt-aEi">
+                                <rect key="frame" x="61" y="54" width="251" height="208"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="o2C-Pk-T3s" id="9p0-hp-g9L"/>
+                                </connections>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="avatarImageView" destination="0Y0-Uj-2bW" id="Pfx-co-HOZ"/>
+                        <outlet property="textView" destination="0WH-Xt-aEi" id="OgS-kG-J2c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p40-i6-6rg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1368" y="1429"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DBn-EJ-a2G">
@@ -347,7 +394,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="rhu-Ci-tqe" kind="relationship" relationship="rootViewController" id="lQX-9M-Lbb"/>
+                        <segue destination="xqt-xu-Xlg" kind="relationship" relationship="rootViewController" id="ecA-fX-L9a"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SLu-2E-0bu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -378,6 +425,61 @@
         <image name="separator.png" width="262" height="8"/>
         <image name="showJournalButton.png" width="29" height="29"/>
     </resources>
+    <classes>
+        <class className="DSAddViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DSAddViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="avatarImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="DSDiscoverTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DSDiscoverTableViewController.h"/>
+        </class>
+        <class className="DSDiscoverViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DSDiscoverViewController.h"/>
+        </class>
+        <class className="DSJournalSimpleDropCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DSJournalSimpleDropCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="backgroundImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="usernameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="DSJournalTableViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DSJournalTableViewController.h"/>
+        </class>
+        <class className="DSLeftSidePanelViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DSLeftSidePanelViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="journalButtonTouched:"/>
+                <relationship kind="action" name="menuButtonDiscoverTouched:"/>
+            </relationships>
+        </class>
+        <class className="DSLoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DSLoginViewController.h"/>
+        </class>
+        <class className="DSPaddedTextField" superclassName="UITextField">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DSPaddedTextField.h"/>
+            <relationships>
+                <relationship kind="outlet" name="nextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="DSSidePanelController" superclassName="JASidePanelController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DSSidePanelController.h"/>
+        </class>
+        <class className="JASidePanelController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/JASidePanelController.h"/>
+        </class>
+        <class className="SwipeView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SwipeView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dataSource"/>
+                <relationship kind="outlet" name="delegate"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

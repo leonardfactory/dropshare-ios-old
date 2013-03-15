@@ -11,7 +11,7 @@
 #import "DSImageJournalCell.h"
 #import "DSJournalManager.h"
 
-@interface DSJournalTableViewController : UITableViewController
+@interface DSJournalTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 // Just for testing
 @property (strong, nonatomic) NSMutableArray *cellData;

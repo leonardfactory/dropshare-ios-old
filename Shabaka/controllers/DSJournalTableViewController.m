@@ -13,6 +13,9 @@
 #import "UIScrollView+SVPullToRefresh.h"
 #import "UIScrollView+SVInfiniteScrolling.h"
 
+#import "DSAddButton.h"
+#import "DSCapturePicker.h"
+
 #import "DSImageUrl.h"
 
 @interface DSJournalTableViewController ()
@@ -22,6 +25,10 @@
 }
 
 @property (strong, nonatomic) DSJournalManager *journalManager;
+@property (strong, nonatomic) DSAddButton *addButton;
+@property (strong, nonatomic) DSCapturePicker *capturePicker;
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -40,43 +47,27 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	self = [super initWithCoder:aDecoder];
 	if(self)
 	{
-		
+		self.capturePicker = [[DSCapturePicker alloc] initWithController:self];
 	}
 	return self;
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	
+	[self buildView];
+	
 	//<frank>
 	_journalManager = [[DSJournalManager alloc] init];
 	[_journalManager addObserver:self forKeyPath:@"isJournalUpdated" options:NSKeyValueObservingOptionNew context:nil];
 	[_journalManager addObserver:self forKeyPath:@"isJournalScrolled" options:NSKeyValueObservingOptionNew context:nil];
 	//</frank>
-	
-	// Just for testing
-	_cellData = [NSMutableArray arrayWithObjects:	@"Angelo", @"Beppe", @"Carlo", @"Pino", nil];
-	
-	_textData = [NSMutableArray arrayWithObjects:	@"Il pezzo di pizza pazzo mangiava la pazza pezza del pozzo, col pizzo pazzo.",
-				 @"Trentatre trentini entrarono a Trento tutti e trentatre trottellando",
-				 @"Nel mezzo del cammin di nostra vita mi ritrovai per una selva oscura, si che la diritta via era smarrita.",
-				 @"Ciao a tutti quanti, questo è il mio primo drop",
-				 nil];
-	
-	_imageData = [NSMutableArray arrayWithObjects:	@"mountain.jpg",
-				  [NSNull null],
-				  @"frank.png",
-				  [NSNull null],
-				  nil];
-	
-	randomNames = [NSArray arrayWithObjects:@"Giovanni", @"Mario", @"Carletto", @"Giuseppe", @"Maria", @"Alda", @"Battista", nil];
-	randomTexts = [NSArray arrayWithObjects:@"In massa massa, rhoncus non pharetra nec, vehicula eget nisi. Praesent pulvinar mi in purus laoreet commodo. Nulla tempor ligula.",
-				   @"Morbi aliquam cursus nisi ac interdum. Pellentesque sit amet lacus lectus, id facilisis metus. Nam vel cursus mauris. Ut elit.",
-				   @"Donec gravida molestie augue, sed sagittis risus pellentesque non. Etiam ultricies, velit quis suscipit convallis, est dolor vulputate velit, id.",
-				   @"Praesent vehicula semper nibh, id aliquam magna consectetur ac. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus gravida porta tortor vel imperdiet.",
-				   @"Maecenas vitae posuere eros. Duis mattis rhoncus lectus, at molestie odio convallis eu. Donec nec pharetra purus. Proin odio augue, aliquam ac tempus a, ornare eu urna.",
-				   nil];
 	
 	
 	__weak DSJournalTableViewController *that = self;
@@ -90,8 +81,23 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	 {
 		[that.journalManager scrollDown];
 	 }];
+}
+
+#pragma mark - UIView modifications
+- (void) buildView
+{
+	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+	self.tableView.backgroundColor = [UIColor colorWithRed:238./255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1.0];
 	
-    self.clearsSelectionOnViewWillAppear = YES;
+	float addButtonHeight = self.view.frame.size.height - kDSAddButtonSize - kDSAddButtonSize;
+	self.addButton = [[DSAddButton alloc] initWithFrame:CGRectMake(10.0,
+																   addButtonHeight,
+																   kDSAddButtonSize,
+																   kDSAddButtonSize)
+											 andActions:[NSArray arrayWithObjects:@"actionMemo", @"actionCapture", nil]];
+	[self.view addSubview:self.addButton];
+	
+	[self.addButton addObserver:self forKeyPath:@"actionCalled" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 #pragma mark - KVO
@@ -112,9 +118,28 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 		[self scrollDownJournal];
 	}
 	//</frank>
+	
+	if([keyPath isEqualToString:@"actionCalled"]
+		&& [object isEqual:self.addButton])
+	{
+		if([self.addButton.actionCalled isEqualToString:@"actionCapture"])
+		{
+			[self handleCapture];
+		}
+	}
+		
 }
 
+#pragma mark - Capture and Photo Handling
+/**
+ * Gestisco la capture
+ */
+- (void) handleCapture
+{
+	[self.capturePicker showCapture];
+}
 
+#pragma mark Journal updater
 /**
  * Aggiorno il journal con i drop più nuovi dal server.
  * @todo dispatch async del task di aggiornamento con un dispatch async finale sulla
@@ -122,7 +147,6 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
  */
 - (void) updateJournal
 {
-	//NSLog(@"Updating table with drops: %d", [_journalManager.drops count]);
 	[self.tableView reloadData];
 	
 	[self.tableView.pullToRefreshView stopAnimating];
@@ -143,11 +167,6 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	[super viewDidAppear:animated];
 	
 	[self.tableView triggerPullToRefresh];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
 }
 
 #pragma mark - Table view data source
@@ -210,6 +229,8 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	{
 		cell = [self tableViewCellWithIdentifier:CellIdentifier];
 	}
+	
+	cell.selectionStyle = UITableViewCellEditingStyleNone;
     
 	// Cast forzato
 	DSJournalCell *journalCell = (DSJournalCell *) cell;
@@ -269,5 +290,9 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	{
 		[self.tableView triggerInfiniteScrolling];
 	} */
+}
+- (void)viewDidUnload {
+	[self setTableView:nil];
+	[super viewDidUnload];
 }
 @end
