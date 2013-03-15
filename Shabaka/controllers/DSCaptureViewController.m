@@ -20,6 +20,8 @@
 	if(self)
 	{
 		self.imagePickerController = [[UIImagePickerController alloc] init];
+		self.view.frame = self.imagePickerController.view.frame;
+		
 		if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
 		{
 			self.imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
@@ -47,7 +49,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Image picker delegate
+#pragma mark - Image picker delegate	
 - (void) imagePickerControllerDidCancel: (UIImagePickerController *) picker
 {
 	
@@ -63,7 +65,8 @@
     //UIImage *originalImage;
 	
     // Handle a still image capture
-    if (CFStringCompare ((CFStringRef) mediaType, kUTTypeImage, 0) == kCFCompareEqualTo) {
+    if (CFStringCompare ((CFStringRef) mediaType, kUTTypeImage, 0) == kCFCompareEqualTo)
+	{
 		
         //self.imageToBePosted = (UIImage *) [info objectForKey:UIImagePickerControllerOriginalImage];
 		

@@ -127,11 +127,9 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
  */
 - (void) handleCapture
 {
-	//DSAddViewController *addViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"addViewController"];
-	//addViewController.type = self.addButton.actionCalled;
 	DSCaptureViewController *captureViewController = [[DSCaptureViewController alloc] init];
 	
-	[self presentModalViewController:captureViewController animated:YES];
+	[self presentModalViewController:captureViewController.imagePickerController animated:YES];
 }
 
 
