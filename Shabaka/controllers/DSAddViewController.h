@@ -12,4 +12,6 @@
 
 @property (strong, nonatomic) NSString* type;
 
+- (void) postImageFromCapture:(UIImage *)image;
+
 @end

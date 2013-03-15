@@ -14,7 +14,7 @@
 #import "UIScrollView+SVInfiniteScrolling.h"
 
 #import "DSAddButton.h"
-#import "DSCaptureViewController.h"
+#import "DSCapturePicker.h"
 
 #import "DSImageUrl.h"
 
@@ -26,6 +26,8 @@
 
 @property (strong, nonatomic) DSJournalManager *journalManager;
 @property (strong, nonatomic) DSAddButton *addButton;
+@property (strong, nonatomic) DSCapturePicker *capturePicker;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -45,8 +47,14 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	self = [super initWithCoder:aDecoder];
 	if(self)
 	{
+		self.capturePicker = [[DSCapturePicker alloc] initWithController:self];
 	}
 	return self;
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
 }
 
 - (void)viewDidLoad
@@ -122,17 +130,16 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 		
 }
 
+#pragma mark - Capture and Photo Handling
 /**
  * Gestisco la capture
  */
 - (void) handleCapture
 {
-	DSCaptureViewController *captureViewController = [[DSCaptureViewController alloc] init];
-	
-	[self presentModalViewController:captureViewController.imagePickerController animated:YES];
+	[self.capturePicker showCapture];
 }
 
-
+#pragma mark Journal updater
 /**
  * Aggiorno il journal con i drop più nuovi dal server.
  * @todo dispatch async del task di aggiornamento con un dispatch async finale sulla
@@ -160,11 +167,6 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	[super viewDidAppear:animated];
 	
 	[self.tableView triggerPullToRefresh];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
 }
 
 #pragma mark - Table view data source

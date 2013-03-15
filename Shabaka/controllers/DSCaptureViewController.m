@@ -7,6 +7,7 @@
 //
 
 #import "DSCaptureViewController.h"
+#import "DSAddViewController.h"
 
 @interface DSCaptureViewController ()
 
@@ -52,8 +53,7 @@
 #pragma mark - Image picker delegate	
 - (void) imagePickerControllerDidCancel: (UIImagePickerController *) picker
 {
-	
-    [[self.imagePickerController parentViewController] dismissModalViewControllerAnimated:YES];
+    [[self.imagePickerController.navigationController parentViewController] dismissModalViewControllerAnimated:YES];
 }
 
 // For responding to the user accepting a newly-captured picture or movie
@@ -67,14 +67,25 @@
     // Handle a still image capture
     if (CFStringCompare ((CFStringRef) mediaType, kUTTypeImage, 0) == kCFCompareEqualTo)
 	{
+		UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:[[NSBundle mainBundle].infoDictionary objectForKey:@"UIMainStoryboardFile"]
+													 bundle:[NSBundle mainBundle]];
 		
+		[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent animated:YES];
+		[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+		
+		[self.imagePickerController setNavigationBarHidden:NO animated:YES];
+		
+		DSAddViewController *addViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"addViewController"];
+		[addViewController postImageFromCapture:(UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage]];
+		
+		[self.imagePickerController pushViewController:addViewController animated:YES];
         //self.imageToBePosted = (UIImage *) [info objectForKey:UIImagePickerControllerOriginalImage];
 		
 		// Save the new image (original or edited) to the Camera Roll
         //UIImageWriteToSavedPhotosAlbum(originalImage, nil, nil , nil);
     }
 	
-    [self dismissModalViewControllerAnimated: YES];
+    //[self dismissModalViewControllerAnimated: YES];
 }
 
 @end
