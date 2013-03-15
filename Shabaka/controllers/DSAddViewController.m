@@ -10,6 +10,7 @@
 
 #import "DSAddViewController.h"
 #import "DSProfileManager.h"
+#import "DSNewDropManager.h"
 
 #import "InterfaceConstants.h"
 #import "UIImage+Resize.h"
@@ -25,12 +26,14 @@
 @property (strong, nonatomic) UIImage *imageToBePosted;
 @property (strong, nonatomic) UIImageView *imageToBePostedView;
 @property (strong, nonatomic) DSProfileManager *profileManager;
+@property (strong, nonatomic) DSNewDropManager *dropManager;
 
 @end
 
 @implementation DSAddViewController
 
 @synthesize profileManager = _profileManager;
+@synthesize dropManager = _dropManager;
 
 - (id) initWithCoder:(NSCoder *)aDecoder
 {
@@ -38,6 +41,7 @@
 	if(self)
 	{
 		_profileManager = [[DSProfileManager alloc] init];
+		_dropManager	= [[DSNewDropManager alloc] init];
 		
 		[[NSNotificationCenter defaultCenter] addObserver:self
 												 selector:@selector(keyboardWasShown:)
@@ -97,7 +101,7 @@
 
 - (void) addPhoto
 {
-	
+	[_dropManager captureWithImage:self.imageToBePosted WithText:self.textView.text];
 }
 
 - (void) viewDidLoad
