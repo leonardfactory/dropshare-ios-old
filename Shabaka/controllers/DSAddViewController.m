@@ -11,6 +11,9 @@
 
 #import "InterfaceConstants.h"
 #import "UIImage+Resize.h"
+#import "UIImageView+AFNetworking.h"
+
+#import "DSImageUrl.h"
 
 @interface DSAddViewController ()
 
@@ -79,11 +82,7 @@
 {
     [super viewDidLoad];
 	
-	// @todo
-	[self.avatarImageView setImage:[[UIImage imageNamed:@"avatar.png"] thumbnailImage:48
-																	transparentBorder:0
-																		 cornerRadius:kDSCellAvatarCornerRadius
-																 interpolationQuality:kCGInterpolationHigh]];
+	[self.avatarImageView setImageWithURL:[NSURL URLWithString:[DSImageUrl getAvatarUrlFromUserId:_profileManager.profile.user.identifier]]];
 	
 	self.textView.contentInset = UIEdgeInsetsMake(0,-8,0,0);
 	[self.textView becomeFirstResponder];
