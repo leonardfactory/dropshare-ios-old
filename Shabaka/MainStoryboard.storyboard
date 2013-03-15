@@ -370,6 +370,9 @@
                                 <color key="textColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="o2C-Pk-T3s" id="9p0-hp-g9L"/>
+                                </connections>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -432,19 +435,9 @@
         </class>
         <class className="DSDiscoverTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DSDiscoverTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
         </class>
         <class className="DSDiscoverViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DSDiscoverViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="journalView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="swipeView" candidateClass="SwipeView"/>
-                <relationship kind="outlet" name="swipeViewContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
         </class>
         <class className="DSJournalSimpleDropCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DSJournalSimpleDropCell.h"/>
@@ -456,27 +449,16 @@
         </class>
         <class className="DSJournalTableViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DSJournalTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
         </class>
         <class className="DSLeftSidePanelViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DSLeftSidePanelViewController.h"/>
             <relationships>
                 <relationship kind="action" name="journalButtonTouched:"/>
                 <relationship kind="action" name="menuButtonDiscoverTouched:"/>
-                <relationship kind="outlet" name="menuButtonDiscover" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="menuButtonJournal" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="DSLoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DSLoginViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="connectButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="fbSignupButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="passwordField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="usernameField" candidateClass="UITextField"/>
-            </relationships>
         </class>
         <class className="DSPaddedTextField" superclassName="UITextField">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DSPaddedTextField.h"/>

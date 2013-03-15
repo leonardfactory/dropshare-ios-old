@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Dropshare. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
+
 #import "DSAddViewController.h"
 #import "DSProfileManager.h"
 
@@ -35,13 +37,27 @@
 	self = [super initWithCoder:aDecoder];
 	if(self)
 	{
-		_profileManager = [[DSProfileManager alloc] init]; // @todo
+		_profileManager = [[DSProfileManager alloc] init];
 		
 		[[NSNotificationCenter defaultCenter] addObserver:self
 												 selector:@selector(keyboardWasShown:)
 													 name:UIKeyboardDidShowNotification object:nil];
 	}
 	return self;
+}
+
+- (void) buildView
+{
+	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+																				 target:self
+																				 action:@selector(addPhoto)];
+	self.navigationItem.rightBarButtonItem = addButton;
+	
+	[self.avatarImageView setImageWithURL:[NSURL URLWithString:[DSImageUrl getAvatarUrlFromUserId:_profileManager.profile.user.identifier]]];
+	self.avatarImageView.layer.cornerRadius = kDSCellAvatarCornerRadius;
+	
+	self.textView.contentInset = UIEdgeInsetsMake(0,-8,0,0);
+	[self.textView becomeFirstResponder];
 }
 
 - (void) postImageFromCapture:(UIImage *)image
@@ -53,12 +69,13 @@
 	
 	self.imageToBePostedView = [[UIImageView alloc] initWithImage:[self.imageToBePosted thumbnailImage:104.0
 																					 transparentBorder:0
-																						  cornerRadius:3
+																						  cornerRadius:0
 																				  interpolationQuality:kCGInterpolationHigh]];
 	self.imageToBePostedView.frame = CGRectMake(kDSCellAvatarLeftMargin,
 												self.view.bounds.size.height - 104.0,
 												104.0,
 												104.0);
+	self.imageToBePostedView.layer.cornerRadius = kDSDefaultCornerRadius;
 	[self.view addSubview:self.imageToBePostedView];
 }
 												
@@ -78,14 +95,16 @@
 									 self.textView.frame.size.width);
 }
 
+- (void) addPhoto
+{
+	
+}
+
 - (void) viewDidLoad
 {
     [super viewDidLoad];
 	
-	[self.avatarImageView setImageWithURL:[NSURL URLWithString:[DSImageUrl getAvatarUrlFromUserId:_profileManager.profile.user.identifier]]];
-	
-	self.textView.contentInset = UIEdgeInsetsMake(0,-8,0,0);
-	[self.textView becomeFirstResponder];
+	[self buildView];
 }
 
 - (void)didReceiveMemoryWarning
