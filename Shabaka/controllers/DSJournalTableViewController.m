@@ -14,7 +14,7 @@
 #import "UIScrollView+SVInfiniteScrolling.h"
 
 #import "DSAddButton.h"
-#import "DSAddViewController.h"
+#import "DSCaptureViewController.h"
 
 #import "DSImageUrl.h"
 
@@ -53,51 +53,13 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 {
     [super viewDidLoad];
 	
-	// Configuring view
-	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-	self.tableView.backgroundColor = [UIColor colorWithRed:238./255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1.0];
-	
-	float addButtonHeight = self.view.frame.size.height - kDSAddButtonSize - kDSAddButtonSize;
-	//NSLog(@"Height: %f", addButtonHeight);
-	//NSLog(@"View bounds: %@", NSStringFromCGRect(self.view.bounds));
-	self.addButton = [[DSAddButton alloc] initWithFrame:CGRectMake(10.0, addButtonHeight, kDSAddButtonSize, kDSAddButtonSize)
-											 andActions:[NSArray arrayWithObjects:@"actionMemo", @"actionCapture", nil]];
-	[self.view addSubview:self.addButton];
-	
-	[self.addButton addObserver:self forKeyPath:@"actionCalled" options:NSKeyValueObservingOptionNew context:nil];
-	
-	//NSLog(@"Add button frame: %@", NSStringFromCGRect(self.addButton.frame));
-	
-
+	[self buildView];
 	
 	//<frank>
 	_journalManager = [[DSJournalManager alloc] init];
 	[_journalManager addObserver:self forKeyPath:@"isJournalUpdated" options:NSKeyValueObservingOptionNew context:nil];
 	[_journalManager addObserver:self forKeyPath:@"isJournalScrolled" options:NSKeyValueObservingOptionNew context:nil];
 	//</frank>
-	
-	// Just for testing
-	_cellData = [NSMutableArray arrayWithObjects:	@"Angelo", @"Beppe", @"Carlo", @"Pino", nil];
-	
-	_textData = [NSMutableArray arrayWithObjects:	@"Il pezzo di pizza pazzo mangiava la pazza pezza del pozzo, col pizzo pazzo.",
-				 @"Trentatre trentini entrarono a Trento tutti e trentatre trottellando",
-				 @"Nel mezzo del cammin di nostra vita mi ritrovai per una selva oscura, si che la diritta via era smarrita.",
-				 @"Ciao a tutti quanti, questo è il mio primo drop",
-				 nil];
-	
-	_imageData = [NSMutableArray arrayWithObjects:	@"mountain.jpg",
-				  [NSNull null],
-				  @"frank.png",
-				  [NSNull null],
-				  nil];
-	
-	randomNames = [NSArray arrayWithObjects:@"Giovanni", @"Mario", @"Carletto", @"Giuseppe", @"Maria", @"Alda", @"Battista", nil];
-	randomTexts = [NSArray arrayWithObjects:@"In massa massa, rhoncus non pharetra nec, vehicula eget nisi. Praesent pulvinar mi in purus laoreet commodo. Nulla tempor ligula.",
-				   @"Morbi aliquam cursus nisi ac interdum. Pellentesque sit amet lacus lectus, id facilisis metus. Nam vel cursus mauris. Ut elit.",
-				   @"Donec gravida molestie augue, sed sagittis risus pellentesque non. Etiam ultricies, velit quis suscipit convallis, est dolor vulputate velit, id.",
-				   @"Praesent vehicula semper nibh, id aliquam magna consectetur ac. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus gravida porta tortor vel imperdiet.",
-				   @"Maecenas vitae posuere eros. Duis mattis rhoncus lectus, at molestie odio convallis eu. Donec nec pharetra purus. Proin odio augue, aliquam ac tempus a, ornare eu urna.",
-				   nil];
 	
 	
 	__weak DSJournalTableViewController *that = self;
@@ -111,8 +73,23 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	 {
 		[that.journalManager scrollDown];
 	 }];
+}
+
+#pragma mark - UIView modifications
+- (void) buildView
+{
+	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+	self.tableView.backgroundColor = [UIColor colorWithRed:238./255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1.0];
 	
-    //self.clearsSelectionOnViewWillAppear = YES;
+	float addButtonHeight = self.view.frame.size.height - kDSAddButtonSize - kDSAddButtonSize;
+	self.addButton = [[DSAddButton alloc] initWithFrame:CGRectMake(10.0,
+																   addButtonHeight,
+																   kDSAddButtonSize,
+																   kDSAddButtonSize)
+											 andActions:[NSArray arrayWithObjects:@"actionMemo", @"actionCapture", nil]];
+	[self.view addSubview:self.addButton];
+	
+	[self.addButton addObserver:self forKeyPath:@"actionCalled" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 #pragma mark - KVO
@@ -150,10 +127,11 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
  */
 - (void) handleCapture
 {
-	DSAddViewController *addViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"addViewController"];
-	addViewController.type = self.addButton.actionCalled;
+	//DSAddViewController *addViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"addViewController"];
+	//addViewController.type = self.addButton.actionCalled;
+	DSCaptureViewController *captureViewController = [[DSCaptureViewController alloc] init];
 	
-	[self presentModalViewController:addViewController animated:YES];
+	[self presentModalViewController:captureViewController animated:YES];
 }
 
 
@@ -164,7 +142,6 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
  */
 - (void) updateJournal
 {
-	//NSLog(@"Updating table with drops: %d", [_journalManager.drops count]);
 	[self.tableView reloadData];
 	
 	[self.tableView.pullToRefreshView stopAnimating];

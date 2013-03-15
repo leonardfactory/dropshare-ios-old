@@ -47,6 +47,7 @@
 		A723DFE316DA930900F51928 /* DSSidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429516D9028F00FEE4BE /* DSSidePanelController.m */; };
 		A723DFE416DA930900F51928 /* UIViewController+SidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429716D9028F00FEE4BE /* UIViewController+SidePanel.m */; };
 		A723DFE516DA930900F51928 /* DSLeftSidePanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A542AB16D90D7E00FEE4BE /* DSLeftSidePanelViewController.m */; };
+		A73863FB16F3162400034512 /* DSCaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A73863FA16F3162400034512 /* DSCaptureViewController.m */; };
 		A751872716E80728009F4383 /* DSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A751872616E80728009F4383 /* DSLoginViewController.m */; };
 		A753DF4316EDDD6100278CE7 /* frank.png in Resources */ = {isa = PBXBuildFile; fileRef = A753DF4216EDDD6100278CE7 /* frank.png */; };
 		A753DF4516EDDD9B00278CE7 /* mountain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A753DF4416EDDD9B00278CE7 /* mountain.jpg */; };
@@ -211,6 +212,8 @@
 		13E41B7C16F22720008052F8 /* Drop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Drop.h; path = models/Drop.h; sourceTree = "<group>"; };
 		13E41B7D16F22720008052F8 /* Drop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Drop.m; path = models/Drop.m; sourceTree = "<group>"; };
 		A70ABAA216DD59BC003AFA4B /* DSViewPageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSViewPageCell.xib; sourceTree = "<group>"; };
+		A73863F916F3162400034512 /* DSCaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSCaptureViewController.h; path = controllers/DSCaptureViewController.h; sourceTree = "<group>"; };
+		A73863FA16F3162400034512 /* DSCaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSCaptureViewController.m; path = controllers/DSCaptureViewController.m; sourceTree = "<group>"; };
 		A751872516E80728009F4383 /* DSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSLoginViewController.h; path = controllers/DSLoginViewController.h; sourceTree = "<group>"; };
 		A751872616E80728009F4383 /* DSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSLoginViewController.m; path = controllers/DSLoginViewController.m; sourceTree = "<group>"; };
 		A753DF4216EDDD6100278CE7 /* frank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frank.png; sourceTree = "<group>"; };
@@ -671,6 +674,8 @@
 			children = (
 				A78256B916F2861F0046A8AF /* DSAddViewController.h */,
 				A78256BA16F2861F0046A8AF /* DSAddViewController.m */,
+				A73863F916F3162400034512 /* DSCaptureViewController.h */,
+				A73863FA16F3162400034512 /* DSCaptureViewController.m */,
 			);
 			name = Add;
 			sourceTree = "<group>";
@@ -1021,6 +1026,7 @@
 				A78256A716F2439E0046A8AF /* DSAddButton.m in Sources */,
 				A78256AA16F25D4E0046A8AF /* DSActionButton.m in Sources */,
 				A78256BB16F2861F0046A8AF /* DSAddViewController.m in Sources */,
+				A73863FB16F3162400034512 /* DSCaptureViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
