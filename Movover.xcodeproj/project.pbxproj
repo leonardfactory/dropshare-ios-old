@@ -85,6 +85,7 @@
 		A78373CB16EF5C1F00BF1D50 /* buttonBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A78373C916EF5C1F00BF1D50 /* buttonBg@2x.png */; };
 		A78373D116EF7AD500BF1D50 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = A78373CE16EF7AD500BF1D50 /* UIScrollView+SVInfiniteScrolling.m */; };
 		A78373D216EF7AD500BF1D50 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = A78373D016EF7AD500BF1D50 /* UIScrollView+SVPullToRefresh.m */; };
+		A787CE4117FF222000134310 /* DSIncrementalStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A787CE4017FF222000134310 /* DSIncrementalStore.m */; };
 		A78DAD8416DBE2E300A21AD0 /* DSViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = A78DAD8316DBE2E300A21AD0 /* DSViewPager.m */; };
 		A78DAD8716DC352700A21AD0 /* DSViewPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A78DAD8616DC352700A21AD0 /* DSViewPageCell.m */; };
 		A793149816DF60920023B150 /* DSDiscoverTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A793149716DF60910023B150 /* DSDiscoverTableViewController.m */; };
@@ -243,6 +244,8 @@
 		A78373CE16EF7AD500BF1D50 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+SVInfiniteScrolling.m"; path = "lib/SVPullToRefresh/UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
 		A78373CF16EF7AD500BF1D50 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+SVPullToRefresh.h"; path = "lib/SVPullToRefresh/UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
 		A78373D016EF7AD500BF1D50 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+SVPullToRefresh.m"; path = "lib/SVPullToRefresh/UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
+		A787CE3F17FF222000134310 /* DSIncrementalStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSIncrementalStore.h; path = models/DSIncrementalStore.h; sourceTree = "<group>"; };
+		A787CE4017FF222000134310 /* DSIncrementalStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSIncrementalStore.m; path = models/DSIncrementalStore.m; sourceTree = "<group>"; };
 		A78DAD8216DBE2E300A21AD0 /* DSViewPager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSViewPager.h; sourceTree = "<group>"; };
 		A78DAD8316DBE2E300A21AD0 /* DSViewPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DSViewPager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A78DAD8516DC352700A21AD0 /* DSViewPageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSViewPageCell.h; sourceTree = "<group>"; };
@@ -408,6 +411,8 @@
 				136F565216E8EFB0009E5203 /* Auto Generated */,
 				A7AA5B6917FE399D009CD414 /* DSAPIClient.h */,
 				A7AA5B6A17FE399D009CD414 /* DSAPIClient.m */,
+				A787CE3F17FF222000134310 /* DSIncrementalStore.h */,
+				A787CE4017FF222000134310 /* DSIncrementalStore.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -993,6 +998,7 @@
 				A723DFE216DA930900F51928 /* JASidePanelController.m in Sources */,
 				A723DFE316DA930900F51928 /* DSSidePanelController.m in Sources */,
 				A723DFE416DA930900F51928 /* UIViewController+SidePanel.m in Sources */,
+				A787CE4117FF222000134310 /* DSIncrementalStore.m in Sources */,
 				A723DFE516DA930900F51928 /* DSLeftSidePanelViewController.m in Sources */,
 				A7AA5B5F17FE3948009CD414 /* DSJournal.m in Sources */,
 				A7AA5B6817FE3948009CD414 /* DSAction.m in Sources */,
