@@ -79,7 +79,7 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	 }];
 	[self.tableView addInfiniteScrollingWithActionHandler:^
 	 {
-		[that.journalManager scrollDown];
+         [that.journalManager scrollDown];
 	 }];
 }
 
