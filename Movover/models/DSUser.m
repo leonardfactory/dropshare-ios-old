@@ -2,7 +2,7 @@
 //  DSUser.m
 //  Movover
 //
-//  Created by Leonardo on 04/10/13.
+//  Created by Leonardo on 05/10/13.
 //  Copyright (c) 2013 Movover. All rights reserved.
 //
 
@@ -18,11 +18,11 @@
 @dynamic createdOn;
 @dynamic identifier;
 @dynamic name;
-@dynamic stringCreatedOn;
 @dynamic surname;
 @dynamic username;
-@dynamic comments;
+@dynamic complete_name;
 @dynamic actions;
+@dynamic comments;
 @dynamic followers;
 @dynamic following;
 @dynamic inverseProfileUser;

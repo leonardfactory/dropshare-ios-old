@@ -2,7 +2,7 @@
 //  DSAction.m
 //  Movover
 //
-//  Created by Leonardo on 04/10/13.
+//  Created by Leonardo on 05/10/13.
 //  Copyright (c) 2013 Movover. All rights reserved.
 //
 
@@ -16,19 +16,21 @@
 
 @dynamic createdOn;
 @dynamic identifier;
+@dynamic imagePosted;
 @dynamic latitude;
 @dynamic like;
 @dynamic location;
 @dynamic longitude;
-@dynamic stringCreatedOn;
+@dynamic rank;
+@dynamic statsComment;
+@dynamic statsLike;
+@dynamic statsReaction;
 @dynamic text;
-@dynamic totComments;
-@dynamic totLikes;
 @dynamic totReactions;
 @dynamic type;
-@dynamic comments;
-@dynamic inverseActionCollection;
 @dynamic area;
+@dynamic comments;
+@dynamic likes;
 @dynamic user;
 
 @end

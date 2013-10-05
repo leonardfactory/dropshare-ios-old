@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "DSJournalCell.h"
 #import "DSImageJournalCell.h"
-#import "DSJournalManager.h"
+
+#import "DSIncrementalStore.h"
 
 @interface DSJournalTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 

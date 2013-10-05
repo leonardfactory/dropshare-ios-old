@@ -13,18 +13,23 @@
 #import "UIScrollView+SVPullToRefresh.h"
 #import "UIScrollView+SVInfiniteScrolling.h"
 
+#import "DSFetchRequest.h"
+#import "DSAction.h"
+
 #import "DSAddButton.h"
 #import "DSCapturePicker.h"
 
 #import "DSImageUrl.h"
 
-@interface DSJournalTableViewController ()
+@interface DSJournalTableViewController () <NSFetchedResultsControllerDelegate>
 {
+    NSFetchedResultsController *_fetchedResultsController;
 	NSArray *randomNames;
 	NSArray *randomTexts;
 }
 
-@property (strong, nonatomic) DSJournalManager *journalManager;
+- (void) refetchData;
+
 @property (strong, nonatomic) DSAddButton *addButton;
 @property (strong, nonatomic) DSCapturePicker *capturePicker;
 
@@ -34,7 +39,6 @@
 
 @implementation DSJournalTableViewController
 
-@synthesize journalManager = _journalManager;
 @synthesize cellData	= _cellData;
 @synthesize imageData	= _imageData;
 @synthesize textData	= _textData;
@@ -52,6 +56,11 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	return self;
 }
 
+- (void)refetchData
+{
+    [_fetchedResultsController performSelectorOnMainThread:@selector(performFetch:) withObject:nil waitUntilDone:YES modes:@[ NSRunLoopCommonModes ]];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -64,13 +73,20 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	[self buildView];
 	
 	//<frank>
-	_journalManager = [[DSJournalManager alloc] init];
-	[_journalManager addObserver:self forKeyPath:@"isJournalUpdated" options:NSKeyValueObservingOptionNew context:nil];
-	[_journalManager addObserver:self forKeyPath:@"isJournalScrolled" options:NSKeyValueObservingOptionNew context:nil];
+	//_journalManager = [[DSJournalManager alloc] init];
+	//[_journalManager addObserver:self forKeyPath:@"isJournalUpdated" options:NSKeyValueObservingOptionNew context:nil];
+	//[_journalManager addObserver:self forKeyPath:@"isJournalScrolled" options:NSKeyValueObservingOptionNew context:nil];
 	//</frank>
 	
+    DSFetchRequest *fetchRequest = (DSFetchRequest *)[NSFetchRequest fetchRequestWithEntityName:@"Journal"];
+    fetchRequest.parameters = @{};
+    fetchRequest.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"createdOn" ascending:NO]];
+    
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[(id)[[UIApplication sharedApplication] delegate] managedObjectContext] sectionNameKeyPath:nil cacheName:@"Journal"];
+    _fetchedResultsController.delegate = self;
+    [self refetchData];
 	
-	__weak DSJournalTableViewController *that = self;
+	/*__weak DSJournalTableViewController *that = self;
 	
 	// Setto gli handler per il pull to refresh e l'infinite scrolling
 	[self.tableView addPullToRefreshWithActionHandler:^
@@ -80,14 +96,14 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	[self.tableView addInfiniteScrollingWithActionHandler:^
 	 {
          [that.journalManager scrollDown];
-	 }];
+	 }];*/
 }
 
 #pragma mark - UIView modifications
 - (void) buildView
 {
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-	self.tableView.backgroundColor = [UIColor colorWithRed:238./255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1.0];
+	self.tableView.backgroundColor = [UIColor colorWithRed:238.0/255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1.0];
 	
 	float addButtonHeight = self.view.frame.size.height - kDSAddButtonSize - kDSAddButtonSize;
 	self.addButton = [[DSAddButton alloc] initWithFrame:CGRectMake(10.0,
@@ -104,7 +120,7 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
 	//<frank>
-	if([keyPath isEqualToString:@"isJournalUpdated"]
+	/*if([keyPath isEqualToString:@"isJournalUpdated"]
 	   && [object isEqual:_journalManager]
 	   && ((DSJournalManager *)object).isJournalUpdated)
 	{
@@ -116,7 +132,7 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	   && ((DSJournalManager *)object).isJournalScrolled)
 	{
 		[self scrollDownJournal];
-	}
+	}*/
 	//</frank>
 	
 	if([keyPath isEqualToString:@"actionCalled"]
@@ -177,21 +193,21 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_journalManager.drops count];
+    return [[[_fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
 }
 
 - (float) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	int index = [indexPath row];
-	Drop *drop = (Drop *)[_journalManager.drops objectAtIndex:index];
+	//int index = [indexPath row];
+    DSAction *action = (DSAction *)[_fetchedResultsController objectAtIndexPath:indexPath];
 	
-	if([[drop type] isEqualToString:@"capture"])
+	if([[action type] isEqualToString:@"capture"])
 	{
-		return [DSImageJournalCell heightForCellWithText:[drop text]];
+		return [DSImageJournalCell heightForCellWithText:[action text]];
 	}
 	else
 	{
-		return [DSJournalCell heightForCellWithText:[drop text]];
+		return [DSJournalCell heightForCellWithText:[action text]];
 	}
 }
 
@@ -217,11 +233,10 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 {
 	UITableViewCell *cell;
 	
-	int index = [indexPath row];
-	Drop *drop = (Drop *)[_journalManager.drops objectAtIndex:index];
+	DSAction *action = (DSAction *)[_fetchedResultsController objectAtIndexPath:indexPath];
 	
 	// Scegliamo l'identifier in base al tipo di dati da mostrare
-	NSString *CellIdentifier = ([drop.type isEqualToString:@"capture"]) ? ImageJournalCellIdentifier : JournalCellIdentifier;
+	NSString *CellIdentifier = ([action.type isEqualToString:@"capture"]) ? ImageJournalCellIdentifier : JournalCellIdentifier;
 	
 	cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	
@@ -236,8 +251,8 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	DSJournalCell *journalCell = (DSJournalCell *) cell;
 	
 	// Configurazione della cell
-	journalCell.usernameLabel.text		= drop.user.username;
-	journalCell.descriptionLabel.text	= drop.text;
+	journalCell.usernameLabel.text		= [action.user username];
+	journalCell.descriptionLabel.text	= action.text;
 	
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 	[dateFormatter setDoesRelativeDateFormatting:YES];

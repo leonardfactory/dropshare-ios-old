@@ -86,14 +86,27 @@ static NSString * const kDSAPIBaseURLString = @"http://api.movover.com/";
                                                            ofEntity:(NSEntityDescription *)entity
                                                        fromResponse:(NSHTTPURLResponse *)response
 {
+    NSMutableDictionary *mutableRelationshipRepresentations = [[super representationsForRelationshipsFromRepresentation:representation ofEntity:entity fromResponse:response] mutableCopy];
+    
     if([entity.name isEqualToString:@"Journal"]) {
-        NSMutableDictionary *mutableRelationshipRepresentations = [NSMutableDictionary dictionaryWithCapacity:[entity.relationshipsByName count]];
         [mutableRelationshipRepresentations setValue:[representation valueForKey:@"activity"] forKey:@"activities"];
-        return mutableRelationshipRepresentations;
     }
-    else {
-        return [super representationsForRelationshipsFromRepresentation:representation ofEntity:entity fromResponse:response];
+    else if([entity.name isEqualToString:@"Subject"]) {
+        NSString *ref = (NSString *)[representation valueForKey:@"ref"];
+        NSString *objectId = (NSString *)[representation valueForKey:@"_id"];
+        
+        if([ref isEqualToString:@"user"]) {
+            [mutableRelationshipRepresentations setValue:objectId forKey:@"user"];
+        }
+        else if([ref isEqualToString:@"area"]) {
+            [mutableRelationshipRepresentations setValue:objectId forKey:@"area"];
+        }
     }
+    /*else if([entity.name isEqualToString:@"Activity"]) {
+        [mutableRelationshipRepresentations setValue:[representation valueForKey:@"subject"] forKey:@"subject"];
+    }*/
+    
+    return mutableRelationshipRepresentations;
 }
 
 - (NSDictionary *)attributesForRepresentation:(NSDictionary *)representation
@@ -109,20 +122,23 @@ static NSString * const kDSAPIBaseURLString = @"http://api.movover.com/";
     }
     else if ([entity.name isEqualToString:@"Activity"]) {
         
-        NSString *subjectRef = (NSString *)[representation valueForKeyPath:@"subject.ref"];
-        
-        if([subjectRef isEqualToString:@"user"]) {
-            [mutablePropertyValues setValue:@"User" forKey:@"subjectEntity"];
-        }
-        else if([subjectRef isEqualToString:@"area"]) {
-            [mutablePropertyValues setValue:@"Area" forKey:@"subjectEntity"];
-        }
-        
-        [mutablePropertyValues setValue:[representation valueForKeyPath:@"subject._id"] forKey:@"subjectId"];
+        [mutablePropertyValues setValue:[dateFormatter dateFromString:representation[@"createdOn"]] forKey:@"createdOn"];
         
         // How to handle user data got here?
         // @here
     }
+    /* else if([entity.name isEqualToString:@"Subject"]) {
+        NSString *ref = (NSString *)[representation valueForKeyPath:@"ref"];
+        
+        if([ref isEqualToString:@"user"]) {
+            [mutablePropertyValues setValue:@"User" forKey:@"subjectEntity"];
+        }
+        else if([ref isEqualToString:@"area"]) {
+            [mutablePropertyValues setValue:@"Area" forKey:@"subjectEntity"];
+        }
+        
+        [mutablePropertyValues setValue:[representation valueForKeyPath:@"subject._id"] forKey:@"subjectId"];
+    } */
     
     return mutablePropertyValues;
 }

@@ -8,16 +8,11 @@
 
 #import "DSAppDelegate.h"
 #import "DSSidePanelController.h"
-#import "DSProfileManager.h"
-#import "DSNewDropManager.h"
 #import "DSIncrementalStore.h"
 
 #import "UIImageView+AFNetworking.h"
 
 @interface DSAppDelegate ()
-{
-	DSProfileManager *profileManager;
-}
 
 @end
 
@@ -54,20 +49,20 @@
 	
 	//LoginViewController
 	//<frank>
-	profileManager = [[DSProfileManager alloc] init];
-	[profileManager loadCookies];
-	
-	//[profileManager logout];
-	if(![profileManager isLogged])
-	{
-		NSLog(@"User is not logged.");
-		
-		DSLoginViewController *loginViewController = [sidePanelController.storyboard instantiateViewControllerWithIdentifier:@"loginViewController"];
-		[loginViewController setDelegate:self];
-		
-		[self.window makeKeyAndVisible];
-		[self.window.rootViewController presentModalViewController:loginViewController animated:NO];
-	}
+//	profileManager = [[DSProfileManager alloc] init];
+//	[profileManager loadCookies];
+//	
+//	//[profileManager logout];
+//	if(![profileManager isLogged])
+//	{
+//		NSLog(@"User is not logged.");
+//		
+//		DSLoginViewController *loginViewController = [sidePanelController.storyboard instantiateViewControllerWithIdentifier:@"loginViewController"];
+//		[loginViewController setDelegate:self];
+//		
+//		[self.window makeKeyAndVisible];
+//		[self.window.rootViewController presentModalViewController:loginViewController animated:NO];
+//	}
 	
 	_locationManager = [[CLLocationManager alloc] init];
 	
@@ -96,7 +91,7 @@
 
 - (void) dismissLoginViewController
 {
-	[profileManager saveCookies];
+    //[profileManager saveCookies];
 	[self.window.rootViewController dismissModalViewControllerAnimated:YES];
 }
 
