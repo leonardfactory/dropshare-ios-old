@@ -64,7 +64,7 @@
 #pragma mark - ViewPager for drops
 - (void) loadSwipeView
 {	
-	cellData = [[NSArray arrayWithObjects:@"Alfano",@"Bersani",@"Capezzone", nil] mutableCopy];
+	cellData = [NSArray arrayWithObjects:@"Alfano",@"Bersani",@"Capezzone", nil];
 }
 
 - (NSInteger)numberOfItemsInSwipeView:(SwipeView *)swipeView;

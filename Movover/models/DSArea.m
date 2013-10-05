@@ -2,7 +2,7 @@
 //  DSArea.m
 //  Movover
 //
-//  Created by Leonardo on 05/10/13.
+//  Created by Leonardo on 04/10/13.
 //  Copyright (c) 2013 Movover. All rights reserved.
 //
 
@@ -13,16 +13,15 @@
 
 @implementation DSArea
 
-@dynamic approved;
 @dynamic createdOn;
 @dynamic identifier;
 @dynamic latitude;
 @dynamic location;
 @dynamic longitude;
-@dynamic name;
-@dynamic radius;
-@dynamic statsFollowers;
+@dynamic range;
+@dynamic spacename;
+@dynamic totUsers;
 @dynamic actions;
-@dynamic followers;
+@dynamic users;
 
 @end
