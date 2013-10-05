@@ -10,13 +10,17 @@
 #import "AFHTTPClient.h"
 #import "AFJSONRequestOperation.h"
 
-@interface DSWebApiAdapter : NSObject
+@interface DSAPIAdapter : NSObject
 
 @property (strong, nonatomic) AFHTTPClient *client;
 
-- (DSWebApiAdapter *) initSSL;
++ (id) sharedAPIAdapter;
 
-- (DSWebApiAdapter *) initWithBaseUrl:baseUrl;
+// - (DSWebApiAdapter *) initSSL;
+
+// - (DSWebApiAdapter *) initWithBaseUrl:baseUrl;
+
+- (void) setAccessToken:(NSString *) token;
 
 - (void) postPath:(NSString *) path
 	   parameters:(NSDictionary *) parameters

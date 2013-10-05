@@ -12,15 +12,15 @@
 
 @implementation DSNewDropManager
 
-@synthesize drop = _drop;
+@synthesize action = _action;
 
 - (DSEntityManager *) init
 {
 	self = [super init];
 	if (self)
 	{
-		[self setWebApiAdapter: [[DSWebApiAdapter alloc] init]];
-	}
+		//
+    }
 	return self;
 }
 
@@ -28,10 +28,10 @@
 {
 	[(DSAppDelegate *)[UIApplication sharedApplication].delegate registerWaitingForGeoFunction:^(NSString *lng, NSString *lat){
 		NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"capture", @"type", lng, @"lng", lat, @"lat", text, @"text",nil];
-		[self.webApiAdapter postPath:@"/drop" parameters:body success:^(NSDictionary *responseObject)
+		[self.APIAdapter postPath:@"/drop" parameters:body success:^(NSDictionary *responseObject)
 		 {
 			 DSDropSerializer *ds = [[DSDropSerializer alloc] init];
-			 _drop = [ds deserializeDropFrom:responseObject];
+			 _action = [ds deserializeDropFrom:responseObject];
 			 NSLog(@"drop added");
 			 NSString *path = [NSString stringWithFormat:@"/drop/%@/image",_drop.identifier];
 			 [self.webApiAdapter postImage:image toPath:path withName:@"image" success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
@@ -51,7 +51,7 @@
 {
 	[(DSAppDelegate *)[UIApplication sharedApplication].delegate registerWaitingForGeoFunction:^(NSString *lng, NSString *lat){
 		NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys:@"memo", @"type", lng, @"lng", lat, @"lat", text, @"text",nil];
-		[self.webApiAdapter postPath:@"/drop" parameters:body success:^(NSDictionary *responseObject)
+		[self.APIAdapter postPath:@"/drop" parameters:body success:^(NSDictionary *responseObject)
 		 {
 			 DSDropSerializer *ds = [[DSDropSerializer alloc] init];
 			 _drop = [ds deserializeDropFrom:responseObject];

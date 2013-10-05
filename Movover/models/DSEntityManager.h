@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "DSDataAdapter.h"
-#import "DSWebApiAdapter.h"
+#import "DSAPIAdapter.h"
 
 @interface DSEntityManager : NSObject
 
 @property (strong, nonatomic) DSDataAdapter *dataAdapter;
-@property (strong, nonatomic) DSWebApiAdapter *webApiAdapter;
+@property (strong, nonatomic) DSAPIAdapter *APIAdapter;
 
 @end

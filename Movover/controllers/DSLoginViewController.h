@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DSProfileManager.h"
+#import "DSTokenManager.h"
 #import "DSPaddedTextField.h"
 
 #define DS_KEYBOARD_SHIFT 80.0

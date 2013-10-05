@@ -9,14 +9,17 @@
 #import "DSJournalManager.h"
 #import "DSDropSerializer.h"
 
+#import "DSJournal.h"
+#import "DSActivity.h"
+
 #define DROPCOUNT (@5)
 
 @interface DSJournalManager (){}
 
-@property (strong, nonatomic) DSProfileManager *profileManager;
+@property (strong, nonatomic) DSTokenManager *tokenManager;
 @property (strong, nonatomic) NSString *identifier;
 
-@property (strong, nonatomic) DropCollection *journal;
+@property (strong, nonatomic) DSJournal *journal;
 
 @end
 
@@ -27,41 +30,46 @@
 	self = [super init];
 	if (self)
 	{
-		[self setJournal:[[self dataAdapter] findOrCreate:@"journal" onModel:@"DropCollection" error:nil]];
+		[self setJournal:[[self dataAdapter] findOrCreate:@"Journal" onModel:@"Journal" error:nil]];
 		
 		//get id of the user logged
-		_profileManager = [[DSProfileManager alloc] init];
-		_identifier = _profileManager.profile.user.identifier;
+		_tokenManager = [[DSTokenManager alloc] init];
+		_identifier = _tokenManager.token.user.identifier;
 		assert(_identifier);
 		
-		_dropsInTheMiddle = [[NSMutableOrderedSet alloc] init];
-		_drops = [[NSMutableOrderedSet alloc] init];
+		_activitiesInTheMiddle = [[NSMutableOrderedSet alloc] init];
+		_activities            = [[NSMutableOrderedSet alloc] init];
 		
 		//init dropsInTheMiddle e actual drops with the content of journal.drop
-		for (Drop *drop in _journal.drops) {
-			[_drops addObject:drop];
+		for (DSActivity *activity in _journal.activities)
+        {
+			[_activities addObject:activity];
 		}
 		
-		[self setWebApiAdapter: [[DSWebApiAdapter alloc] init]];
+		[self setAPIAdapter:[DSAPIAdapter sharedAPIAdapter]];
 	}
 	return self;
 }
 
 - (void) pullToRefresh
 {
-	_dropsInTheMiddle = [_drops copy];
-	Drop *since_drop = [_dropsInTheMiddle firstObject];
-	NSString *path = [NSString stringWithFormat:@"/user/%@/journal",_identifier];
+	_activitiesInTheMiddle = [_activities copy];
+	DSActivity *since_activity = [_activitiesInTheMiddle firstObject];
+    
 	NSDictionary *body;
-	if(since_drop)
+	if(since_activity)
 	{
-		body = [NSDictionary dictionaryWithObjectsAndKeys:DROPCOUNT, @"count", since_drop.stringCreatedOn, @"since_date",nil];
+        body = @{
+                 @"limit" : @10,
+                 @"since" : since_activity.objectID
+                 };
 	}
 	else
 	{
-		body = [NSDictionary dictionaryWithObjectsAndKeys:DROPCOUNT, @"count",nil];
+		body = @{ @"limit" : @20 };
 	}
-	[self.webApiAdapter getPath:path parameters:body success:^(NSDictionary *responseObject)
+    
+	[self.APIAdapter getPath:@"/user/journal" parameters:body success:^(NSDictionary *responseObject)
 	{
 		DSDropSerializer *ds = [[DSDropSerializer alloc] init];
 		[ds deserializeDropSetFrom:[responseObject objectForKey:@"journal"] intoDropCollection:_journal];
@@ -92,7 +100,7 @@
 
 - (void) scrollDown
 {
-	Drop *max_drop = [_drops lastObject];
+	DSAction *max_drop = [_drops lastObject];
 	assert(max_drop);
 	Drop *since_drop = [_dropsInTheMiddle firstObject];
 	NSString *path = [NSString stringWithFormat:@"/user/%@/journal",_identifier];

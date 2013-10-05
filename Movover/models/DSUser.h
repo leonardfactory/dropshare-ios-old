@@ -2,36 +2,31 @@
 //  DSUser.h
 //  Movover
 //
-//  Created by Leonardo on 04/10/13.
+//  Created by Leonardo on 05/10/13.
 //  Copyright (c) 2013 Movover. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class DSAction, DSComment, DSProfile, DSUser;
+@class DSAction, DSComment, DSToken, DSUser;
 
 @interface DSUser : NSManagedObject
 
 @property (nonatomic, retain) NSDate * createdOn;
 @property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * stringCreatedOn;
 @property (nonatomic, retain) NSString * surname;
 @property (nonatomic, retain) NSString * username;
-@property (nonatomic, retain) NSSet *comments;
+@property (nonatomic, retain) NSString * completeName;
 @property (nonatomic, retain) NSOrderedSet *actions;
+@property (nonatomic, retain) NSSet *comments;
 @property (nonatomic, retain) NSOrderedSet *followers;
 @property (nonatomic, retain) NSOrderedSet *following;
-@property (nonatomic, retain) DSProfile *inverseProfileUser;
+@property (nonatomic, retain) DSToken *inverseProfileUser;
 @end
 
 @interface DSUser (CoreDataGeneratedAccessors)
-
-- (void)addCommentsObject:(DSComment *)value;
-- (void)removeCommentsObject:(DSComment *)value;
-- (void)addComments:(NSSet *)values;
-- (void)removeComments:(NSSet *)values;
 
 - (void)insertObject:(DSAction *)value inActionsAtIndex:(NSUInteger)idx;
 - (void)removeObjectFromActionsAtIndex:(NSUInteger)idx;
@@ -43,6 +38,11 @@
 - (void)removeActionsObject:(DSAction *)value;
 - (void)addActions:(NSOrderedSet *)values;
 - (void)removeActions:(NSOrderedSet *)values;
+- (void)addCommentsObject:(DSComment *)value;
+- (void)removeCommentsObject:(DSComment *)value;
+- (void)addComments:(NSSet *)values;
+- (void)removeComments:(NSSet *)values;
+
 - (void)insertObject:(DSUser *)value inFollowersAtIndex:(NSUInteger)idx;
 - (void)removeObjectFromFollowersAtIndex:(NSUInteger)idx;
 - (void)insertFollowers:(NSArray *)value atIndexes:(NSIndexSet *)indexes;

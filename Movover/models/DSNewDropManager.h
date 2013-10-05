@@ -10,7 +10,7 @@
 
 @interface DSNewDropManager : DSEntityManager
 
-@property (readonly, strong, nonatomic) Drop *drop;
+@property (readonly, strong, nonatomic) DSAction *action;
 
 - (void) captureWithImage:(UIImage *)image WithText:(NSString *) text;
 

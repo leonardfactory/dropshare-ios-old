@@ -8,12 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "NSManagedObjectContext+blocks.h"
-#import "User.h"
-#import "Drop.h"
-#import "Spacetag.h"
-#import "Comment.h"
-#import "Profile.h"
-#import "DropCollection.h"
 
 @interface DSDataAdapter : NSObject
 

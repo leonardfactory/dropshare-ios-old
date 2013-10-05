@@ -20,7 +20,7 @@
         <relationship name="likes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="actions" inverseEntity="User" syncable="YES"/>
     </entity>
-    <entity name="Activity" syncable="YES">
+    <entity name="Activity" representedClassName="DSActivity" syncable="YES">
         <attribute name="createdOn" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="data" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="objectEntity" optional="YES" attributeType="String" syncable="YES"/>
@@ -28,7 +28,6 @@
         <attribute name="subjectEntity" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="subjectId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="verb" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="area" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Area" syncable="YES"/>
     </entity>
     <entity name="Area" representedClassName="DSArea" syncable="YES">
         <attribute name="approved" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -37,7 +36,7 @@
         <attribute name="latitude" optional="YES" attributeType="Double" minValueString="-90" maxValueString="90" defaultValueString="0.0" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" minValueString="-180" maxValueString="180" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="name" optional="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="radius" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="statsFollowers" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="actions" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Action" inverseName="area" inverseEntity="Action" syncable="YES"/>
@@ -58,11 +57,12 @@
         <attribute name="updatedOn" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="activities" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Activity" syncable="YES"/>
     </entity>
-    <entity name="Profile" representedClassName="DSProfile" syncable="YES">
-        <attribute name="identifier" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+    <entity name="Token" representedClassName="DSToken" syncable="YES">
+        <attribute name="accessToken" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="inverseProfileUser" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="DSUser" syncable="YES">
+        <attribute name="completeName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="createdOn" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -72,7 +72,7 @@
         <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="user" inverseEntity="Comment" syncable="YES"/>
         <relationship name="followers" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="User" inverseName="following" inverseEntity="User" syncable="YES"/>
         <relationship name="following" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="User" inverseName="followers" inverseEntity="User" syncable="YES"/>
-        <relationship name="inverseProfileUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Profile" inverseName="user" inverseEntity="Profile" syncable="YES"/>
+        <relationship name="inverseProfileUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Token" inverseName="user" inverseEntity="Token" syncable="YES"/>
     </entity>
     <elements>
         <element name="Action" positionX="0" positionY="0" width="0" height="0"/>
@@ -81,7 +81,7 @@
         <element name="Comment" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Discover" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Journal" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Profile" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Token" positionX="0" positionY="0" width="0" height="0"/>
         <element name="User" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

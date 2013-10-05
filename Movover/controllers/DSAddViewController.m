@@ -9,7 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "DSAddViewController.h"
-#import "DSProfileManager.h"
+#import "DSTokenManager.h"
 #import "DSNewDropManager.h"
 
 #import "InterfaceConstants.h"
@@ -25,7 +25,7 @@
 
 @property (strong, nonatomic) UIImage *imageToBePosted;
 @property (strong, nonatomic) UIImageView *imageToBePostedView;
-@property (strong, nonatomic) DSProfileManager *profileManager;
+@property (strong, nonatomic) DSTokenManager *profileManager;
 @property (strong, nonatomic) DSNewDropManager *dropManager;
 
 @end
@@ -40,7 +40,7 @@
 	self = [super initWithCoder:aDecoder];
 	if(self)
 	{
-		_profileManager = [[DSProfileManager alloc] init];
+		_profileManager = [[DSTokenManager alloc] init];
 		_dropManager	= [[DSNewDropManager alloc] init];
 		
 		[[NSNotificationCenter defaultCenter] addObserver:self

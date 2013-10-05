@@ -6,51 +6,75 @@
 //  Copyright (c) 2013 Movover. All rights reserved.
 //
 
-#import "DSWebApiAdapter.h"
+#import "DSAPIAdapter.h"
 
-@implementation DSWebApiAdapter
+static NSString * const kDSAPIBaseUrl       = @"http://api.movover.com/";
+static NSString * const kDSAPISecureBaseUrl = @"https://api.movover.com/";
+
+@implementation DSAPIAdapter
 
 @synthesize client = _client;
 
-- (DSWebApiAdapter *) init
++ (id) sharedAPIAdapter
 {
-	NSString * serverUrl = @"http://ec2-54-228-232-120.eu-west-1.compute.amazonaws.com/";
-	_client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:serverUrl]];
+    static DSAPIAdapter *_sharedAPIAdapter = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _sharedAPIAdapter = [[self alloc] init];
+    });
+    
+    return _sharedAPIAdapter;
+}
+
+- (DSAPIAdapter *) init
+{
+	_client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:kDSAPIBaseUrl]];
 	return self;
 }
 
-- (DSWebApiAdapter *) initSSL
+- (DSAPIAdapter *) initSSL
 {
-	NSString * serverUrl = @"https://ec2-54-228-232-120.eu-west-1.compute.amazonaws.com/";
-	_client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:serverUrl]];
+	_client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:kDSAPISecureBaseUrl]];
 	return self;
 }
 
-- (DSWebApiAdapter *) initWithBaseUrl:baseUrl
+- (DSAPIAdapter *) initWithBaseUrl:(NSString *)baseUrl
 {
-	assert(baseUrl);
 	_client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:baseUrl]];
+    
+    [_client registerHTTPOperationClass:[AFJSONRequestOperation class]];
+    [_client setDefaultHeader:@"Accept" value:@"application/json"];
+    
 	return self;
 }
+
+#pragma mark - OAuth2.0
+
+- (void) setAccessToken:(NSString *) token
+{
+    [_client setAuthorizationHeaderWithToken:token];
+}
+
+#pragma mark - API methods
 
 - (void) postPath:(NSString *) path
 	   parameters:(NSDictionary *) parameters
 		  success:(void (^)(NSDictionary *responseObject)) success
 		  failure:(void (^)(NSString *responseError, int statusCode, NSError *error)) failure
 {
-	[_client postPath:path parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+	[_client postPath:path parameters:parameters success: ^(AFHTTPRequestOperation *operation, id responseObject)
+    {
 		NSError *error;
-		id dict =[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:&error];
-		if (dict)
-		{
+		id dict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:&error];
+		if (dict) {
 			success((NSDictionary *)dict);
 		}
-		else
-		{
-			failure(nil,0,error);
+		else {
+			failure(nil, 0, error);
 		}
-	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-		failure(operation.responseString,[operation.response statusCode],error);
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error)
+    {
+		failure(operation.responseString, [operation.response statusCode] ,error);
 	}];
 }
 
@@ -59,18 +83,18 @@
 		 success:(void (^)(NSDictionary *responseObject)) success
 		 failure:(void (^)(NSString *responseError, int statusCode, NSError *error)) failure
 {
-	[_client getPath:path parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+	[_client getPath:path parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
+    {
 		NSError *error;
 		id dict =[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:&error];
-		if (dict)
-		{
+		if (dict) {
 			success((NSDictionary *)dict);
 		}
-		else
-		{
+		else {
 			failure(nil,0,error);
 		}
-	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error)
+    {
 		int code = [operation.response statusCode];
 		NSString *errorString = operation.responseString;
 		failure(errorString,code,error);

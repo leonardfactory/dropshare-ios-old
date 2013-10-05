@@ -11,11 +11,12 @@
 @implementation DSEntityManager
 
 @synthesize dataAdapter = _dataAdapter;
-@synthesize webApiAdapter = _webApiAdapter;
+@synthesize APIAdapter = _APIAdapter;
 
 - (DSEntityManager *) init
 {
-	_dataAdapter = [[DSDataAdapter alloc] init];
+	_dataAdapter    = [[DSDataAdapter alloc] init];
+    _APIAdapter     = [DSAPIAdapter sharedAPIAdapter];
 	return self;
 }
 

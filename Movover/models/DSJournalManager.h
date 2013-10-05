@@ -7,14 +7,14 @@
 //
 
 #import "DSEntityManager.h"
-#import "DSProfileManager.h"
+#import "DSTokenManager.h"
 
 @interface DSJournalManager : DSEntityManager
 
 @property BOOL isJournalUpdated;
 @property BOOL isJournalScrolled;
-@property (strong, nonatomic) NSMutableOrderedSet *drops;
-@property (nonatomic, retain) NSMutableOrderedSet *dropsInTheMiddle;
+@property (strong, nonatomic) NSMutableOrderedSet *activities;
+@property (nonatomic, retain) NSMutableOrderedSet *activitiesInTheMiddle;
 
 - (void) pullToRefresh;
 

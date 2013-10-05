@@ -12,7 +12,7 @@
 {
 	LoginViewState state;
 }
-@property (strong, nonatomic) DSProfileManager *profileManager;
+@property (strong, nonatomic) DSTokenManager *tokenManager;
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UIButton *connectButton;
@@ -22,19 +22,16 @@
 
 @implementation DSLoginViewController
 
-@synthesize profileManager = _profileManager;
+@synthesize tokenManager = _tokenManager;
 
 - (id) initWithCoder:(NSCoder *)aDecoder
 {
 	self = [super initWithCoder:aDecoder];
 	if(self)
 	{
-		
-		//<frank>
-		_profileManager = [[DSProfileManager alloc] init];
-		[_profileManager addObserver:self forKeyPath:@"isJustLogged" options:NSKeyValueObservingOptionNew context:nil];
-		[_profileManager addObserver:self forKeyPath:@"errorString" options:NSKeyValueObservingOptionNew context:nil];
-		//</frank>
+		_tokenManager = [[DSTokenManager alloc] init];
+		[_tokenManager addObserver:self forKeyPath:@"isJustLogged" options:NSKeyValueObservingOptionNew context:nil];
+		[_tokenManager addObserver:self forKeyPath:@"errorString" options:NSKeyValueObservingOptionNew context:nil];
 		
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
@@ -153,30 +150,29 @@
 #pragma  mark Network Actions
 - (void) loginUser:(id) sender
 {
-	[_profileManager loginWithUsername:self.usernameField.text withPassword:self.passwordField.text]; //<frank/>
+	[_tokenManager getAccessTokenWithUsername:self.usernameField.text andPassword:self.passwordField.text];
 }
 
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-	//<frank>
 	if([keyPath isEqualToString:@"isJustLogged"]
-	   && [object isEqual:_profileManager]
-	   && ((DSProfileManager *)object).isJustLogged)
+	   && [object isEqual:_tokenManager]
+	   && ((DSTokenManager *)object).isJustLogged)
 	{
-		NSLog(@"%@",_profileManager.profile.user);
-		[_profileManager removeObserver:self forKeyPath:@"isJustLogged"];
-		[_profileManager removeObserver:self forKeyPath:@"errorString"];
+		NSLog(@"%@", _tokenManager.token.user);
+		[_tokenManager removeObserver:self forKeyPath:@"isJustLogged"];
+		[_tokenManager removeObserver:self forKeyPath:@"errorString"];
 			
 		[self.delegate dismissLoginViewController];
 	}
+    
 	if([keyPath isEqualToString:@"errorString"]
-	   && [object isEqual:_profileManager]
-	   && ((DSProfileManager *)object).errorString)
+	   && [object isEqual:_tokenManager]
+	   && ((DSTokenManager *)object).errorString)
 	{
-		NSLog(@"%d",_profileManager.statusCode);
-		NSLog(@"%@",_profileManager.errorString);
+		NSLog(@"%d", _tokenManager.statusCode);
+		NSLog(@"%@", _tokenManager.errorString);
 	}
-	//</frank>
 }
 
 - (void) signUpWithFacebook:(id) sender

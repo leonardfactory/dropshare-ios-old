@@ -8,6 +8,10 @@
 
 #import "DSUserSerializer.h"
 
+#import "DSUser.h"
+
+#import <ISO8601DateFormatter.h>
+
 @implementation DSUserSerializer
 
 @synthesize dataAdapter = _dataAdapter;
@@ -18,24 +22,17 @@
 	return self;
 }
 
-- (User *) deserializeUserFrom:(NSDictionary *) dict
+- (DSUser *) deserializeUserFrom:(NSDictionary *) dict
 {
 	assert(dict);
-	NSString *identifier = [dict objectForKey:@"_id"];
-	User *user = [_dataAdapter findOrCreate:identifier onModel:@"User" error:nil];
-	[user setName:[dict objectForKey:@"name"]];
-	[user setSurname:[dict objectForKey:@"surname"]];
+	NSString *identifier = dict[@"_id"];
+	DSUser *user = [_dataAdapter findOrCreate:identifier onModel:@"User" error:nil];
+    
+	[user setCompleteName:dict[@"complete_name"]];
 	[user setUsername:[dict objectForKey:@"username"]];
 	
-	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-	[dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"];
-	[dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
-	
-	[user setStringCreatedOn:[dict objectForKey:@"createdOn"]];
-	
-	NSDate *myDate = [dateFormatter dateFromString:[dict objectForKey:@"createdOn"]];
-	
-	[user setCreatedOn:myDate];
+    ISO8601DateFormatter *formatter = [[ISO8601DateFormatter alloc] init];
+	[user setCreatedOn:[formatter dateFromString:dict[@"createdOn"]]];
 	
 	[_dataAdapter save:nil];
 	return user;

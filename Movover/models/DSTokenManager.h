@@ -8,22 +8,19 @@
 
 #import "DSEntityManager.h"
 #import "DSUserSerializer.h"
+#import "DSToken.h"
 
-@interface DSProfileManager : DSEntityManager
+@interface DSTokenManager : DSEntityManager
 
 @property BOOL isJustLogged;
-@property (strong, nonatomic) Profile *profile;
+@property (strong, nonatomic) DSToken *token;
 @property (strong, nonatomic) NSString *errorString;
 @property int statusCode;
 
-- (void)saveCookies;
+- (BOOL) isAccessTokenAvailable;
 
-- (void)loadCookies;
+- (void) getAccessTokenWithUsername:(NSString *) username andPassword:(NSString *) password;
 
-- (BOOL) isLogged;
-
-- (void) loginWithUsername:(NSString *) username withPassword:(NSString *) password;
-
-- (void) logout;
+- (void) revokeAccessToken;
 
 @end

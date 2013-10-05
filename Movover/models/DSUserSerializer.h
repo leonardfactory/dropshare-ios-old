@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "DSDataAdapter.h"
+#import "DSUser.h"
 
 @interface DSUserSerializer : NSObject
 
 @property (strong, nonatomic) DSDataAdapter *dataAdapter;
 
-- (User *) deserializeUserFrom:(NSDictionary *) dict;
+- (DSUser *) deserializeUserFrom:(NSDictionary *) dict;
 
 @end

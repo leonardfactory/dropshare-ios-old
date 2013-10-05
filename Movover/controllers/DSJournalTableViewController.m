@@ -63,11 +63,9 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	
 	[self buildView];
 	
-	//<frank>
 	_journalManager = [[DSJournalManager alloc] init];
 	[_journalManager addObserver:self forKeyPath:@"isJournalUpdated" options:NSKeyValueObservingOptionNew context:nil];
 	[_journalManager addObserver:self forKeyPath:@"isJournalScrolled" options:NSKeyValueObservingOptionNew context:nil];
-	//</frank>
 	
 	
 	__weak DSJournalTableViewController *that = self;
