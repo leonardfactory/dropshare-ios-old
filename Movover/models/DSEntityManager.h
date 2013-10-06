@@ -12,6 +12,8 @@
 
 @interface DSEntityManager : NSObject
 
++ (instancetype) sharedManager;
+
 @property (strong, nonatomic) DSDataAdapter *dataAdapter;
 @property (strong, nonatomic) DSAPIAdapter *APIAdapter;
 

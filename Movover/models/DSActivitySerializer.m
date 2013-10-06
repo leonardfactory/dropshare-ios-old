@@ -24,6 +24,9 @@
     // Mixed data
     [activity setData:representation[@"data"]];
     
+    // Area
+    // @todo implement serializer
+    
     // createdOn
     ISO8601DateFormatter *formatter = [[ISO8601DateFormatter alloc] init];
     [activity setCreatedOn:[formatter dateFromString:representation[@"createdOn"]]];

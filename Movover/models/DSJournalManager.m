@@ -9,7 +9,6 @@
 #import "DSJournalManager.h"
 #import "DSJournalSerializer.h"
 
-#import "DSJournal.h"
 #import "DSActivity.h"
 
 #define DROPCOUNT (@5)
@@ -18,8 +17,6 @@
 
 @property (strong, nonatomic) DSTokenManager *tokenManager;
 @property (strong, nonatomic) NSString *identifier;
-
-@property (strong, nonatomic) DSJournal *journal;
 
 @end
 

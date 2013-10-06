@@ -28,6 +28,7 @@
         <attribute name="subjectEntity" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="subjectId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="verb" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="area" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Area" syncable="YES"/>
     </entity>
     <entity name="Area" representedClassName="DSArea" syncable="YES">
         <attribute name="approved" optional="YES" attributeType="Boolean" syncable="YES"/>

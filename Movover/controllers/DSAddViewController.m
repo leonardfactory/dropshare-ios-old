@@ -26,14 +26,14 @@
 @property (strong, nonatomic) UIImage *imageToBePosted;
 @property (strong, nonatomic) UIImageView *imageToBePostedView;
 @property (strong, nonatomic) DSTokenManager *profileManager;
-@property (strong, nonatomic) DSNewDropManager *dropManager;
+//@property (strong, nonatomic) DSNewDropManager *dropManager;
 
 @end
 
 @implementation DSAddViewController
 
 @synthesize profileManager = _profileManager;
-@synthesize dropManager = _dropManager;
+//@synthesize dropManager = _dropManager;
 
 - (id) initWithCoder:(NSCoder *)aDecoder
 {
@@ -41,7 +41,7 @@
 	if(self)
 	{
 		_profileManager = [[DSTokenManager alloc] init];
-		_dropManager	= [[DSNewDropManager alloc] init];
+		//_dropManager	= [[DSNewDropManager alloc] init];
 		
 		[[NSNotificationCenter defaultCenter] addObserver:self
 												 selector:@selector(keyboardWasShown:)
@@ -57,7 +57,7 @@
 																				 action:@selector(addPhoto)];
 	self.navigationItem.rightBarButtonItem = addButton;
 	
-	[self.avatarImageView setImageWithURL:[NSURL URLWithString:[DSImageUrl getAvatarUrlFromUserId:_profileManager.profile.user.identifier]]];
+	//[self.avatarImageView setImageWithURL:[NSURL URLWithString:[DSImageUrl getAvatarUrlFromUserId:_profileManager.profile.user.identifier]]];
 	self.avatarImageView.layer.cornerRadius = kDSCellAvatarCornerRadius;
 	
 	self.textView.contentInset = UIEdgeInsetsMake(0,-8,0,0);
@@ -101,7 +101,7 @@
 
 - (void) addPhoto
 {
-	[_dropManager captureWithImage:self.imageToBePosted WithText:self.textView.text];
+	//[_dropManager captureWithImage:self.imageToBePosted WithText:self.textView.text];
 }
 
 - (void) viewDidLoad

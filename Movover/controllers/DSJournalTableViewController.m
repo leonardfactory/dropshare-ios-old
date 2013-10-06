@@ -18,6 +18,8 @@
 
 #import "DSImageUrl.h"
 
+#import "DSUserManager.h"
+
 @interface DSJournalTableViewController ()
 {
 	NSArray *randomNames;
@@ -175,21 +177,22 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_journalManager.drops count];
+    return [_journalManager.journal.activities count];
 }
 
 - (float) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	int index = [indexPath row];
-	Drop *drop = (Drop *)[_journalManager.drops objectAtIndex:index];
-	
-	if([[drop type] isEqualToString:@"capture"])
+	DSActivity *activity = (DSActivity *)[_journalManager.journal.activities objectAtIndex:index];
+    //NSDictionary *data = (NSDictionary *)[activity data];
+    
+	if([[activity.data valueForKey:@"type"] isEqualToString:@"capture"])
 	{
-		return [DSImageJournalCell heightForCellWithText:[drop text]];
+		return [DSImageJournalCell heightForCellWithText:activity.data[@"text"]];
 	}
 	else
 	{
-		return [DSJournalCell heightForCellWithText:[drop text]];
+		return [DSJournalCell heightForCellWithText:activity.data[@"text"]];
 	}
 }
 
@@ -216,10 +219,10 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	UITableViewCell *cell;
 	
 	int index = [indexPath row];
-	Drop *drop = (Drop *)[_journalManager.drops objectAtIndex:index];
+	DSActivity *activity = (DSActivity *)[_journalManager.journal.activities objectAtIndex:index];
 	
 	// Scegliamo l'identifier in base al tipo di dati da mostrare
-	NSString *CellIdentifier = ([drop.type isEqualToString:@"capture"]) ? ImageJournalCellIdentifier : JournalCellIdentifier;
+	NSString *CellIdentifier = ([activity.data[@"type"] isEqualToString:@"capture"]) ? ImageJournalCellIdentifier : JournalCellIdentifier;
 	
 	cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	
@@ -233,9 +236,12 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	// Cast forzato
 	DSJournalCell *journalCell = (DSJournalCell *) cell;
 	
+    // User (faked per ora, non è detto che lo sia)
+    DSUser *user = [[DSUserManager sharedManager] userWithId:activity.subjectId];
+    
 	// Configurazione della cell
-	journalCell.usernameLabel.text		= drop.user.username;
-	journalCell.descriptionLabel.text	= drop.text;
+	journalCell.usernameLabel.text		= user.username;
+	journalCell.descriptionLabel.text	= activity.data[@"text"];
 	
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 	[dateFormatter setDoesRelativeDateFormatting:YES];
@@ -243,13 +249,13 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	[dateFormatter setTimeStyle:NSDateFormatterShortStyle];
 	[dateFormatter setDateStyle:NSDateFormatterShortStyle];
 	
-	[journalCell setGeoLocation:[NSString stringWithFormat:@"Via delle Rose n.%d", (int)floorf(powf(([indexPath row]+1)*2, 2.0))] andTime:[dateFormatter stringFromDate:drop.createdOn]];
+	[journalCell setGeoLocation:[NSString stringWithFormat:@"Via delle Rose n.%d", (int)floorf(powf(([indexPath row]+1)*2, 2.0))] andTime:[dateFormatter stringFromDate:activity.createdOn]];
 	
-	[journalCell setAvatarWithURL:[NSURL URLWithString:[DSImageUrl getAvatarUrlFromUserId:drop.user.identifier]]];
-	/*[journalCell setAvatarImage:[[UIImage imageNamed:@"avatar.png"] thumbnailImage:48
+	//[journalCell setAvatarWithURL:[NSURL URLWithString:[DSImageUrl getAvatarUrlFromUserId:drop.user.identifier]]];
+	[journalCell setAvatarImage:[[UIImage imageNamed:@"avatar.png"] thumbnailImage:48
 																 transparentBorder:0
 																	  cornerRadius:0
-															  interpolationQuality:kCGInterpolationHigh]];*/
+															  interpolationQuality:kCGInterpolationHigh]];
 	
 	// Se è una image cell, aggiungo anche l'immagine
 	if([cell isKindOfClass:[DSImageJournalCell class]])
@@ -257,7 +263,7 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 		DSImageJournalCell *imageJournalCell = (DSImageJournalCell *) cell;
 		// @todo
 		//NSLog(@"%@",[DSImageUrl getImageUrlFromDropId:drop.identifier]);
-		[imageJournalCell setPictureWithURL:[NSURL URLWithString:[DSImageUrl getImageUrlFromDropId:drop.identifier]]];
+		//[imageJournalCell setPictureWithURL:[NSURL URLWithString:[DSImageUrl getImageUrlFromDropId:drop.identifier]]];
 	}
 	
 	// Ridispone gli elementi della cell in base ai parametri passati

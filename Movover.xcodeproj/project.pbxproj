@@ -43,6 +43,8 @@
 		A75391D31800F2D900974C1A /* DSJournalSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391D21800F2D900974C1A /* DSJournalSerializer.m */; };
 		A75391D61800F39800974C1A /* DSSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391D51800F39800974C1A /* DSSerializer.m */; };
 		A75391DC1800F5DB00974C1A /* DSJournal.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391DB1800F5DB00974C1A /* DSJournal.m */; };
+		A75391E81800FD1B00974C1A /* DSUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391E71800FD1B00974C1A /* DSUserManager.m */; };
+		A75391EB1801029C00974C1A /* DSActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391EA1801029C00974C1A /* DSActivity.m */; };
 		A753DF4316EDDD6100278CE7 /* frank.png in Resources */ = {isa = PBXBuildFile; fileRef = A753DF4216EDDD6100278CE7 /* frank.png */; };
 		A753DF4516EDDD9B00278CE7 /* mountain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A753DF4416EDDD9B00278CE7 /* mountain.jpg */; };
 		A753DF4916EDDEEC00278CE7 /* DSImageJournalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A753DF4816EDDEEC00278CE7 /* DSImageJournalCell.m */; };
@@ -89,8 +91,6 @@
 		A78373C716EF500F00BF1D50 /* timeIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A78373C116EF500F00BF1D50 /* timeIcon@2x.png */; };
 		A78373CA16EF5C1F00BF1D50 /* buttonBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A78373C816EF5C1F00BF1D50 /* buttonBg.png */; };
 		A78373CB16EF5C1F00BF1D50 /* buttonBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A78373C916EF5C1F00BF1D50 /* buttonBg@2x.png */; };
-		A78373D116EF7AD500BF1D50 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = A78373CE16EF7AD500BF1D50 /* UIScrollView+SVInfiniteScrolling.m */; };
-		A78373D216EF7AD500BF1D50 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = A78373D016EF7AD500BF1D50 /* UIScrollView+SVPullToRefresh.m */; };
 		A78DAD8416DBE2E300A21AD0 /* DSViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = A78DAD8316DBE2E300A21AD0 /* DSViewPager.m */; };
 		A78DAD8716DC352700A21AD0 /* DSViewPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A78DAD8616DC352700A21AD0 /* DSViewPageCell.m */; };
 		A793149816DF60920023B150 /* DSDiscoverTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A793149716DF60910023B150 /* DSDiscoverTableViewController.m */; };
@@ -203,6 +203,10 @@
 		A75391D51800F39800974C1A /* DSSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSSerializer.m; path = models/DSSerializer.m; sourceTree = "<group>"; };
 		A75391DA1800F5DB00974C1A /* DSJournal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSJournal.h; path = models/DSJournal.h; sourceTree = "<group>"; };
 		A75391DB1800F5DB00974C1A /* DSJournal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSJournal.m; path = models/DSJournal.m; sourceTree = "<group>"; };
+		A75391E61800FD1B00974C1A /* DSUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSUserManager.h; path = models/DSUserManager.h; sourceTree = "<group>"; };
+		A75391E71800FD1B00974C1A /* DSUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSUserManager.m; path = models/DSUserManager.m; sourceTree = "<group>"; };
+		A75391E91801029C00974C1A /* DSActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSActivity.h; path = models/DSActivity.h; sourceTree = "<group>"; };
+		A75391EA1801029C00974C1A /* DSActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSActivity.m; path = models/DSActivity.m; sourceTree = "<group>"; };
 		A753DF4216EDDD6100278CE7 /* frank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frank.png; sourceTree = "<group>"; };
 		A753DF4416EDDD9B00278CE7 /* mountain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mountain.jpg; sourceTree = "<group>"; };
 		A753DF4716EDDEEC00278CE7 /* DSImageJournalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = DSImageJournalCell.h; path = controls/DSImageJournalCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -253,10 +257,6 @@
 		A78373C116EF500F00BF1D50 /* timeIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timeIcon@2x.png"; sourceTree = "<group>"; };
 		A78373C816EF5C1F00BF1D50 /* buttonBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonBg.png; sourceTree = "<group>"; };
 		A78373C916EF5C1F00BF1D50 /* buttonBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttonBg@2x.png"; sourceTree = "<group>"; };
-		A78373CD16EF7AD500BF1D50 /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+SVInfiniteScrolling.h"; path = "lib/SVPullToRefresh/UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
-		A78373CE16EF7AD500BF1D50 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+SVInfiniteScrolling.m"; path = "lib/SVPullToRefresh/UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
-		A78373CF16EF7AD500BF1D50 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+SVPullToRefresh.h"; path = "lib/SVPullToRefresh/UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
-		A78373D016EF7AD500BF1D50 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+SVPullToRefresh.m"; path = "lib/SVPullToRefresh/UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
 		A78DAD8216DBE2E300A21AD0 /* DSViewPager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSViewPager.h; sourceTree = "<group>"; };
 		A78DAD8316DBE2E300A21AD0 /* DSViewPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DSViewPager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A78DAD8516DC352700A21AD0 /* DSViewPageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSViewPageCell.h; sourceTree = "<group>"; };
@@ -365,6 +365,8 @@
 		136F565216E8EFB0009E5203 /* Auto Generated */ = {
 			isa = PBXGroup;
 			children = (
+				A75391E91801029C00974C1A /* DSActivity.h */,
+				A75391EA1801029C00974C1A /* DSActivity.m */,
 				A75391DA1800F5DB00974C1A /* DSJournal.h */,
 				A75391DB1800F5DB00974C1A /* DSJournal.m */,
 				A75391CB18007A1600974C1A /* DSActivity.h */,
@@ -407,6 +409,8 @@
 				134B8AAA16F1B9FB00900AC6 /* DSJournalManager.m */,
 				13677CD216F269B50049C31B /* DSNewDropManager.h */,
 				13677CD316F269B50049C31B /* DSNewDropManager.m */,
+				A75391E61800FD1B00974C1A /* DSUserManager.h */,
+				A75391E71800FD1B00974C1A /* DSUserManager.m */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -508,7 +512,6 @@
 		13C4334B16D8FD32001A43F9 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				A78373CC16EF7ABD00BF1D50 /* SVPullToRefresh */,
 				A7D4366516EBC690006807EB /* UIImage+Resize */,
 				A781F2A316E8FF8200C8F11C /* JDSwipeView */,
 				138800D216E6436700716368 /* NSManagedObjectContext+blocks.h */,
@@ -677,17 +680,6 @@
 				A78373B516EF4FDB00BF1D50 /* paperClipIcon@2x.png */,
 			);
 			name = social;
-			sourceTree = "<group>";
-		};
-		A78373CC16EF7ABD00BF1D50 /* SVPullToRefresh */ = {
-			isa = PBXGroup;
-			children = (
-				A78373CD16EF7AD500BF1D50 /* UIScrollView+SVInfiniteScrolling.h */,
-				A78373CE16EF7AD500BF1D50 /* UIScrollView+SVInfiniteScrolling.m */,
-				A78373CF16EF7AD500BF1D50 /* UIScrollView+SVPullToRefresh.h */,
-				A78373D016EF7AD500BF1D50 /* UIScrollView+SVPullToRefresh.m */,
-			);
-			name = SVPullToRefresh;
 			sourceTree = "<group>";
 		};
 		A78DAD8016DBE2A800A21AD0 /* Controls */ = {
@@ -1015,6 +1007,7 @@
 				A7AA5B6817FE3948009CD414 /* DSAction.m in Sources */,
 				A75391CD18007A1600974C1A /* DSActivity.m in Sources */,
 				13C4333616D8FC58001A43F9 /* main.m in Sources */,
+				A75391EB1801029C00974C1A /* DSActivity.m in Sources */,
 				A75391D018007D4800974C1A /* DSActivitySerializer.m in Sources */,
 				13C4333A16D8FC58001A43F9 /* DSAppDelegate.m in Sources */,
 				A78DAD8416DBE2E300A21AD0 /* DSViewPager.m in Sources */,
@@ -1037,9 +1030,8 @@
 				A7AA5B5617FE3947009CD414 /* DSArea.m in Sources */,
 				A7D4366E16EBC6A0006807EB /* UIImage+RoundedCorner.m in Sources */,
 				A753DF4916EDDEEC00278CE7 /* DSImageJournalCell.m in Sources */,
-				A78373D116EF7AD500BF1D50 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
-				A78373D216EF7AD500BF1D50 /* UIScrollView+SVPullToRefresh.m in Sources */,
 				131480F116F0D4B1004A9D3C /* DSUserSerializer.m in Sources */,
+				A75391E81800FD1B00974C1A /* DSUserManager.m in Sources */,
 				134B8AAB16F1B9FB00900AC6 /* DSJournalManager.m in Sources */,
 				A75391C1180077B400974C1A /* DSUser.m in Sources */,
 				13E41B6C16F21541008052F8 /* DSImageUrl.m in Sources */,

@@ -8,13 +8,13 @@
 
 #import "DSEntityManager.h"
 #import "DSTokenManager.h"
+#import "DSJournal.h"
 
 @interface DSJournalManager : DSEntityManager
 
 @property BOOL isJournalUpdated;
 @property BOOL isJournalScrolled;
-@property (strong, nonatomic) NSMutableOrderedSet *activities;
-@property (nonatomic, retain) NSMutableOrderedSet *activitiesInTheMiddle;
+@property (strong, nonatomic) DSJournal *journal;
 
 - (void) pullToRefresh;
 

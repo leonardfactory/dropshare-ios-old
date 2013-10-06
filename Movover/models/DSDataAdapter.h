@@ -15,6 +15,8 @@
 
 + (id) sharedDataAdapter;
 
+- (id) findOneEntity:(NSString *) entityName withPredicate:(NSPredicate *) predicate;
+
 - (void) findOrCreate:(NSString *) identifier onModel:(NSString *) entityName
 		   onComplete:(void (^)(id result)) completeBlock
 			  onError:(void (^)(NSError *error)) failBlock;

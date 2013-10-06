@@ -62,6 +62,22 @@
 	} onError:failBlock];
 }
 
+- (id) findOneEntity:(NSString *) entityName withPredicate:(NSPredicate *) predicate
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:_managedObjectContext];
+    [fetchRequest setEntity:entity];
+    [fetchRequest setPredicate:predicate];
+    
+    NSArray *result = [_managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
+    if(!result) {
+        return nil;
+    }
+    
+    return [result firstObject];
+}
+
 - (id) findOrCreate:(NSString *) identifier onModel:(NSString *) entityName error:(NSError **)error;
 {
 	assert(identifier);
