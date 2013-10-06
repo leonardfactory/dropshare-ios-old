@@ -13,6 +13,8 @@
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
++ (id) sharedDataAdapter;
+
 - (void) findOrCreate:(NSString *) identifier onModel:(NSString *) entityName
 		   onComplete:(void (^)(id result)) completeBlock
 			  onError:(void (^)(NSError *error)) failBlock;

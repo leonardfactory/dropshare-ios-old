@@ -55,7 +55,7 @@
     </entity>
     <entity name="Journal" representedClassName="DSJournal" syncable="YES">
         <attribute name="updatedOn" optional="YES" attributeType="Date" syncable="YES"/>
-        <relationship name="activities" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Activity" syncable="YES"/>
+        <relationship name="activities" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Activity" syncable="YES"/>
     </entity>
     <entity name="Token" representedClassName="DSToken" syncable="YES">
         <attribute name="accessToken" optional="YES" attributeType="String" syncable="YES"/>

@@ -12,11 +12,24 @@
 
 @synthesize managedObjectContext = _managedObjectContext;
 
++ (id) sharedDataAdapter
+{
+    static DSDataAdapter *_sharedDataAdapter = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _sharedDataAdapter = [[self alloc] init];
+    });
+    
+    return _sharedDataAdapter;
+}
+
 - (DSDataAdapter *) init
 {
 	_managedObjectContext = [(id)[[UIApplication sharedApplication] delegate] managedObjectContext];
 	return self;
 }
+
+#pragma mark - Core Data backing methods
 
 - (void) findOrCreate:(NSString *) identifier onModel:(NSString *) entityName
 		   onComplete:(void (^)(id result)) completeBlock
