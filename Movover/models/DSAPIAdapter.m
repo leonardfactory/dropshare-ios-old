@@ -65,6 +65,16 @@ static NSString * const kDSAPISecureBaseUrl = @"https://api.movover.com/";
 #pragma mark - API methods
 
 - (void) postPath:(NSString *) path
+withFormParameters:(NSDictionary *) parameters
+          success:(void (^)(NSDictionary *responseObject)) success
+          failure:(void (^)(NSString *responseError, int statusCode, NSError *error)) failure
+{
+    [_client setParameterEncoding:AFFormURLParameterEncoding];
+    [self postPath:path parameters:parameters success:success failure:failure];
+    [_client setParameterEncoding:AFJSONParameterEncoding];
+}
+
+- (void) postPath:(NSString *) path
 	   parameters:(NSDictionary *) parameters
 		  success:(void (^)(NSDictionary *responseObject)) success
 		  failure:(void (^)(NSString *responseError, int statusCode, NSError *error)) failure

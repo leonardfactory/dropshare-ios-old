@@ -19,6 +19,11 @@
 - (void) setAccessToken:(NSString *) token;
 
 - (void) postPath:(NSString *) path
+withFormParameters:(NSDictionary *) parameters
+          success:(void (^)(NSDictionary *responseObject)) success
+          failure:(void (^)(NSString *responseError, int statusCode, NSError *error)) failure;
+
+- (void) postPath:(NSString *) path
 	   parameters:(NSDictionary *) parameters
 		  success:(void (^)(NSDictionary *responseObject)) success
 		  failure:(void (^)(NSString *responseError, int statusCode, NSError *error)) failure;

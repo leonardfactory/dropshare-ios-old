@@ -15,7 +15,7 @@
 @property (strong, nonatomic) UILabel *descriptionLabel;
 @property (strong, nonatomic) UIImageView *avatarImageView;
 @property (strong, nonatomic) UIImageView *shadowAvatarImageView;
-@property (strong, nonatomic) UIImageView *mainBackgroundImageView;
+@property (strong, nonatomic) UIView *mainBackgroundView;
 
 @property (strong, nonatomic) UIView *infoLabels;
 @property (strong, nonatomic) UIImageView *separatorImageView;

@@ -101,10 +101,12 @@
 - (void)buildCustomAppearence
 {
 	
-	[[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"titleBarPlain"] forBarMetrics:UIBarMetricsDefault];
+	//[[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"titleBarPlain"] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.0 green:186.0/255.0 blue:115.0/255.0 alpha:1.0]];
     
-    UIImage *barButtonImage = [[UIImage imageNamed:@"barButtonBg"] resizableImageWithCapInsets:UIEdgeInsetsMake(4, 4, 5, 4)];
-    [[UIBarButtonItem appearance] setBackgroundImage:barButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    //UIImage *barButtonImage = [[UIImage imageNamed:@"barButtonBg"] resizableImageWithCapInsets:UIEdgeInsetsMake(4, 4, 5, 4)];
+    //[[UIBarButtonItem appearance] setBackgroundImage:barButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

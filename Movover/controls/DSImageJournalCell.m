@@ -30,10 +30,10 @@
 		self.pictureImageView.layer.cornerRadius = kDSCellPictureCornerRadius;
 		self.pictureImageView.layer.masksToBounds = YES;
 		
-		self.shadowPictureImageView = [[UIImageView alloc] initWithFrame:self.pictureImageView.frame];
+		/*self.shadowPictureImageView = [[UIImageView alloc] initWithFrame:self.pictureImageView.frame];
 		self.shadowPictureImageView.image = [[UIImage imageNamed:@"innerShadow.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(5.0, 5.0, 5.0, 5.0)];
 		self.shadowPictureImageView.alpha = kDSCellInnerShadowAlpha;
-		[self addSubview:self.shadowPictureImageView];
+		[self addSubview:self.shadowPictureImageView];*/
     }
     return self;
 }

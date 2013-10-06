@@ -8,12 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-#import "DSDataAdapter.h"
+#import "DSSerializer.h"
 #import "DSActivity.h"
 
-@interface DSActivitySerializer : NSObject
-
-@property (strong, nonatomic) DSDataAdapter *dataAdapter;
+@interface DSActivitySerializer : DSSerializer
 
 - (DSActivity *) deserializeActivityFrom:(NSDictionary *) representation;
 

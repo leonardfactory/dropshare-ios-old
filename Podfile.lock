@@ -4,6 +4,7 @@ PODS:
     - InflectorKit
     - TransformerKit
   - AFNetworking (1.3.3)
+  - Cloudinary (1.0.6)
   - InflectorKit (0.0.1)
   - ISO8601DateFormatter (0.6)
   - SVPullToRefresh (0.4.1)
@@ -12,12 +13,14 @@ PODS:
 DEPENDENCIES:
   - AFIncrementalStore (~> 0.5)
   - AFNetworking (~> 1.3)
+  - Cloudinary
   - ISO8601DateFormatter
   - SVPullToRefresh
 
 SPEC CHECKSUMS:
   AFIncrementalStore: 4b5033a6a5045be8c9985740e8a563b17db9eb68
   AFNetworking: 0700ec7a58c36ad217173e167f6e4df7270df66b
+  Cloudinary: b7cc6d3dd6d4814f1512d6fafc212d693e71a17b
   InflectorKit: 9dccab02f95541093995adac639342c9eb9e6c12
   ISO8601DateFormatter: 077ce9d8cfba171bc1ced6cba0d2ae4aefab7619
   SVPullToRefresh: 61a0e4bd12bd6f8e3465909810b0fbeb1a28d5f2

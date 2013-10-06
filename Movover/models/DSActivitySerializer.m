@@ -16,16 +16,22 @@
 
 - (DSActivity *) deserializeActivityFrom:(NSDictionary *) representation
 {
+    assert(representation);
+    NSLog(@"Representation: %@", representation);
+    
     // _id & fetching
     NSString *identifier = representation[@"_id"];
     
-    DSActivity *activity = [_dataAdapter findOrCreate:identifier onModel:@"Activity" error:nil];
+    DSActivity *activity = [self.dataAdapter findOrCreate:identifier onModel:@"Activity" error:nil];
     
     // Mixed data
     [activity setData:representation[@"data"]];
     
     // Area
     // @todo implement serializer
+    
+    // ObjectID
+    [activity setObjectId:representation[@"object"]];
     
     // createdOn
     ISO8601DateFormatter *formatter = [[ISO8601DateFormatter alloc] init];
@@ -47,7 +53,7 @@
         // implement DSAreaSerializer
     }
     
-    [_dataAdapter save:nil];
+    [self.dataAdapter save:nil];
     return activity;
 }
 

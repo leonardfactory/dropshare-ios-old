@@ -28,10 +28,10 @@
     
 	NSDictionary *body = @{@"username": username, @"password": password, @"grant_type": @"password" };
     
-	[self.APIAdapter postPath:@"/user/token" parameters:body success:^(NSDictionary *responseObject)
+	[self.APIAdapter postPath:@"/user/token" withFormParameters:body success:^(NSDictionary *responseObject)
      {
          // Token got!
-         [_token setAccessToken:responseObject[@"accessToken"]];
+         [_token setAccessToken:responseObject[@"access_token"]];
          [self.APIAdapter setAccessToken:_token.accessToken];
          
          // Now check for user id, and see if token is valid
@@ -41,7 +41,10 @@
              [self.APIAdapter getPath:[NSString stringWithFormat:@"/user/%@/profile", identifier] parameters:nil success:^(NSDictionary *responseObject)
              {
                  DSUserSerializer *serializer = [[DSUserSerializer alloc] init];
-                 [_token setUser:[serializer deserializeUserFrom:responseObject]];
+                 // Fix this server side.
+                 NSDictionary *responseWithIdentifier = [responseObject[@"user"] mutableCopy];
+                 [responseWithIdentifier setValue:identifier forKey:@"_id"];
+                 [_token setUser:[serializer deserializeUserFrom:responseWithIdentifier]];
                  
                  // APIAdapter with OAuth
                  

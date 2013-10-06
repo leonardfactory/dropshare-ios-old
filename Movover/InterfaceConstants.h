@@ -19,6 +19,8 @@
 
 #pragma mark - Drop Cell
 
+#define kDSCellCornerRadius kDSDefaultCornerRadius + 2.0
+
 #define kDSCellInnerShadowAlpha 0.5
 
 #define kDSCellWidth 320.0

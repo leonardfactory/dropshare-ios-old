@@ -53,6 +53,7 @@
 		A753DF4916EDDEEC00278CE7 /* DSImageJournalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A753DF4816EDDEEC00278CE7 /* DSImageJournalCell.m */; };
 		A753DF4B16EDDF0B00278CE7 /* DSImageJournalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A753DF4A16EDDF0B00278CE7 /* DSImageJournalCell.xib */; };
 		A754A2D616EB4DA000A719B3 /* DSJournalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A754A2D516EB4DA000A719B3 /* DSJournalTableViewController.m */; };
+		A780656D180199BC007B3D8F /* DSCloudinary.m in Sources */ = {isa = PBXBuildFile; fileRef = A780656C180199BC007B3D8F /* DSCloudinary.m */; };
 		A781F29816E8FC0B00C8F11C /* bgLogin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A781F28E16E8FC0B00C8F11C /* bgLogin.jpg */; };
 		A781F29916E8FC0B00C8F11C /* bgLogin@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A781F28F16E8FC0B00C8F11C /* bgLogin@2x.jpg */; };
 		A781F29A16E8FC0B00C8F11C /* connectButtonBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A781F29016E8FC0B00C8F11C /* connectButtonBg.png */; };
@@ -219,6 +220,8 @@
 		A753DF4A16EDDF0B00278CE7 /* DSImageJournalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DSImageJournalCell.xib; path = controls/DSImageJournalCell.xib; sourceTree = "<group>"; };
 		A754A2D416EB4DA000A719B3 /* DSJournalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSJournalTableViewController.h; path = controllers/DSJournalTableViewController.h; sourceTree = "<group>"; };
 		A754A2D516EB4DA000A719B3 /* DSJournalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSJournalTableViewController.m; path = controllers/DSJournalTableViewController.m; sourceTree = "<group>"; };
+		A780656B180199BC007B3D8F /* DSCloudinary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSCloudinary.h; path = services/DSCloudinary.h; sourceTree = "<group>"; };
+		A780656C180199BC007B3D8F /* DSCloudinary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSCloudinary.m; path = services/DSCloudinary.m; sourceTree = "<group>"; };
 		A781F28E16E8FC0B00C8F11C /* bgLogin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bgLogin.jpg; path = images/login/bgLogin.jpg; sourceTree = "<group>"; };
 		A781F28F16E8FC0B00C8F11C /* bgLogin@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "bgLogin@2x.jpg"; path = "images/login/bgLogin@2x.jpg"; sourceTree = "<group>"; };
 		A781F29016E8FC0B00C8F11C /* connectButtonBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = connectButtonBg.png; path = images/login/connectButtonBg.png; sourceTree = "<group>"; };
@@ -460,6 +463,7 @@
 		13C4332F16D8FC58001A43F9 /* Movover */ = {
 			isa = PBXGroup;
 			children = (
+				A780656A1801998E007B3D8F /* Services */,
 				138800BD16E6287800716368 /* Models */,
 				A78DAD8016DBE2A800A21AD0 /* Controls */,
 				13C4334C16D8FD38001A43F9 /* Controllers */,
@@ -588,6 +592,15 @@
 				A754A2D516EB4DA000A719B3 /* DSJournalTableViewController.m */,
 			);
 			name = Journal;
+			sourceTree = "<group>";
+		};
+		A780656A1801998E007B3D8F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A780656B180199BC007B3D8F /* DSCloudinary.h */,
+				A780656C180199BC007B3D8F /* DSCloudinary.m */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		A781F28D16E8FB3B00C8F11C /* login */ = {
@@ -853,6 +866,11 @@
 				CLASSPREFIX = MV;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = Movover;
+				TargetAttributes = {
+					13C4332316D8FC58001A43F9 = {
+						DevelopmentTeam = UG9F7JGZ3C;
+					};
+				};
 			};
 			buildConfigurationList = 13C4331F16D8FC58001A43F9 /* Build configuration list for PBXProject "Movover" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1017,6 +1035,7 @@
 				A781F2AD16E9077000C8F11C /* DSPaddedTextField.m in Sources */,
 				A75391F11801043300974C1A /* DSAction.m in Sources */,
 				A754A2D616EB4DA000A719B3 /* DSJournalTableViewController.m in Sources */,
+				A780656D180199BC007B3D8F /* DSCloudinary.m in Sources */,
 				A7D4365F16EBA44F006807EB /* DSJournalCell.m in Sources */,
 				A7D4366C16EBC6A0006807EB /* UIImage+Alpha.m in Sources */,
 				A7D4366D16EBC6A0006807EB /* UIImage+Resize.m in Sources */,
@@ -1115,11 +1134,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7E79727B35454C4BBC84FECD /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Movover/Movover-Prefix.pch";
 				INFOPLIST_FILE = "Movover/Movover-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = Movover;
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1129,11 +1151,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7E79727B35454C4BBC84FECD /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Movover/Movover-Prefix.pch";
 				INFOPLIST_FILE = "Movover/Movover-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = Movover;
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

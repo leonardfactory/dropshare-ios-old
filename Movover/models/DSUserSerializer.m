@@ -14,27 +14,26 @@
 
 @implementation DSUserSerializer
 
-@synthesize dataAdapter = _dataAdapter;
-
-- (DSUserSerializer *) init
-{
-	_dataAdapter = [[DSDataAdapter alloc] init];
-	return self;
-}
-
 - (DSUser *) deserializeUserFrom:(NSDictionary *) dict
 {
 	assert(dict);
 	NSString *identifier = dict[@"_id"];
-	DSUser *user = [_dataAdapter findOrCreate:identifier onModel:@"User" error:nil];
+	DSUser *user = [self.dataAdapter findOrCreate:identifier onModel:@"User" error:nil];
     
-	[user setCompleteName:dict[@"complete_name"]];
+    NSString *completeName = dict[@"complete_name"];
+    if(completeName) {
+        [user setCompleteName:dict[@"complete_name"]];
+    }
+    
 	[user setUsername:[dict objectForKey:@"username"]];
 	
-    ISO8601DateFormatter *formatter = [[ISO8601DateFormatter alloc] init];
-	[user setCreatedOn:[formatter dateFromString:dict[@"createdOn"]]];
-	
-	[_dataAdapter save:nil];
+    NSString *createdOn = [dict objectForKey:@"createdOn"];
+    if(createdOn) {
+        ISO8601DateFormatter *formatter = [[ISO8601DateFormatter alloc] init];
+        [user setCreatedOn:[formatter dateFromString:dict[@"createdOn"]]];
+    }
+   
+	[self.dataAdapter save:nil];
 	return user;
 }
 

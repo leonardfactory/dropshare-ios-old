@@ -21,7 +21,7 @@
 {
 	CGFloat textLabelHeight = [text sizeWithFont:[UIFont systemFontOfSize:kDSCellDescriptionFontSize]
 							   constrainedToSize:CGSizeMake(kDSCellDescriptionWidth, FLT_MAX)
-								   lineBreakMode:UILineBreakModeWordWrap].height;
+								   lineBreakMode:NSLineBreakByWordWrapping].height;
 	
 	return  textLabelHeight + kDSCellHeight - kDSCellDescriptionHeight;
 }
@@ -42,10 +42,12 @@
 		self.backgroundColor	= [UIColor clearColor];
 		self.autoresizingMask	= (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
 		
-		self.mainBackgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(kDSCellBackgroundMargin, kDSCellBackgroundMargin, kDSCellBackgroundWidth, kDSCellBackgroundHeight)];
-		[self.mainBackgroundImageView setImage:[[UIImage imageNamed:@"mainBgTile.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(6.0, 8.0, 10.0, 8.0)]];
-		self.mainBackgroundImageView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
-		[self addSubview:self.mainBackgroundImageView];
+		self.mainBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(kDSCellBackgroundMargin, kDSCellBackgroundMargin, kDSCellBackgroundWidth, kDSCellBackgroundHeight)];
+        self.mainBackgroundView.backgroundColor = [UIColor whiteColor];
+        self.mainBackgroundView.layer.cornerRadius = kDSCellCornerRadius;
+		//[self.mainBackgroundImageView setImage:[[UIImage imageNamed:@"mainBgTile.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(6.0, 8.0, 10.0, 8.0)]];
+		self.mainBackgroundView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+		[self addSubview:self.self.mainBackgroundView];
 		
 		// Avatar frame e inner shadow
 		self.avatarImageView						= [[UIImageView alloc] initWithFrame:CGRectMake(kDSCellAvatarLeftMargin, kDSCellAvatarTopMargin, kDSCellAvatarSize, kDSCellAvatarSize)];
@@ -53,10 +55,10 @@
 		self.avatarImageView.layer.masksToBounds	= YES;
 		[self addSubview:self.avatarImageView];
 		
-		self.shadowAvatarImageView			= [[UIImageView alloc] initWithFrame:self.avatarImageView.frame];
+		/*self.shadowAvatarImageView			= [[UIImageView alloc] initWithFrame:self.avatarImageView.frame];
 		self.shadowAvatarImageView.image	= [[UIImage imageNamed:@"innerShadow.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(5.0, 5.0, 5.0, 5.0)];
 		self.shadowAvatarImageView.alpha	= kDSCellInnerShadowAlpha;
-		[self addSubview:self.shadowAvatarImageView];
+		[self addSubview:self.shadowAvatarImageView];*/
 		
 		self.usernameLabel					= [[UILabel alloc] initWithFrame:CGRectMake(kDSCellLabelLeftMargin, kDSCellUsernameTopMargin, kDSCellUsernameWidth, kDSCellUsernameHeight)];
 		self.usernameLabel.backgroundColor	= [UIColor whiteColor]; // +speed

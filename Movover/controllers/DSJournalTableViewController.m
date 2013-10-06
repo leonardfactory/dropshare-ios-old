@@ -16,7 +16,7 @@
 #import "DSAddButton.h"
 #import "DSCapturePicker.h"
 
-#import "DSImageUrl.h"
+#import "DSCloudinary.h"
 
 #import "DSUserManager.h"
 
@@ -89,7 +89,7 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 - (void) buildView
 {
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-	self.tableView.backgroundColor = [UIColor colorWithRed:238./255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1.0];
+	self.tableView.backgroundColor = [UIColor colorWithRed:228.0/255.0 green:234.0/255.0 blue:232.0/255.0 alpha:1.0];
 	
 	float addButtonHeight = self.view.frame.size.height - kDSAddButtonSize - kDSAddButtonSize;
 	self.addButton = [[DSAddButton alloc] initWithFrame:CGRectMake(10.0,
@@ -253,16 +253,24 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	
 	[journalCell setGeoLocation:[NSString stringWithFormat:@"Via delle Rose n.%d", (int)floorf(powf(([indexPath row]+1)*2, 2.0))] andTime:[dateFormatter stringFromDate:activity.createdOn]];
 	
+    // Avatar with url
+    NSString *avatarImageURL = [[[DSCloudinary sharedInstance] cloudinary] url:[NSString stringWithFormat:@"user_avatar_%@.jpg", user.identifier]];
+    [journalCell setAvatarWithURL:[NSURL URLWithString:avatarImageURL]];
+    
 	//[journalCell setAvatarWithURL:[NSURL URLWithString:[DSImageUrl getAvatarUrlFromUserId:drop.user.identifier]]];
-	[journalCell setAvatarImage:[[UIImage imageNamed:@"avatar.png"] thumbnailImage:48
+	/*[journalCell setAvatarImage:[[UIImage imageNamed:@"avatar.png"] thumbnailImage:48
 																 transparentBorder:0
 																	  cornerRadius:0
-															  interpolationQuality:kCGInterpolationHigh]];
+															  interpolationQuality:kCGInterpolationHigh]];*/
 	
 	// Se è una image cell, aggiungo anche l'immagine
 	if([cell isKindOfClass:[DSImageJournalCell class]])
 	{
 		DSImageJournalCell *imageJournalCell = (DSImageJournalCell *) cell;
+        // Activity image url
+        NSString *actionImageURL = [[[DSCloudinary sharedInstance] cloudinary] url:[NSString stringWithFormat:@"action_%@.jpg", activity.objectId]];
+        [imageJournalCell setPictureWithURL:[NSURL URLWithString:actionImageURL]];
+        
 		// @todo
 		//NSLog(@"%@",[DSImageUrl getImageUrlFromDropId:drop.identifier]);
 		//[imageJournalCell setPictureWithURL:[NSURL URLWithString:[DSImageUrl getImageUrlFromDropId:drop.identifier]]];

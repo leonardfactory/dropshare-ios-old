@@ -58,7 +58,7 @@
 	{
         body = @{
                  @"limit" : @10,
-                 @"since" : since_activity.objectID
+                 @"since" : since_activity.identifier
                  };
 	}
 	else
@@ -85,8 +85,8 @@
 	NSDictionary *body;
 
     body = @{
-             @"limit": @20,
-             @"until": last_activity.objectID
+             @"limit": @10,
+             @"until": last_activity.identifier
              };
 
 	[self.APIAdapter getPath:@"/user/journal" parameters:body success:^(NSDictionary *responseObject)
