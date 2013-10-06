@@ -10,7 +10,7 @@
 
 @implementation DSTokenManager
 
-- (DSEntityManager *) init
+- (DSTokenManager *) init
 {
 	self = [super init];
 	if (self)
@@ -32,9 +32,10 @@
      {
          // Token got!
          [_token setAccessToken:responseObject[@"accessToken"]];
+         [self.APIAdapter setAccessToken:_token.accessToken];
          
          // Now check for user id, and see if token is valid
-         [self.APIAdapter postPath:@"/user/check" parameters:nil success:^(NSDictionary *responseObject)
+         [self.APIAdapter getPath:@"/user/check" parameters:nil success:^(NSDictionary *responseObject)
          {
              NSString *identifier = responseObject[@"_id"];
              [self.APIAdapter getPath:[NSString stringWithFormat:@"/user/%@/profile", identifier] parameters:nil success:^(NSDictionary *responseObject)

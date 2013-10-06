@@ -64,6 +64,8 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
     [super viewDidLoad];
 	
 	[self buildView];
+    
+    NSLog(@"View loaded");
 	
 	_journalManager = [[DSJournalManager alloc] init];
 	[_journalManager addObserver:self forKeyPath:@"isJournalUpdated" options:NSKeyValueObservingOptionNew context:nil];

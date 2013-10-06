@@ -32,7 +32,7 @@
 		//get id of the user logged
 		_tokenManager = [[DSTokenManager alloc] init];
 		_identifier = _tokenManager.token.user.identifier;
-		assert(_identifier);
+		//assert(_identifier);
 		
 		//_activitiesInTheMiddle = [[NSMutableOrderedSet alloc] init];
 		//_activities            = [[NSMutableOrderedSet alloc] init];

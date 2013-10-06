@@ -19,6 +19,7 @@
 @dynamic subjectEntity;
 @dynamic subjectId;
 @dynamic verb;
+@dynamic identifier;
 @dynamic area;
 
 @end

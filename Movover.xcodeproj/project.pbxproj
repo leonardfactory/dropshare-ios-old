@@ -36,15 +36,18 @@
 		A73863FB16F3162400034512 /* DSCaptureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A73863FA16F3162400034512 /* DSCaptureViewController.m */; };
 		A738640116F3607900034512 /* DSCapturePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = A738640016F3607900034512 /* DSCapturePicker.m */; };
 		A751872716E80728009F4383 /* DSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A751872616E80728009F4383 /* DSLoginViewController.m */; };
-		A75391BE1800616300974C1A /* DSToken.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391BD1800616300974C1A /* DSToken.m */; };
-		A75391C1180077B400974C1A /* DSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391C0180077B400974C1A /* DSUser.m */; };
-		A75391CD18007A1600974C1A /* DSActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391CC18007A1600974C1A /* DSActivity.m */; };
 		A75391D018007D4800974C1A /* DSActivitySerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391CF18007D4800974C1A /* DSActivitySerializer.m */; };
 		A75391D31800F2D900974C1A /* DSJournalSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391D21800F2D900974C1A /* DSJournalSerializer.m */; };
 		A75391D61800F39800974C1A /* DSSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391D51800F39800974C1A /* DSSerializer.m */; };
-		A75391DC1800F5DB00974C1A /* DSJournal.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391DB1800F5DB00974C1A /* DSJournal.m */; };
 		A75391E81800FD1B00974C1A /* DSUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391E71800FD1B00974C1A /* DSUserManager.m */; };
-		A75391EB1801029C00974C1A /* DSActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391EA1801029C00974C1A /* DSActivity.m */; };
+		A75391EE1801043200974C1A /* DSDiscover.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391ED1801043200974C1A /* DSDiscover.m */; };
+		A75391F11801043300974C1A /* DSAction.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391F01801043300974C1A /* DSAction.m */; };
+		A75391F41801043300974C1A /* DSToken.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391F31801043300974C1A /* DSToken.m */; };
+		A75391F71801043300974C1A /* DSActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391F61801043300974C1A /* DSActivity.m */; };
+		A75391FA1801043300974C1A /* DSArea.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391F91801043300974C1A /* DSArea.m */; };
+		A75391FD1801043300974C1A /* DSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391FC1801043300974C1A /* DSUser.m */; };
+		A75392001801043300974C1A /* DSComment.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391FF1801043300974C1A /* DSComment.m */; };
+		A75392031801043300974C1A /* DSJournal.m in Sources */ = {isa = PBXBuildFile; fileRef = A75392021801043300974C1A /* DSJournal.m */; };
 		A753DF4316EDDD6100278CE7 /* frank.png in Resources */ = {isa = PBXBuildFile; fileRef = A753DF4216EDDD6100278CE7 /* frank.png */; };
 		A753DF4516EDDD9B00278CE7 /* mountain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A753DF4416EDDD9B00278CE7 /* mountain.jpg */; };
 		A753DF4916EDDEEC00278CE7 /* DSImageJournalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A753DF4816EDDEEC00278CE7 /* DSImageJournalCell.m */; };
@@ -125,10 +128,6 @@
 		A7A5428116D8FF9200FEE4BE /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7A5428016D8FF9200FEE4BE /* MainStoryboard.storyboard */; };
 		A7A542A816D907ED00FEE4BE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A542A716D907ED00FEE4BE /* QuartzCore.framework */; };
 		A7A542AE16D90FEB00FEE4BE /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A542AD16D90FEB00FEE4BE /* MapKit.framework */; };
-		A7AA5B5617FE3947009CD414 /* DSArea.m in Sources */ = {isa = PBXBuildFile; fileRef = A7AA5B5517FE3947009CD414 /* DSArea.m */; };
-		A7AA5B5C17FE3948009CD414 /* DSComment.m in Sources */ = {isa = PBXBuildFile; fileRef = A7AA5B5B17FE3948009CD414 /* DSComment.m */; };
-		A7AA5B6517FE3948009CD414 /* DSDiscover.m in Sources */ = {isa = PBXBuildFile; fileRef = A7AA5B6417FE3948009CD414 /* DSDiscover.m */; };
-		A7AA5B6817FE3948009CD414 /* DSAction.m in Sources */ = {isa = PBXBuildFile; fileRef = A7AA5B6717FE3948009CD414 /* DSAction.m */; };
 		A7D4365B16EBA420006807EB /* DSJournalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7D4365A16EBA420006807EB /* DSJournalCell.xib */; };
 		A7D4365F16EBA44F006807EB /* DSJournalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D4365E16EBA44F006807EB /* DSJournalCell.m */; };
 		A7D4366316EBC684006807EB /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = A7D4366116EBC684006807EB /* avatar.png */; };
@@ -189,24 +188,30 @@
 		A738640016F3607900034512 /* DSCapturePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = DSCapturePicker.m; path = controllers/DSCapturePicker.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A751872516E80728009F4383 /* DSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSLoginViewController.h; path = controllers/DSLoginViewController.h; sourceTree = "<group>"; };
 		A751872616E80728009F4383 /* DSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = DSLoginViewController.m; path = controllers/DSLoginViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		A75391BC1800616300974C1A /* DSToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSToken.h; path = models/DSToken.h; sourceTree = "<group>"; };
-		A75391BD1800616300974C1A /* DSToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSToken.m; path = models/DSToken.m; sourceTree = "<group>"; };
-		A75391BF180077B400974C1A /* DSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSUser.h; path = models/DSUser.h; sourceTree = "<group>"; };
-		A75391C0180077B400974C1A /* DSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSUser.m; path = models/DSUser.m; sourceTree = "<group>"; };
-		A75391CB18007A1600974C1A /* DSActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSActivity.h; sourceTree = "<group>"; };
-		A75391CC18007A1600974C1A /* DSActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSActivity.m; sourceTree = "<group>"; };
 		A75391CE18007D4800974C1A /* DSActivitySerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSActivitySerializer.h; path = models/DSActivitySerializer.h; sourceTree = "<group>"; };
 		A75391CF18007D4800974C1A /* DSActivitySerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSActivitySerializer.m; path = models/DSActivitySerializer.m; sourceTree = "<group>"; };
 		A75391D11800F2D900974C1A /* DSJournalSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSJournalSerializer.h; path = models/DSJournalSerializer.h; sourceTree = "<group>"; };
 		A75391D21800F2D900974C1A /* DSJournalSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSJournalSerializer.m; path = models/DSJournalSerializer.m; sourceTree = "<group>"; };
 		A75391D41800F39700974C1A /* DSSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSSerializer.h; path = models/DSSerializer.h; sourceTree = "<group>"; };
 		A75391D51800F39800974C1A /* DSSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSSerializer.m; path = models/DSSerializer.m; sourceTree = "<group>"; };
-		A75391DA1800F5DB00974C1A /* DSJournal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSJournal.h; path = models/DSJournal.h; sourceTree = "<group>"; };
-		A75391DB1800F5DB00974C1A /* DSJournal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSJournal.m; path = models/DSJournal.m; sourceTree = "<group>"; };
 		A75391E61800FD1B00974C1A /* DSUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSUserManager.h; path = models/DSUserManager.h; sourceTree = "<group>"; };
 		A75391E71800FD1B00974C1A /* DSUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSUserManager.m; path = models/DSUserManager.m; sourceTree = "<group>"; };
-		A75391E91801029C00974C1A /* DSActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSActivity.h; path = models/DSActivity.h; sourceTree = "<group>"; };
-		A75391EA1801029C00974C1A /* DSActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSActivity.m; path = models/DSActivity.m; sourceTree = "<group>"; };
+		A75391EC1801043200974C1A /* DSDiscover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSDiscover.h; path = models/DSDiscover.h; sourceTree = "<group>"; };
+		A75391ED1801043200974C1A /* DSDiscover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSDiscover.m; path = models/DSDiscover.m; sourceTree = "<group>"; };
+		A75391EF1801043300974C1A /* DSAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSAction.h; path = models/DSAction.h; sourceTree = "<group>"; };
+		A75391F01801043300974C1A /* DSAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSAction.m; path = models/DSAction.m; sourceTree = "<group>"; };
+		A75391F21801043300974C1A /* DSToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSToken.h; path = models/DSToken.h; sourceTree = "<group>"; };
+		A75391F31801043300974C1A /* DSToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSToken.m; path = models/DSToken.m; sourceTree = "<group>"; };
+		A75391F51801043300974C1A /* DSActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSActivity.h; path = models/DSActivity.h; sourceTree = "<group>"; };
+		A75391F61801043300974C1A /* DSActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSActivity.m; path = models/DSActivity.m; sourceTree = "<group>"; };
+		A75391F81801043300974C1A /* DSArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSArea.h; path = models/DSArea.h; sourceTree = "<group>"; };
+		A75391F91801043300974C1A /* DSArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSArea.m; path = models/DSArea.m; sourceTree = "<group>"; };
+		A75391FB1801043300974C1A /* DSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSUser.h; path = models/DSUser.h; sourceTree = "<group>"; };
+		A75391FC1801043300974C1A /* DSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSUser.m; path = models/DSUser.m; sourceTree = "<group>"; };
+		A75391FE1801043300974C1A /* DSComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSComment.h; path = models/DSComment.h; sourceTree = "<group>"; };
+		A75391FF1801043300974C1A /* DSComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSComment.m; path = models/DSComment.m; sourceTree = "<group>"; };
+		A75392011801043300974C1A /* DSJournal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSJournal.h; path = models/DSJournal.h; sourceTree = "<group>"; };
+		A75392021801043300974C1A /* DSJournal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSJournal.m; path = models/DSJournal.m; sourceTree = "<group>"; };
 		A753DF4216EDDD6100278CE7 /* frank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frank.png; sourceTree = "<group>"; };
 		A753DF4416EDDD9B00278CE7 /* mountain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mountain.jpg; sourceTree = "<group>"; };
 		A753DF4716EDDEEC00278CE7 /* DSImageJournalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = DSImageJournalCell.h; path = controls/DSImageJournalCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -303,14 +308,6 @@
 		A7A542AA16D90D7E00FEE4BE /* DSLeftSidePanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSLeftSidePanelViewController.h; path = controllers/DSLeftSidePanelViewController.h; sourceTree = "<group>"; };
 		A7A542AB16D90D7E00FEE4BE /* DSLeftSidePanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSLeftSidePanelViewController.m; path = controllers/DSLeftSidePanelViewController.m; sourceTree = "<group>"; };
 		A7A542AD16D90FEB00FEE4BE /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		A7AA5B5417FE3947009CD414 /* DSArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSArea.h; path = models/DSArea.h; sourceTree = "<group>"; };
-		A7AA5B5517FE3947009CD414 /* DSArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSArea.m; path = models/DSArea.m; sourceTree = "<group>"; };
-		A7AA5B5A17FE3948009CD414 /* DSComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSComment.h; path = models/DSComment.h; sourceTree = "<group>"; };
-		A7AA5B5B17FE3948009CD414 /* DSComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSComment.m; path = models/DSComment.m; sourceTree = "<group>"; };
-		A7AA5B6317FE3948009CD414 /* DSDiscover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSDiscover.h; path = models/DSDiscover.h; sourceTree = "<group>"; };
-		A7AA5B6417FE3948009CD414 /* DSDiscover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSDiscover.m; path = models/DSDiscover.m; sourceTree = "<group>"; };
-		A7AA5B6617FE3948009CD414 /* DSAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSAction.h; path = models/DSAction.h; sourceTree = "<group>"; };
-		A7AA5B6717FE3948009CD414 /* DSAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSAction.m; path = models/DSAction.m; sourceTree = "<group>"; };
 		A7D4365A16EBA420006807EB /* DSJournalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DSJournalCell.xib; path = controls/DSJournalCell.xib; sourceTree = "<group>"; };
 		A7D4365D16EBA44F006807EB /* DSJournalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = DSJournalCell.h; path = controls/DSJournalCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A7D4365E16EBA44F006807EB /* DSJournalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = DSJournalCell.m; path = controls/DSJournalCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -365,24 +362,22 @@
 		136F565216E8EFB0009E5203 /* Auto Generated */ = {
 			isa = PBXGroup;
 			children = (
-				A75391E91801029C00974C1A /* DSActivity.h */,
-				A75391EA1801029C00974C1A /* DSActivity.m */,
-				A75391DA1800F5DB00974C1A /* DSJournal.h */,
-				A75391DB1800F5DB00974C1A /* DSJournal.m */,
-				A75391CB18007A1600974C1A /* DSActivity.h */,
-				A75391CC18007A1600974C1A /* DSActivity.m */,
-				A75391BF180077B400974C1A /* DSUser.h */,
-				A75391C0180077B400974C1A /* DSUser.m */,
-				A75391BC1800616300974C1A /* DSToken.h */,
-				A75391BD1800616300974C1A /* DSToken.m */,
-				A7AA5B6617FE3948009CD414 /* DSAction.h */,
-				A7AA5B6717FE3948009CD414 /* DSAction.m */,
-				A7AA5B6317FE3948009CD414 /* DSDiscover.h */,
-				A7AA5B6417FE3948009CD414 /* DSDiscover.m */,
-				A7AA5B5A17FE3948009CD414 /* DSComment.h */,
-				A7AA5B5B17FE3948009CD414 /* DSComment.m */,
-				A7AA5B5417FE3947009CD414 /* DSArea.h */,
-				A7AA5B5517FE3947009CD414 /* DSArea.m */,
+				A75392011801043300974C1A /* DSJournal.h */,
+				A75392021801043300974C1A /* DSJournal.m */,
+				A75391FE1801043300974C1A /* DSComment.h */,
+				A75391FF1801043300974C1A /* DSComment.m */,
+				A75391FB1801043300974C1A /* DSUser.h */,
+				A75391FC1801043300974C1A /* DSUser.m */,
+				A75391F81801043300974C1A /* DSArea.h */,
+				A75391F91801043300974C1A /* DSArea.m */,
+				A75391F51801043300974C1A /* DSActivity.h */,
+				A75391F61801043300974C1A /* DSActivity.m */,
+				A75391F21801043300974C1A /* DSToken.h */,
+				A75391F31801043300974C1A /* DSToken.m */,
+				A75391EF1801043300974C1A /* DSAction.h */,
+				A75391F01801043300974C1A /* DSAction.m */,
+				A75391EC1801043200974C1A /* DSDiscover.h */,
+				A75391ED1801043200974C1A /* DSDiscover.m */,
 			);
 			name = "Auto Generated";
 			sourceTree = "<group>";
@@ -998,17 +993,16 @@
 			files = (
 				A781F2B516E9185400C8F11C /* DSEntityManager.m in Sources */,
 				A781F2B616E9185400C8F11C /* DSTokenManager.m in Sources */,
+				A75392001801043300974C1A /* DSComment.m in Sources */,
 				A781F2B716E9185400C8F11C /* DSDataAdapter.m in Sources */,
 				A781F2B816E9185400C8F11C /* DSAPIAdapter.m in Sources */,
 				A723DFE216DA930900F51928 /* JASidePanelController.m in Sources */,
 				A723DFE316DA930900F51928 /* DSSidePanelController.m in Sources */,
 				A723DFE416DA930900F51928 /* UIViewController+SidePanel.m in Sources */,
 				A723DFE516DA930900F51928 /* DSLeftSidePanelViewController.m in Sources */,
-				A7AA5B6817FE3948009CD414 /* DSAction.m in Sources */,
-				A75391CD18007A1600974C1A /* DSActivity.m in Sources */,
 				13C4333616D8FC58001A43F9 /* main.m in Sources */,
-				A75391EB1801029C00974C1A /* DSActivity.m in Sources */,
 				A75391D018007D4800974C1A /* DSActivitySerializer.m in Sources */,
+				A75391EE1801043200974C1A /* DSDiscover.m in Sources */,
 				13C4333A16D8FC58001A43F9 /* DSAppDelegate.m in Sources */,
 				A78DAD8416DBE2E300A21AD0 /* DSViewPager.m in Sources */,
 				A78DAD8716DC352700A21AD0 /* DSViewPageCell.m in Sources */,
@@ -1019,26 +1013,26 @@
 				A793149816DF60920023B150 /* DSDiscoverTableViewController.m in Sources */,
 				A75391D61800F39800974C1A /* DSSerializer.m in Sources */,
 				A751872716E80728009F4383 /* DSLoginViewController.m in Sources */,
-				A75391BE1800616300974C1A /* DSToken.m in Sources */,
 				A781F2A916E9028F00C8F11C /* SwipeView.m in Sources */,
 				A781F2AD16E9077000C8F11C /* DSPaddedTextField.m in Sources */,
+				A75391F11801043300974C1A /* DSAction.m in Sources */,
 				A754A2D616EB4DA000A719B3 /* DSJournalTableViewController.m in Sources */,
 				A7D4365F16EBA44F006807EB /* DSJournalCell.m in Sources */,
 				A7D4366C16EBC6A0006807EB /* UIImage+Alpha.m in Sources */,
 				A7D4366D16EBC6A0006807EB /* UIImage+Resize.m in Sources */,
+				A75391FD1801043300974C1A /* DSUser.m in Sources */,
 				A75391D31800F2D900974C1A /* DSJournalSerializer.m in Sources */,
-				A7AA5B5617FE3947009CD414 /* DSArea.m in Sources */,
 				A7D4366E16EBC6A0006807EB /* UIImage+RoundedCorner.m in Sources */,
+				A75391F71801043300974C1A /* DSActivity.m in Sources */,
+				A75391FA1801043300974C1A /* DSArea.m in Sources */,
 				A753DF4916EDDEEC00278CE7 /* DSImageJournalCell.m in Sources */,
 				131480F116F0D4B1004A9D3C /* DSUserSerializer.m in Sources */,
 				A75391E81800FD1B00974C1A /* DSUserManager.m in Sources */,
+				A75392031801043300974C1A /* DSJournal.m in Sources */,
 				134B8AAB16F1B9FB00900AC6 /* DSJournalManager.m in Sources */,
-				A75391C1180077B400974C1A /* DSUser.m in Sources */,
 				13E41B6C16F21541008052F8 /* DSImageUrl.m in Sources */,
-				A7AA5B5C17FE3948009CD414 /* DSComment.m in Sources */,
-				A7AA5B6517FE3948009CD414 /* DSDiscover.m in Sources */,
+				A75391F41801043300974C1A /* DSToken.m in Sources */,
 				13677CD416F269B50049C31B /* DSNewDropManager.m in Sources */,
-				A75391DC1800F5DB00974C1A /* DSJournal.m in Sources */,
 				A78256A716F2439E0046A8AF /* DSAddButton.m in Sources */,
 				A78256AA16F25D4E0046A8AF /* DSActionButton.m in Sources */,
 				A78256BB16F2861F0046A8AF /* DSAddViewController.m in Sources */,

@@ -13,6 +13,7 @@
 @implementation DSJournal
 
 @dynamic updatedOn;
+@dynamic identifier;
 @dynamic activities;
 
 @end

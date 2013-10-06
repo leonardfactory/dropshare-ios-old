@@ -42,6 +42,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSLog(@"Loaded login");
 	
 	state.originalCenter = self.view.center;
 	state.animation = DSLoginAnimationStateNone;

@@ -12,13 +12,9 @@
 
 @interface DSAPIAdapter : NSObject
 
-@property (strong, nonatomic) AFHTTPClient *client;
-
 + (id) sharedAPIAdapter;
 
-// - (DSWebApiAdapter *) initSSL;
-
-// - (DSWebApiAdapter *) initWithBaseUrl:baseUrl;
+- (DSAPIAdapter *) initWithBaseURL:(NSString *)baseUrl;
 
 - (void) setAccessToken:(NSString *) token;
 

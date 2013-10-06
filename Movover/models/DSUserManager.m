@@ -12,7 +12,7 @@
 
 - (DSUser *) userWithId:(NSString *)identifier
 {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(objectID = %@)", identifier];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(identifier = %@)", identifier];
     return (DSUser *)[self.dataAdapter findOneEntity:@"User" withPredicate:predicate];
 }
 

@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSString * subjectEntity;
 @property (nonatomic, retain) NSString * subjectId;
 @property (nonatomic, retain) NSString * verb;
+@property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) DSArea *area;
 
 @end

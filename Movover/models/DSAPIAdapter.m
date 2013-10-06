@@ -11,9 +11,14 @@
 static NSString * const kDSAPIBaseUrl       = @"http://api.movover.com/";
 static NSString * const kDSAPISecureBaseUrl = @"https://api.movover.com/";
 
-@implementation DSAPIAdapter
+@interface DSAPIAdapter ()
+{
+    AFHTTPClient *_client;
+}
 
-@synthesize client = _client;
+@end
+
+@implementation DSAPIAdapter
 
 + (id) sharedAPIAdapter
 {
@@ -28,22 +33,23 @@ static NSString * const kDSAPISecureBaseUrl = @"https://api.movover.com/";
 
 - (DSAPIAdapter *) init
 {
-	_client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:kDSAPIBaseUrl]];
+	self = [self initWithBaseURL:kDSAPIBaseUrl];
 	return self;
 }
 
 - (DSAPIAdapter *) initSSL
 {
-	_client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:kDSAPISecureBaseUrl]];
+	self = [self initWithBaseURL:kDSAPISecureBaseUrl];
 	return self;
 }
 
-- (DSAPIAdapter *) initWithBaseUrl:(NSString *)baseUrl
+- (DSAPIAdapter *) initWithBaseURL:(NSString *)baseURL
 {
-	_client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:baseUrl]];
+	_client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:baseURL]];
     
     [_client registerHTTPOperationClass:[AFJSONRequestOperation class]];
     [_client setDefaultHeader:@"Accept" value:@"application/json"];
+    [_client setParameterEncoding:AFJSONParameterEncoding];
     
 	return self;
 }
@@ -52,7 +58,8 @@ static NSString * const kDSAPISecureBaseUrl = @"https://api.movover.com/";
 
 - (void) setAccessToken:(NSString *) token
 {
-    [_client setAuthorizationHeaderWithToken:token];
+    [_client setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@", token]];
+    NSLog(@"Token: %@", token);
 }
 
 #pragma mark - API methods
@@ -65,8 +72,10 @@ static NSString * const kDSAPISecureBaseUrl = @"https://api.movover.com/";
 	[_client postPath:path parameters:parameters success: ^(AFHTTPRequestOperation *operation, id responseObject)
     {
 		NSError *error;
-		id dict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:&error];
+        id dict = responseObject;
+		//id dict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:&error];
 		if (dict) {
+            NSLog(@"%@", dict[@"accessToken"]);
 			success((NSDictionary *)dict);
 		}
 		else {
@@ -86,7 +95,8 @@ static NSString * const kDSAPISecureBaseUrl = @"https://api.movover.com/";
 	[_client getPath:path parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
     {
 		NSError *error;
-		id dict =[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:&error];
+        id dict = responseObject;
+		//id dict =[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:&error];
 		if (dict) {
 			success((NSDictionary *)dict);
 		}

@@ -14,6 +14,7 @@
 @interface DSJournal : NSManagedObject
 
 @property (nonatomic, retain) NSDate * updatedOn;
+@property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) NSOrderedSet *activities;
 @end
 
