@@ -13,13 +13,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <view opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" id="OqL-b7-2og">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Cerca" translucent="NO" id="TVm-xH-YJP">
+                                        <rect key="frame" x="0.0" y="21" width="254" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="barTintColor" red="0.66274509803921566" green="0.66274509803921566" blue="0.66274509803921566" alpha="1" colorSpace="calibratedRGB"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <scopeButtonTitles>
+                                            <string>Title</string>
+                                            <string>Title</string>
+                                        </scopeButtonTitles>
+                                        <connections>
+                                            <outlet property="delegate" destination="GO3-6s-V4g" id="FNu-O9-HjT"/>
+                                        </connections>
+                                    </searchBar>
+                                </subviews>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MRe-KZ-Xvi">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="108" width="320" height="44"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <inset key="titleEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Discover" backgroundImage="menuButtonBg.png">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Discover">
+                                    <color key="titleColor" red="0.66274509803921566" green="0.66274509803921566" blue="0.66274509803921566" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -29,12 +49,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qFx-wf-0w0">
-                                <rect key="frame" x="0.0" y="45" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="71" width="320" height="44"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <inset key="titleEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Journal" backgroundImage="menuButtonBg.png">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Journal">
+                                    <color key="titleColor" red="0.66274509803921566" green="0.66274509803921566" blue="0.66274509803921566" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -44,14 +64,25 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.16862745098039217" green="0.20784313725490194" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="menuButtonDiscover" destination="MRe-KZ-Xvi" id="EY1-fC-Xz5"/>
                         <outlet property="menuButtonJournal" destination="qFx-wf-0w0" id="hLr-LJ-84Y"/>
+                        <outlet property="searchBar" destination="TVm-xH-YJP" id="vma-dA-MMT"/>
+                        <outlet property="searchDisplayController" destination="PPz-Qs-T5G" id="JnZ-lf-v8V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F5f-tI-wmJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="PPz-Qs-T5G">
+                    <connections>
+                        <outlet property="delegate" destination="GO3-6s-V4g" id="TgS-Sy-69g"/>
+                        <outlet property="searchBar" destination="TVm-xH-YJP" id="mYu-TU-cIb"/>
+                        <outlet property="searchContentsController" destination="GO3-6s-V4g" id="Klq-B3-U7U"/>
+                        <outlet property="searchResultsDataSource" destination="GO3-6s-V4g" id="TMw-XB-3HR"/>
+                        <outlet property="searchResultsDelegate" destination="GO3-6s-V4g" id="JeL-yV-zh7"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="-181" y="-862"/>
         </scene>
@@ -420,7 +451,6 @@
         <image name="bgLogin.jpg" width="320" height="548"/>
         <image name="localizeMeButton.png" width="29" height="29"/>
         <image name="mainBgTile.png" width="17" height="17"/>
-        <image name="menuButtonBg.png" width="1" height="44"/>
         <image name="separator.png" width="262" height="8"/>
         <image name="showJournalButton.png" width="29" height="29"/>
     </resources>

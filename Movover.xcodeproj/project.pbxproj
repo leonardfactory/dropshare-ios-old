@@ -54,6 +54,8 @@
 		A753DF4B16EDDF0B00278CE7 /* DSImageJournalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A753DF4A16EDDF0B00278CE7 /* DSImageJournalCell.xib */; };
 		A754A2D616EB4DA000A719B3 /* DSJournalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A754A2D516EB4DA000A719B3 /* DSJournalTableViewController.m */; };
 		A780656D180199BC007B3D8F /* DSCloudinary.m in Sources */ = {isa = PBXBuildFile; fileRef = A780656C180199BC007B3D8F /* DSCloudinary.m */; };
+		A78065711801B3EC007B3D8F /* UIImage+FromColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A78065701801B3EC007B3D8F /* UIImage+FromColor.m */; };
+		A78065741801BBFB007B3D8F /* UIDevice+VersionCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = A78065731801BBFB007B3D8F /* UIDevice+VersionCheck.m */; };
 		A781F29816E8FC0B00C8F11C /* bgLogin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A781F28E16E8FC0B00C8F11C /* bgLogin.jpg */; };
 		A781F29916E8FC0B00C8F11C /* bgLogin@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A781F28F16E8FC0B00C8F11C /* bgLogin@2x.jpg */; };
 		A781F29A16E8FC0B00C8F11C /* connectButtonBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A781F29016E8FC0B00C8F11C /* connectButtonBg.png */; };
@@ -222,6 +224,10 @@
 		A754A2D516EB4DA000A719B3 /* DSJournalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSJournalTableViewController.m; path = controllers/DSJournalTableViewController.m; sourceTree = "<group>"; };
 		A780656B180199BC007B3D8F /* DSCloudinary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSCloudinary.h; path = services/DSCloudinary.h; sourceTree = "<group>"; };
 		A780656C180199BC007B3D8F /* DSCloudinary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSCloudinary.m; path = services/DSCloudinary.m; sourceTree = "<group>"; };
+		A780656F1801B3EC007B3D8F /* UIImage+FromColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+FromColor.h"; path = "categories/UIImage+FromColor.h"; sourceTree = "<group>"; };
+		A78065701801B3EC007B3D8F /* UIImage+FromColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+FromColor.m"; path = "categories/UIImage+FromColor.m"; sourceTree = "<group>"; };
+		A78065721801BBFB007B3D8F /* UIDevice+VersionCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice+VersionCheck.h"; path = "categories/UIDevice+VersionCheck.h"; sourceTree = "<group>"; };
+		A78065731801BBFB007B3D8F /* UIDevice+VersionCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+VersionCheck.m"; path = "categories/UIDevice+VersionCheck.m"; sourceTree = "<group>"; };
 		A781F28E16E8FC0B00C8F11C /* bgLogin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bgLogin.jpg; path = images/login/bgLogin.jpg; sourceTree = "<group>"; };
 		A781F28F16E8FC0B00C8F11C /* bgLogin@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "bgLogin@2x.jpg"; path = "images/login/bgLogin@2x.jpg"; sourceTree = "<group>"; };
 		A781F29016E8FC0B00C8F11C /* connectButtonBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = connectButtonBg.png; path = images/login/connectButtonBg.png; sourceTree = "<group>"; };
@@ -463,6 +469,7 @@
 		13C4332F16D8FC58001A43F9 /* Movover */ = {
 			isa = PBXGroup;
 			children = (
+				A780656E1801B3CA007B3D8F /* Categories */,
 				A780656A1801998E007B3D8F /* Services */,
 				138800BD16E6287800716368 /* Models */,
 				A78DAD8016DBE2A800A21AD0 /* Controls */,
@@ -601,6 +608,17 @@
 				A780656C180199BC007B3D8F /* DSCloudinary.m */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		A780656E1801B3CA007B3D8F /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				A780656F1801B3EC007B3D8F /* UIImage+FromColor.h */,
+				A78065701801B3EC007B3D8F /* UIImage+FromColor.m */,
+				A78065721801BBFB007B3D8F /* UIDevice+VersionCheck.h */,
+				A78065731801BBFB007B3D8F /* UIDevice+VersionCheck.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 		A781F28D16E8FB3B00C8F11C /* login */ = {
@@ -1019,10 +1037,12 @@
 				A723DFE416DA930900F51928 /* UIViewController+SidePanel.m in Sources */,
 				A723DFE516DA930900F51928 /* DSLeftSidePanelViewController.m in Sources */,
 				13C4333616D8FC58001A43F9 /* main.m in Sources */,
+				A78065711801B3EC007B3D8F /* UIImage+FromColor.m in Sources */,
 				A75391D018007D4800974C1A /* DSActivitySerializer.m in Sources */,
 				A75391EE1801043200974C1A /* DSDiscover.m in Sources */,
 				13C4333A16D8FC58001A43F9 /* DSAppDelegate.m in Sources */,
 				A78DAD8416DBE2E300A21AD0 /* DSViewPager.m in Sources */,
+				A78065741801BBFB007B3D8F /* UIDevice+VersionCheck.m in Sources */,
 				A78DAD8716DC352700A21AD0 /* DSViewPageCell.m in Sources */,
 				138800B916E627C600716368 /* DSJournalSimpleDropCell.m in Sources */,
 				138800BC16E627D100716368 /* DSDiscoverViewController.m in Sources */,
