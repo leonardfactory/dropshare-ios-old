@@ -22,6 +22,6 @@ typedef enum _DSAddButtonState
 
 @property (strong, nonatomic) NSString *actionCalled;
 
-- (id)initWithFrame:(CGRect)frame andActions:(NSArray *)actions;
+- (id)initWithFrame:(CGRect)frame andActions:(NSArray *)actions andSuperFrame:(CGRect) superFrame;
 
 @end

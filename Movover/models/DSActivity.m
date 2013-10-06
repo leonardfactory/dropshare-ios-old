@@ -8,18 +8,20 @@
 
 #import "DSActivity.h"
 #import "DSArea.h"
+#import "DSJournal.h"
 
 
 @implementation DSActivity
 
 @dynamic createdOn;
 @dynamic data;
+@dynamic identifier;
 @dynamic objectEntity;
 @dynamic objectId;
 @dynamic subjectEntity;
 @dynamic subjectId;
 @dynamic verb;
-@dynamic identifier;
 @dynamic area;
+@dynamic inverseJournal;
 
 @end

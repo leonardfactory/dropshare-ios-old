@@ -51,6 +51,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Remove translucent
+    [self.navigationController.navigationBar setTranslucent:NO];
 	
 	self.tableView.tableHeaderView = self.mapView;
 

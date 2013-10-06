@@ -18,6 +18,7 @@
 @property (strong, nonatomic) NSArray *actions;
 @property (strong, nonatomic) NSMutableArray *actionButtons;
 
+@property (strong, nonatomic) UIView *backgroundDarkView;
 @property (strong, nonatomic) UIImageView *buttonImageView;
 
 @end
@@ -27,8 +28,9 @@
 @synthesize actionCalled;
 @synthesize actions = _actions;
 @synthesize actionButtons = _actionButtons;
+@synthesize backgroundDarkView = _backgroundDarkView;
 
-- (id)initWithFrame:(CGRect)frame andActions:(NSArray *)actions
+- (id)initWithFrame:(CGRect)frame andActions:(NSArray *)actions andSuperFrame:(CGRect) superFrame
 {
     self = [super initWithFrame:frame];
     if (self)
@@ -63,6 +65,17 @@
 			
 			[_actionButtons addObject:actionButton];
 		}
+        
+        // Effetto oscurante
+        CGRect darkenerFrame = CGRectMake(-frame.origin.x, -frame.origin.y, frame.origin.x + kDSActionButtonSize + frame.origin.x, superFrame.size.height);
+        _backgroundDarkView = [[UIView alloc] initWithFrame:darkenerFrame];
+        
+        [_backgroundDarkView setBackgroundColor:[UIColor colorWithRed:228.0/255.0 green:234.0/255.0 blue:232.0/255.0 alpha:0.0]];
+        
+        _backgroundDarkView.userInteractionEnabled = NO;
+        
+        [self insertSubview:_backgroundDarkView belowSubview:[_actionButtons firstObject]];
+        
     }
     return self;
 }
@@ -130,10 +143,12 @@
 		for(int i = 0; i < [_actionButtons count]; i++)
 		{
 			[[_actionButtons objectAtIndex:i] setFrame:CGRectMake(marginToBeInvisible,
-																  - kDSAddButtonSize - ((kDSActionButtonMargin + kDSActionButtonSize) * i),
+																  - kDSAddButtonSize - kDSActionButtonMargin - ((kDSActionButtonMargin + kDSActionButtonSize) * i),
 																  kDSActionButtonSize,
 																  kDSActionButtonSize)];
 		}
+        
+        [_backgroundDarkView setBackgroundColor:[UIColor colorWithWhite:0.4 alpha:0.4]];
 		
 		// rotate 45 degrees
 		CGAffineTransform transform = CGAffineTransformMakeRotation(3*M_PI/4.0);
@@ -170,6 +185,8 @@
 											  kDSActionButtonSize)];
 		}
 		
+        [_backgroundDarkView setBackgroundColor:[UIColor colorWithWhite:0.4 alpha:0.0]];
+        
 		// rotate 45 degrees
 		CGAffineTransform transform = CGAffineTransformMakeRotation(0.0);
         self.buttonImageView.transform = transform;

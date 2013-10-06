@@ -10,13 +10,13 @@
 
 #import "DSAddViewController.h"
 #import "DSTokenManager.h"
-#import "DSNewDropManager.h"
+#import "DSActionManager.h"
 
 #import "InterfaceConstants.h"
 #import "UIImage+Resize.h"
 #import "UIImageView+AFNetworking.h"
 
-#import "DSImageUrl.h"
+#import "DSCloudinary.h";
 
 @interface DSAddViewController ()
 
@@ -25,22 +25,23 @@
 
 @property (strong, nonatomic) UIImage *imageToBePosted;
 @property (strong, nonatomic) UIImageView *imageToBePostedView;
-@property (strong, nonatomic) DSTokenManager *profileManager;
-//@property (strong, nonatomic) DSNewDropManager *dropManager;
+@property (strong, nonatomic) DSTokenManager *tokenManager;
+@property (strong, nonatomic) DSActionManager *actionManager;
 
 @end
 
 @implementation DSAddViewController
 
-@synthesize profileManager = _profileManager;
-//@synthesize dropManager = _dropManager;
+@synthesize tokenManager = _tokenManager;
+@synthesize actionManager = _actionManager;
 
 - (id) initWithCoder:(NSCoder *)aDecoder
 {
 	self = [super initWithCoder:aDecoder];
 	if(self)
 	{
-		_profileManager = [[DSTokenManager alloc] init];
+		_tokenManager = [[DSTokenManager alloc] init];
+        _actionManager = [[DSActionManager alloc] init];
 		//_dropManager	= [[DSNewDropManager alloc] init];
 		
 		[[NSNotificationCenter defaultCenter] addObserver:self
@@ -52,12 +53,17 @@
 
 - (void) buildView
 {
+    // Remove translucent
+    [self.navigationController.navigationBar setTranslucent:NO];
+    
 	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
 																				 target:self
 																				 action:@selector(addPhoto)];
 	self.navigationItem.rightBarButtonItem = addButton;
 	
 	//[self.avatarImageView setImageWithURL:[NSURL URLWithString:[DSImageUrl getAvatarUrlFromUserId:_profileManager.profile.user.identifier]]];
+    NSString *avatarImageURL = [[[DSCloudinary sharedInstance] cloudinary] url:[NSString stringWithFormat:@"user_avatar_%@.jpg", _tokenManager.token.user.identifier]];
+    [self.avatarImageView setImageWithURL:[NSURL URLWithString:avatarImageURL]];
 	self.avatarImageView.layer.cornerRadius = kDSCellAvatarCornerRadius;
 	
 	self.textView.contentInset = UIEdgeInsetsMake(0,-8,0,0);
@@ -102,6 +108,7 @@
 - (void) addPhoto
 {
 	//[_dropManager captureWithImage:self.imageToBePosted WithText:self.textView.text];
+    [_actionManager captureWithImage:self.imageToBePosted andText:self.textView.text];
 }
 
 - (void) viewDidLoad

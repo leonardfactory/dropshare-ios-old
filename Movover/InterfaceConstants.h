@@ -69,9 +69,11 @@
 
 #pragma mark - Add Button and relatives
 
-#define kDSAddButtonShowAnimationTime 0.3
-#define kDSAddButtonSize 52.0
-#define kDSActionButtonSize 44.0
-#define kDSActionButtonMargin 4.0
+#define kDSAddButtonShowAnimationTime 0.2
+#define kDSAddButtonSize 48.0
+#define kDSActionButtonSize 48.0
+#define kDSActionButtonMargin 8.0
+
+#define kDSAddButtonPadding 12.0
 
 #endif

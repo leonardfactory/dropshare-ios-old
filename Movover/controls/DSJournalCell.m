@@ -209,7 +209,7 @@
 	UIFont *infoFont = [UIFont boldSystemFontOfSize:kDSDefaultSmallFontSize];
 	
 	CGFloat geoLocationLabelWidth	= MIN([geoLocation sizeWithFont:infoFont].width, 140.0);
-	CGFloat timeLabelWidth			= MIN([aTime sizeWithFont:infoFont].width, 140.0);
+	CGFloat timeLabelWidth			= 280.; //MIN([aTime sizeWithFont:infoFont].width, 310.0);
 	
 	self.geoLocationLabel.frame		= CGRectMake(self.geoLocationLabel.frame.origin.x,
 												 self.geoLocationLabel.frame.origin.y,

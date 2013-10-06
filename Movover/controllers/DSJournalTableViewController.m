@@ -88,15 +88,25 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 #pragma mark - UIView modifications
 - (void) buildView
 {
+    // Style navigationBar with logo
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo"]];
+    self.navigationItem.titleView = imageView;
+    
+    // Remove translucent
+    [self.navigationController.navigationBar setTranslucent:NO];
+    
+    // Style tableView
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 	self.tableView.backgroundColor = [UIColor colorWithRed:228.0/255.0 green:234.0/255.0 blue:232.0/255.0 alpha:1.0];
 	
-	float addButtonHeight = self.view.frame.size.height - kDSAddButtonSize - kDSAddButtonSize;
-	self.addButton = [[DSAddButton alloc] initWithFrame:CGRectMake(10.0,
+	float addButtonHeight = self.view.frame.size.height - kDSAddButtonSize - kDSAddButtonPadding - 44 - 20; // Removing also NavBar + StatusBar height
+	self.addButton = [[DSAddButton alloc] initWithFrame:CGRectMake(kDSAddButtonPadding,
 																   addButtonHeight,
 																   kDSAddButtonSize,
 																   kDSAddButtonSize)
-											 andActions:[NSArray arrayWithObjects:@"actionMemo", @"actionCapture", nil]];
+											 andActions:[NSArray arrayWithObjects:@"actionMemo", @"actionCapture", nil]
+                                          andSuperFrame:self.view.frame];
+    
 	[self.view addSubview:self.addButton];
 	
 	[self.addButton addObserver:self forKeyPath:@"actionCalled" options:NSKeyValueObservingOptionNew context:nil];
@@ -105,7 +115,6 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 #pragma mark - KVO
 - (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-	//<frank>
 	if([keyPath isEqualToString:@"isJournalUpdated"]
 	   && [object isEqual:_journalManager]
 	   && ((DSJournalManager *)object).isJournalUpdated)
@@ -119,7 +128,6 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	{
 		[self scrollDownJournal];
 	}
-	//</frank>
 	
 	if([keyPath isEqualToString:@"actionCalled"]
 		&& [object isEqual:self.addButton])
@@ -251,7 +259,9 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	[dateFormatter setTimeStyle:NSDateFormatterShortStyle];
 	[dateFormatter setDateStyle:NSDateFormatterShortStyle];
 	
-	[journalCell setGeoLocation:[NSString stringWithFormat:@"Via delle Rose n.%d", (int)floorf(powf(([indexPath row]+1)*2, 2.0))] andTime:[dateFormatter stringFromDate:activity.createdOn]];
+    // [NSString stringWithFormat:@"Via delle Rose n.%d", (int)floorf(powf(([indexPath row]+1)*2, 2.0))]
+    
+	[journalCell setGeoLocation:@"Area" andTime:[dateFormatter stringFromDate:activity.createdOn]];
 	
     // Avatar with url
     NSString *avatarImageURL = [[[DSCloudinary sharedInstance] cloudinary] url:[NSString stringWithFormat:@"user_avatar_%@.jpg", user.identifier]];

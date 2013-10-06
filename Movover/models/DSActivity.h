@@ -9,18 +9,19 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class DSArea;
+@class DSArea, DSJournal;
 
 @interface DSActivity : NSManagedObject
 
 @property (nonatomic, retain) NSDate * createdOn;
 @property (nonatomic, retain) id data;
+@property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) NSString * objectEntity;
 @property (nonatomic, retain) NSString * objectId;
 @property (nonatomic, retain) NSString * subjectEntity;
 @property (nonatomic, retain) NSString * subjectId;
 @property (nonatomic, retain) NSString * verb;
-@property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) DSArea *area;
+@property (nonatomic, retain) DSJournal *inverseJournal;
 
 @end

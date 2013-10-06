@@ -44,6 +44,9 @@
     [super viewDidLoad];
     
     NSLog(@"Loaded login");
+    
+    // Remove translucent
+    [self.navigationController.navigationBar setTranslucent:NO];
 	
 	state.originalCenter = self.view.center;
 	state.animation = DSLoginAnimationStateNone;

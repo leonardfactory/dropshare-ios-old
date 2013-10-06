@@ -43,11 +43,9 @@
 		A75391EE1801043200974C1A /* DSDiscover.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391ED1801043200974C1A /* DSDiscover.m */; };
 		A75391F11801043300974C1A /* DSAction.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391F01801043300974C1A /* DSAction.m */; };
 		A75391F41801043300974C1A /* DSToken.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391F31801043300974C1A /* DSToken.m */; };
-		A75391F71801043300974C1A /* DSActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391F61801043300974C1A /* DSActivity.m */; };
 		A75391FA1801043300974C1A /* DSArea.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391F91801043300974C1A /* DSArea.m */; };
 		A75391FD1801043300974C1A /* DSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391FC1801043300974C1A /* DSUser.m */; };
 		A75392001801043300974C1A /* DSComment.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391FF1801043300974C1A /* DSComment.m */; };
-		A75392031801043300974C1A /* DSJournal.m in Sources */ = {isa = PBXBuildFile; fileRef = A75392021801043300974C1A /* DSJournal.m */; };
 		A753DF4316EDDD6100278CE7 /* frank.png in Resources */ = {isa = PBXBuildFile; fileRef = A753DF4216EDDD6100278CE7 /* frank.png */; };
 		A753DF4516EDDD9B00278CE7 /* mountain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A753DF4416EDDD9B00278CE7 /* mountain.jpg */; };
 		A753DF4916EDDEEC00278CE7 /* DSImageJournalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A753DF4816EDDEEC00278CE7 /* DSImageJournalCell.m */; };
@@ -56,6 +54,16 @@
 		A780656D180199BC007B3D8F /* DSCloudinary.m in Sources */ = {isa = PBXBuildFile; fileRef = A780656C180199BC007B3D8F /* DSCloudinary.m */; };
 		A78065711801B3EC007B3D8F /* UIImage+FromColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A78065701801B3EC007B3D8F /* UIImage+FromColor.m */; };
 		A78065741801BBFB007B3D8F /* UIDevice+VersionCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = A78065731801BBFB007B3D8F /* UIDevice+VersionCheck.m */; };
+		A780657B1801C228007B3D8F /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A78065791801C228007B3D8F /* logo.png */; };
+		A780657C1801C228007B3D8F /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A780657A1801C228007B3D8F /* logo@2x.png */; };
+		A780657F1801C320007B3D8F /* addButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A780657D1801C320007B3D8F /* addButton.png */; };
+		A78065801801C320007B3D8F /* addButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A780657E1801C320007B3D8F /* addButton@2x.png */; };
+		A78065851801CDB6007B3D8F /* actionCapture.png in Resources */ = {isa = PBXBuildFile; fileRef = A78065811801CDB6007B3D8F /* actionCapture.png */; };
+		A78065861801CDB6007B3D8F /* actionCapture@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A78065821801CDB6007B3D8F /* actionCapture@2x.png */; };
+		A78065871801CDB6007B3D8F /* actionMemo.png in Resources */ = {isa = PBXBuildFile; fileRef = A78065831801CDB6007B3D8F /* actionMemo.png */; };
+		A78065881801CDB6007B3D8F /* actionMemo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A78065841801CDB6007B3D8F /* actionMemo@2x.png */; };
+		A780658B1801D636007B3D8F /* DSActionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A780658A1801D636007B3D8F /* DSActionManager.m */; };
+		A780658E1801DBB1007B3D8F /* DSActionSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A780658D1801DBB1007B3D8F /* DSActionSerializer.m */; };
 		A781F29816E8FC0B00C8F11C /* bgLogin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A781F28E16E8FC0B00C8F11C /* bgLogin.jpg */; };
 		A781F29916E8FC0B00C8F11C /* bgLogin@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A781F28F16E8FC0B00C8F11C /* bgLogin@2x.jpg */; };
 		A781F29A16E8FC0B00C8F11C /* connectButtonBg.png in Resources */ = {isa = PBXBuildFile; fileRef = A781F29016E8FC0B00C8F11C /* connectButtonBg.png */; };
@@ -74,12 +82,6 @@
 		A781F2B816E9185400C8F11C /* DSAPIAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 136F564B16E8EDB9009E5203 /* DSAPIAdapter.m */; };
 		A78256A716F2439E0046A8AF /* DSAddButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A78256A616F2439E0046A8AF /* DSAddButton.m */; };
 		A78256AA16F25D4E0046A8AF /* DSActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A78256A916F25D4E0046A8AF /* DSActionButton.m */; };
-		A78256B216F2694F0046A8AF /* actionCapture.png in Resources */ = {isa = PBXBuildFile; fileRef = A78256AC16F2694F0046A8AF /* actionCapture.png */; };
-		A78256B316F2694F0046A8AF /* actionCapture@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A78256AD16F2694F0046A8AF /* actionCapture@2x.png */; };
-		A78256B416F2694F0046A8AF /* actionMemo.png in Resources */ = {isa = PBXBuildFile; fileRef = A78256AE16F2694F0046A8AF /* actionMemo.png */; };
-		A78256B516F2694F0046A8AF /* actionMemo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A78256AF16F2694F0046A8AF /* actionMemo@2x.png */; };
-		A78256B616F2694F0046A8AF /* addButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A78256B016F2694F0046A8AF /* addButton.png */; };
-		A78256B716F2694F0046A8AF /* addButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A78256B116F2694F0046A8AF /* addButton@2x.png */; };
 		A78256BB16F2861F0046A8AF /* DSAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A78256BA16F2861F0046A8AF /* DSAddViewController.m */; };
 		A78373AC16EF33C300BF1D50 /* innerShadow.png in Resources */ = {isa = PBXBuildFile; fileRef = A78373AA16EF33C300BF1D50 /* innerShadow.png */; };
 		A78373AD16EF33C300BF1D50 /* innerShadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A78373AB16EF33C300BF1D50 /* innerShadow@2x.png */; };
@@ -100,6 +102,18 @@
 		A78DAD8416DBE2E300A21AD0 /* DSViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = A78DAD8316DBE2E300A21AD0 /* DSViewPager.m */; };
 		A78DAD8716DC352700A21AD0 /* DSViewPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A78DAD8616DC352700A21AD0 /* DSViewPageCell.m */; };
 		A793149816DF60920023B150 /* DSDiscoverTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A793149716DF60910023B150 /* DSDiscoverTableViewController.m */; };
+		A7977B001801F2BC00D5A875 /* DSJournal.m in Sources */ = {isa = PBXBuildFile; fileRef = A7977AFF1801F2BC00D5A875 /* DSJournal.m */; };
+		A7977B031801F2BD00D5A875 /* DSActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = A7977B021801F2BD00D5A875 /* DSActivity.m */; };
+		A7977B0F180222CF00D5A875 /* AppIcon29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = A7977B05180222CF00D5A875 /* AppIcon29x29.png */; };
+		A7977B10180222CF00D5A875 /* AppIcon29x29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7977B06180222CF00D5A875 /* AppIcon29x29@2x.png */; };
+		A7977B11180222CF00D5A875 /* AppIcon40x40.png in Resources */ = {isa = PBXBuildFile; fileRef = A7977B07180222CF00D5A875 /* AppIcon40x40.png */; };
+		A7977B12180222CF00D5A875 /* AppIcon40x40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7977B08180222CF00D5A875 /* AppIcon40x40@2x.png */; };
+		A7977B13180222CF00D5A875 /* AppIcon60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = A7977B09180222CF00D5A875 /* AppIcon60x60.png */; };
+		A7977B14180222CF00D5A875 /* AppIcon60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7977B0A180222CF00D5A875 /* AppIcon60x60@2x.png */; };
+		A7977B15180222CF00D5A875 /* AppIcon76x76.png in Resources */ = {isa = PBXBuildFile; fileRef = A7977B0B180222CF00D5A875 /* AppIcon76x76.png */; };
+		A7977B16180222CF00D5A875 /* AppIcon76x76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7977B0C180222CF00D5A875 /* AppIcon76x76@2x.png */; };
+		A7977B17180222CF00D5A875 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = A7977B0D180222CF00D5A875 /* iTunesArtwork.png */; };
+		A7977B18180222CF00D5A875 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7977B0E180222CF00D5A875 /* iTunesArtwork@2x.png */; };
 		A7A5426116D8FF1200FEE4BE /* addDropButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A5424016D8FF1200FEE4BE /* addDropButton.png */; };
 		A7A5426216D8FF1200FEE4BE /* addDropButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A5424116D8FF1200FEE4BE /* addDropButton@2x.png */; };
 		A7A5426316D8FF1200FEE4BE /* localizeMeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A7A5424216D8FF1200FEE4BE /* localizeMeButton.png */; };
@@ -205,16 +219,12 @@
 		A75391F01801043300974C1A /* DSAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSAction.m; path = models/DSAction.m; sourceTree = "<group>"; };
 		A75391F21801043300974C1A /* DSToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSToken.h; path = models/DSToken.h; sourceTree = "<group>"; };
 		A75391F31801043300974C1A /* DSToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSToken.m; path = models/DSToken.m; sourceTree = "<group>"; };
-		A75391F51801043300974C1A /* DSActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSActivity.h; path = models/DSActivity.h; sourceTree = "<group>"; };
-		A75391F61801043300974C1A /* DSActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSActivity.m; path = models/DSActivity.m; sourceTree = "<group>"; };
 		A75391F81801043300974C1A /* DSArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSArea.h; path = models/DSArea.h; sourceTree = "<group>"; };
 		A75391F91801043300974C1A /* DSArea.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSArea.m; path = models/DSArea.m; sourceTree = "<group>"; };
 		A75391FB1801043300974C1A /* DSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSUser.h; path = models/DSUser.h; sourceTree = "<group>"; };
 		A75391FC1801043300974C1A /* DSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSUser.m; path = models/DSUser.m; sourceTree = "<group>"; };
 		A75391FE1801043300974C1A /* DSComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSComment.h; path = models/DSComment.h; sourceTree = "<group>"; };
 		A75391FF1801043300974C1A /* DSComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSComment.m; path = models/DSComment.m; sourceTree = "<group>"; };
-		A75392011801043300974C1A /* DSJournal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSJournal.h; path = models/DSJournal.h; sourceTree = "<group>"; };
-		A75392021801043300974C1A /* DSJournal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSJournal.m; path = models/DSJournal.m; sourceTree = "<group>"; };
 		A753DF4216EDDD6100278CE7 /* frank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frank.png; sourceTree = "<group>"; };
 		A753DF4416EDDD9B00278CE7 /* mountain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mountain.jpg; sourceTree = "<group>"; };
 		A753DF4716EDDEEC00278CE7 /* DSImageJournalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = DSImageJournalCell.h; path = controls/DSImageJournalCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -228,6 +238,18 @@
 		A78065701801B3EC007B3D8F /* UIImage+FromColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+FromColor.m"; path = "categories/UIImage+FromColor.m"; sourceTree = "<group>"; };
 		A78065721801BBFB007B3D8F /* UIDevice+VersionCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice+VersionCheck.h"; path = "categories/UIDevice+VersionCheck.h"; sourceTree = "<group>"; };
 		A78065731801BBFB007B3D8F /* UIDevice+VersionCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+VersionCheck.m"; path = "categories/UIDevice+VersionCheck.m"; sourceTree = "<group>"; };
+		A78065791801C228007B3D8F /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		A780657A1801C228007B3D8F /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		A780657D1801C320007B3D8F /* addButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addButton.png; sourceTree = "<group>"; };
+		A780657E1801C320007B3D8F /* addButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addButton@2x.png"; sourceTree = "<group>"; };
+		A78065811801CDB6007B3D8F /* actionCapture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = actionCapture.png; sourceTree = "<group>"; };
+		A78065821801CDB6007B3D8F /* actionCapture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "actionCapture@2x.png"; sourceTree = "<group>"; };
+		A78065831801CDB6007B3D8F /* actionMemo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = actionMemo.png; sourceTree = "<group>"; };
+		A78065841801CDB6007B3D8F /* actionMemo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "actionMemo@2x.png"; sourceTree = "<group>"; };
+		A78065891801D636007B3D8F /* DSActionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSActionManager.h; path = models/DSActionManager.h; sourceTree = "<group>"; };
+		A780658A1801D636007B3D8F /* DSActionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSActionManager.m; path = models/DSActionManager.m; sourceTree = "<group>"; };
+		A780658C1801DBB1007B3D8F /* DSActionSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSActionSerializer.h; path = models/DSActionSerializer.h; sourceTree = "<group>"; };
+		A780658D1801DBB1007B3D8F /* DSActionSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSActionSerializer.m; path = models/DSActionSerializer.m; sourceTree = "<group>"; };
 		A781F28E16E8FC0B00C8F11C /* bgLogin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = bgLogin.jpg; path = images/login/bgLogin.jpg; sourceTree = "<group>"; };
 		A781F28F16E8FC0B00C8F11C /* bgLogin@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "bgLogin@2x.jpg"; path = "images/login/bgLogin@2x.jpg"; sourceTree = "<group>"; };
 		A781F29016E8FC0B00C8F11C /* connectButtonBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = connectButtonBg.png; path = images/login/connectButtonBg.png; sourceTree = "<group>"; };
@@ -246,12 +268,6 @@
 		A78256A616F2439E0046A8AF /* DSAddButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = DSAddButton.m; path = controls/DSAddButton.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A78256A816F25D4E0046A8AF /* DSActionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = DSActionButton.h; path = controls/DSActionButton.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A78256A916F25D4E0046A8AF /* DSActionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = DSActionButton.m; path = controls/DSActionButton.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		A78256AC16F2694F0046A8AF /* actionCapture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = actionCapture.png; sourceTree = "<group>"; };
-		A78256AD16F2694F0046A8AF /* actionCapture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "actionCapture@2x.png"; sourceTree = "<group>"; };
-		A78256AE16F2694F0046A8AF /* actionMemo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = actionMemo.png; sourceTree = "<group>"; };
-		A78256AF16F2694F0046A8AF /* actionMemo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "actionMemo@2x.png"; sourceTree = "<group>"; };
-		A78256B016F2694F0046A8AF /* addButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addButton.png; sourceTree = "<group>"; };
-		A78256B116F2694F0046A8AF /* addButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addButton@2x.png"; sourceTree = "<group>"; };
 		A78256B916F2861F0046A8AF /* DSAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = DSAddViewController.h; path = controllers/DSAddViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A78256BA16F2861F0046A8AF /* DSAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = DSAddViewController.m; path = controllers/DSAddViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A78373AA16EF33C300BF1D50 /* innerShadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = innerShadow.png; sourceTree = "<group>"; };
@@ -278,6 +294,20 @@
 		A793149616DF60910023B150 /* DSDiscoverTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSDiscoverTableViewController.h; sourceTree = "<group>"; };
 		A793149716DF60910023B150 /* DSDiscoverTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSDiscoverTableViewController.m; sourceTree = "<group>"; };
 		A793149916DF62770023B150 /* GlobalConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = GlobalConstants.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		A7977AFE1801F2BC00D5A875 /* DSJournal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSJournal.h; path = models/DSJournal.h; sourceTree = "<group>"; };
+		A7977AFF1801F2BC00D5A875 /* DSJournal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSJournal.m; path = models/DSJournal.m; sourceTree = "<group>"; };
+		A7977B011801F2BD00D5A875 /* DSActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSActivity.h; path = models/DSActivity.h; sourceTree = "<group>"; };
+		A7977B021801F2BD00D5A875 /* DSActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSActivity.m; path = models/DSActivity.m; sourceTree = "<group>"; };
+		A7977B05180222CF00D5A875 /* AppIcon29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon29x29.png; sourceTree = "<group>"; };
+		A7977B06180222CF00D5A875 /* AppIcon29x29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon29x29@2x.png"; sourceTree = "<group>"; };
+		A7977B07180222CF00D5A875 /* AppIcon40x40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon40x40.png; sourceTree = "<group>"; };
+		A7977B08180222CF00D5A875 /* AppIcon40x40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon40x40@2x.png"; sourceTree = "<group>"; };
+		A7977B09180222CF00D5A875 /* AppIcon60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon60x60.png; sourceTree = "<group>"; };
+		A7977B0A180222CF00D5A875 /* AppIcon60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon60x60@2x.png"; sourceTree = "<group>"; };
+		A7977B0B180222CF00D5A875 /* AppIcon76x76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon76x76.png; sourceTree = "<group>"; };
+		A7977B0C180222CF00D5A875 /* AppIcon76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon76x76@2x.png"; sourceTree = "<group>"; };
+		A7977B0D180222CF00D5A875 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
+		A7977B0E180222CF00D5A875 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		A7A5424016D8FF1200FEE4BE /* addDropButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addDropButton.png; sourceTree = "<group>"; };
 		A7A5424116D8FF1200FEE4BE /* addDropButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "addDropButton@2x.png"; sourceTree = "<group>"; };
 		A7A5424216D8FF1200FEE4BE /* localizeMeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = localizeMeButton.png; sourceTree = "<group>"; };
@@ -364,6 +394,8 @@
 				A75391D21800F2D900974C1A /* DSJournalSerializer.m */,
 				A75391D41800F39700974C1A /* DSSerializer.h */,
 				A75391D51800F39800974C1A /* DSSerializer.m */,
+				A780658C1801DBB1007B3D8F /* DSActionSerializer.h */,
+				A780658D1801DBB1007B3D8F /* DSActionSerializer.m */,
 			);
 			name = Serializer;
 			sourceTree = "<group>";
@@ -371,16 +403,16 @@
 		136F565216E8EFB0009E5203 /* Auto Generated */ = {
 			isa = PBXGroup;
 			children = (
-				A75392011801043300974C1A /* DSJournal.h */,
-				A75392021801043300974C1A /* DSJournal.m */,
+				A7977B011801F2BD00D5A875 /* DSActivity.h */,
+				A7977B021801F2BD00D5A875 /* DSActivity.m */,
+				A7977AFE1801F2BC00D5A875 /* DSJournal.h */,
+				A7977AFF1801F2BC00D5A875 /* DSJournal.m */,
 				A75391FE1801043300974C1A /* DSComment.h */,
 				A75391FF1801043300974C1A /* DSComment.m */,
 				A75391FB1801043300974C1A /* DSUser.h */,
 				A75391FC1801043300974C1A /* DSUser.m */,
 				A75391F81801043300974C1A /* DSArea.h */,
 				A75391F91801043300974C1A /* DSArea.m */,
-				A75391F51801043300974C1A /* DSActivity.h */,
-				A75391F61801043300974C1A /* DSActivity.m */,
 				A75391F21801043300974C1A /* DSToken.h */,
 				A75391F31801043300974C1A /* DSToken.m */,
 				A75391EF1801043300974C1A /* DSAction.h */,
@@ -415,6 +447,8 @@
 				13677CD316F269B50049C31B /* DSNewDropManager.m */,
 				A75391E61800FD1B00974C1A /* DSUserManager.h */,
 				A75391E71800FD1B00974C1A /* DSUserManager.m */,
+				A78065891801D636007B3D8F /* DSActionManager.h */,
+				A780658A1801D636007B3D8F /* DSActionManager.m */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -475,6 +509,7 @@
 				A78DAD8016DBE2A800A21AD0 /* Controls */,
 				13C4334C16D8FD38001A43F9 /* Controllers */,
 				13C4334B16D8FD32001A43F9 /* lib */,
+				A7977B04180222B200D5A875 /* icons */,
 				13C4334A16D8FD29001A43F9 /* images */,
 				13C4333816D8FC58001A43F9 /* DSAppDelegate.h */,
 				13C4333916D8FC58001A43F9 /* DSAppDelegate.m */,
@@ -671,12 +706,12 @@
 		A78256AB16F2692F0046A8AF /* add */ = {
 			isa = PBXGroup;
 			children = (
-				A78256AC16F2694F0046A8AF /* actionCapture.png */,
-				A78256AD16F2694F0046A8AF /* actionCapture@2x.png */,
-				A78256AE16F2694F0046A8AF /* actionMemo.png */,
-				A78256AF16F2694F0046A8AF /* actionMemo@2x.png */,
-				A78256B016F2694F0046A8AF /* addButton.png */,
-				A78256B116F2694F0046A8AF /* addButton@2x.png */,
+				A78065811801CDB6007B3D8F /* actionCapture.png */,
+				A78065821801CDB6007B3D8F /* actionCapture@2x.png */,
+				A78065831801CDB6007B3D8F /* actionMemo.png */,
+				A78065841801CDB6007B3D8F /* actionMemo@2x.png */,
+				A780657D1801C320007B3D8F /* addButton.png */,
+				A780657E1801C320007B3D8F /* addButton@2x.png */,
 			);
 			name = add;
 			path = ../..;
@@ -732,6 +767,23 @@
 			name = ViewPager;
 			sourceTree = "<group>";
 		};
+		A7977B04180222B200D5A875 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				A7977B05180222CF00D5A875 /* AppIcon29x29.png */,
+				A7977B06180222CF00D5A875 /* AppIcon29x29@2x.png */,
+				A7977B07180222CF00D5A875 /* AppIcon40x40.png */,
+				A7977B08180222CF00D5A875 /* AppIcon40x40@2x.png */,
+				A7977B09180222CF00D5A875 /* AppIcon60x60.png */,
+				A7977B0A180222CF00D5A875 /* AppIcon60x60@2x.png */,
+				A7977B0B180222CF00D5A875 /* AppIcon76x76.png */,
+				A7977B0C180222CF00D5A875 /* AppIcon76x76@2x.png */,
+				A7977B0D180222CF00D5A875 /* iTunesArtwork.png */,
+				A7977B0E180222CF00D5A875 /* iTunesArtwork@2x.png */,
+			);
+			name = icons;
+			sourceTree = "<group>";
+		};
 		A7A5423F16D8FF1200FEE4BE /* discover */ = {
 			isa = PBXGroup;
 			children = (
@@ -774,6 +826,8 @@
 		A7A5424F16D8FF1200FEE4BE /* navigation */ = {
 			isa = PBXGroup;
 			children = (
+				A78065791801C228007B3D8F /* logo.png */,
+				A780657A1801C228007B3D8F /* logo@2x.png */,
 				A7A5425016D8FF1200FEE4BE /* backBarButtonBg.png */,
 				A7A5425116D8FF1200FEE4BE /* backBarButtonBg@2x.png */,
 				A7A5425216D8FF1200FEE4BE /* backBarButtonBgPressed.png */,
@@ -912,10 +966,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A78065801801C320007B3D8F /* addButton@2x.png in Resources */,
 				13C4333416D8FC58001A43F9 /* InfoPlist.strings in Resources */,
+				A7977B0F180222CF00D5A875 /* AppIcon29x29.png in Resources */,
 				13C4333C16D8FC58001A43F9 /* Default.png in Resources */,
 				13C4333E16D8FC58001A43F9 /* Default@2x.png in Resources */,
 				13C4334016D8FC58001A43F9 /* Default-568h@2x.png in Resources */,
+				A7977B12180222CF00D5A875 /* AppIcon40x40@2x.png in Resources */,
 				A7A5426116D8FF1200FEE4BE /* addDropButton.png in Resources */,
 				A7A5426216D8FF1200FEE4BE /* addDropButton@2x.png in Resources */,
 				A7A5426316D8FF1200FEE4BE /* localizeMeButton.png in Resources */,
@@ -927,18 +984,24 @@
 				A7A5426B16D8FF1200FEE4BE /* mainBgTile.png in Resources */,
 				A7A5426C16D8FF1200FEE4BE /* mainBgTile@2x.png in Resources */,
 				A7A5426D16D8FF1200FEE4BE /* separator.png in Resources */,
+				A780657C1801C228007B3D8F /* logo@2x.png in Resources */,
 				A7A5426E16D8FF1200FEE4BE /* separator@2x.png in Resources */,
 				A7A5426F16D8FF1200FEE4BE /* backBarButtonBg.png in Resources */,
+				A7977B15180222CF00D5A875 /* AppIcon76x76.png in Resources */,
 				A7A5427016D8FF1200FEE4BE /* backBarButtonBg@2x.png in Resources */,
 				A7A5427116D8FF1200FEE4BE /* backBarButtonBgPressed.png in Resources */,
 				A7A5427216D8FF1200FEE4BE /* backBarButtonBgPressed@2x.png in Resources */,
 				A7A5427316D8FF1200FEE4BE /* barButtonBg.png in Resources */,
 				A7A5427416D8FF1200FEE4BE /* barButtonBg@2x.png in Resources */,
 				A7A5427516D8FF1200FEE4BE /* barButtonBgPressed.png in Resources */,
+				A780657B1801C228007B3D8F /* logo.png in Resources */,
 				A7A5427616D8FF1200FEE4BE /* barButtonBgPressed@2x.png in Resources */,
+				A78065851801CDB6007B3D8F /* actionCapture.png in Resources */,
+				A7977B14180222CF00D5A875 /* AppIcon60x60@2x.png in Resources */,
 				A7A5427716D8FF1200FEE4BE /* titleBarPlain.png in Resources */,
 				A7A5427816D8FF1200FEE4BE /* titleBarPlain@2x.png in Resources */,
 				A7A5427916D8FF1200FEE4BE /* menuButtonBg.png in Resources */,
+				A7977B10180222CF00D5A875 /* AppIcon29x29@2x.png in Resources */,
 				A7A5427A16D8FF1200FEE4BE /* menuButtonBg@2x.png in Resources */,
 				A7A5427B16D8FF1200FEE4BE /* menuButtonBgPressed.png in Resources */,
 				A7A5427C16D8FF1200FEE4BE /* menuButtonBgPressed@2x.png in Resources */,
@@ -949,41 +1012,44 @@
 				A781F29816E8FC0B00C8F11C /* bgLogin.jpg in Resources */,
 				A781F29916E8FC0B00C8F11C /* bgLogin@2x.jpg in Resources */,
 				A781F29A16E8FC0B00C8F11C /* connectButtonBg.png in Resources */,
+				A7977B17180222CF00D5A875 /* iTunesArtwork.png in Resources */,
 				A781F29B16E8FC0B00C8F11C /* connectButtonBg@2x.png in Resources */,
 				A781F29C16E8FC0B00C8F11C /* fbButtonBg.png in Resources */,
 				A781F29D16E8FC0B00C8F11C /* fbButtonBg@2x.png in Resources */,
 				A781F29E16E8FC0B00C8F11C /* textFieldBottomBg.png in Resources */,
 				A781F29F16E8FC0B00C8F11C /* textFieldBottomBg@2x.png in Resources */,
+				A7977B11180222CF00D5A875 /* AppIcon40x40.png in Resources */,
 				A781F2A016E8FC0B00C8F11C /* textFieldTopBg.png in Resources */,
 				A781F2A116E8FC0B00C8F11C /* textFieldTopBg@2x.png in Resources */,
 				A7D4365B16EBA420006807EB /* DSJournalCell.xib in Resources */,
 				A7D4366316EBC684006807EB /* avatar.png in Resources */,
+				A780657F1801C320007B3D8F /* addButton.png in Resources */,
 				A7D4366416EBC684006807EB /* profile.jpeg in Resources */,
 				A753DF4316EDDD6100278CE7 /* frank.png in Resources */,
+				A7977B13180222CF00D5A875 /* AppIcon60x60.png in Resources */,
 				A753DF4516EDDD9B00278CE7 /* mountain.jpg in Resources */,
 				A753DF4B16EDDF0B00278CE7 /* DSImageJournalCell.xib in Resources */,
 				A78373AC16EF33C300BF1D50 /* innerShadow.png in Resources */,
 				A78373AD16EF33C300BF1D50 /* innerShadow@2x.png in Resources */,
 				A78373B616EF4FDB00BF1D50 /* commentIcon.png in Resources */,
 				A78373B716EF4FDB00BF1D50 /* commentIcon@2x.png in Resources */,
+				A7977B16180222CF00D5A875 /* AppIcon76x76@2x.png in Resources */,
+				A78065861801CDB6007B3D8F /* actionCapture@2x.png in Resources */,
 				A78373B816EF4FDB00BF1D50 /* forkIcon.png in Resources */,
 				A78373B916EF4FDB00BF1D50 /* forkIcon@2x.png in Resources */,
 				A78373BA16EF4FDB00BF1D50 /* paperClipIcon.png in Resources */,
+				A78065871801CDB6007B3D8F /* actionMemo.png in Resources */,
+				A78065881801CDB6007B3D8F /* actionMemo@2x.png in Resources */,
 				A78373BB16EF4FDB00BF1D50 /* paperClipIcon@2x.png in Resources */,
 				A78373C216EF500F00BF1D50 /* dotSeparator.png in Resources */,
 				A78373C316EF500F00BF1D50 /* dotSeparator@2x.png in Resources */,
 				A78373C416EF500F00BF1D50 /* geoLocationIcon.png in Resources */,
 				A78373C516EF500F00BF1D50 /* geoLocationIcon@2x.png in Resources */,
+				A7977B18180222CF00D5A875 /* iTunesArtwork@2x.png in Resources */,
 				A78373C616EF500F00BF1D50 /* timeIcon.png in Resources */,
 				A78373C716EF500F00BF1D50 /* timeIcon@2x.png in Resources */,
 				A78373CA16EF5C1F00BF1D50 /* buttonBg.png in Resources */,
 				A78373CB16EF5C1F00BF1D50 /* buttonBg@2x.png in Resources */,
-				A78256B216F2694F0046A8AF /* actionCapture.png in Resources */,
-				A78256B316F2694F0046A8AF /* actionCapture@2x.png in Resources */,
-				A78256B416F2694F0046A8AF /* actionMemo.png in Resources */,
-				A78256B516F2694F0046A8AF /* actionMemo@2x.png in Resources */,
-				A78256B616F2694F0046A8AF /* addButton.png in Resources */,
-				A78256B716F2694F0046A8AF /* addButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1029,6 +1095,7 @@
 			files = (
 				A781F2B516E9185400C8F11C /* DSEntityManager.m in Sources */,
 				A781F2B616E9185400C8F11C /* DSTokenManager.m in Sources */,
+				A780658B1801D636007B3D8F /* DSActionManager.m in Sources */,
 				A75392001801043300974C1A /* DSComment.m in Sources */,
 				A781F2B716E9185400C8F11C /* DSDataAdapter.m in Sources */,
 				A781F2B816E9185400C8F11C /* DSAPIAdapter.m in Sources */,
@@ -1042,6 +1109,7 @@
 				A75391EE1801043200974C1A /* DSDiscover.m in Sources */,
 				13C4333A16D8FC58001A43F9 /* DSAppDelegate.m in Sources */,
 				A78DAD8416DBE2E300A21AD0 /* DSViewPager.m in Sources */,
+				A7977B001801F2BC00D5A875 /* DSJournal.m in Sources */,
 				A78065741801BBFB007B3D8F /* UIDevice+VersionCheck.m in Sources */,
 				A78DAD8716DC352700A21AD0 /* DSViewPageCell.m in Sources */,
 				138800B916E627C600716368 /* DSJournalSimpleDropCell.m in Sources */,
@@ -1060,15 +1128,15 @@
 				A7D4366C16EBC6A0006807EB /* UIImage+Alpha.m in Sources */,
 				A7D4366D16EBC6A0006807EB /* UIImage+Resize.m in Sources */,
 				A75391FD1801043300974C1A /* DSUser.m in Sources */,
+				A780658E1801DBB1007B3D8F /* DSActionSerializer.m in Sources */,
 				A75391D31800F2D900974C1A /* DSJournalSerializer.m in Sources */,
 				A7D4366E16EBC6A0006807EB /* UIImage+RoundedCorner.m in Sources */,
-				A75391F71801043300974C1A /* DSActivity.m in Sources */,
 				A75391FA1801043300974C1A /* DSArea.m in Sources */,
 				A753DF4916EDDEEC00278CE7 /* DSImageJournalCell.m in Sources */,
 				131480F116F0D4B1004A9D3C /* DSUserSerializer.m in Sources */,
 				A75391E81800FD1B00974C1A /* DSUserManager.m in Sources */,
-				A75392031801043300974C1A /* DSJournal.m in Sources */,
 				134B8AAB16F1B9FB00900AC6 /* DSJournalManager.m in Sources */,
+				A7977B031801F2BD00D5A875 /* DSActivity.m in Sources */,
 				13E41B6C16F21541008052F8 /* DSImageUrl.m in Sources */,
 				A75391F41801043300974C1A /* DSToken.m in Sources */,
 				13677CD416F269B50049C31B /* DSNewDropManager.m in Sources */,

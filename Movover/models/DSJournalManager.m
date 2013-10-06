@@ -9,6 +9,7 @@
 #import "DSJournalManager.h"
 #import "DSJournalSerializer.h"
 
+#import "DSActivitySerializer.h"
 #import "DSActivity.h"
 
 #define DROPCOUNT (@5)
@@ -68,8 +69,23 @@
     
 	[self.APIAdapter getPath:@"/user/journal" parameters:body success:^(NSDictionary *responseObject)
 	{
+        NSString *lastIdentifier = [[responseObject[@"activity"] lastObject] valueForKey:@"_id"];
+        NSMutableDictionary *responseFixed = [responseObject mutableCopy];
+        
+        // Se l'ultimo elemento della lista non è uguale al mio, vuol dire che c'è un gap. Dunque invalido la cache
+        if(![lastIdentifier isEqualToString:since_activity.identifier]) {
+            [self invalidateCache];
+        }
+        // Altrimenti elimino l'ultimo elemento (non c'è bisogno di reinserirlo)
+        else {
+            NSMutableArray *activityWithLastRemoved = [responseObject[@"activity"] mutableCopy];
+            [activityWithLastRemoved removeLastObject];
+            
+            responseFixed[@"activity"] = activityWithLastRemoved;
+        }
+        
         DSJournalSerializer *serializer = [[DSJournalSerializer alloc] init];
-        _journal = [serializer deserializeJournalFrom:responseObject];
+        _journal = [serializer deserializeJournalFrom:responseFixed andInsertAt:DSJournalInsertAtBeginning];
 		
 		self.isJournalUpdated = TRUE;
 	} failure:^(NSString *responseError, int statusCode, NSError *error)
@@ -92,7 +108,7 @@
 	[self.APIAdapter getPath:@"/user/journal" parameters:body success:^(NSDictionary *responseObject)
 	{
 		DSJournalSerializer *serializer = [[DSJournalSerializer alloc] init];
-		_journal = [serializer deserializeJournalFrom:responseObject];
+		_journal = [serializer deserializeJournalFrom:responseObject andInsertAt:DSJournalInsertAtEnd];
         
 		self.isJournalScrolled = TRUE;
 	} failure:^(NSString *responseError, int statusCode, NSError *error)
@@ -100,6 +116,15 @@
 		NSLog(@"%d",statusCode);
 		NSLog(@"%@",responseError);
 	}];
+}
+
+- (void) invalidateCache
+{
+    for(DSActivity *activity in _journal.activities) {
+        [self.dataAdapter remove:activity error:nil];
+    }
+    _journal.activities = [NSOrderedSet orderedSet];
+    [self.dataAdapter save:nil];
 }
 
 @end

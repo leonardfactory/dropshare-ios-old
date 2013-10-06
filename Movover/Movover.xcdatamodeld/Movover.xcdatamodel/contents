@@ -30,6 +30,7 @@
         <attribute name="subjectId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="verb" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="area" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Area" syncable="YES"/>
+        <relationship name="inverseJournal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Journal" inverseName="activities" inverseEntity="Journal" syncable="YES"/>
     </entity>
     <entity name="Area" representedClassName="DSArea" syncable="YES">
         <attribute name="approved" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -58,7 +59,7 @@
     <entity name="Journal" representedClassName="DSJournal" syncable="YES">
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="updatedOn" optional="YES" attributeType="Date" syncable="YES"/>
-        <relationship name="activities" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Activity" syncable="YES"/>
+        <relationship name="activities" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Activity" inverseName="inverseJournal" inverseEntity="Activity" syncable="YES"/>
     </entity>
     <entity name="Token" representedClassName="DSToken" syncable="YES">
         <attribute name="accessToken" optional="YES" attributeType="String" syncable="YES"/>
