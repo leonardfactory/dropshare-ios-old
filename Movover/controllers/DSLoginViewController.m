@@ -6,7 +6,10 @@
 //  Copyright (c) 2013 Movover. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "DSLoginViewController.h"
+
+#import "UIDevice+VersionCheck.h"
 
 @interface DSLoginViewController ()
 {
@@ -17,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UIButton *connectButton;
 @property (weak, nonatomic) IBOutlet UIButton *fbSignupButton;
+@property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
+//@property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 
 @end
 
@@ -45,18 +50,50 @@
     
     NSLog(@"Loaded login");
     
-    // Remove translucent
-    [self.navigationController.navigationBar setTranslucent:NO];
+    // Customize navigation bar
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo"]];
+    self.navigationItem.titleView = imageView;
+    
+    
+    if ([[UIDevice currentDevice] systemMajorVersion] >= 7)
+    {
+        // iOS 7
+        self.navigationBar.frame = CGRectMake(self.navigationBar.frame.origin.x, self.navigationBar.frame.origin.y, self.navigationBar.frame.size.width, 64);
+        [self.navigationBar setTranslucent:NO];
+    }
 	
 	state.originalCenter = self.view.center;
 	state.animation = DSLoginAnimationStateNone;
 	state.animateKeyboard = YES;
 	
-	[self.fbSignupButton setBackgroundImage:[[UIImage imageNamed:@"fbButtonBg.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(7, 6, 38, 5)] forState:UIControlStateNormal];
-	[self.connectButton setBackgroundImage:[[UIImage imageNamed:@"connectButtonBg.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(7, 6, 38, 5)] forState:UIControlStateNormal];
+    // Username Field corners
+    UIBezierPath *usernameRounded;
+    usernameRounded = [UIBezierPath bezierPathWithRoundedRect:self.usernameField.bounds byRoundingCorners:(UIRectCornerTopLeft | UIRectCornerTopRight) cornerRadii:CGSizeMake(6.0, 6.0)];
+    
+    CAShapeLayer *usernameMaskLayer = [[CAShapeLayer alloc] init];
+    usernameMaskLayer.frame = self.view.bounds;
+    usernameMaskLayer.path = usernameRounded.CGPath;
+    self.usernameField.layer.mask = usernameMaskLayer;
+    
+    // Password Field corners
+    UIBezierPath *passwordRounded;
+    passwordRounded = [UIBezierPath bezierPathWithRoundedRect:self.passwordField.bounds byRoundingCorners:(UIRectCornerBottomLeft | UIRectCornerBottomRight) cornerRadii:CGSizeMake(6.0, 6.0)];
+    
+    CAShapeLayer *passwordMaskLayer = [[CAShapeLayer alloc] init];
+    passwordMaskLayer.frame = self.view.bounds;
+    passwordMaskLayer.path = passwordRounded.CGPath;
+    self.passwordField.layer.mask = passwordMaskLayer;
+    
+    // Button corners
+    self.connectButton.layer.cornerRadius = 6.0;
+    self.fbSignupButton.layer.cornerRadius = 6.0;
+
+    
+	//[self.fbSignupButton setBackgroundImage:[[UIImage imageNamed:@"fbButtonBg.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(7, 6, 38, 5)] forState:UIControlStateNormal];
+	//[self.connectButton setBackgroundImage:[[UIImage imageNamed:@"connectButtonBg.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(7, 6, 38, 5)] forState:UIControlStateNormal];
 	
-	[self.usernameField setBackground:[[UIImage imageNamed:@"textFieldTopBg.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(1, 5, 44, 5)]];
-	[self.passwordField setBackground:[[UIImage imageNamed:@"textFieldBottomBg.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(1, 5, 44, 5)]];
+	//[self.usernameField setBackground:[[UIImage imageNamed:@"textFieldTopBg.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(1, 5, 44, 5)]];
+	//[self.passwordField setBackground:[[UIImage imageNamed:@"textFieldBottomBg.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(1, 5, 44, 5)]];
 }
 
 #pragma mark - Keyboard handling

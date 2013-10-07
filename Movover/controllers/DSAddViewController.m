@@ -84,7 +84,7 @@
 	self.textView.delegate = self;
     self.textView.internalTextView.scrollIndicatorInsets = UIEdgeInsetsMake(5, 0, 5, 0);
     //self.textView.backgroundColor = [UIColor whiteColor];
-    self.textView.placeholder = @"What are you thinking?";
+    self.textView.placeholder = @"Cosa sta succedendo?";
     
     self.textView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self.textView becomeFirstResponder];

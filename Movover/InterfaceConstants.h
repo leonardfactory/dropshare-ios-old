@@ -45,7 +45,7 @@
 #define kDSCellDescriptionFontSize kDSDefaultFontSize
 #define kDSCellDescriptionWidth kDSCellLabelWidth
 #define kDSCellDescriptionHeight (kDSCellDescriptionFontSize + 2)
-#define kDSCellDescriptionTopMargin (kDSCellUsernameTopMargin + kDSCellUsernameHeight)
+#define kDSCellDescriptionTopMargin (kDSCellUsernameTopMargin + kDSCellUsernameHeight + 2)
 
 #define kDSCellAvatarLeftMargin kDSCellTopMargin
 #define kDSCellAvatarTopMargin kDSCellAvatarLeftMargin
