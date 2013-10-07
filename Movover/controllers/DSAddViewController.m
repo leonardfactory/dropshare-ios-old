@@ -16,12 +16,13 @@
 #import "UIImage+Resize.h"
 #import "UIImageView+AFNetworking.h"
 
-#import "DSCloudinary.h";
+#import "DSCloudinary.h"
 
 @interface DSAddViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
-@property (weak, nonatomic) IBOutlet UITextView *textView;
+//@property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (strong, nonatomic) HPGrowingTextView *textView;
 
 @property (strong, nonatomic) UIImage *imageToBePosted;
 @property (strong, nonatomic) UIImageView *imageToBePostedView;
@@ -42,7 +43,6 @@
 	{
 		_tokenManager = [[DSTokenManager alloc] init];
         _actionManager = [[DSActionManager alloc] init];
-		//_dropManager	= [[DSNewDropManager alloc] init];
 		
 		[[NSNotificationCenter defaultCenter] addObserver:self
 												 selector:@selector(keyboardWasShown:)
@@ -56,6 +56,7 @@
     // Remove translucent
     [self.navigationController.navigationBar setTranslucent:NO];
     
+    // Add Button on the navigation Bar
 	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
 																				 target:self
 																				 action:@selector(addPhoto)];
@@ -64,10 +65,41 @@
 	//[self.avatarImageView setImageWithURL:[NSURL URLWithString:[DSImageUrl getAvatarUrlFromUserId:_profileManager.profile.user.identifier]]];
     NSString *avatarImageURL = [[[DSCloudinary sharedInstance] cloudinary] url:[NSString stringWithFormat:@"user_avatar_%@.jpg", _tokenManager.token.user.identifier]];
     [self.avatarImageView setImageWithURL:[NSURL URLWithString:avatarImageURL]];
-	self.avatarImageView.layer.cornerRadius = kDSCellAvatarCornerRadius;
+	self.avatarImageView.layer.cornerRadius     = kDSCellAvatarCornerRadius;
+    self.avatarImageView.layer.masksToBounds    = YES;
 	
-	self.textView.contentInset = UIEdgeInsetsMake(0,-8,0,0);
-	[self.textView becomeFirstResponder];
+    // Text view
+	//self.textView.contentInset = UIEdgeInsetsZero;
+	//[self.textView becomeFirstResponder];
+    self.textView = [[HPGrowingTextView alloc] initWithFrame:CGRectMake(66, 74, 244, 40)];
+    self.textView.isScrollable = NO;
+    self.textView.contentInset = UIEdgeInsetsMake(0, 5, 0, 5);
+    
+	self.textView.minNumberOfLines = 1;
+	self.textView.maxNumberOfLines = 6;
+    // you can also set the maximum height in points with maxHeight
+    // textView.maxHeight = 200.0f;
+	self.textView.returnKeyType = UIReturnKeyGo; //just as an example
+	self.textView.font = [UIFont systemFontOfSize:15.0f];
+	self.textView.delegate = self;
+    self.textView.internalTextView.scrollIndicatorInsets = UIEdgeInsetsMake(5, 0, 5, 0);
+    //self.textView.backgroundColor = [UIColor whiteColor];
+    self.textView.placeholder = @"What are you thinking?";
+    
+    self.textView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    [self.textView becomeFirstResponder];
+    
+    [self.view addSubview:self.textView];
+}
+
+- (void) growingTextView:(HPGrowingTextView *)growingTextView willChangeHeight:(float)height
+{
+    //float diff = (growingTextView.frame.size.height - height);
+    
+	/* CGRect r = self.view.frame;
+    r.size.height -= diff;
+    r.origin.y += diff;
+	containerView.frame = r; */
 }
 
 - (void) postImageFromCapture:(UIImage *)image
@@ -101,8 +133,8 @@
 	
 	self.textView.frame = CGRectMake(self.textView.frame.origin.x,
 									 self.textView.frame.origin.y,
-									 self.view.bounds.size.height - kbSize.height,
-									 self.textView.frame.size.width);
+                                     self.textView.frame.size.width,
+									 self.view.bounds.size.height - kbSize.height);
 }
 
 - (void) addPhoto

@@ -105,7 +105,7 @@
             <objects>
                 <viewController storyboardIdentifier="loginViewController" id="1Os-Wn-0dE" customClass="DSLoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c4c-Of-YKa">
-                        <rect key="frame" x="0.0" y="0.0" width="320.00000000000006" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bgLogin.jpg" id="F2J-ZE-lH9">
@@ -390,26 +390,14 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="0Y0-Uj-2bW">
-                                <rect key="frame" x="10" y="54" width="48" height="68"/>
+                                <rect key="frame" x="10" y="74" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="What did you shoot?" id="0WH-Xt-aEi">
-                                <rect key="frame" x="61" y="54" width="251" height="208"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                <connections>
-                                    <outlet property="delegate" destination="o2C-Pk-T3s" id="9p0-hp-g9L"/>
-                                </connections>
-                            </textView>
                         </subviews>
-                        <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="avatarImageView" destination="0Y0-Uj-2bW" id="Pfx-co-HOZ"/>
-                        <outlet property="textView" destination="0WH-Xt-aEi" id="OgS-kG-J2c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p40-i6-6rg" userLabel="First Responder" sceneMemberID="firstResponder"/>

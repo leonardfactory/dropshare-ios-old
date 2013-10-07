@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <HPGrowingTextView.h>
 
-@interface DSAddViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface DSAddViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, HPGrowingTextViewDelegate>
 
 @property (strong, nonatomic) NSString* type;
 
