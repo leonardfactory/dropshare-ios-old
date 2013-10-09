@@ -12,6 +12,7 @@
 
 #import "DSJournalManager.h"
 #import "DSActivity.h"
+#import "DSArea.h"
 
 @interface DSJournalTableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 

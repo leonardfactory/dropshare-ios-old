@@ -28,6 +28,8 @@
 		13C4333E16D8FC58001A43F9 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13C4333D16D8FC58001A43F9 /* Default@2x.png */; };
 		13C4334016D8FC58001A43F9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 13C4333F16D8FC58001A43F9 /* Default-568h@2x.png */; };
 		13E41B6C16F21541008052F8 /* DSImageUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E41B6B16F21541008052F8 /* DSImageUrl.m */; };
+		A702804018056AFA00B5EF85 /* entypo-social.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A702803E18056AFA00B5EF85 /* entypo-social.ttf */; };
+		A702804118056AFA00B5EF85 /* entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A702803F18056AFA00B5EF85 /* entypo.ttf */; };
 		A70ABAA316DD59BC003AFA4B /* DSViewPageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A70ABAA216DD59BC003AFA4B /* DSViewPageCell.xib */; };
 		A723DFE216DA930900F51928 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429316D9028F00FEE4BE /* JASidePanelController.m */; };
 		A723DFE316DA930900F51928 /* DSSidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429516D9028F00FEE4BE /* DSSidePanelController.m */; };
@@ -198,6 +200,8 @@
 		13E41B6B16F21541008052F8 /* DSImageUrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = DSImageUrl.m; path = models/DSImageUrl.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		13F1DEB776EF4788AF935ACE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E79727B35454C4BBC84FECD /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		A702803E18056AFA00B5EF85 /* entypo-social.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "entypo-social.ttf"; sourceTree = "<group>"; };
+		A702803F18056AFA00B5EF85 /* entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = entypo.ttf; sourceTree = "<group>"; };
 		A70ABAA216DD59BC003AFA4B /* DSViewPageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSViewPageCell.xib; sourceTree = "<group>"; };
 		A73863F916F3162400034512 /* DSCaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = DSCaptureViewController.h; path = controllers/DSCaptureViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A73863FA16F3162400034512 /* DSCaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = DSCaptureViewController.m; path = controllers/DSCaptureViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -510,6 +514,7 @@
 				13C4334C16D8FD38001A43F9 /* Controllers */,
 				13C4334B16D8FD32001A43F9 /* lib */,
 				A7977B04180222B200D5A875 /* icons */,
+				A702803D18056AB800B5EF85 /* fonts */,
 				13C4334A16D8FD29001A43F9 /* images */,
 				13C4333816D8FC58001A43F9 /* DSAppDelegate.h */,
 				13C4333916D8FC58001A43F9 /* DSAppDelegate.m */,
@@ -586,6 +591,15 @@
 				A7A5429716D9028F00FEE4BE /* UIViewController+SidePanel.m */,
 			);
 			name = SidePanel;
+			sourceTree = "<group>";
+		};
+		A702803D18056AB800B5EF85 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A702803E18056AFA00B5EF85 /* entypo-social.ttf */,
+				A702803F18056AFA00B5EF85 /* entypo.ttf */,
+			);
+			name = fonts;
 			sourceTree = "<group>";
 		};
 		A723DFEA16DA93C800F51928 /* Discover */ = {
@@ -973,6 +987,7 @@
 				13C4333E16D8FC58001A43F9 /* Default@2x.png in Resources */,
 				13C4334016D8FC58001A43F9 /* Default-568h@2x.png in Resources */,
 				A7977B12180222CF00D5A875 /* AppIcon40x40@2x.png in Resources */,
+				A702804118056AFA00B5EF85 /* entypo.ttf in Resources */,
 				A7A5426116D8FF1200FEE4BE /* addDropButton.png in Resources */,
 				A7A5426216D8FF1200FEE4BE /* addDropButton@2x.png in Resources */,
 				A7A5426316D8FF1200FEE4BE /* localizeMeButton.png in Resources */,
@@ -1039,6 +1054,7 @@
 				A78373B916EF4FDB00BF1D50 /* forkIcon@2x.png in Resources */,
 				A78373BA16EF4FDB00BF1D50 /* paperClipIcon.png in Resources */,
 				A78065871801CDB6007B3D8F /* actionMemo.png in Resources */,
+				A702804018056AFA00B5EF85 /* entypo-social.ttf in Resources */,
 				A78065881801CDB6007B3D8F /* actionMemo@2x.png in Resources */,
 				A78373BB16EF4FDB00BF1D50 /* paperClipIcon@2x.png in Resources */,
 				A78373C216EF500F00BF1D50 /* dotSeparator.png in Resources */,

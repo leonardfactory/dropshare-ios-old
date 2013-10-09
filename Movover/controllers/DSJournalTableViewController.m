@@ -261,7 +261,7 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	
     // [NSString stringWithFormat:@"Via delle Rose n.%d", (int)floorf(powf(([indexPath row]+1)*2, 2.0))]
     
-	[journalCell setGeoLocation:@"Area" andTime:[dateFormatter stringFromDate:activity.createdOn]];
+	[journalCell setGeoLocation:activity.area.name andTime:[dateFormatter stringFromDate:activity.createdOn]];
 	
     // Avatar with url
     NSString *avatarImageURL = [[[DSCloudinary sharedInstance] cloudinary] url:[NSString stringWithFormat:@"user_avatar_%@.jpg", user.identifier]];

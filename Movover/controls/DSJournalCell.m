@@ -7,6 +7,7 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
+
 #import "DSJournalCell.h"
 #import "InterfaceConstants.h"
 #import "UIImageView+AFNetworking.h"
@@ -78,6 +79,8 @@
 		// Info on GeoLocation and Time
 		UIFont *infoFont		= [UIFont systemFontOfSize:kDSDefaultSmallFontSize];
 		UIColor *infoFontColor	= [UIColor lightGrayColor];
+        
+        //UIFont *entypoFont      = [UIFont fontWithName:@"Entypo" size:kDSDefaultSmallFontSize];
 		
 		self.infoLabels		= [[UIView alloc] initWithFrame:CGRectMake(kDSCellLabelLeftMargin,
 																	   kDSCellDescriptionTopMargin + kDSCellDescriptionHeight + kDSCellInfoLabelsTopMargin,
@@ -85,9 +88,15 @@
 																	   14.0)];
 		[self addSubview:self.infoLabels];
 		
-		self.geoLocationImageView		= [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 2.0, 10.0, 10.0)];
-		self.geoLocationImageView.image = [UIImage imageNamed:@"geoLocationIcon.png"];
-		[self.infoLabels addSubview:self.geoLocationImageView];
+        self.geoLocationIconView                    = [[FIIconView alloc] initWithFrame:CGRectMake(0.0, 2.0, 10.0, 10.0)];
+        self.geoLocationIconView.backgroundColor    = [UIColor clearColor];
+        self.geoLocationIconView.icon               = [FIEntypoIcon locationIcon];
+        self.geoLocationIconView.iconColor          = infoFontColor;
+        [self.infoLabels addSubview:self.geoLocationIconView];
+        
+		//self.geoLocationImageView		= [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 2.0, 10.0, 10.0)];
+		//self.geoLocationImageView.image = [UIImage imageNamed:@"geoLocationIcon.png"];
+		//[self.infoLabels addSubview:self.geoLocationImageView];
 		
 		self.geoLocationLabel			= [[UILabel alloc] initWithFrame:CGRectMake(10.0 + 2.0, 0.0, 100.0, 14.0)];
 		self.geoLocationLabel.text		= @"Placeholder";
@@ -98,10 +107,16 @@
 		self.separatorImageView			= [[UIImageView alloc] initWithFrame:CGRectMake(108.0, 5.0, 2.0, 2.0)];
 		self.separatorImageView.image	= [UIImage imageNamed:@"dotSeparator.png"];
 		[self.infoLabels addSubview:self.separatorImageView];
+        
+        self.timeIconView                    = [[FIIconView alloc] initWithFrame:CGRectMake(120.0, 1.0, 11.0, 11.0)];
+        self.timeIconView.backgroundColor    = [UIColor clearColor];
+        self.timeIconView.icon               = [FIEntypoIcon clockIcon];
+        self.timeIconView.iconColor          = infoFontColor;
+        [self.infoLabels addSubview:self.timeIconView];
 		
-		self.timeImageView			= [[UIImageView alloc] initWithFrame:CGRectMake(120.0, 1.0, 11.0, 11.0)];
-		self.timeImageView.image	= [UIImage imageNamed:@"timeIcon.png"];
-		[self.infoLabels addSubview:self.timeImageView];
+		//self.timeImageView			= [[UIImageView alloc] initWithFrame:CGRectMake(120.0, 1.0, 11.0, 11.0)];
+		//self.timeImageView.image	= [UIImage imageNamed:@"timeIcon.png"];
+		//[self.infoLabels addSubview:self.timeImageView];
 		
 		self.timeLabel				= [[UILabel alloc] initWithFrame:CGRectMake(133.0, 0.0, 100.0, 14.0)];
 		self.timeLabel.text			= @"11/02/2012";
@@ -221,12 +236,12 @@
 												 self.separatorImageView.frame.size.width,
 												 self.separatorImageView.frame.size.height);
 	
-	self.timeImageView.frame		= CGRectMake(self.separatorImageView.frame.origin.x + self.separatorImageView.frame.size.width + 4.0,
-												 self.timeImageView.frame.origin.y,
-												 self.timeImageView.frame.size.width,
-												 self.timeImageView.frame.size.height);
+	self.timeIconView.frame         = CGRectMake(self.separatorImageView.frame.origin.x + self.separatorImageView.frame.size.width + 4.0,
+												 self.timeIconView.frame.origin.y,
+												 self.timeIconView.frame.size.width,
+												 self.timeIconView.frame.size.height);
 	
-	self.timeLabel.frame			= CGRectMake(self.timeImageView.frame.origin.x + self.timeImageView.frame.size.width + 3.0,
+	self.timeLabel.frame			= CGRectMake(self.timeIconView.frame.origin.x + self.timeIconView.frame.size.width + 3.0,
 												 self.timeLabel.frame.origin.y,
 												 timeLabelWidth,
 												 self.timeLabel.frame.size.height);

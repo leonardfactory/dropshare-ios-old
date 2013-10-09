@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import <FontasticIcons.h>
 
 @interface DSJournalCell : UITableViewCell
 
@@ -19,8 +20,15 @@
 
 @property (strong, nonatomic) UIView *infoLabels;
 @property (strong, nonatomic) UIImageView *separatorImageView;
-@property (strong, nonatomic) UIImageView *geoLocationImageView;
-@property (strong, nonatomic) UIImageView *timeImageView;
+
+//@property (strong, nonatomic) UIImageView *geoLocationImageView;
+//@property (strong, nonatomic) UIImageView *timeImageView;
+//@property (strong, nonatomic) UILabel *timeLabelIcon;
+//@property (strong, nonatomic) UILabel *geoLocationIcon;
+
+@property (strong, nonatomic) FIIconView *geoLocationIconView;
+@property (strong, nonatomic) FIIconView *timeIconView;
+
 @property (strong, nonatomic) UILabel *geoLocationLabel;
 @property (strong, nonatomic) UILabel *timeLabel;
 
