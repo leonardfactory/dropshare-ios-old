@@ -28,6 +28,10 @@ withFormParameters:(NSDictionary *) parameters
 		  success:(void (^)(NSDictionary *responseObject)) success
 		  failure:(void (^)(NSString *responseError, int statusCode, NSError *error)) failure;
 
+- (void) deletePath:(NSString *) path
+            success:(void (^)(NSDictionary *responseObject)) success
+            failure:(void (^)(NSString *responseError, int statusCode, NSError *error)) failure;
+
 - (void) getPath:(NSString *) path
 	  parameters:(NSDictionary *) parameters
 		 success:(void (^)(NSDictionary *responseObject)) success

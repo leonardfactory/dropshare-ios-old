@@ -10,6 +10,16 @@
 
 @implementation DSUserManager
 
++ (instancetype) sharedManager
+{
+    static DSUserManager *_sharedManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _sharedManager = [[[self class] alloc] init];
+    });
+    return _sharedManager;
+}
+
 - (DSUser *) userWithId:(NSString *)identifier
 {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(identifier = %@)", identifier];

@@ -31,6 +31,7 @@
 		A702804018056AFA00B5EF85 /* entypo-social.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A702803E18056AFA00B5EF85 /* entypo-social.ttf */; };
 		A702804118056AFA00B5EF85 /* entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A702803F18056AFA00B5EF85 /* entypo.ttf */; };
 		A70ABAA316DD59BC003AFA4B /* DSViewPageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A70ABAA216DD59BC003AFA4B /* DSViewPageCell.xib */; };
+		A70E3BD81806E0AB00062CA9 /* DSAction.m in Sources */ = {isa = PBXBuildFile; fileRef = A70E3BD71806E0AB00062CA9 /* DSAction.m */; };
 		A723DFE216DA930900F51928 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429316D9028F00FEE4BE /* JASidePanelController.m */; };
 		A723DFE316DA930900F51928 /* DSSidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429516D9028F00FEE4BE /* DSSidePanelController.m */; };
 		A723DFE416DA930900F51928 /* UIViewController+SidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429716D9028F00FEE4BE /* UIViewController+SidePanel.m */; };
@@ -43,7 +44,6 @@
 		A75391D61800F39800974C1A /* DSSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391D51800F39800974C1A /* DSSerializer.m */; };
 		A75391E81800FD1B00974C1A /* DSUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391E71800FD1B00974C1A /* DSUserManager.m */; };
 		A75391EE1801043200974C1A /* DSDiscover.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391ED1801043200974C1A /* DSDiscover.m */; };
-		A75391F11801043300974C1A /* DSAction.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391F01801043300974C1A /* DSAction.m */; };
 		A75391F41801043300974C1A /* DSToken.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391F31801043300974C1A /* DSToken.m */; };
 		A75391FA1801043300974C1A /* DSArea.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391F91801043300974C1A /* DSArea.m */; };
 		A75391FD1801043300974C1A /* DSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A75391FC1801043300974C1A /* DSUser.m */; };
@@ -53,6 +53,7 @@
 		A753DF4916EDDEEC00278CE7 /* DSImageJournalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A753DF4816EDDEEC00278CE7 /* DSImageJournalCell.m */; };
 		A753DF4B16EDDF0B00278CE7 /* DSImageJournalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A753DF4A16EDDF0B00278CE7 /* DSImageJournalCell.xib */; };
 		A754A2D616EB4DA000A719B3 /* DSJournalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A754A2D516EB4DA000A719B3 /* DSJournalTableViewController.m */; };
+		A75882C8180570E300B528D9 /* DSAreaSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A75882C7180570E300B528D9 /* DSAreaSerializer.m */; };
 		A780656D180199BC007B3D8F /* DSCloudinary.m in Sources */ = {isa = PBXBuildFile; fileRef = A780656C180199BC007B3D8F /* DSCloudinary.m */; };
 		A78065711801B3EC007B3D8F /* UIImage+FromColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A78065701801B3EC007B3D8F /* UIImage+FromColor.m */; };
 		A78065741801BBFB007B3D8F /* UIDevice+VersionCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = A78065731801BBFB007B3D8F /* UIDevice+VersionCheck.m */; };
@@ -203,6 +204,8 @@
 		A702803E18056AFA00B5EF85 /* entypo-social.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "entypo-social.ttf"; sourceTree = "<group>"; };
 		A702803F18056AFA00B5EF85 /* entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = entypo.ttf; sourceTree = "<group>"; };
 		A70ABAA216DD59BC003AFA4B /* DSViewPageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSViewPageCell.xib; sourceTree = "<group>"; };
+		A70E3BD61806E0AB00062CA9 /* DSAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSAction.h; path = models/DSAction.h; sourceTree = "<group>"; };
+		A70E3BD71806E0AB00062CA9 /* DSAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSAction.m; path = models/DSAction.m; sourceTree = "<group>"; };
 		A73863F916F3162400034512 /* DSCaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = DSCaptureViewController.h; path = controllers/DSCaptureViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A73863FA16F3162400034512 /* DSCaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = DSCaptureViewController.m; path = controllers/DSCaptureViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A73863FF16F3607900034512 /* DSCapturePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = DSCapturePicker.h; path = controllers/DSCapturePicker.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -219,8 +222,6 @@
 		A75391E71800FD1B00974C1A /* DSUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSUserManager.m; path = models/DSUserManager.m; sourceTree = "<group>"; };
 		A75391EC1801043200974C1A /* DSDiscover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSDiscover.h; path = models/DSDiscover.h; sourceTree = "<group>"; };
 		A75391ED1801043200974C1A /* DSDiscover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSDiscover.m; path = models/DSDiscover.m; sourceTree = "<group>"; };
-		A75391EF1801043300974C1A /* DSAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSAction.h; path = models/DSAction.h; sourceTree = "<group>"; };
-		A75391F01801043300974C1A /* DSAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSAction.m; path = models/DSAction.m; sourceTree = "<group>"; };
 		A75391F21801043300974C1A /* DSToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSToken.h; path = models/DSToken.h; sourceTree = "<group>"; };
 		A75391F31801043300974C1A /* DSToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSToken.m; path = models/DSToken.m; sourceTree = "<group>"; };
 		A75391F81801043300974C1A /* DSArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSArea.h; path = models/DSArea.h; sourceTree = "<group>"; };
@@ -236,6 +237,8 @@
 		A753DF4A16EDDF0B00278CE7 /* DSImageJournalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DSImageJournalCell.xib; path = controls/DSImageJournalCell.xib; sourceTree = "<group>"; };
 		A754A2D416EB4DA000A719B3 /* DSJournalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSJournalTableViewController.h; path = controllers/DSJournalTableViewController.h; sourceTree = "<group>"; };
 		A754A2D516EB4DA000A719B3 /* DSJournalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSJournalTableViewController.m; path = controllers/DSJournalTableViewController.m; sourceTree = "<group>"; };
+		A75882C6180570E300B528D9 /* DSAreaSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSAreaSerializer.h; path = models/DSAreaSerializer.h; sourceTree = "<group>"; };
+		A75882C7180570E300B528D9 /* DSAreaSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSAreaSerializer.m; path = models/DSAreaSerializer.m; sourceTree = "<group>"; };
 		A780656B180199BC007B3D8F /* DSCloudinary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSCloudinary.h; path = services/DSCloudinary.h; sourceTree = "<group>"; };
 		A780656C180199BC007B3D8F /* DSCloudinary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSCloudinary.m; path = services/DSCloudinary.m; sourceTree = "<group>"; };
 		A780656F1801B3EC007B3D8F /* UIImage+FromColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+FromColor.h"; path = "categories/UIImage+FromColor.h"; sourceTree = "<group>"; };
@@ -400,6 +403,8 @@
 				A75391D51800F39800974C1A /* DSSerializer.m */,
 				A780658C1801DBB1007B3D8F /* DSActionSerializer.h */,
 				A780658D1801DBB1007B3D8F /* DSActionSerializer.m */,
+				A75882C6180570E300B528D9 /* DSAreaSerializer.h */,
+				A75882C7180570E300B528D9 /* DSAreaSerializer.m */,
 			);
 			name = Serializer;
 			sourceTree = "<group>";
@@ -407,6 +412,8 @@
 		136F565216E8EFB0009E5203 /* Auto Generated */ = {
 			isa = PBXGroup;
 			children = (
+				A70E3BD61806E0AB00062CA9 /* DSAction.h */,
+				A70E3BD71806E0AB00062CA9 /* DSAction.m */,
 				A7977B011801F2BD00D5A875 /* DSActivity.h */,
 				A7977B021801F2BD00D5A875 /* DSActivity.m */,
 				A7977AFE1801F2BC00D5A875 /* DSJournal.h */,
@@ -419,8 +426,6 @@
 				A75391F91801043300974C1A /* DSArea.m */,
 				A75391F21801043300974C1A /* DSToken.h */,
 				A75391F31801043300974C1A /* DSToken.m */,
-				A75391EF1801043300974C1A /* DSAction.h */,
-				A75391F01801043300974C1A /* DSAction.m */,
 				A75391EC1801043200974C1A /* DSDiscover.h */,
 				A75391ED1801043200974C1A /* DSDiscover.m */,
 			);
@@ -1129,6 +1134,7 @@
 				A78065741801BBFB007B3D8F /* UIDevice+VersionCheck.m in Sources */,
 				A78DAD8716DC352700A21AD0 /* DSViewPageCell.m in Sources */,
 				138800B916E627C600716368 /* DSJournalSimpleDropCell.m in Sources */,
+				A70E3BD81806E0AB00062CA9 /* DSAction.m in Sources */,
 				138800BC16E627D100716368 /* DSDiscoverViewController.m in Sources */,
 				138800C016E6288300716368 /* Movover.xcdatamodeld in Sources */,
 				138800D416E6436700716368 /* NSManagedObjectContext+blocks.m in Sources */,
@@ -1137,11 +1143,11 @@
 				A751872716E80728009F4383 /* DSLoginViewController.m in Sources */,
 				A781F2A916E9028F00C8F11C /* SwipeView.m in Sources */,
 				A781F2AD16E9077000C8F11C /* DSPaddedTextField.m in Sources */,
-				A75391F11801043300974C1A /* DSAction.m in Sources */,
 				A754A2D616EB4DA000A719B3 /* DSJournalTableViewController.m in Sources */,
 				A780656D180199BC007B3D8F /* DSCloudinary.m in Sources */,
 				A7D4365F16EBA44F006807EB /* DSJournalCell.m in Sources */,
 				A7D4366C16EBC6A0006807EB /* UIImage+Alpha.m in Sources */,
+				A75882C8180570E300B528D9 /* DSAreaSerializer.m in Sources */,
 				A7D4366D16EBC6A0006807EB /* UIImage+Resize.m in Sources */,
 				A75391FD1801043300974C1A /* DSUser.m in Sources */,
 				A780658E1801DBB1007B3D8F /* DSActionSerializer.m in Sources */,

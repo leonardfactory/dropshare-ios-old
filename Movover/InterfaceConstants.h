@@ -11,8 +11,10 @@
 
 #pragma mark - Global
 
+#define kDSDefaultBigFontSize 16.0
 #define kDSDefaultFontSize 14.0
 #define kDSDefaultSmallFontSize 12.0
+#define kDSDefaultMicroFontSize 11.0
 #define kDSDefaultCornerRadius 4.0
 
 
@@ -24,10 +26,10 @@
 #define kDSCellInnerShadowAlpha 0.5
 
 #define kDSCellWidth 320.0
-#define kDSCellHeight 86.0
+#define kDSCellHeight (76.0 + 36.0 + 36.0)
 
 #define kDSCellBackgroundMargin 6.0
-#define kDSCellBackgroundBottomExtraMargin 0.0
+#define kDSCellBackgroundBottomExtraMargin 4.0
 
 #define kDSCellBackgroundWidth (kDSCellWidth - 2 * kDSCellBackgroundMargin)
 #define kDSCellBackgroundHeight (kDSCellHeight - kDSCellBackgroundMargin - kDSCellBackgroundBottomExtraMargin)
@@ -37,15 +39,20 @@
 #define kDSCellLabelLeftMargin 72.0
 #define kDSCellLabelWidth 234.0
 
-#define kDSCellUsernameFontSize kDSDefaultFontSize
-#define kDSCellUsernameWidth kDSCellLabelWidth
+#define kDSCellNameFontSize kDSDefaultFontSize
+//#define kDSCellUsernameWidth kDSCellLabelWidth
+#define kDSCellNameHeight (kDSCellNameFontSize + 2)
+#define kDSCellNameTopMargin kDSCellTopMargin
+
+#define kDSCellUsernameFontSize kDSDefaultSmallFontSize
+//#define kDSCellUsernameWidth kDSCellLabelWidth
 #define kDSCellUsernameHeight (kDSCellUsernameFontSize + 2)
 #define kDSCellUsernameTopMargin kDSCellTopMargin
 
 #define kDSCellDescriptionFontSize kDSDefaultFontSize
 #define kDSCellDescriptionWidth kDSCellLabelWidth
 #define kDSCellDescriptionHeight (kDSCellDescriptionFontSize + 2)
-#define kDSCellDescriptionTopMargin (kDSCellUsernameTopMargin + kDSCellUsernameHeight + 4)
+#define kDSCellDescriptionTopMargin (kDSCellNameTopMargin + kDSCellNameHeight + 2.0)
 
 #define kDSCellAvatarLeftMargin kDSCellTopMargin
 #define kDSCellAvatarTopMargin kDSCellAvatarLeftMargin
@@ -54,15 +61,30 @@
 #define kDSCellAvatarCornerRadius kDSDefaultCornerRadius
 #define kDSCellAvatarShadowSize 2.0
 
+#define kDSCellInfoLabelsLeftMargin (kDSCellLabelLeftMargin - kDSCellBackgroundMargin - 2.0)
 #define kDSCellInfoLabelsTopMargin 12.0
+#define kDSCellInfoLabelsSpacing 4.0
+#define kDSCellInfoLabelsInnerHeight 14.0
+#define kDSCellInfoLabelsHeight 36.0
 
+#define kDSCellInfoLabelsIconHeight 18.0
+#define kDSCellInfoLabelsIconTopMargin (kDSCellInfoLabelsTopMargin + (kDSCellInfoLabelsInnerHeight - kDSCellInfoLabelsIconHeight) / 2.)
 
+#define kDSCellSocialBarHeight 38.0
+#define kDSCellSocialBarSpacing 8.0
+
+#define kDSCellSocialButtonHeight 34.0
+#define kDSCellSocialButtonBaseWidth 40.0
+#define kDSCellSocialButtonWidth 48.0
+#define kDSCellSocialButtonTopMargin ((kDSCellSocialBarHeight - kDSCellSocialButtonHeight) / 2.)
+#define kDSCellSocialButtonIconSize 20.0
 
 #pragma mark - Drop Cell with Image
 
 #define kDSCellPictureHeight 292.0
-#define kDSCellPictureTopMargin 12.0
-#define kDSCellPictureBottomMargin 6.0
+#define kDSCellPictureTopGap 4.0
+#define kDSCellPictureTopMargin (kDSCellBackgroundMargin - kDSCellPictureTopGap)
+#define kDSCellPictureBottomMargin (2.0 - kDSCellPictureTopGap)
 #define kDSCellPictureCornerRadius kDSDefaultCornerRadius
 
 

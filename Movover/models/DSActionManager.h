@@ -15,6 +15,17 @@
 
 @property (strong, nonatomic) DSAction *action;
 
-- (void) captureWithImage:(UIImage *)image andText:(NSString *) text;
++ (instancetype) sharedManager;
+
+- (void) captureWithImage:(UIImage *) image andText:(NSString *) text;
+
+- (DSAction *) actionWithId:(NSString *) identifier;
+
+- (void) updateActionStatsWithId:(NSString *) identifier;
+
+- (void) likeActionWithId:(NSString *) identifier;
+- (void) likeAction:(DSAction *) action;
+- (void) unlikeActionWithId:(NSString *) identifier;
+- (void) unlikeAction:(DSAction *) action;
 
 @end

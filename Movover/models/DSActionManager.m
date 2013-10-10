@@ -17,6 +17,16 @@
 
 @synthesize action = _action;
 
++ (instancetype) sharedManager
+{
+    static DSActionManager *_sharedManager = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _sharedManager = [[[self class] alloc] init];
+    });
+    return _sharedManager;
+}
+
 - (void) captureWithImage:(UIImage *)image andText:(NSString *) text
 {
     [(DSAppDelegate *)[UIApplication sharedApplication].delegate registerWaitingForGeoFunction:^(NSString *lng, NSString *lat){
@@ -55,4 +65,81 @@
     }];
 }
 
+- (DSAction *) actionWithId:(NSString *)identifier
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(identifier = %@)", identifier];
+    return (DSAction *)[self.dataAdapter findOneEntity:@"Action" withPredicate:predicate];
+}
+
+- (void) updateActionStatsWithId:(NSString *)identifier
+{
+    DSAction *action = [self actionWithId:identifier];
+    
+    [self.APIAdapter getPath:[NSString stringWithFormat:@"/action/%@/stats", identifier]
+                  parameters:nil
+                     success:^(NSDictionary *responseObject)
+    {
+        [action setStatsLike:responseObject[@"stats"][@"like"]];
+        [action setStatsComment:responseObject[@"stats"][@"comment"]];
+        [action setStatsReaction:responseObject[@"stats"][@"reaction"]];
+        
+        [self.dataAdapter save:nil];
+    }
+                     failure:^(NSString *responseError, int statusCode, NSError *error)
+    {
+        NSLog(@"%d",statusCode);
+        NSLog(@"%@",responseError);
+    }];
+}
+
+- (void) likeActionWithId:(NSString *)identifier
+{
+    DSAction *action = [self actionWithId:identifier];
+    [self likeAction:action];
+}
+
+- (void) likeAction:(DSAction *)action
+{
+    [action setStatsLike:[NSNumber numberWithInt:([action.statsLike intValue] + 1)]];
+    [action setLike:[NSNumber numberWithBool:YES]];
+    [self.dataAdapter save:nil];
+    
+    [self.APIAdapter postPath:[NSString stringWithFormat:@"/action/%@/like", action.identifier]
+                   parameters:nil
+                      success:^(NSDictionary *responseObject)
+     {
+         // Ok!
+         NSLog(@"liked");
+     }
+                      failure:^(NSString *responseError, int statusCode, NSError *error)
+     {
+         NSLog(@"%d",statusCode);
+         NSLog(@"%@",responseError);
+     }];
+}
+
+- (void) unlikeActionWithId:(NSString *)identifier
+{
+    DSAction *action = [self actionWithId:identifier];
+    [self unlikeAction:action];
+}
+
+- (void) unlikeAction:(DSAction *)action
+{
+    [action setStatsLike:[NSNumber numberWithInt:([action.statsLike intValue] - 1)]];
+    [action setLike:[NSNumber numberWithBool:NO]];
+    [self.dataAdapter save:nil];
+    
+    [self.APIAdapter deletePath:[NSString stringWithFormat:@"/action/%@/like", action.identifier]
+                      success:^(NSDictionary *responseObject)
+     {
+         // Ok!
+         NSLog(@"unliked");
+     }
+                      failure:^(NSString *responseError, int statusCode, NSError *error)
+     {
+         NSLog(@"%d",statusCode);
+         NSLog(@"%@",responseError);
+     }];
+}
 @end

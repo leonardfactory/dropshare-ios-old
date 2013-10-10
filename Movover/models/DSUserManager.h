@@ -11,6 +11,8 @@
 
 @interface DSUserManager : DSEntityManager
 
++ (instancetype) sharedManager;
+
 - (DSUser *) userWithId:(NSString *)identifier;
 
 @end

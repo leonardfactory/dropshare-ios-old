@@ -11,11 +11,10 @@
         <attribute name="rank" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="statsComment" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="statsLike" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="statsReaction" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="statsReaction" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="totReactions" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="area" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Area" inverseName="actions" inverseEntity="Area" syncable="YES"/>
+        <relationship name="area" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Area" inverseName="actions" inverseEntity="Area" syncable="YES"/>
         <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Comment" inverseName="action" inverseEntity="Comment" syncable="YES"/>
         <relationship name="likes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="actions" inverseEntity="User" syncable="YES"/>

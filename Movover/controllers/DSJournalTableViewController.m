@@ -19,6 +19,9 @@
 #import "DSCloudinary.h"
 
 #import "DSUserManager.h"
+#import "DSActionManager.h"
+
+#import <NSDate+TimeAgo.h>
 
 @interface DSJournalTableViewController ()
 {
@@ -98,7 +101,9 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
     // Style tableView
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 	self.tableView.backgroundColor = [UIColor colorWithRed:228.0/255.0 green:234.0/255.0 blue:232.0/255.0 alpha:1.0];
-	
+    self.tableView.contentInset = UIEdgeInsetsMake(kDSCellPictureTopGap, 0, 0, 0);
+    
+    // Add button
 	float addButtonHeight = self.view.frame.size.height - kDSAddButtonSize - kDSAddButtonPadding - 44 - 20; // Removing also NavBar + StatusBar height
 	self.addButton = [[DSAddButton alloc] initWithFrame:CGRectMake(kDSAddButtonPadding,
 																   addButtonHeight,
@@ -245,33 +250,40 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
     
 	// Cast forzato
 	DSJournalCell *journalCell = (DSJournalCell *) cell;
+    [journalCell setIdentifier:activity.identifier];
 	
-    // User (faked per ora, non è detto che lo sia)
+    // User
     DSUser *user = [[DSUserManager sharedManager] userWithId:activity.subjectId];
     
-	// Configurazione della cell
-	journalCell.usernameLabel.text		= user.username;
-	journalCell.descriptionLabel.text	= activity.data[@"text"];
-	
-	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-	[dateFormatter setDoesRelativeDateFormatting:YES];
-	[dateFormatter setLocale: [NSLocale autoupdatingCurrentLocale]];
-	[dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-	[dateFormatter setDateStyle:NSDateFormatterShortStyle];
-	
-    // [NSString stringWithFormat:@"Via delle Rose n.%d", (int)floorf(powf(([indexPath row]+1)*2, 2.0))]
+    // Action
+    DSAction *action = [[DSActionManager sharedManager] actionWithId:activity.objectId];
     
-	[journalCell setGeoLocation:activity.area.name andTime:[dateFormatter stringFromDate:activity.createdOn]];
+    // Update action with new stats
+    [[DSActionManager sharedManager] updateActionStatsWithId:activity.objectId];
+    
+	// Configurazione della cell con i dati dell'utente e dell'activity
+    journalCell.nameLabel.text          = user.completeName;
+	journalCell.usernameLabel.text		= [NSString stringWithFormat:@"@%@", user.username];
+	journalCell.descriptionLabel.text	= activity.data[@"text"];
+    
+    // Area e createdOn
+	[journalCell setGeoLocation:activity.area.name andTime:[activity.createdOn timeAgo]];
+    
+    // Social buttons
+    [journalCell setLikes:action.statsLike andComments:action.statsComment andReactions:action.statsReaction];
+    [journalCell.likeButton addTarget:self action:@selector(likeButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
+    // Like personale
+    if([action.like boolValue] == YES) {
+        [journalCell applyLikeStyle];
+    }
+    else {
+        [journalCell applyUnlikeStyle];
+    }
 	
     // Avatar with url
     NSString *avatarImageURL = [[[DSCloudinary sharedInstance] cloudinary] url:[NSString stringWithFormat:@"user_avatar_%@.jpg", user.identifier]];
     [journalCell setAvatarWithURL:[NSURL URLWithString:avatarImageURL]];
-    
-	//[journalCell setAvatarWithURL:[NSURL URLWithString:[DSImageUrl getAvatarUrlFromUserId:drop.user.identifier]]];
-	/*[journalCell setAvatarImage:[[UIImage imageNamed:@"avatar.png"] thumbnailImage:48
-																 transparentBorder:0
-																	  cornerRadius:0
-															  interpolationQuality:kCGInterpolationHigh]];*/
 	
 	// Se è una image cell, aggiungo anche l'immagine
 	if([cell isKindOfClass:[DSImageJournalCell class]])
@@ -280,10 +292,6 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
         // Activity image url
         NSString *actionImageURL = [[[DSCloudinary sharedInstance] cloudinary] url:[NSString stringWithFormat:@"action_%@.jpg", activity.objectId]];
         [imageJournalCell setPictureWithURL:[NSURL URLWithString:actionImageURL]];
-        
-		// @todo
-		//NSLog(@"%@",[DSImageUrl getImageUrlFromDropId:drop.identifier]);
-		//[imageJournalCell setPictureWithURL:[NSURL URLWithString:[DSImageUrl getImageUrlFromDropId:drop.identifier]]];
 	}
 	
 	// Ridispone gli elementi della cell in base ai parametri passati
@@ -292,13 +300,43 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
     return cell;
 }
 
+#pragma mark - Social buttons
+- (void) likeButtonPressed:(id) sender
+{
+    // Get activity
+    UIButton *likeButton = (UIButton *) sender;
+    DSJournalCell *journalCell = (DSJournalCell *)[[likeButton.superview superview] superview]; // LikeButton -> SocialButtons -> DSJournalCell
+    NSIndexPath* cellPath = [self.tableView indexPathForCell:journalCell];
+    NSInteger index = [cellPath row];
+    
+    DSActivity *activity = (DSActivity *)[_journalManager.journal.activities objectAtIndex:index];
+    
+    DSAction *action = [[DSActionManager sharedManager] actionWithId:activity.objectId];
+    
+    NSLog(@"Stiamo premendo su: %@, con status: %@", activity.data[@"text"], action.like);
+    
+    if([journalCell canPerformLike])
+    {
+        if([action.like boolValue] == YES) {
+            // unlike
+            [[DSActionManager sharedManager] unlikeAction:action];
+            [journalCell animateUnlike];
+        }
+        else {
+            // like
+            [[DSActionManager sharedManager] likeAction:action]; // @todo only actions?
+            [journalCell animateLike];
+        }
+    }
+}
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
     /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];

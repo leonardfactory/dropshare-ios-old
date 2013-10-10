@@ -59,7 +59,6 @@ static NSString * const kDSAPISecureBaseUrl = @"https://api.movover.com/";
 - (void) setAccessToken:(NSString *) token
 {
     [_client setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@", token]];
-    NSLog(@"Token: %@", token);
 }
 
 #pragma mark - API methods
@@ -85,7 +84,6 @@ withFormParameters:(NSDictionary *) parameters
         id dict = responseObject;
 		//id dict = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:&error];
 		if (dict) {
-            NSLog(@"%@", dict[@"accessToken"]);
 			success((NSDictionary *)dict);
 		}
 		else {
@@ -95,6 +93,29 @@ withFormParameters:(NSDictionary *) parameters
     {
 		failure(operation.responseString, [operation.response statusCode] ,error);
 	}];
+}
+
+- (void) deletePath:(NSString *) path
+            success:(void (^)(NSDictionary *responseObject)) success
+            failure:(void (^)(NSString *responseError, int statusCode, NSError *error)) failure
+{
+    [_client deletePath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
+    {
+        NSError *error;
+        id dict = responseObject;
+		if (dict) {
+			success((NSDictionary *)dict);
+		}
+		else {
+			failure(nil,0,error);
+		}
+    }
+                failure:^(AFHTTPRequestOperation *operation, NSError *error)
+    {
+        int code = [operation.response statusCode];
+		NSString *errorString = operation.responseString;
+		failure(errorString,code,error);
+    }];
 }
 
 - (void) getPath:(NSString *) path

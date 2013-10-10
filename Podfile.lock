@@ -9,6 +9,7 @@ PODS:
   - HPGrowingTextView (1.0.1)
   - InflectorKit (0.0.1)
   - ISO8601DateFormatter (0.6)
+  - NSDate+TimeAgo (1.0.2)
   - SVPullToRefresh (0.4.1)
   - TransformerKit (0.2.4)
 
@@ -19,6 +20,7 @@ DEPENDENCIES:
   - FontasticIcons
   - HPGrowingTextView
   - ISO8601DateFormatter
+  - NSDate+TimeAgo
   - SVPullToRefresh
 
 SPEC CHECKSUMS:
@@ -28,7 +30,8 @@ SPEC CHECKSUMS:
   FontasticIcons: 98134b5470a11ebda5a510347bab786121e1b0b9
   HPGrowingTextView: fd77b93b9096dd1493a312c8856810b652b04dcc
   InflectorKit: 9dccab02f95541093995adac639342c9eb9e6c12
-  ISO8601DateFormatter: 077ce9d8cfba171bc1ced6cba0d2ae4aefab7619
+  ISO8601DateFormatter: 72ad8f5b4f51bd8fb317d7284c32fee5f54a6584
+  NSDate+TimeAgo: fe93d3042e83093ae3630bc47ae7d57f782733f6
   SVPullToRefresh: 61a0e4bd12bd6f8e3465909810b0fbeb1a28d5f2
   TransformerKit: 3c60759694b70d41b833dfe4005b031762d54e7f
 

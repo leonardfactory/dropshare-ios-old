@@ -9,6 +9,8 @@
 #import "DSActivitySerializer.h"
 
 #import "DSUserSerializer.h"
+#import "DSActionSerializer.h"
+#import "DSAreaSerializer.h"
 
 #import <ISO8601DateFormatter.h>
 
@@ -28,10 +30,21 @@
     [activity setData:representation[@"data"]];
     
     // Area
-    // @todo implement serializer
+    DSAreaSerializer *areaSerializer = [[DSAreaSerializer alloc] init];
+    [activity setArea:[areaSerializer deserializeAreaFrom:representation[@"area"]]];
     
     // ObjectID
-    [activity setObjectId:representation[@"object"]];
+    if([representation[@"verb"] isEqualToString:@"publish_action"]) {
+        [activity setObjectEntity:@"Action"];
+        
+        DSActionSerializer *actionSerializer = [[DSActionSerializer alloc] init];
+        DSAction *action = [actionSerializer deserializeActionFrom:representation[@"object"]];
+        
+        [activity setObjectId:action.identifier];
+    }
+    else {
+        [activity setObjectId:representation[@"object"]];
+    }
     
     // createdOn
     ISO8601DateFormatter *formatter = [[ISO8601DateFormatter alloc] init];
@@ -40,7 +53,7 @@
     // Subject handling (user or area)
     NSDictionary *subject = representation[@"subject"];
     
-    if([subject[@"ref"] isEqualToString:@"user"]) {
+    if([subject[@"ref"] isEqualToString:@"User"]) {
         DSUserSerializer *userSerializer = [[DSUserSerializer alloc] init];
         
         NSMutableDictionary *userData = [[subject valueForKey:@"data"] mutableCopy];
@@ -49,7 +62,7 @@
         DSUser *user = [userSerializer deserializeUserFrom:userData];
         [activity setSubjectId:user.identifier];
     }
-    else if([subject[@"ref"] isEqualToString:@"area"]) {
+    else if([subject[@"ref"] isEqualToString:@"Area"]) {
         // implement DSAreaSerializer
     }
     

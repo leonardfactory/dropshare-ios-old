@@ -14,16 +14,6 @@
 @synthesize dataAdapter = _dataAdapter;
 @synthesize APIAdapter = _APIAdapter;
 
-+ (instancetype) sharedManager
-{
-    static DSEntityManager *_sharedManager = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _sharedManager = [[[self class] alloc] init];
-    });
-    return _sharedManager;
-}
-
 - (DSEntityManager *) init
 {
 	_dataAdapter    = [DSDataAdapter sharedDataAdapter];

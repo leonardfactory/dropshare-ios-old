@@ -23,12 +23,20 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
 	{
-		self.pictureImageView = [[UIImageView alloc] initWithFrame:CGRectMake(14.0, 14.0, 292.0, kDSCellPictureHeight)];
+		self.pictureImageView = [[UIImageView alloc] initWithFrame:CGRectMake(kDSCellBackgroundMargin, kDSCellPictureTopMargin, kDSCellBackgroundWidth, kDSCellPictureHeight)];
 		[self shiftContent:self.pictureImageView.frame.size.height + kDSCellPictureBottomMargin];
 		[self addSubview:self.pictureImageView];
 		
-		self.pictureImageView.layer.cornerRadius = kDSCellPictureCornerRadius;
-		self.pictureImageView.layer.masksToBounds = YES;
+        UIBezierPath *pictureImageViewRoundedPath;
+        pictureImageViewRoundedPath = [UIBezierPath bezierPathWithRoundedRect:self.pictureImageView.bounds byRoundingCorners:(UIRectCornerTopLeft | UIRectCornerTopRight) cornerRadii:CGSizeMake(kDSCellCornerRadius, kDSCellCornerRadius)];
+        
+        CAShapeLayer *pictureImageViewMaskLayer = [[CAShapeLayer alloc] init];
+        pictureImageViewMaskLayer.frame = self.frame;
+        pictureImageViewMaskLayer.path = pictureImageViewRoundedPath.CGPath;
+        self.pictureImageView.layer.mask = pictureImageViewMaskLayer;
+        
+		//self.pictureImageView.layer.cornerRadius = kDSCellPictureCornerRadius;
+		//self.pictureImageView.layer.masksToBounds = YES;
 		
 		/*self.shadowPictureImageView = [[UIImageView alloc] initWithFrame:self.pictureImageView.frame];
 		self.shadowPictureImageView.image = [[UIImage imageNamed:@"innerShadow.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(5.0, 5.0, 5.0, 5.0)];

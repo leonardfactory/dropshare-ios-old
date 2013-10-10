@@ -10,16 +10,26 @@
 #import <QuartzCore/QuartzCore.h>
 #import <FontasticIcons.h>
 
+typedef enum _DSButtonAnimationState
+{
+	DSButtonAnimationNone = 0,
+	DSButtonAnimationUnlike,
+    DSButtonAnimationLike
+} DSButtonAnimationState;
+
 @interface DSJournalCell : UITableViewCell
 
+@property (strong, nonatomic) NSString *identifier;
+
 @property (strong, nonatomic) UILabel *usernameLabel;
+@property (strong, nonatomic) UILabel *nameLabel;
 @property (strong, nonatomic) UILabel *descriptionLabel;
 @property (strong, nonatomic) UIImageView *avatarImageView;
 @property (strong, nonatomic) UIImageView *shadowAvatarImageView;
 @property (strong, nonatomic) UIView *mainBackgroundView;
 
 @property (strong, nonatomic) UIView *infoLabels;
-@property (strong, nonatomic) UIImageView *separatorImageView;
+//@property (strong, nonatomic) UIImageView *separatorImageView;
 
 //@property (strong, nonatomic) UIImageView *geoLocationImageView;
 //@property (strong, nonatomic) UIImageView *timeImageView;
@@ -42,6 +52,13 @@
 - (void) setAvatarImage:(UIImage *)image;
 - (void) recalculateSizes;
 - (void) shiftContent:(CGFloat)deltaY;
+- (void) setLikes:(NSNumber *) likes andComments:(NSNumber *) comments andReactions:(NSNumber *) reactions;
+
+- (BOOL) canPerformLike;
+- (void) applyLikeStyle;
+- (void) applyUnlikeStyle;
+- (void) animateLike;
+- (void) animateUnlike;
 - (void) setGeoLocation:(NSString *)geoLocation andTime:(NSString *)time;
 
 @end

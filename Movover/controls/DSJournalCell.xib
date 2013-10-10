@@ -7,17 +7,22 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell autoresizesSubviews="NO" contentMode="top" selectionStyle="none" indentationWidth="10" rowHeight="80" id="2">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+        <tableViewCell autoresizesSubviews="NO" contentMode="top" selectionStyle="none" indentationWidth="10" rowHeight="128" id="2">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2" id="gf5-r6-fJ9">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="127"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" id="cet-AR-cfs">
-                        <rect key="frame" x="4" y="4" width="312" height="76"/>
+                        <rect key="frame" x="4" y="4" width="312" height="103"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <view contentMode="scaleToFill" id="l0l-rm-ckf">
+                        <rect key="frame" x="4" y="73" width="312" height="36"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="14" y="14" width="48" height="48"/>
@@ -39,6 +44,7 @@
                     </label>
                 </subviews>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.89411764709999997" green="0.91764705879999997" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="avatarImageView" destination="3" id="74"/>
                 <outlet property="descriptionLabel" destination="57" id="73"/>
