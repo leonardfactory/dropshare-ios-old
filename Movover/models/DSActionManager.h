@@ -17,9 +17,11 @@
 
 + (instancetype) sharedManager;
 
-- (void) captureWithImage:(UIImage *) image andText:(NSString *) text;
+- (void) captureWithImage:(UIImage *)image
+                  andText:(NSString *) text;
 
 - (DSAction *) actionWithId:(NSString *) identifier;
+- (DSAction *) updateAndRetrieveActionWithId:(NSString *)identifier;
 
 - (void) updateActionStatsWithId:(NSString *) identifier;
 

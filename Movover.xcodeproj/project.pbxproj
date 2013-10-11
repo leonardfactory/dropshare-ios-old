@@ -31,7 +31,8 @@
 		A702804018056AFA00B5EF85 /* entypo-social.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A702803E18056AFA00B5EF85 /* entypo-social.ttf */; };
 		A702804118056AFA00B5EF85 /* entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A702803F18056AFA00B5EF85 /* entypo.ttf */; };
 		A70ABAA316DD59BC003AFA4B /* DSViewPageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A70ABAA216DD59BC003AFA4B /* DSViewPageCell.xib */; };
-		A70E3BD81806E0AB00062CA9 /* DSAction.m in Sources */ = {isa = PBXBuildFile; fileRef = A70E3BD71806E0AB00062CA9 /* DSAction.m */; };
+		A70E3BDC180745D500062CA9 /* DSActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A70E3BDB180745D500062CA9 /* DSActionViewController.m */; };
+		A70E3BDF18075CD800062CA9 /* DSAction.m in Sources */ = {isa = PBXBuildFile; fileRef = A70E3BDE18075CD800062CA9 /* DSAction.m */; };
 		A723DFE216DA930900F51928 /* JASidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429316D9028F00FEE4BE /* JASidePanelController.m */; };
 		A723DFE316DA930900F51928 /* DSSidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429516D9028F00FEE4BE /* DSSidePanelController.m */; };
 		A723DFE416DA930900F51928 /* UIViewController+SidePanel.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A5429716D9028F00FEE4BE /* UIViewController+SidePanel.m */; };
@@ -204,8 +205,10 @@
 		A702803E18056AFA00B5EF85 /* entypo-social.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "entypo-social.ttf"; sourceTree = "<group>"; };
 		A702803F18056AFA00B5EF85 /* entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = entypo.ttf; sourceTree = "<group>"; };
 		A70ABAA216DD59BC003AFA4B /* DSViewPageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DSViewPageCell.xib; sourceTree = "<group>"; };
-		A70E3BD61806E0AB00062CA9 /* DSAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSAction.h; path = models/DSAction.h; sourceTree = "<group>"; };
-		A70E3BD71806E0AB00062CA9 /* DSAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSAction.m; path = models/DSAction.m; sourceTree = "<group>"; };
+		A70E3BDA180745D500062CA9 /* DSActionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSActionViewController.h; path = controllers/DSActionViewController.h; sourceTree = "<group>"; };
+		A70E3BDB180745D500062CA9 /* DSActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSActionViewController.m; path = controllers/DSActionViewController.m; sourceTree = "<group>"; };
+		A70E3BDD18075CD800062CA9 /* DSAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSAction.h; path = models/DSAction.h; sourceTree = "<group>"; };
+		A70E3BDE18075CD800062CA9 /* DSAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSAction.m; path = models/DSAction.m; sourceTree = "<group>"; };
 		A73863F916F3162400034512 /* DSCaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = DSCaptureViewController.h; path = controllers/DSCaptureViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A73863FA16F3162400034512 /* DSCaptureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = DSCaptureViewController.m; path = controllers/DSCaptureViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A73863FF16F3607900034512 /* DSCapturePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = DSCapturePicker.h; path = controllers/DSCapturePicker.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -412,8 +415,8 @@
 		136F565216E8EFB0009E5203 /* Auto Generated */ = {
 			isa = PBXGroup;
 			children = (
-				A70E3BD61806E0AB00062CA9 /* DSAction.h */,
-				A70E3BD71806E0AB00062CA9 /* DSAction.m */,
+				A70E3BDD18075CD800062CA9 /* DSAction.h */,
+				A70E3BDE18075CD800062CA9 /* DSAction.m */,
 				A7977B011801F2BD00D5A875 /* DSActivity.h */,
 				A7977B021801F2BD00D5A875 /* DSActivity.m */,
 				A7977AFE1801F2BC00D5A875 /* DSJournal.h */,
@@ -574,6 +577,7 @@
 		13C4334C16D8FD38001A43F9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A70E3BD9180745AA00062CA9 /* Action */,
 				A78256B816F286030046A8AF /* Add */,
 				A754A2D316EB4D7F00A719B3 /* Journal */,
 				A751872416E806F6009F4383 /* Login */,
@@ -605,6 +609,15 @@
 				A702803F18056AFA00B5EF85 /* entypo.ttf */,
 			);
 			name = fonts;
+			sourceTree = "<group>";
+		};
+		A70E3BD9180745AA00062CA9 /* Action */ = {
+			isa = PBXGroup;
+			children = (
+				A70E3BDA180745D500062CA9 /* DSActionViewController.h */,
+				A70E3BDB180745D500062CA9 /* DSActionViewController.m */,
+			);
+			name = Action;
 			sourceTree = "<group>";
 		};
 		A723DFEA16DA93C800F51928 /* Discover */ = {
@@ -1131,10 +1144,10 @@
 				13C4333A16D8FC58001A43F9 /* DSAppDelegate.m in Sources */,
 				A78DAD8416DBE2E300A21AD0 /* DSViewPager.m in Sources */,
 				A7977B001801F2BC00D5A875 /* DSJournal.m in Sources */,
+				A70E3BDC180745D500062CA9 /* DSActionViewController.m in Sources */,
 				A78065741801BBFB007B3D8F /* UIDevice+VersionCheck.m in Sources */,
 				A78DAD8716DC352700A21AD0 /* DSViewPageCell.m in Sources */,
 				138800B916E627C600716368 /* DSJournalSimpleDropCell.m in Sources */,
-				A70E3BD81806E0AB00062CA9 /* DSAction.m in Sources */,
 				138800BC16E627D100716368 /* DSDiscoverViewController.m in Sources */,
 				138800C016E6288300716368 /* Movover.xcdatamodeld in Sources */,
 				138800D416E6436700716368 /* NSManagedObjectContext+blocks.m in Sources */,
@@ -1150,6 +1163,7 @@
 				A75882C8180570E300B528D9 /* DSAreaSerializer.m in Sources */,
 				A7D4366D16EBC6A0006807EB /* UIImage+Resize.m in Sources */,
 				A75391FD1801043300974C1A /* DSUser.m in Sources */,
+				A70E3BDF18075CD800062CA9 /* DSAction.m in Sources */,
 				A780658E1801DBB1007B3D8F /* DSActionSerializer.m in Sources */,
 				A75391D31800F2D900974C1A /* DSJournalSerializer.m in Sources */,
 				A7D4366E16EBC6A0006807EB /* UIImage+RoundedCorner.m in Sources */,

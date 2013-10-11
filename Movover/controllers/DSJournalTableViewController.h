@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "DSJournalCell.h"
 #import "DSImageJournalCell.h"
+#import "DSActionViewController.h"
 
 #import "DSJournalManager.h"
+
 #import "DSActivity.h"
 #import "DSArea.h"
 

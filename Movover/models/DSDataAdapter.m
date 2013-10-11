@@ -119,6 +119,7 @@
 - (BOOL) save:(NSError **)error
 {
 	return [_managedObjectContext save:error];
+    NSLog(@"%@", *error);
 }
 
 @end

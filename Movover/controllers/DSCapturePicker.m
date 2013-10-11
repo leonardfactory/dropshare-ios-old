@@ -7,7 +7,6 @@
 //
 
 #import "DSCapturePicker.h"
-#import "DSAddViewController.h"
 
 @implementation DSCapturePicker
 
@@ -61,6 +60,7 @@
 		UIStoryboard *mainStoryboard = self.originController.storyboard;
 		
 		DSAddViewController *addViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"addViewController"];
+        addViewController.delegate = self;
 		[addViewController postImageFromCapture:(UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage]];
 		
 		[picker setNavigationBarHidden:NO animated:YES];
@@ -71,4 +71,11 @@
         //UIImageWriteToSavedPhotosAlbum(originalImage, nil, nil , nil);
     }
 }
+
+- (void) didAddPhoto
+{
+    [_pickerController dismissModalViewControllerAnimated:YES];
+    [self.originController dismissModalViewControllerAnimated:NO];
+}
+
 @end

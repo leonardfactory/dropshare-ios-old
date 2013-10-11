@@ -87,8 +87,6 @@
 #define kDSCellPictureBottomMargin (2.0 - kDSCellPictureTopGap)
 #define kDSCellPictureCornerRadius kDSDefaultCornerRadius
 
-
-
 #pragma mark - Add Button and relatives
 
 #define kDSAddButtonShowAnimationTime 0.2
@@ -97,5 +95,12 @@
 #define kDSActionButtonMargin 8.0
 
 #define kDSAddButtonPadding 12.0
+
+
+#pragma mark Action Detail ViewController
+
+#define kDSActionBaseTopMargin 10.0
+#define kDSActionBaseLeftMargin 10.0
+#define kDSActionBaseSpacing 10.0
 
 #endif

@@ -7,13 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DSAddViewController.h"
 
-@interface DSCapturePicker : NSObject <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface DSCapturePicker : NSObject <UIImagePickerControllerDelegate, UINavigationControllerDelegate, DSAddViewControllerDelegate>
 
 @property (weak, nonatomic) UIViewController *originController;
 @property (strong, nonatomic) UIImagePickerController *pickerController;
 
 - (id) initWithController:(UIViewController *) controller;
 - (void) showCapture;
+- (void) didAddPhoto;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "DSActionManager.h"
+#import "DSActionSerializer.h"
 #import "DSAppDelegate.h"
 
 #import "DSCloudinary.h"
@@ -71,6 +72,31 @@
     return (DSAction *)[self.dataAdapter findOneEntity:@"Action" withPredicate:predicate];
 }
 
+- (DSAction *) updateAndRetrieveActionWithId:(NSString *)identifier
+{
+    DSAction *action = [self actionWithId:identifier];
+    
+    __weak __block DSAction *futureAction = action;
+    
+    if(!action.subjectId)
+    {
+        [self.APIAdapter getPath:[NSString stringWithFormat:@"/action/%@", identifier]
+                      parameters:nil
+                         success:^(NSDictionary *responseObject)
+        {
+            DSActionSerializer *serializer = [[DSActionSerializer alloc] init];
+            futureAction = [serializer deserializeActionFrom:responseObject];
+            [self.dataAdapter save:nil];
+        }
+                         failure:^(NSString *responseError, int statusCode, NSError *error)
+        {
+            NSLog(@"Error while getting Action.");
+        }];
+    }
+    
+    return action;
+}
+
 - (void) updateActionStatsWithId:(NSString *)identifier
 {
     DSAction *action = [self actionWithId:identifier];
@@ -109,7 +135,6 @@
                       success:^(NSDictionary *responseObject)
      {
          // Ok!
-         NSLog(@"liked");
      }
                       failure:^(NSString *responseError, int statusCode, NSError *error)
      {
@@ -134,7 +159,6 @@
                       success:^(NSDictionary *responseObject)
      {
          // Ok!
-         NSLog(@"unliked");
      }
                       failure:^(NSString *responseError, int statusCode, NSError *error)
      {

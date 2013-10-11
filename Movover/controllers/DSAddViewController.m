@@ -42,7 +42,7 @@
 	if(self)
 	{
 		_tokenManager = [[DSTokenManager alloc] init];
-        _actionManager = [[DSActionManager alloc] init];
+        _actionManager = [DSActionManager sharedManager];
 		
 		[[NSNotificationCenter defaultCenter] addObserver:self
 												 selector:@selector(keyboardWasShown:)
@@ -139,8 +139,10 @@
 
 - (void) addPhoto
 {
-	//[_dropManager captureWithImage:self.imageToBePosted WithText:self.textView.text];
-    [_actionManager captureWithImage:self.imageToBePosted andText:self.textView.text];
+    [_actionManager captureWithImage:self.imageToBePosted
+                             andText:self.textView.text];
+    
+    [self.delegate didAddPhoto];
 }
 
 - (void) viewDidLoad

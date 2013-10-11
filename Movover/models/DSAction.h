@@ -2,7 +2,7 @@
 //  DSAction.h
 //  Movover
 //
-//  Created by Leonardo on 10/10/13.
+//  Created by Leonardo on 11/10/13.
 //  Copyright (c) 2013 Movover. All rights reserved.
 //
 
@@ -26,10 +26,11 @@
 @property (nonatomic, retain) NSNumber * statsReaction;
 @property (nonatomic, retain) NSString * text;
 @property (nonatomic, retain) NSString * type;
+@property (nonatomic, retain) NSString * subjectId;
+@property (nonatomic, retain) NSString * subjectEntity;
 @property (nonatomic, retain) DSArea *area;
 @property (nonatomic, retain) NSOrderedSet *comments;
 @property (nonatomic, retain) DSUser *likes;
-@property (nonatomic, retain) DSUser *user;
 @end
 
 @interface DSAction (CoreDataGeneratedAccessors)

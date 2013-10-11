@@ -46,6 +46,8 @@
         [activity setObjectId:representation[@"object"]];
     }
     
+    [activity setVerb:representation[@"verb"]];
+    
     // createdOn
     ISO8601DateFormatter *formatter = [[ISO8601DateFormatter alloc] init];
     [activity setCreatedOn:[formatter dateFromString:representation[@"createdOn"]]];

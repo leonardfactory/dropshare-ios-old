@@ -7,6 +7,7 @@
 //
 
 #import "DSActionSerializer.h"
+#import "DSUserSerializer.h"
 #import "DSAreaSerializer.h"
 
 #import <ISO8601DateFormatter.h>
@@ -19,6 +20,38 @@
     NSString *identifier = representation[@"_id"];
     
     DSAction *action = [self.dataAdapter findOrCreate:identifier onModel:@"Action" error:nil];
+    
+    // Text
+    if(representation[@"text"]) {
+        [action setText:representation[@"text"]];
+    }
+    
+    // Type
+    if(representation[@"type"]) {
+        [action setType:representation[@"type"]];
+    }
+    
+    // Rank
+    // @todo
+    
+    // Subject
+    if(representation[@"subject"]) {
+        NSDictionary *subject = representation[@"subject"];
+        
+        if([subject[@"ref"] isEqualToString:@"User"]) {
+            DSUserSerializer *userSerializer = [[DSUserSerializer alloc] init];
+            
+            NSMutableDictionary *userData = [[subject valueForKey:@"data"] mutableCopy];
+            [userData setValue:subject[@"_id"] forKey:@"_id"];
+            
+            DSUser *user = [userSerializer deserializeUserFrom:userData];
+            [action setSubjectId:user.identifier];
+            [action setSubjectEntity:@"User"];
+        }
+        else if([subject[@"ref"] isEqualToString:@"Area"]) {
+            // implement DSAreaSerializer
+        }
+    }
     
     // Like
     if(representation[@"like"]) {

@@ -30,6 +30,7 @@
 }
 
 @property (strong, nonatomic) DSJournalManager *journalManager;
+@property (strong, nonatomic) DSActionManager *actionManager;
 @property (strong, nonatomic) DSAddButton *addButton;
 @property (strong, nonatomic) DSCapturePicker *capturePicker;
 
@@ -40,6 +41,7 @@
 @implementation DSJournalTableViewController
 
 @synthesize journalManager = _journalManager;
+@synthesize actionManager = _actionManager;
 @synthesize cellData	= _cellData;
 @synthesize imageData	= _imageData;
 @synthesize textData	= _textData;
@@ -67,12 +69,12 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
     [super viewDidLoad];
 	
 	[self buildView];
-    
-    NSLog(@"View loaded");
 	
 	_journalManager = [[DSJournalManager alloc] init];
 	[_journalManager addObserver:self forKeyPath:@"isJournalUpdated" options:NSKeyValueObservingOptionNew context:nil];
 	[_journalManager addObserver:self forKeyPath:@"isJournalScrolled" options:NSKeyValueObservingOptionNew context:nil];
+    
+    _actionManager = [DSActionManager sharedManager];
 	
 	
 	__weak DSJournalTableViewController *that = self;
@@ -256,7 +258,7 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
     DSUser *user = [[DSUserManager sharedManager] userWithId:activity.subjectId];
     
     // Action
-    DSAction *action = [[DSActionManager sharedManager] actionWithId:activity.objectId];
+    DSAction *action = [_actionManager actionWithId:activity.objectId];
     
     // Update action with new stats
     [[DSActionManager sharedManager] updateActionStatsWithId:activity.objectId];
@@ -310,21 +312,18 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
     NSInteger index = [cellPath row];
     
     DSActivity *activity = (DSActivity *)[_journalManager.journal.activities objectAtIndex:index];
-    
-    DSAction *action = [[DSActionManager sharedManager] actionWithId:activity.objectId];
-    
-    NSLog(@"Stiamo premendo su: %@, con status: %@", activity.data[@"text"], action.like);
+    DSAction *action = [_actionManager actionWithId:activity.objectId];
     
     if([journalCell canPerformLike])
     {
         if([action.like boolValue] == YES) {
             // unlike
-            [[DSActionManager sharedManager] unlikeAction:action];
+            [_actionManager unlikeAction:action];
             [journalCell animateUnlike];
         }
         else {
             // like
-            [[DSActionManager sharedManager] likeAction:action]; // @todo only actions?
+            [_actionManager likeAction:action]; // @todo only actions?
             [journalCell animateLike];
         }
     }
@@ -334,9 +333,23 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    int index = [indexPath row];
+    DSActivity *activity = (DSActivity *)[_journalManager.journal.activities objectAtIndex:index];
+    
     // Navigation logic may go here. Create and push another view controller.
+    if([activity.verb isEqualToString:@"publish_action"])
+    {
+        DSActionViewController *actionViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"actionViewController"];
+        [actionViewController buildWithAction:[_actionManager updateAndRetrieveActionWithId:activity.objectId]];
+        
+        [self.navigationController pushViewController:actionViewController animated:YES];
+    }
+    else
+    {
+    }
+    
     /*
-     *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     *detailViewController = [[ alloc] initWithNibName:@"   " bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
