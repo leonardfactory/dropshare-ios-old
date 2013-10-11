@@ -10,12 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <FontasticIcons.h>
 
-typedef enum _DSButtonAnimationState
-{
-	DSButtonAnimationNone = 0,
-	DSButtonAnimationUnlike,
-    DSButtonAnimationLike
-} DSButtonAnimationState;
+#import "DSSocialButtonsBarView.h"
 
 @interface DSJournalCell : UITableViewCell
 
@@ -36,9 +31,10 @@ typedef enum _DSButtonAnimationState
 @property (strong, nonatomic) UILabel *geoLocationLabel;
 @property (strong, nonatomic) UILabel *timeLabel;
 
-@property (strong, nonatomic) UIView *socialButtons;
-@property (strong, nonatomic) UIButton *likeButton;
-@property (strong, nonatomic) UIButton *commentButton;
+@property (strong, nonatomic) DSSocialButtonsBarView *socialButtonsBarView;
+//@property (strong, nonatomic) UIView *socialButtons;
+//@property (strong, nonatomic) UIButton *likeButton;
+//@property (strong, nonatomic) UIButton *commentButton;
 
 + (CGFloat) heightForCellWithText:(NSString *)text;
 

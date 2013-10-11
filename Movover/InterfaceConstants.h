@@ -99,8 +99,10 @@
 
 #pragma mark Action Detail ViewController
 
+#define kDSActionAvatarSize kDSCellAvatarSize
 #define kDSActionBaseTopMargin 10.0
 #define kDSActionBaseLeftMargin 10.0
 #define kDSActionBaseSpacing 10.0
+#define kDSActionBaseLeftIndentMargin (kDSActionBaseLeftMargin + kDSCellAvatarSize + kDSActionBaseSpacing)
 
 #endif

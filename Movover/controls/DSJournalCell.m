@@ -13,9 +13,6 @@
 #import "UIImageView+AFNetworking.h"
 
 @interface DSJournalCell ()
-{
-    DSButtonAnimationState likeAnimationState;
-}
 
 @end
 
@@ -57,7 +54,7 @@
         self.mainBackgroundView.layer.cornerRadius = kDSCellCornerRadius;
 		//[self.mainBackgroundImageView setImage:[[UIImage imageNamed:@"mainBgTile.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(6.0, 8.0, 10.0, 8.0)]];
 		self.mainBackgroundView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
-		[self addSubview:self.self.mainBackgroundView];
+		[self addSubview:self.mainBackgroundView];
 		
 		// Avatar frame e inner shadow
 		self.avatarImageView						= [[UIImageView alloc] initWithFrame:CGRectMake(kDSCellAvatarLeftMargin, kDSCellAvatarTopMargin, kDSCellAvatarSize, kDSCellAvatarSize)];
@@ -162,67 +159,11 @@
         
 		
 		// Comments and Social buttons / indicator
-        
-        // predispongo lo stato dell'animazione
-        likeAnimationState = DSButtonAnimationNone;
-        
-        
-		self.socialButtons	= [[UIView alloc] initWithFrame:CGRectMake(kDSCellInfoLabelsLeftMargin,
+		self.socialButtonsBarView	= [[DSSocialButtonsBarView alloc] initWithFrame:CGRectMake(kDSCellInfoLabelsLeftMargin,
 																	   self.infoLabels.frame.origin.y + self.infoLabels.frame.size.height + kDSCellInfoLabelsSpacing,
 																	   kDSCellLabelWidth,
 																	   kDSCellSocialBarHeight)];
-        [self addSubview:self.socialButtons];
-		
-		//UIImage *buttonBackgroundImage			= [[UIImage imageNamed:@"buttonBg.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(5.0, 5.0, 27.0, 5.0)];
-		//UIImage *buttonPressedBackgroundImage	= [[UIImage imageNamed:@"buttonBgPressed.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(8.0, 4.0, 29.0, 4.0)];
-		UIFont *socialFont              = [UIFont boldSystemFontOfSize:kDSDefaultFontSize];
-		UIColor *socialFontColor        = [UIColor colorWithRed:0./255. green:186./255. blue:115./255. alpha:1.0];
-        UIColor *socialBackgroundColor  = [UIColor colorWithRed:245./255. green:245./255. blue:245./255. alpha:1.0];
-		
-		// Like Button
-		FIIcon *likeIcon        = [FIEntypoIcon heartIcon];
-		self.likeButton			= [UIButton buttonWithType:UIButtonTypeCustom];
-        self.likeButton.tag     = 1;
-		self.likeButton.frame	= CGRectMake(0.0,
-											 kDSCellSocialButtonTopMargin,
-											 kDSCellSocialButtonWidth,
-											 kDSCellSocialButtonHeight);
-        
-        self.likeButton.layer.cornerRadius = kDSCellCornerRadius;
-        
-        [self.likeButton setBackgroundColor:socialBackgroundColor];
-		[self.likeButton setTitle:@"2" forState:UIControlStateNormal];
-		[self.likeButton setTitleEdgeInsets:UIEdgeInsetsMake(0.0, 6.0, 0.0, 0.0)];
-		[self.likeButton.titleLabel setFont:socialFont];
-		[self.likeButton setTitleColor:socialFontColor forState:UIControlStateNormal];
-		[self.likeButton setImage:[likeIcon imageWithBounds:CGRectMake(0.0, 0.0, kDSCellSocialButtonIconSize, kDSCellSocialButtonIconSize)
-                                                      color:socialFontColor]
-                         forState:UIControlStateNormal];
-		
-		[self.socialButtons addSubview:self.likeButton];
-		
-        // Comment Button
-        FIIcon *commentIcon         = [FIEntypoIcon commentIcon];
-		self.commentButton			= [UIButton buttonWithType:UIButtonTypeCustom];
-        self.commentButton.tag      = 2;
-		self.commentButton.frame	= CGRectMake(kDSCellSocialButtonWidth + kDSCellSocialBarSpacing,
-												 kDSCellSocialButtonTopMargin,
-												 kDSCellSocialButtonWidth,
-												 kDSCellSocialButtonHeight);
-        
-        self.commentButton.layer.cornerRadius = kDSCellCornerRadius;
-        
-        [self.commentButton setBackgroundColor:socialBackgroundColor];
-		[self.commentButton setTitle:@"4" forState:UIControlStateNormal];
-		[self.commentButton setTitleEdgeInsets:UIEdgeInsetsMake(0.0, 7.0, 0.0, 0.0)];
-		[self.commentButton.titleLabel setFont:socialFont];
-		[self.commentButton setTitleColor:socialFontColor forState:UIControlStateNormal];
-        [self.commentButton setImage:[commentIcon imageWithBounds:CGRectMake(0.0, 0.0, kDSCellSocialButtonIconSize, kDSCellSocialButtonIconSize)
-                                                      color:socialFontColor]
-                         forState:UIControlStateNormal];
-		//[self.commentButton setBackgroundImage:buttonBackgroundImage			forState:UIControlStateNormal];
-		
-		[self.socialButtons addSubview:self.commentButton];
+        [self addSubview:self.socialButtonsBarView];
     }
     return self;
 }
@@ -235,7 +176,7 @@
 {
 	CGRect descriptionLabelFrame	= self.descriptionLabel.frame;
 	CGRect infoLabelsFrame			= self.infoLabels.frame;
-	CGRect socialButtonsFrame		= self.socialButtons.frame;
+	CGRect socialButtonsFrame		= self.socialButtonsBarView.frame;
     
     float nameLabelWidth            = [self.nameLabel.text sizeWithFont:[UIFont boldSystemFontOfSize:kDSCellNameFontSize]].width;
     
@@ -258,10 +199,10 @@
 											 infoLabelsFrame.size.width,
 											 infoLabelsFrame.size.height);
 	
-	self.socialButtons.frame	= CGRectMake(socialButtonsFrame.origin.x,
-											 self.infoLabels.frame.origin.y + self.infoLabels.frame.size.height + kDSCellInfoLabelsSpacing,
-											 socialButtonsFrame.size.width,
-											 socialButtonsFrame.size.height);
+	self.socialButtonsBarView.frame	= CGRectMake(socialButtonsFrame.origin.x,
+                                                 self.infoLabels.frame.origin.y + self.infoLabels.frame.size.height + kDSCellInfoLabelsSpacing,
+                                                 socialButtonsFrame.size.width,
+                                                 socialButtonsFrame.size.height);
 	
 	self.descriptionLabel.frame = CGRectMake(descriptionLabelFrame.origin.x,
 											 descriptionLabelFrame.origin.y,
@@ -283,174 +224,13 @@
 	self.usernameLabel.frame			= CGRectOffset(self.usernameLabel.frame, 0.0, deltaY);
 	self.descriptionLabel.frame			= CGRectOffset(self.descriptionLabel.frame, 0.0, deltaY);
 	self.infoLabels.frame				= CGRectOffset(self.infoLabels.frame, 0.0, deltaY);
-	self.socialButtons.frame			= CGRectOffset(self.socialButtons.frame, 0.0, deltaY);
+	self.socialButtonsBarView.frame		= CGRectOffset(self.socialButtonsBarView.frame, 0.0, deltaY);
 }
 
-/**
- * Changes buttons width based on text size
- */
-- (void) updateCountForButton:(UIButton *)button withNumber:(NSNumber *)number
-{
-    [self updateCountForButton:button withNumber:number animating:YES];
-}
-
-- (void) updateCountForButton:(UIButton *)button withNumber:(NSNumber *)number animating:(BOOL) animating
-{
-    NSUInteger oldNumber = [button.currentTitle intValue];
-    NSUInteger newNumber = [number intValue];
-    
-    NSString *oldNumberString = [NSString stringWithFormat:@"%u", oldNumber];
-    NSString *newNumberString = [NSString stringWithFormat:@"%u", newNumber];
-    
-    BOOL shouldAnimate =    (oldNumberString.length != newNumberString.length) ||
-                            ((oldNumber == 0 || newNumber == 0) && newNumber != oldNumber);
-    
-    // Animate only if affinity transformation is the Identity
-    shouldAnimate = shouldAnimate && CGAffineTransformIsIdentity(button.transform);
-    
-    // Animate only if requested
-    shouldAnimate = shouldAnimate && animating;
-    
-    NSString *newTitle = newNumber == 0 ? @"" : newNumberString;
-    
-    float oldTextWidth = [button.currentTitle sizeWithFont:[UIFont boldSystemFontOfSize:kDSDefaultFontSize] constrainedToSize:CGSizeMake(100.0, 0.0)].width;
-    float newTextWidth = [newTitle sizeWithFont:[UIFont boldSystemFontOfSize:kDSDefaultFontSize] constrainedToSize:CGSizeMake(100.0, 0.0)].width;
-    float diff = newTextWidth - oldTextWidth;
-    
-    float animationDuration = shouldAnimate ? 0.2f : 0.0;
-    
-    [UIView animateWithDuration:animationDuration animations:^{
-        // Change title
-        [button setTitle:newTitle forState:UIControlStateNormal];
-        
-        // Update frame size
-        CGRect bounds = button.bounds;
-        CGRect newBounds = CGRectMake(bounds.origin.x, bounds.origin.y, newTextWidth + kDSCellSocialButtonBaseWidth, bounds.size.height);
-        button.bounds = newBounds;
-        
-        // Update other buttons on the right
-        NSInteger tag = button.tag + 1;
-        UIButton *nextButton;
-        while((nextButton = (UIButton *)[button.superview viewWithTag:tag]))
-        {
-            CGPoint center = nextButton.center;
-            nextButton.center = CGPointMake(center.x + diff, center.y);
-            tag++;
-        }
-    }];
-}
-
+#pragma mark - Animate like or unlike
 - (BOOL) canPerformLike
 {
-    return likeAnimationState == DSButtonAnimationNone;
-}
-
-/**
- * Setta likes, comments e reactions
- */
-- (void) setLikes:(NSNumber *) likes andComments:(NSNumber *) comments andReactions:(NSNumber *) reactions
-{
-    //[self.likeButton setTitle:[likes stringValue] forState:UIControlStateNormal];
-    //[self.commentButton setTitle:[comments stringValue] forState:UIControlStateNormal];
-    
-    [self updateCountForButton:self.likeButton withNumber:likes];
-    [self updateCountForButton:self.commentButton withNumber:comments];
-}
-
-/**
- * Changes only buttons styles, without changing text.
- */
-- (void) applyUnlikeStyle
-{
-    UIColor *likeColor = [UIColor colorWithRed:0./255. green:186./255. blue:115./255. alpha:1.0];
-    FIIcon *likeIcon = [FIEntypoIcon heartIcon];
-    [self.likeButton setImage:[likeIcon imageWithBounds:CGRectMake(0.0, 0.0, kDSCellSocialButtonIconSize, kDSCellSocialButtonIconSize) color:likeColor] forState:UIControlStateNormal];
-    [self.likeButton setTitleColor:likeColor forState:UIControlStateNormal];
-}
-
-- (void) applyLikeStyle
-{
-    UIColor *likeColor = [UIColor colorWithRed:200./255. green:44./255. blue:44./255. alpha:1.0];
-    FIIcon *likeIcon = [FIEntypoIcon heartIcon];
-    [self.likeButton setImage:[likeIcon imageWithBounds:CGRectMake(0.0, 0.0, kDSCellSocialButtonIconSize, kDSCellSocialButtonIconSize) color:likeColor] forState:UIControlStateNormal];
-    [self.likeButton setTitleColor:likeColor forState:UIControlStateNormal];
-}
-
-/**
- * Animazione del like e dell'unlike
- */
-- (void) animateUnlike
-{
-    if(likeAnimationState == DSButtonAnimationNone)
-    {
-        likeAnimationState = DSButtonAnimationUnlike;
-        
-        [self applyUnlikeStyle];
-        
-        [UIView animateWithDuration:0.2f
-                              delay:0.0
-                            options:UIViewAnimationOptionCurveLinear
-                         animations:^{
-                             // Fade out, but not completely
-                             self.likeButton.imageView.alpha = 0.3;
-                             
-                             self.likeButton.imageView.transform = CGAffineTransformMakeScale(3.0, 3.0); // CGAffineTransformScale(self.likeButton.imageView.transform, 3, 3);
-                         }
-                         completion:^(BOOL finished) {
-                             [UIView animateWithDuration:0.2f
-                                                   delay:0.0
-                                                 options:UIViewAnimationOptionCurveLinear
-                                              animations:^{
-                                                  self.likeButton.imageView.alpha = 1.0;
-                                                  self.likeButton.imageView.transform = CGAffineTransformMakeScale(1.0, 1.0); //CGAffineTransformScale(self.likeButton.imageView.transform, 1, 1);
-                                              }
-                                              completion:^(BOOL finished) {
-                                                  self.likeButton.imageView.transform = CGAffineTransformIdentity;
-                                                  [self updateCountForButton:self.likeButton withNumber:[NSNumber numberWithInt:[self.likeButton.currentTitle intValue] - 1]];
-                                                  likeAnimationState = DSButtonAnimationNone;
-                                              }];
-                         }];
-    }
-    /*else {
-        [self updateCountForButton:self.likeButton withNumber:[NSNumber numberWithInt:[self.likeButton.currentTitle intValue] - 1] animating:false];
-    }*/
-}
-
-/**
- * Animazione dell'unlike
- */
-- (void) animateLike
-{
-    if(likeAnimationState == DSButtonAnimationNone)
-    {
-        likeAnimationState = DSButtonAnimationLike;
-    
-        [self applyLikeStyle];
-        
-        [UIView animateWithDuration:0.2f
-                              delay:0.0
-                            options:UIViewAnimationOptionCurveLinear
-                         animations:^{
-                             // Fade out, but not completely
-                             self.likeButton.imageView.alpha = 0.3;
-                             
-                             self.likeButton.imageView.transform = CGAffineTransformMakeScale(3.0, 3.0); // CGAffineTransformScale(self.likeButton.imageView.transform, 3, 3);
-                         }
-                         completion:^(BOOL finished) {
-                             [UIView animateWithDuration:0.2f
-                                                   delay:0.0
-                                                 options:UIViewAnimationOptionCurveLinear
-                                              animations:^{
-                                                  self.likeButton.imageView.alpha = 1.0;
-                                                  self.likeButton.imageView.transform = CGAffineTransformMakeScale(1.0, 1.0); //CGAffineTransformScale(self.likeButton.imageView.transform, 1, 1);
-                                              }
-                                              completion:^(BOOL finished) {
-                                                  self.likeButton.imageView.transform = CGAffineTransformIdentity;
-                                                  [self updateCountForButton:self.likeButton withNumber:[NSNumber numberWithInt:[self.likeButton.currentTitle intValue] + 1]];
-                                                  likeAnimationState = DSButtonAnimationNone;
-                                              }];
-                         }];
-    }
+    return [self.socialButtonsBarView canPerformLike];
 }
 
 /**

@@ -272,16 +272,11 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	[journalCell setGeoLocation:activity.area.name andTime:[activity.createdOn timeAgo]];
     
     // Social buttons
-    [journalCell setLikes:action.statsLike andComments:action.statsComment andReactions:action.statsReaction];
-    [journalCell.likeButton addTarget:self action:@selector(likeButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [journalCell.socialButtonsBarView setLikes:action.statsLike andComments:action.statsComment andReactions:action.statsReaction];
+    [journalCell.socialButtonsBarView.likeButton addTarget:self action:@selector(likeButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
     // Like personale
-    if([action.like boolValue] == YES) {
-        [journalCell applyLikeStyle];
-    }
-    else {
-        [journalCell applyUnlikeStyle];
-    }
+    [journalCell.socialButtonsBarView applyStyleForLike:[action.like boolValue]];
 	
     // Avatar with url
     NSString *avatarImageURL = [[[DSCloudinary sharedInstance] cloudinary] url:[NSString stringWithFormat:@"user_avatar_%@.jpg", user.identifier]];
@@ -319,12 +314,12 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
         if([action.like boolValue] == YES) {
             // unlike
             [_actionManager unlikeAction:action];
-            [journalCell animateUnlike];
+            [journalCell.socialButtonsBarView animateUnlike];
         }
         else {
             // like
             [_actionManager likeAction:action]; // @todo only actions?
-            [journalCell animateLike];
+            [journalCell.socialButtonsBarView animateLike];
         }
     }
 }

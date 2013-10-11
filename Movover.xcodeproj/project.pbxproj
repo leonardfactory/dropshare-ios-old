@@ -55,6 +55,7 @@
 		A753DF4B16EDDF0B00278CE7 /* DSImageJournalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A753DF4A16EDDF0B00278CE7 /* DSImageJournalCell.xib */; };
 		A754A2D616EB4DA000A719B3 /* DSJournalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A754A2D516EB4DA000A719B3 /* DSJournalTableViewController.m */; };
 		A75882C8180570E300B528D9 /* DSAreaSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A75882C7180570E300B528D9 /* DSAreaSerializer.m */; };
+		A771550818081C360084F202 /* DSSocialButtonsBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = A771550718081C360084F202 /* DSSocialButtonsBarView.m */; };
 		A780656D180199BC007B3D8F /* DSCloudinary.m in Sources */ = {isa = PBXBuildFile; fileRef = A780656C180199BC007B3D8F /* DSCloudinary.m */; };
 		A78065711801B3EC007B3D8F /* UIImage+FromColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A78065701801B3EC007B3D8F /* UIImage+FromColor.m */; };
 		A78065741801BBFB007B3D8F /* UIDevice+VersionCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = A78065731801BBFB007B3D8F /* UIDevice+VersionCheck.m */; };
@@ -242,6 +243,8 @@
 		A754A2D516EB4DA000A719B3 /* DSJournalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSJournalTableViewController.m; path = controllers/DSJournalTableViewController.m; sourceTree = "<group>"; };
 		A75882C6180570E300B528D9 /* DSAreaSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSAreaSerializer.h; path = models/DSAreaSerializer.h; sourceTree = "<group>"; };
 		A75882C7180570E300B528D9 /* DSAreaSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSAreaSerializer.m; path = models/DSAreaSerializer.m; sourceTree = "<group>"; };
+		A771550618081C360084F202 /* DSSocialButtonsBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSSocialButtonsBarView.h; path = controls/DSSocialButtonsBarView.h; sourceTree = "<group>"; };
+		A771550718081C360084F202 /* DSSocialButtonsBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSSocialButtonsBarView.m; path = controls/DSSocialButtonsBarView.m; sourceTree = "<group>"; };
 		A780656B180199BC007B3D8F /* DSCloudinary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSCloudinary.h; path = services/DSCloudinary.h; sourceTree = "<group>"; };
 		A780656C180199BC007B3D8F /* DSCloudinary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSCloudinary.m; path = services/DSCloudinary.m; sourceTree = "<group>"; };
 		A780656F1801B3EC007B3D8F /* UIImage+FromColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+FromColor.h"; path = "categories/UIImage+FromColor.h"; sourceTree = "<group>"; };
@@ -668,6 +671,15 @@
 			name = Journal;
 			sourceTree = "<group>";
 		};
+		A771550518081BF60084F202 /* SocialButtonsBar */ = {
+			isa = PBXGroup;
+			children = (
+				A771550618081C360084F202 /* DSSocialButtonsBarView.h */,
+				A771550718081C360084F202 /* DSSocialButtonsBarView.m */,
+			);
+			name = SocialButtonsBar;
+			sourceTree = "<group>";
+		};
 		A780656A1801998E007B3D8F /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -778,6 +790,7 @@
 		A78DAD8016DBE2A800A21AD0 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				A771550518081BF60084F202 /* SocialButtonsBar */,
 				A78256A416F243510046A8AF /* AddButton */,
 				A753DF4616EDDED200278CE7 /* ImageJournalCell */,
 				A7D4365C16EBA42A006807EB /* JournalCell */,
@@ -1168,6 +1181,7 @@
 				A75391D31800F2D900974C1A /* DSJournalSerializer.m in Sources */,
 				A7D4366E16EBC6A0006807EB /* UIImage+RoundedCorner.m in Sources */,
 				A75391FA1801043300974C1A /* DSArea.m in Sources */,
+				A771550818081C360084F202 /* DSSocialButtonsBarView.m in Sources */,
 				A753DF4916EDDEEC00278CE7 /* DSImageJournalCell.m in Sources */,
 				131480F116F0D4B1004A9D3C /* DSUserSerializer.m in Sources */,
 				A75391E81800FD1B00974C1A /* DSUserManager.m in Sources */,
