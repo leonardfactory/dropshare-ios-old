@@ -418,13 +418,20 @@
         <scene sceneID="IcE-1H-eip">
             <objects>
                 <viewController storyboardIdentifier="actionViewController" id="MHw-ul-GOc" customClass="DSActionViewController" sceneMemberID="viewController">
-                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" id="3Wa-F1-0tl">
+                    <view key="view" contentMode="scaleToFill" id="eBl-W4-R2e">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </scrollView>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" id="F5L-sJ-qkc">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.89411764709999997" green="0.91764705879999997" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
                     <connections>
-                        <outlet property="scrollView" destination="3Wa-F1-0tl" id="nDq-ay-Fqm"/>
+                        <outlet property="scrollView" destination="F5L-sJ-qkc" id="hs1-VH-NOb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YTI-1J-bJb" userLabel="First Responder" sceneMemberID="firstResponder"/>

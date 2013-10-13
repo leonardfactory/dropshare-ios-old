@@ -11,6 +11,7 @@
 
 #pragma mark - Global
 
+#define kDSDefaultDescriptionFontSize 18.0
 #define kDSDefaultBigFontSize 16.0
 #define kDSDefaultFontSize 14.0
 #define kDSDefaultSmallFontSize 12.0
@@ -99,10 +100,11 @@
 
 #pragma mark Action Detail ViewController
 
-#define kDSActionAvatarSize kDSCellAvatarSize
+#define kDSActionAvatarSize 38.0
 #define kDSActionBaseTopMargin 10.0
 #define kDSActionBaseLeftMargin 10.0
 #define kDSActionBaseSpacing 10.0
-#define kDSActionBaseLeftIndentMargin (kDSActionBaseLeftMargin + kDSCellAvatarSize + kDSActionBaseSpacing)
+#define kDSActionWiderSpacing 16.0
+#define kDSActionBaseLeftIndentMargin (kDSActionBaseLeftMargin + kDSActionAvatarSize + kDSActionBaseSpacing)
 
 #endif

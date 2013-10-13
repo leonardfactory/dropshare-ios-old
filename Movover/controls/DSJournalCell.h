@@ -42,13 +42,9 @@
 - (void) setAvatarImage:(UIImage *)image;
 - (void) recalculateSizes;
 - (void) shiftContent:(CGFloat)deltaY;
-- (void) setLikes:(NSNumber *) likes andComments:(NSNumber *) comments andReactions:(NSNumber *) reactions;
+//- (void) setLikes:(NSNumber *) likes andComments:(NSNumber *) comments andReactions:(NSNumber *) reactions;
 
 - (BOOL) canPerformLike;
-- (void) applyLikeStyle;
-- (void) applyUnlikeStyle;
-- (void) animateLike;
-- (void) animateUnlike;
 - (void) setGeoLocation:(NSString *)geoLocation andTime:(NSString *)time;
 
 @end

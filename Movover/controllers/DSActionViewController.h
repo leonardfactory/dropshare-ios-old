@@ -9,20 +9,22 @@
 #import <UIKit/UIKit.h>
 #import "InterfaceConstants.h"
 
+#import <HPGrowingTextView.h>
+
 #import "DSAction.h"
 #import "DSUser.h"
 
-@interface DSActionViewController : UIViewController
+CGRect CGRectMakeWithNewY(CGRect r, float y);
+
+@interface DSActionViewController : UIViewController <HPGrowingTextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-
-@property (strong, nonatomic) UILabel *nameLabel;
-@property (strong, nonatomic) UILabel *descriptionLabel;
-@property (strong, nonatomic) UIImageView *avatarImageView;
-@property (strong, nonatomic) UIImageView *pictureImageView;
 
 @property (strong, nonatomic) DSAction *action;
 
 - (void) buildWithAction:(DSAction *)action;
+
+- (void) resignTextView;
+- (void) growingTextView:(HPGrowingTextView *)growingTextView willChangeHeight:(float)height;
 
 @end
