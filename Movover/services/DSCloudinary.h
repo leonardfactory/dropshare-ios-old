@@ -14,5 +14,6 @@
 @property (strong, nonatomic) CLCloudinary *cloudinary;
 
 + (id) sharedInstance;
++ (CLTransformation *) transformationWithWidth:(float) width andHeight:(float) height;
 
 @end

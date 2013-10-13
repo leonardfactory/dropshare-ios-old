@@ -23,7 +23,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self)
 	{
-		self.pictureImageView = [[UIImageView alloc] initWithFrame:CGRectMake(kDSCellBackgroundMargin, kDSCellPictureTopMargin, kDSCellBackgroundWidth, kDSCellPictureHeight)];
+		self.pictureImageView = [[UIImageView alloc] initWithFrame:CGRectMake(kDSCellBackgroundMargin, kDSCellPictureTopMargin, kDSCellPictureWidth, kDSCellPictureHeight)];
 		[self shiftContent:self.pictureImageView.frame.size.height + kDSCellPictureBottomMargin];
 		[self addSubview:self.pictureImageView];
 		

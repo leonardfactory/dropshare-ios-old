@@ -7,6 +7,7 @@
 //
 
 #import "DSCloudinary.h"
+#import "math.h"
 
 @implementation DSCloudinary
 
@@ -32,6 +33,21 @@
         [_cloudinary.config setValue:@"hysf85emt" forKey:@"cloud_name"];
     }
     return self;
+}
+
++ (CLTransformation *) transformationWithWidth:(float) width andHeight:(float) height
+{
+    CLTransformation *transformation = [CLTransformation transformation];
+    
+    float scale = [[UIScreen mainScreen] scale];
+    
+    int intWidth = round(scale * width);
+    int intHeight = round(scale * height);
+    
+    [transformation setWidthWithInt:intWidth];
+    [transformation setHeightWithInt:intHeight];
+    
+    return transformation;
 }
 
 @end

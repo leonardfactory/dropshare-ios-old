@@ -82,6 +82,7 @@
 
 #pragma mark - Drop Cell with Image
 
+#define kDSCellPictureWidth kDSCellBackgroundWidth
 #define kDSCellPictureHeight 292.0
 #define kDSCellPictureTopGap 4.0
 #define kDSCellPictureTopMargin (kDSCellBackgroundMargin - kDSCellPictureTopGap)

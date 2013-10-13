@@ -279,7 +279,12 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
     [journalCell.socialButtonsBarView applyStyleForLike:[action.like boolValue]];
 	
     // Avatar with url
-    NSString *avatarImageURL = [[[DSCloudinary sharedInstance] cloudinary] url:[NSString stringWithFormat:@"user_avatar_%@.jpg", user.identifier]];
+    
+    NSString *avatarImageURL = [[[DSCloudinary sharedInstance] cloudinary] url:[NSString stringWithFormat:@"user_avatar_%@.jpg", user.identifier]
+                                                                       options:@{
+                                                                                 @"transformation" : [DSCloudinary transformationWithWidth:kDSCellAvatarSize andHeight:kDSCellAvatarSize]
+                                                                                } ];
+    [journalCell.avatarImageView setImage:nil]; // Avoid flashing
     [journalCell setAvatarWithURL:[NSURL URLWithString:avatarImageURL]];
 	
 	// Se è una image cell, aggiungo anche l'immagine
@@ -287,7 +292,11 @@ static NSString *ImageJournalCellIdentifier = @"ImageJournalCell";
 	{
 		DSImageJournalCell *imageJournalCell = (DSImageJournalCell *) cell;
         // Activity image url
-        NSString *actionImageURL = [[[DSCloudinary sharedInstance] cloudinary] url:[NSString stringWithFormat:@"action_%@.jpg", activity.objectId]];
+        NSString *actionImageURL = [[[DSCloudinary sharedInstance] cloudinary] url:[NSString stringWithFormat:@"action_%@.jpg", activity.objectId]
+                                                                           options:@{
+                                                                                     @"transformation" : [DSCloudinary transformationWithWidth:kDSCellPictureWidth andHeight:kDSCellPictureHeight]
+                                                                                     } ];
+        [imageJournalCell.pictureImageView setImage:nil]; // Avoid flashing
         [imageJournalCell setPictureWithURL:[NSURL URLWithString:actionImageURL]];
 	}
 	
