@@ -14,6 +14,11 @@
 #import "DSAction.h"
 #import "DSUser.h"
 
+typedef enum _DSActionViewTag
+{
+	DSActionViewTagScrollViewTopView = 1000
+} DSActionViewTag;
+
 CGRect CGRectMakeWithNewY(CGRect r, float y);
 
 @interface DSActionViewController : UIViewController <HPGrowingTextViewDelegate>

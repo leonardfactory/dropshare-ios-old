@@ -71,6 +71,9 @@ CGRect CGRectMakeWithNewY(CGRect r, float y)
 
 - (void) buildView
 {
+    // Remove translucent navBar. Must be first instruction.
+    [self.navigationController.navigationBar setTranslucent:NO];
+    
     // Some colors configuration
     UIColor *textColor      = [UIColor colorWithWhite:0.15 alpha:1.0];
     UIColor *nameColor      = [UIColor lightGrayColor];
@@ -102,13 +105,19 @@ CGRect CGRectMakeWithNewY(CGRect r, float y)
     
     self.toolbarView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     
+    // Scrollview top view
+    UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, -200, self.scrollView.bounds.size.width, 200)];
+    topView.tag     = DSActionViewTagScrollViewTopView;
+    [topView setBackgroundColor:[UIColor colorWithRed:228./255. green:234./255. blue:232./255. alpha:1.0]];
+    [self.scrollView addSubview:topView];
+    
+    self.scrollView.autoresizesSubviews = NO;
+    self.scrollView.frame   = CGRectMake(0.0, 0.0, 320.0, self.view.bounds.size.height - 44.); // Removing also NavBar + StatusBar
+    
     // Handle taps outside keyboard to hide it
     tapper = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
     tapper.cancelsTouchesInView = FALSE;
     [self.view addGestureRecognizer:tapper];
-    
-    // Remove translucent navBar
-    [self.navigationController.navigationBar setTranslucent:NO];
     
     // Labels
     self.nameLabel.font         = [UIFont boldSystemFontOfSize:kDSDefaultBigFontSize];
@@ -163,8 +172,6 @@ CGRect CGRectMakeWithNewY(CGRect r, float y)
     // Like style & action
     [self.socialButtonsBarView applyStyleForLike:[_action.like boolValue]];
     [self.socialButtonsBarView.likeButton addTarget:self action:@selector(likeButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.scrollView setBackgroundColor:[UIColor clearColor]];
 }
 
 - (void) updateView
@@ -214,7 +221,21 @@ CGRect CGRectMakeWithNewY(CGRect r, float y)
     // NSLog(@"Current: %@, main: %@", [NSThread currentThread], [NSThread mainThread]);
     
     [self.navigationItem setTitle:@"Action"];
-    [self.scrollView setNeedsDisplay];
+    
+    [self recalculateContentSize];
+}
+
+- (void) recalculateContentSize
+{
+    CGRect contentRect = CGRectZero;
+    for (UIView *view in self.scrollView.subviews)
+    {
+        if(view.tag != DSActionViewTagScrollViewTopView)
+        {
+            contentRect = CGRectUnion(contentRect, view.frame);
+        }
+    }
+    self.scrollView.contentSize = contentRect.size;
 }
 
 - (void) buildWithAction:(DSAction *)action
