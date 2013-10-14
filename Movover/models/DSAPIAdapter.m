@@ -165,7 +165,7 @@ withFormParameters:(NSDictionary *) parameters
     
     BOOL processNow = [queue count] == 0;
     
-    NSLog(@"(Now: %d) Request: %@ | Queue: %@", processNow, path, queueName);
+    //NSLog(@"(Now: %d) Request: %@ | Queue: %@", processNow, path, queueName);
     
     __weak DSAPIAdapter *apiAdapter = self;
     
@@ -216,7 +216,7 @@ withFormParameters:(NSDictionary *) parameters
     
     if(!queue || [queue count] <= 1)
     {
-        NSLog(@"Cleaned queue: %@", queueName);
+        //NSLog(@"Cleaned queue: %@", queueName);
         // Queue has been completed. Remove it.
         [queues removeObjectForKey:queueName];
         return;
@@ -225,7 +225,7 @@ withFormParameters:(NSDictionary *) parameters
     DSJSONRequestBag *oldRequestBag = [queue dequeue]; // Completed
     DSJSONRequestBag *requestBag    = (DSJSONRequestBag *)[queue peekHead];
     
-    NSLog(@"(From queue) Request: %@ | Queue: %@", requestBag.path, queueName);
+    //NSLog(@"(From queue) Request: %@ | Queue: %@", requestBag.path, queueName);
     
     NSString *method = requestBag.method;
     
