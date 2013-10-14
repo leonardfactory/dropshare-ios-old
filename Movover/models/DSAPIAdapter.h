@@ -18,6 +18,14 @@
 
 - (void) setAccessToken:(NSString *) token;
 
+// Queue method
+- (void) requestWithMethod:(NSString *)method
+                      path:(NSString *)path
+                parameters:(NSDictionary *)parameters
+                   success:(void (^)(NSDictionary *))success
+                   failure:(void (^)(NSString *, int, NSError *))failure
+                     queue:(NSString *)queueName;
+
 - (void) postPath:(NSString *) path
 withFormParameters:(NSDictionary *) parameters
           success:(void (^)(NSDictionary *responseObject)) success

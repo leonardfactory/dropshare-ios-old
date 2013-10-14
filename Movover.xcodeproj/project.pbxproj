@@ -157,6 +157,8 @@
 		A7D4366C16EBC6A0006807EB /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D4366716EBC6A0006807EB /* UIImage+Alpha.m */; };
 		A7D4366D16EBC6A0006807EB /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D4366916EBC6A0006807EB /* UIImage+Resize.m */; };
 		A7D4366E16EBC6A0006807EB /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = A7D4366B16EBC6A0006807EB /* UIImage+RoundedCorner.m */; };
+		A7E65164180B6FB500BCF084 /* DSJSONRequestBag.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E65163180B6FB500BCF084 /* DSJSONRequestBag.m */; };
+		A7E65167180B733600BCF084 /* NSMutableArray+QueueAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E65166180B733600BCF084 /* NSMutableArray+QueueAdditions.m */; };
 		ED3E7A85F50941FBB8A68E34 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13F1DEB776EF4788AF935ACE /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -371,6 +373,10 @@
 		A7D4366916EBC6A0006807EB /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "lib/UIImage+Resize/UIImage+Resize.m"; sourceTree = "<group>"; };
 		A7D4366A16EBC6A0006807EB /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+RoundedCorner.h"; path = "lib/UIImage+Resize/UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
 		A7D4366B16EBC6A0006807EB /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+RoundedCorner.m"; path = "lib/UIImage+Resize/UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
+		A7E65162180B6FB500BCF084 /* DSJSONRequestBag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSJSONRequestBag.h; path = models/DSJSONRequestBag.h; sourceTree = "<group>"; };
+		A7E65163180B6FB500BCF084 /* DSJSONRequestBag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSJSONRequestBag.m; path = models/DSJSONRequestBag.m; sourceTree = "<group>"; };
+		A7E65165180B733600BCF084 /* NSMutableArray+QueueAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+QueueAdditions.h"; path = "categories/NSMutableArray+QueueAdditions.h"; sourceTree = "<group>"; };
+		A7E65166180B733600BCF084 /* NSMutableArray+QueueAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+QueueAdditions.m"; path = "categories/NSMutableArray+QueueAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -445,6 +451,8 @@
 				136F564116E8EDB9009E5203 /* DSDataAdapter.m */,
 				136F564A16E8EDB9009E5203 /* DSAPIAdapter.h */,
 				136F564B16E8EDB9009E5203 /* DSAPIAdapter.m */,
+				A7E65162180B6FB500BCF084 /* DSJSONRequestBag.h */,
+				A7E65163180B6FB500BCF084 /* DSJSONRequestBag.m */,
 			);
 			name = Adapter;
 			sourceTree = "<group>";
@@ -696,6 +704,8 @@
 				A78065701801B3EC007B3D8F /* UIImage+FromColor.m */,
 				A78065721801BBFB007B3D8F /* UIDevice+VersionCheck.h */,
 				A78065731801BBFB007B3D8F /* UIDevice+VersionCheck.m */,
+				A7E65165180B733600BCF084 /* NSMutableArray+QueueAdditions.h */,
+				A7E65166180B733600BCF084 /* NSMutableArray+QueueAdditions.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -1165,11 +1175,13 @@
 				138800C016E6288300716368 /* Movover.xcdatamodeld in Sources */,
 				138800D416E6436700716368 /* NSManagedObjectContext+blocks.m in Sources */,
 				A793149816DF60920023B150 /* DSDiscoverTableViewController.m in Sources */,
+				A7E65164180B6FB500BCF084 /* DSJSONRequestBag.m in Sources */,
 				A75391D61800F39800974C1A /* DSSerializer.m in Sources */,
 				A751872716E80728009F4383 /* DSLoginViewController.m in Sources */,
 				A781F2A916E9028F00C8F11C /* SwipeView.m in Sources */,
 				A781F2AD16E9077000C8F11C /* DSPaddedTextField.m in Sources */,
 				A754A2D616EB4DA000A719B3 /* DSJournalTableViewController.m in Sources */,
+				A7E65167180B733600BCF084 /* NSMutableArray+QueueAdditions.m in Sources */,
 				A780656D180199BC007B3D8F /* DSCloudinary.m in Sources */,
 				A7D4365F16EBA44F006807EB /* DSJournalCell.m in Sources */,
 				A7D4366C16EBC6A0006807EB /* UIImage+Alpha.m in Sources */,

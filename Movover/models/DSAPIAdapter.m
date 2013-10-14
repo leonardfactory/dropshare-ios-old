@@ -7,6 +7,8 @@
 //
 
 #import "DSAPIAdapter.h"
+#import "DSJSONRequestBag.h"
+#import "NSMutableArray+QueueAdditions.h"
 
 static NSString * const kDSAPIBaseUrl       = @"http://api.movover.com/";
 static NSString * const kDSAPISecureBaseUrl = @"https://api.movover.com/";
@@ -14,6 +16,8 @@ static NSString * const kDSAPISecureBaseUrl = @"https://api.movover.com/";
 @interface DSAPIAdapter ()
 {
     AFHTTPClient *_client;
+    
+    NSMutableDictionary *queues;
 }
 
 @end
@@ -50,6 +54,8 @@ static NSString * const kDSAPISecureBaseUrl = @"https://api.movover.com/";
     [_client registerHTTPOperationClass:[AFJSONRequestOperation class]];
     [_client setDefaultHeader:@"Accept" value:@"application/json"];
     [_client setParameterEncoding:AFJSONParameterEncoding];
+    
+    queues = [[NSMutableDictionary alloc] init];
     
 	return self;
 }
@@ -140,6 +146,105 @@ withFormParameters:(NSDictionary *) parameters
 		NSString *errorString = operation.responseString;
 		failure(errorString,code,error);
 	}];
+}
+
+#pragma mark - Supporting queues
+- (void) requestWithMethod:(NSString *)method
+                      path:(NSString *)path
+                parameters:(NSDictionary *)parameters
+                   success:(void (^)(NSDictionary *))success
+                   failure:(void (^)(NSString *, int, NSError *))failure
+                     queue:(NSString *)queueName
+{
+    if(![queues objectForKey:queueName])
+    {
+        [queues setObject:[NSMutableArray array] forKey:queueName];
+    }
+    
+    NSMutableArray *queue = (NSMutableArray *)[queues objectForKey:queueName];
+    
+    BOOL processNow = [queue count] == 0;
+    
+    NSLog(@"(Now: %d) Request: %@ | Queue: %@", processNow, path, queueName);
+    
+    __weak DSAPIAdapter *apiAdapter = self;
+    
+    void (^newSuccess)(NSDictionary *) = ^void (NSDictionary *dictionary)
+    {
+        success(dictionary);
+        [apiAdapter processQueue:queueName];
+    };
+    
+    void(^newFailure)(NSString *, int, NSError *) = ^void (NSString *s, int i, NSError *e)
+    {
+        failure(s, i, e);
+        // @todo maybe block queue something like this
+        [apiAdapter processQueue:queueName];
+    };
+    
+    DSJSONRequestBag *requestBag = [[DSJSONRequestBag alloc] initWithMethod:method
+                                                                       path:path
+                                                                 parameters:parameters
+                                                                    success:newSuccess
+                                                                    failure:newFailure];
+    [queue enqueue:requestBag];
+    
+    if(processNow)
+    {
+        if([method isEqualToString:@"GET"])
+        {
+            [self getPath:path parameters:parameters success:newSuccess failure:newFailure];
+        }
+        else if([method isEqualToString:@"POST"])
+        {
+            [self postPath:path parameters:parameters success:newSuccess failure:newFailure];
+        }
+        else if([method isEqualToString:@"DELETE"])
+        {
+            [self deletePath:path success:newSuccess failure:newFailure];
+        }
+        else
+        {
+            NSLog(@"Error unrecognized method.");
+        }
+    }
+}
+
+- (void) processQueue:(NSString *) queueName
+{
+    NSMutableArray *queue           = (NSMutableArray *)[queues objectForKey:queueName];
+    
+    if(!queue || [queue count] <= 1)
+    {
+        NSLog(@"Cleaned queue: %@", queueName);
+        // Queue has been completed. Remove it.
+        [queues removeObjectForKey:queueName];
+        return;
+    }
+    
+    DSJSONRequestBag *oldRequestBag = [queue dequeue]; // Completed
+    DSJSONRequestBag *requestBag    = (DSJSONRequestBag *)[queue peekHead];
+    
+    NSLog(@"(From queue) Request: %@ | Queue: %@", requestBag.path, queueName);
+    
+    NSString *method = requestBag.method;
+    
+    if([method isEqualToString:@"GET"])
+    {
+        [self getPath:requestBag.path parameters:requestBag.parameters success:requestBag.success failure:requestBag.failure];
+    }
+    else if([method isEqualToString:@"POST"])
+    {
+        [self postPath:requestBag.path parameters:requestBag.parameters success:requestBag.success failure:requestBag.failure];
+    }
+    else if([method isEqualToString:@"DELETE"])
+    {
+        [self deletePath:requestBag.path success:requestBag.success failure:requestBag.failure];
+    }
+    else
+    {
+        NSLog(@"Error unrecognized method.");
+    }
 }
 
 - (void) postImage:(UIImage *) image toPath:(NSString *)path withName:(NSString *)name

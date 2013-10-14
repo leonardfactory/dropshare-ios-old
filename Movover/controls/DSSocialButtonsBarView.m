@@ -18,6 +18,7 @@
     FIIcon *commentIcon;
     
     DSButtonAnimationState likeAnimationState;
+    int likeCount;
 }
 
 @end
@@ -38,7 +39,7 @@
         
 		likeIcon                = [FIEntypoIcon heartIcon];
 		self.likeButton			= [UIButton buttonWithType:UIButtonTypeCustom];
-        self.likeButton.tag     = 1;
+        self.likeButton.tag     = DSButtonSocialLike;
 		self.likeButton.frame	= CGRectMake(0.0,
 											 kDSCellSocialButtonTopMargin,
 											 kDSCellSocialButtonWidth,
@@ -60,7 +61,7 @@
         // Comment Button
         commentIcon                 = [FIEntypoIcon commentIcon];
 		self.commentButton			= [UIButton buttonWithType:UIButtonTypeCustom];
-        self.commentButton.tag      = 2;
+        self.commentButton.tag      = DSButtonSocialComment;
 		self.commentButton.frame	= CGRectMake(kDSCellSocialButtonWidth + kDSCellSocialBarSpacing,
 												 kDSCellSocialButtonTopMargin,
 												 kDSCellSocialButtonWidth,
@@ -117,6 +118,10 @@
     
     [UIView animateWithDuration:animationDuration animations:^{
         // Change title
+        if(button.tag == DSButtonSocialLike)
+        {
+            NSLog(@"Changing count to: %d", newNumber);
+        }
         [button setTitle:newTitle forState:UIControlStateNormal];
         
         // Update frame size
@@ -148,6 +153,12 @@
 {
     //[self.likeButton setTitle:[likes stringValue] forState:UIControlStateNormal];
     //[self.commentButton setTitle:[comments stringValue] forState:UIControlStateNormal];
+    
+    
+    // For each of the button numbers, we store a local variable to prevent strange things
+    // happening if likeCount is different from button.currentTitle int value
+    likeCount = [likes intValue];
+    NSLog(@"Changing count from setLikes, with likes: %d", likeCount);
     
     [self updateCountForButton:self.likeButton withNumber:likes];
     [self updateCountForButton:self.commentButton withNumber:comments];
@@ -188,6 +199,8 @@
     if(likeAnimationState == DSButtonAnimationNone)
     {
         likeAnimationState = DSButtonAnimationUnlike;
+        likeCount--;
+        NSLog(@"Decreasing like count to: %d", likeCount);
         
         [self applyUnlikeStyle];
         
@@ -209,8 +222,12 @@
                                                   self.likeButton.imageView.transform = CGAffineTransformMakeScale(1.0, 1.0); //CGAffineTransformScale(self.likeButton.imageView.transform, 1, 1);
                                               }
                                               completion:^(BOOL finished) {
+                                                  if(finished)
+                                                  {
+                                                      [self updateCountForButton:self.likeButton withNumber:[NSNumber numberWithInt:likeCount]];
+                                                  }
+                                                  
                                                   self.likeButton.imageView.transform = CGAffineTransformIdentity;
-                                                  [self updateCountForButton:self.likeButton withNumber:[NSNumber numberWithInt:[self.likeButton.currentTitle intValue] - 1]];
                                                   likeAnimationState = DSButtonAnimationNone;
                                               }];
                          }];
@@ -228,6 +245,8 @@
     if(likeAnimationState == DSButtonAnimationNone)
     {
         likeAnimationState = DSButtonAnimationLike;
+        likeCount++;
+        NSLog(@"Increasing like count to: %d", likeCount);
         
         [self applyLikeStyle];
         
@@ -249,8 +268,12 @@
                                                   self.likeButton.imageView.transform = CGAffineTransformMakeScale(1.0, 1.0); //CGAffineTransformScale(self.likeButton.imageView.transform, 1, 1);
                                               }
                                               completion:^(BOOL finished) {
+                                                  if(finished)
+                                                  {
+                                                      [self updateCountForButton:self.likeButton withNumber:[NSNumber numberWithInt:likeCount]];
+                                                  }
+                                                  
                                                   self.likeButton.imageView.transform = CGAffineTransformIdentity;
-                                                  [self updateCountForButton:self.likeButton withNumber:[NSNumber numberWithInt:[self.likeButton.currentTitle intValue] + 1]];
                                                   likeAnimationState = DSButtonAnimationNone;
                                               }];
                          }];

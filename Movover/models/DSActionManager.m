@@ -80,18 +80,20 @@
     
     if(!action.subjectId)
     {
-        [self.APIAdapter getPath:[NSString stringWithFormat:@"/action/%@", identifier]
-                      parameters:nil
-                         success:^(NSDictionary *responseObject)
+        [self.APIAdapter requestWithMethod:@"GET"
+                                      path:[NSString stringWithFormat:@"/action/%@", identifier]
+                                parameters:nil
+                                   success:^(NSDictionary *responseObject)
         {
             DSActionSerializer *serializer = [[DSActionSerializer alloc] init];
             futureAction = [serializer deserializeActionFrom:responseObject];
             [self.dataAdapter save:nil];
         }
-                         failure:^(NSString *responseError, int statusCode, NSError *error)
+                                   failure:^(NSString *responseError, int statusCode, NSError *error)
         {
             NSLog(@"Error while getting Action.");
-        }];
+        }
+                                     queue:identifier];
     }
     
     return action;
@@ -101,9 +103,10 @@
 {
     DSAction *action = [self actionWithId:identifier];
     
-    [self.APIAdapter getPath:[NSString stringWithFormat:@"/action/%@/stats", identifier]
-                  parameters:nil
-                     success:^(NSDictionary *responseObject)
+    [self.APIAdapter requestWithMethod:@"GET"
+                                  path:[NSString stringWithFormat:@"/action/%@/stats", identifier]
+                            parameters:nil
+                               success:^(NSDictionary *responseObject)
     {
         [action setStatsLike:responseObject[@"stats"][@"like"]];
         [action setStatsComment:responseObject[@"stats"][@"comment"]];
@@ -111,11 +114,12 @@
         
         [self.dataAdapter save:nil];
     }
-                     failure:^(NSString *responseError, int statusCode, NSError *error)
+                               failure:^(NSString *responseError, int statusCode, NSError *error)
     {
         NSLog(@"%d",statusCode);
         NSLog(@"%@",responseError);
-    }];
+    }
+                                 queue:identifier];
 }
 
 - (void) likeActionWithId:(NSString *)identifier
@@ -129,18 +133,21 @@
     [action setStatsLike:[NSNumber numberWithInt:([action.statsLike intValue] + 1)]];
     [action setLike:[NSNumber numberWithBool:YES]];
     [self.dataAdapter save:nil];
+    NSLog(@"Actually we saved stats like to: %@", action.statsLike);
     
-    [self.APIAdapter postPath:[NSString stringWithFormat:@"/action/%@/like", action.identifier]
-                   parameters:nil
-                      success:^(NSDictionary *responseObject)
+    [self.APIAdapter requestWithMethod:@"POST"
+                                  path:[NSString stringWithFormat:@"/action/%@/like", action.identifier]
+                            parameters:nil
+                               success:^(NSDictionary *responseObject)
      {
          // Ok!
      }
-                      failure:^(NSString *responseError, int statusCode, NSError *error)
+                               failure:^(NSString *responseError, int statusCode, NSError *error)
      {
          NSLog(@"%d",statusCode);
          NSLog(@"%@",responseError);
-     }];
+     }
+                                 queue:action.identifier];
 }
 
 - (void) unlikeActionWithId:(NSString *)identifier
@@ -154,16 +161,19 @@
     [action setStatsLike:[NSNumber numberWithInt:([action.statsLike intValue] - 1)]];
     [action setLike:[NSNumber numberWithBool:NO]];
     [self.dataAdapter save:nil];
+    NSLog(@"Actually we saved stats like to: %@", action.statsLike);
     
-    [self.APIAdapter deletePath:[NSString stringWithFormat:@"/action/%@/like", action.identifier]
-                      success:^(NSDictionary *responseObject)
+    [self.APIAdapter requestWithMethod:@"DELETE" path:[NSString stringWithFormat:@"/action/%@/like", action.identifier]
+                            parameters:nil
+                               success:^(NSDictionary *responseObject)
      {
          // Ok!
      }
-                      failure:^(NSString *responseError, int statusCode, NSError *error)
+                               failure:^(NSString *responseError, int statusCode, NSError *error)
      {
          NSLog(@"%d",statusCode);
          NSLog(@"%@",responseError);
-     }];
+     }
+                                 queue:action.identifier];
 }
 @end

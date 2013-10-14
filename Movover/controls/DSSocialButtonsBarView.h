@@ -18,6 +18,13 @@ typedef enum _DSButtonAnimationState
     DSButtonAnimationLike
 } DSButtonAnimationState;
 
+typedef enum _DSButtonSocialTag
+{
+	DSButtonSocialLike = 10,
+	DSButtonSocialComment,
+    DSButtonSocialReaction
+} DSButtonSocialTag;
+
 @interface DSSocialButtonsBarView : UIView
 
 @property (strong, nonatomic) UIButton *likeButton;

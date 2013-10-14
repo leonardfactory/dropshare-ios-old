@@ -217,6 +217,7 @@ CGRect CGRectMakeWithNewY(CGRect r, float y)
     
     self.socialButtonsBarView.frame = CGRectMakeWithNewY(self.socialButtonsBarView.frame, self.pictureImageView.frame.origin.y + self.pictureImageView.frame.size.height + kDSActionBaseSpacing);
     
+    NSLog(@"Apparenty likes (from ActionViewController) are: %@", _action.statsLike);
     [self.socialButtonsBarView setLikes:_action.statsLike andComments:_action.statsComment andReactions:_action.statsReaction];
     // NSLog(@"Current: %@, main: %@", [NSThread currentThread], [NSThread mainThread]);
     
@@ -265,6 +266,7 @@ CGRect CGRectMakeWithNewY(CGRect r, float y)
     {
         if([_action.like boolValue] == YES) {
             // unlike
+            NSLog(@"Performing saving on ActionViewController");
             [actionManager unlikeAction:_action];
             [self.socialButtonsBarView animateUnlike];
         }
